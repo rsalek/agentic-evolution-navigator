@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-07-21",
   "nodeCount": 54,
-  "edgeCount": 205,
+  "edgeCount": 207,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -29,7 +29,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -55,7 +55,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -68,7 +68,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -81,7 +81,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -94,7 +94,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -107,7 +107,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -120,7 +120,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -850,7 +850,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20",
+        "updated": "2026-07-21",
         "review_after": "2026-08-31"
       },
       "evidence": []
@@ -1827,6 +1827,11 @@
     },
     {
       "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cloudflare-web-bot-auth-2026-06-09",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
       "target": "event-datadome-agent-traffic-q2-2026",
       "type": "references"
     },
@@ -1848,6 +1853,11 @@
     {
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-five9-healthcare-ai-agent-commitment-2026-02-19",
       "type": "references"
     },
     {

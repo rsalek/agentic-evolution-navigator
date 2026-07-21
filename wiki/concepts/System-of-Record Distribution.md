@@ -4,7 +4,7 @@ type: concept
 title: System-of-Record Distribution
 status: active
 confidence: medium
-updated: 2026-07-20
+updated: 2026-07-21
 ---
 
 # System-of-Record Distribution
@@ -16,6 +16,11 @@ Adoption through incumbent platforms that already control enterprise data, permi
 - Native integrations rather than separate agent destinations.
 - Named enterprise deployments and enabled employee populations.
 - Workflow completion inside CRM, contact-centre, ERP, ITSM, or productivity systems.
+
+## Current graph evidence
+
+- ServiceNow describes forward-deployed engineers agentifying named customer production environments, including large operating estates; the surrounding customer figures are not agent-attributed.
+- Five9 connects healthcare expansion to Epic integration, and its first-party Epic Toolbox release corroborates native workflow integration; the academic health-system customer remains unnamed.
 
 ## Relations
 

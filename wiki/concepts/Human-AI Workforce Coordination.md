@@ -4,7 +4,7 @@ type: concept
 title: Human-AI Workforce Coordination
 status: active
 confidence: medium
-updated: 2026-07-20
+updated: 2026-07-21
 ---
 
 # Human-AI Workforce Coordination
@@ -16,6 +16,11 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 - Agent resolution rate and human-handoff rate.
 - Supervisor span, review time, customer outcome, and exception volume.
 - Workforce-planning systems that schedule or evaluate both human and AI work.
+
+## Current graph evidence
+
+- Talkspace reports clinician validation, risk assessment, escalation, live therapist handoff, and quality controls around AI intake and behavioral triage; its outcome metrics are pilot/test evidence.
+- ServiceNow describes forward-deployed engineers agentifying workflows inside customer production environments, showing human implementation and governance around deployment rather than unsupervised replacement.
 
 ## Relations
 

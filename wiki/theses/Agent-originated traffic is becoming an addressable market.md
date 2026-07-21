@@ -4,7 +4,7 @@ type: thesis
 title: Agent-originated traffic is becoming an addressable market
 status: active
 confidence: medium
-updated: 2026-07-20
+updated: 2026-07-21
 review_after: 2026-08-31
 ---
 
@@ -16,6 +16,7 @@ Web infrastructure is beginning to distinguish legitimate agents from undifferen
 
 - [[wiki/events/2026-07-14 AWS recognizes legitimate AI-agent traffic]] provides an infrastructure mechanism for classification.
 - [[wiki/events/2026-07-16 DataDome reports 45 percent Q2 agent-traffic growth]] provides an issuer-reported growth signal.
+- [[wiki/events/2026-06-09 Cloudflare presents Web Bot Auth for autonomous commerce]] adds a cryptographic identity and authorization mechanism, but not live traffic or monetization evidence.
 
 ## Challenging evidence
 

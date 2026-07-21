@@ -23,7 +23,7 @@ Identity, traffic classification, policy, observability, security, and regulator
 ## Challenging evidence
 
 - The seed graph does not yet contain audited revenue or retention evidence for agent-trust products.
-- [[wiki/queries/AI agent operational deployments|AI agent operational deployments]] adds strong control and adoption evidence from Cloudflare and Talkspace but no revenue, retention, or pricing disclosure tied to those controls.
+- [[wiki/queries/AI agent operational deployments|AI agent operational deployments]] adds strong control and adoption evidence from Cloudflare, Mastercard, and Talkspace but no revenue, retention, or pricing disclosure tied to those controls.
 
 ## What would change the thesis
 

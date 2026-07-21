@@ -19,10 +19,11 @@ Enterprise agents are increasingly entering work through platforms that already 
 - [[wiki/events/2026-05-04 FIS and Anthropic develop financial-crimes agent]] places a named-bank pilot inside a regulated system-of-record provider, while leaving production outcomes unproven.
 - [[wiki/events/2026-05-04 ServiceNow agentifies customer production workflows]] names customer production environments and operating scale.
 - [[wiki/events/2025-07-31 Five9 expands healthcare AI-agent deployment]] links AI-agent expansion to Epic integration and a multi-year ARR signal.
+- [[wiki/events/2026-02-19 Five9 scales healthcare AI-agent commitment]] adds a three-year healthcare commitment with ARR expansion and claimed cost savings, although the agent-attributed share remains undisclosed.
 
 ## Challenging evidence
 
-- Integration announcements do not yet prove sustained usage, better outcomes, or durable platform power.
+- Integration announcements and ARR commitments do not yet prove sustained agent usage, better outcomes, or durable platform power; the new Five9 evidence still does not isolate agent-attributed economics.
 
 ## What would change the thesis
 
