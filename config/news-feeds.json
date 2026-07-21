@@ -1,4 +1,8 @@
 {
+  "graph_search": {
+    "enabled": true,
+    "max_feeds": 12
+  },
   "feeds": [
     {
       "id": "agent-adoption",

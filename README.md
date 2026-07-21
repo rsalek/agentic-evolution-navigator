@@ -31,7 +31,9 @@ python3 -B scripts/graph.py path "BBVA" "Trust infrastructure monetizes before f
 python3 -B scripts/collect_news.py
 ```
 
-This appends discovery leads to `raw/inbox/candidates.jsonl`; it never promotes a headline directly into the evidence graph. Codex reviews candidates, checks primary sources, and only then updates events and theses.
+This combines broad discovery feeds with searches generated from the current graph. Event maturity gaps and open questions produce follow-up searches; active theses produce deliberate counterevidence searches. The run writes its reasoning to `raw/inbox/search-plan.json`, appends ranked leads to `raw/inbox/candidates.jsonl`, and summarizes graph matches in `raw/inbox/latest.md`.
+
+Candidate scores are routing signals, not evidence. Codex checks primary sources and maturity before updating events or theses. Use `--no-graph-search` for broad feeds only, or `--max-graph-feeds N` to override the configured dynamic-query budget.
 
 - Preview the hosted interface:
 

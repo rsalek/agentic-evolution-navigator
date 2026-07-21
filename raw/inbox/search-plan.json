@@ -1,0 +1,253 @@
+{
+  "generated_at": "2026-07-21T12:30:13+00:00",
+  "graph": {
+    "nodes": 38,
+    "edges": 129
+  },
+  "query_count": 12,
+  "queries": [
+    {
+      "id": "graph-stage-successkpi-webex-wem-2026-07-15",
+      "label": "Graph gap: SuccessKPI brings WEM to Webex Contact Center (announcement -> evidence)",
+      "query": "(\"Cisco Webex\" OR \"SuccessKPI\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR customers OR outcomes OR resolution)",
+      "target_ids": [
+        "event-successkpi-webex-wem-2026-07-15"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "Which named customers are live, and at what interaction volume",
+          "What changes in resolution, quality, staffing, and customer outcomes are measured"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "customers",
+          "outcomes",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-tenon-servicenow-expansion-2026-07-15",
+      "label": "Graph gap: Tenon expands on ServiceNow AI Platform (announcement -> evidence)",
+      "query": "(\"ServiceNow\" OR \"Tenon\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR conversion OR cost OR outcomes)",
+      "target_ids": [
+        "event-tenon-servicenow-expansion-2026-07-15"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "Which workflows operate autonomously and which remain human-triggered",
+          "What are the conversion, launch-time, review, and cost outcomes"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "conversion",
+          "cost",
+          "outcomes"
+        ]
+      }
+    },
+    {
+      "id": "graph-challenge-trust-monetizes-early",
+      "label": "Graph stress test: Trust infrastructure monetizes before full autonomy",
+      "query": "\"AI agent\" (autonomy OR infrastructure OR monetizes OR trust) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-trust-monetizes-early"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 3,
+        "challenging_edges": 0
+      }
+    },
+    {
+      "id": "graph-challenge-agent-payments-protocol-to-production",
+      "label": "Graph stress test: Agent payments are moving from protocol to production",
+      "query": "\"AI agent\" (payments OR production OR protocol) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-agent-payments-protocol-to-production"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 2,
+        "challenging_edges": 0
+      }
+    },
+    {
+      "id": "graph-challenge-agent-traffic-addressable-market",
+      "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
+      "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-agent-traffic-addressable-market"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 3,
+        "challenging_edges": 1
+      }
+    },
+    {
+      "id": "graph-stage-bbva-visa-agent-payment-2026-07-02",
+      "label": "Graph gap: BBVA and Visa complete agent-initiated payment (production -> evidence)",
+      "query": "(\"BBVA\" OR \"Visa\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers OR active OR merchants)",
+      "target_ids": [
+        "event-bbva-visa-agent-payment-2026-07-02"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "production",
+        "open_questions": [
+          "How many transactions followed, across how many active agents and merchants",
+          "What authorization, dispute, and exception mechanisms were used"
+        ],
+        "desired_signals": [
+          "scaled",
+          "volume",
+          "transactions",
+          "revenue",
+          "customers",
+          "active",
+          "merchants"
+        ]
+      }
+    },
+    {
+      "id": "graph-challenge-incumbent-platform-distribution",
+      "label": "Graph stress test: Incumbent platforms are the distribution channel",
+      "query": "\"AI agent\" (channel OR distribution OR incumbent OR platforms) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-incumbent-platform-distribution"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 2,
+        "challenging_edges": 1
+      }
+    },
+    {
+      "id": "graph-stage-datadome-agent-traffic-q2-2026",
+      "label": "Graph gap: DataDome reports 45 percent Q2 agent-traffic growth (scaled -> evidence)",
+      "query": "(\"DataDome\") \"AI agent\" (growth OR revenue OR retention OR margin OR regulation OR customers OR traffic)",
+      "target_ids": [
+        "event-datadome-agent-traffic-q2-2026"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "scaled",
+        "open_questions": [
+          "How is an AI agent distinguished from conventional automation",
+          "Is growth concentrated in a few customers or broadly distributed",
+          "How much traffic converts, pays, or creates net-new demand"
+        ],
+        "desired_signals": [
+          "growth",
+          "revenue",
+          "retention",
+          "margin",
+          "regulation",
+          "customers",
+          "traffic"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-french-competition-agent-opinion-2026-07-17",
+      "label": "Graph gap: French competition authority issues AI-agent opinion (announcement -> evidence)",
+      "query": "(\"French Competition Authority\") \"AI agent\" (pilot OR production OR deployed OR live OR customer)",
+      "target_ids": [
+        "event-french-competition-agent-opinion-2026-07-17"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-production-agent-migration-2026-07-12",
+      "label": "Graph gap: Production agent migration improves cost and speed (production -> evidence)",
+      "query": "(\"Ploy AI\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers OR cost OR failure)",
+      "target_ids": [
+        "event-production-agent-migration-2026-07-12"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "production",
+        "open_questions": [
+          "Did task success and exception rates remain constant",
+          "Does the cost figure include integration, review, and failure recovery"
+        ],
+        "desired_signals": [
+          "scaled",
+          "volume",
+          "transactions",
+          "revenue",
+          "customers",
+          "cost",
+          "failure"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-x402-institutional-backing-2026-07-17",
+      "label": "Graph gap: x402 Foundation expands institutional backing (announcement -> evidence)",
+      "query": "(\"Google\" OR \"Stripe\" OR \"Visa\" OR \"x402 Foundation\") \"AI agent\" (pilot OR production OR deployed OR live OR customer)",
+      "target_ids": [
+        "event-x402-institutional-backing-2026-07-17"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "What are the exact membership classes and technical commitments",
+          "Which independent production implementations interoperate today"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-aws-legitimate-agent-traffic-2026-07-14",
+      "label": "Graph gap: AWS recognizes legitimate AI-agent traffic (production -> evidence)",
+      "query": "(\"Amazon Web Services\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers)",
+      "target_ids": [
+        "event-aws-legitimate-agent-traffic-2026-07-14"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "production",
+        "open_questions": [],
+        "desired_signals": [
+          "scaled",
+          "volume",
+          "transactions",
+          "revenue",
+          "customers"
+        ]
+      }
+    }
+  ]
+}

@@ -16,6 +16,7 @@ Enterprise agents are increasingly entering work through platforms that already 
 
 - [[wiki/events/2026-07-15 SuccessKPI brings WEM to Webex Contact Center]] embeds coordination into an established contact-centre platform.
 - [[wiki/events/2026-07-15 Tenon expands on ServiceNow AI Platform]] embeds marketing automation into an enterprise workflow platform.
+- [[wiki/events/2026-05-04 FIS and Anthropic develop financial-crimes agent]] places a named-bank pilot inside a regulated system-of-record provider, while leaving production outcomes unproven.
 
 ## Challenging evidence
 

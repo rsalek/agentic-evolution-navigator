@@ -18,6 +18,17 @@ The current seed graph suggests four reinforcing movements.
 
 These are hypotheses, not settled conclusions. Each is represented as a thesis with supporting and challenging evidence.
 
+## Research feedback loop
+
+Each collection run uses the current graph to improve the next search:
+
+1. Event stages and open questions identify missing operational or economic evidence.
+2. Thesis support/challenge balance creates explicit counterevidence searches.
+3. Incoming candidates are matched to known nodes and scored for maturity, usage, monetization, quantitative evidence, and contradiction signals.
+4. Accepted evidence changes the graph, which changes the following search plan.
+
+The generated search plan is inspectable at `raw/inbox/search-plan.json`. Relevance scores prioritize human/Codex review and never substitute for source verification.
+
 ## Dynamics to watch
 
 - `protocol -> pilot -> production -> scaled` update chains.

@@ -73,13 +73,14 @@ Events additionally require `date`, `stage`, `industry`, and `layer`. Valid stag
 ### Ingest
 
 1. Read `wiki/Home.md`, `wiki/_system/Schema.md`, and the most relevant existing nodes.
-2. Register the source in `raw/sources.jsonl` without altering previous lines.
-3. Create or update the event note. Never overwrite an earlier event with a later update.
-4. Link actors, concepts, and theses using typed relations.
-5. Update affected thesis pages with a dated evidence entry.
-6. Update `wiki/Home.md` only when a new major theme, thesis, or index entry is created.
-7. Append an operational-log entry.
-8. Run `python3 -B scripts/graph.py build` and `python3 -B scripts/graph.py validate`.
+2. Review `raw/inbox/search-plan.json` and the candidate's `graph_matches`, `graph_context`, `signals`, and `matched_query_ids` when present. Treat them as routing context, not evidence.
+3. Register the source in `raw/sources.jsonl` without altering previous lines.
+4. Create or update the event note. Never overwrite an earlier event with a later update.
+5. Link actors, concepts, and theses using typed relations.
+6. Update affected thesis pages with a dated evidence entry.
+7. Update `wiki/Home.md` only when a new major theme, thesis, or index entry is created.
+8. Append an operational-log entry.
+9. Run `python3 -B scripts/graph.py build` and `python3 -B scripts/graph.py validate`.
 
 ### Query
 

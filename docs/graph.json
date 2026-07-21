@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-07-21",
-  "nodeCount": 38,
-  "edgeCount": 129,
+  "nodeCount": 41,
+  "edgeCount": 141,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -136,6 +136,19 @@
       "evidence": []
     },
     {
+      "id": "entity-anthropic",
+      "title": "Anthropic",
+      "type": "entity",
+      "path": "wiki/entities/Anthropic.md",
+      "summary": "An AI developer partnering with FIS on a governed financial-crimes agent for banking institutions.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-21"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-bbva",
       "title": "BBVA",
       "type": "entity",
@@ -171,6 +184,19 @@
         "status": "active",
         "confidence": "medium",
         "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-fis",
+      "title": "FIS",
+      "type": "entity",
+      "path": "wiki/entities/FIS.md",
+      "summary": "A financial-technology provider whose banking infrastructure, data, and client relationships are being used to develop governed AI-agent workflows with Anthropic.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -354,6 +380,28 @@
         {
           "label": "DataDome Report: AI Agent Traffic Surged 45% in Q2",
           "url": "https://www.lelezard.com/en/news-22299606.html"
+        }
+      ]
+    },
+    {
+      "id": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "title": "FIS and Anthropic develop financial-crimes agent",
+      "type": "event",
+      "path": "wiki/events/2026-05-04 FIS and Anthropic develop financial-crimes agent.md",
+      "summary": "FIS and Anthropic announced a Financial Crimes AI Agent for anti-money-laundering investigations. BMO and Amalgamated Bank were in development with the agent, while broader availability to FIS financial-institution clients was planned for the second half of 2026.",
+      "metadata": {
+        "date": "2026-05-04",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "banking",
+        "layer": "regulated-workflow",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "FIS Brings Agentic AI to Banking with Anthropic, Starting with Financial Crimes",
+          "url": "https://www.fisglobal.com/about-us/media-room/press-release/2026/fis-brings-agentic-ai-to-banking-with-anthropic-starting-with-financial-crimes"
         }
       ]
     },
@@ -686,6 +734,16 @@
       "type": "monetizes"
     },
     {
+      "source": "entity-anthropic",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-anthropic",
+      "target": "entity-fis",
+      "type": "partners-with"
+    },
+    {
       "source": "entity-aws",
       "target": "concept-agent-trust-governance",
       "type": "enables"
@@ -719,6 +777,21 @@
       "source": "entity-datadome",
       "target": "concept-verified-agent-traffic",
       "type": "applies-to"
+    },
+    {
+      "source": "entity-fis",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-fis",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-fis",
+      "target": "entity-anthropic",
+      "type": "partners-with"
     },
     {
       "source": "entity-french-competition-authority",
@@ -863,6 +936,36 @@
     {
       "source": "event-datadome-agent-traffic-q2-2026",
       "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
+      "source": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "target": "entity-anthropic",
+      "type": "involves"
+    },
+    {
+      "source": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "target": "entity-fis",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "target": "thesis-incumbent-platform-distribution",
       "type": "supports"
     },
     {
@@ -1199,6 +1302,11 @@
       "source": "thesis-incumbent-platform-distribution",
       "target": "concept-system-of-record-distribution",
       "type": "depends-on"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-fis-anthropic-financial-crimes-2026-05-04",
+      "type": "references"
     },
     {
       "source": "thesis-incumbent-platform-distribution",
