@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore evidence, actors, use cases, and theses shaping the AI-agent economy.">
+    <title>Agentic Evolution Navigator</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23faf8f5' stroke='%23a54f0c' stroke-width='4'/%3E%3Cpath d='M18 39 30 17h4l12 22h-7l-2-5H27l-2 5Zm12-11h5l-2.5-6Z' fill='%23743506'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#graph-panel">Skip to graph</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Graph controls">
+        <header class="brand">
+          <div class="brand-mark" aria-hidden="true">AE</div>
+          <div>
+            <strong>Agentic Evolution Navigator</strong>
+            <span>Evidence graph</span>
+          </div>
+        </header>
+
+        <div class="control-block">
+          <label for="search">Find a node</label>
+          <div class="search-row">
+            <input id="search" type="search" placeholder="payments, traffic, Visa…" autocomplete="off">
+            <button id="clear-search" class="icon-button" type="button" aria-label="Clear search">×</button>
+          </div>
+          <div id="search-results" class="search-results" aria-live="polite"></div>
+        </div>
+
+        <fieldset class="control-block filter-list">
+          <legend>Show node types</legend>
+          <label><input type="checkbox" value="event" checked><span class="dot event"></span>Events <em id="count-event">0</em></label>
+          <label><input type="checkbox" value="entity" checked><span class="dot entity"></span>Entities <em id="count-entity">0</em></label>
+          <label><input type="checkbox" value="concept" checked><span class="dot concept"></span>Concepts <em id="count-concept">0</em></label>
+          <label><input type="checkbox" value="thesis" checked><span class="dot thesis"></span>Theses <em id="count-thesis">0</em></label>
+          <label><input type="checkbox" value="index" checked><span class="dot index"></span>Indexes <em id="count-index">0</em></label>
+          <label><input type="checkbox" value="system"><span class="dot system"></span>System notes <em id="count-system">0</em></label>
+        </fieldset>
+
+        <div class="control-block path-controls">
+          <div class="label-row">
+            <span>Find an evidence path</span>
+            <button id="swap-path" class="text-button" type="button">Swap</button>
+          </div>
+          <label class="sr-only" for="path-from">Path from</label>
+          <input id="path-from" list="node-titles" placeholder="From">
+          <label class="sr-only" for="path-to">Path to</label>
+          <input id="path-to" list="node-titles" placeholder="To">
+          <datalist id="node-titles"></datalist>
+          <button id="find-path" class="primary-button" type="button">Trace connection</button>
+          <p id="path-status" class="status-text" aria-live="polite">Uses typed relations, excluding generic references.</p>
+
+          <div class="example-paths" aria-label="Example graph paths">
+            <p>Examples to try</p>
+            <button type="button" data-path-from="BBVA" data-path-to="Trust infrastructure monetizes before full autonomy">
+              <strong>Payments → trust</strong>
+              <span class="example-description">How a live payment reaches the trust thesis</span>
+            </button>
+            <button type="button" data-path-from="SuccessKPI" data-path-to="Incumbent platforms are the distribution channel">
+              <strong>Enterprise distribution</strong>
+              <span class="example-description">How a partner reaches the platform thesis</span>
+            </button>
+            <button type="button" data-path-from="DataDome reports 45 percent Q2 agent-traffic growth" data-path-to="Agent-originated traffic is becoming an addressable market">
+              <strong>Traffic metric tension</strong>
+              <span class="example-description">Follow evidence that both informs and qualifies</span>
+            </button>
+            <button type="button" data-path-from="Google" data-path-to="Agent payments are moving from protocol to production">
+              <strong>Protocol backing</strong>
+              <span class="example-description">Connect an institution to the payments thesis</span>
+            </button>
+          </div>
+        </div>
+
+        <footer class="sidebar-footer">
+          <span id="graph-stats">Loading graph…</span>
+          <button id="reset-view" class="text-button" type="button">Reset view</button>
+        </footer>
+      </aside>
+
+      <main id="graph-panel" class="graph-panel" tabindex="-1">
+        <div class="graph-toolbar">
+          <div>
+            <p class="eyebrow">AI agents · adoption · monetization</p>
+            <h1>Follow the evidence, not the announcement cycle.</h1>
+          </div>
+          <div class="toolbar-actions" aria-label="Graph display controls">
+            <button id="zoom-out" class="tool-button" type="button" aria-label="Zoom out">−</button>
+            <button id="zoom-reset" class="tool-button" type="button" aria-label="Reset zoom">100%</button>
+            <button id="zoom-in" class="tool-button" type="button" aria-label="Zoom in">+</button>
+          </div>
+        </div>
+
+        <section class="canvas-wrap" aria-label="Interactive knowledge graph">
+          <svg id="graph" role="img" aria-label="Knowledge graph of AI-agent economy events and ideas">
+            <g id="viewport">
+              <g id="edges"></g>
+              <g id="nodes"></g>
+            </g>
+          </svg>
+          <div id="empty-state" class="empty-state" hidden>No nodes match the current filters.</div>
+          <div class="graph-key">Drag nodes · scroll to zoom · select for evidence</div>
+        </section>
+
+        <section class="timeline" aria-labelledby="timeline-title">
+          <div class="timeline-heading">
+            <h2 id="timeline-title">Evidence timeline</h2>
+            <span id="timeline-range"></span>
+          </div>
+          <div id="timeline-items" class="timeline-items"></div>
+        </section>
+      </main>
+
+      <aside id="detail-panel" class="detail-panel" aria-label="Selected node details">
+        <div id="detail-empty" class="detail-empty">
+          <span class="detail-symbol" aria-hidden="true">↗</span>
+          <h2>Choose a node</h2>
+          <p>Select an event, actor, concept, or thesis to inspect its evidence and graph relationships.</p>
+        </div>
+        <article id="detail-content" hidden></article>
+      </aside>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

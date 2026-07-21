@@ -1,0 +1,1239 @@
+{
+  "generatedAt": "2026-07-21",
+  "nodeCount": 38,
+  "edgeCount": 129,
+  "relationTypes": [
+    "announced-by",
+    "applies-to",
+    "challenges",
+    "constrained-by",
+    "demonstrates",
+    "depends-on",
+    "enables",
+    "involves",
+    "measured-by",
+    "monetizes",
+    "partners-with",
+    "references",
+    "supports"
+  ],
+  "nodes": [
+    {
+      "id": "concept-agent-trust-governance",
+      "title": "Agent Trust and Governance",
+      "type": "concept",
+      "path": "wiki/concepts/Agent Trust and Governance.md",
+      "summary": "Identity, authorization, policy, observability, audit, security, redress, and regulatory mechanisms for controlling agent behaviour.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-agentic-marketing-automation",
+      "title": "Agentic Marketing Automation",
+      "type": "concept",
+      "path": "wiki/concepts/Agentic Marketing Automation.md",
+      "summary": "Marketing work executed by agents across customer data, campaign workflows, channels, and measurement systems.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-agentic-payments",
+      "title": "Agentic Payments",
+      "type": "concept",
+      "path": "wiki/concepts/Agentic Payments.md",
+      "summary": "Payments initiated or completed by software agents under delegated authority, policy, and spending constraints.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-human-ai-workforce-coordination",
+      "title": "Human-AI Workforce Coordination",
+      "type": "concept",
+      "path": "wiki/concepts/Human-AI Workforce Coordination.md",
+      "summary": "The planning, supervision, quality control, coaching, and handoff mechanisms that allocate work between people and AI agents.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-production-agent-economics",
+      "title": "Production Agent Economics",
+      "type": "concept",
+      "path": "wiki/concepts/Production Agent Economics.md",
+      "summary": "The end-to-end cost and value of completed agent work after latency, failures, supervision, security, and integration are included.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-protocol-standardization",
+      "title": "Protocol Standardization",
+      "type": "concept",
+      "path": "wiki/concepts/Protocol Standardization.md",
+      "summary": "Convergence on interoperable ways for agents, services, and machines to authenticate, request, and settle economic interactions.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-system-of-record-distribution",
+      "title": "System-of-Record Distribution",
+      "type": "concept",
+      "path": "wiki/concepts/System-of-Record Distribution.md",
+      "summary": "Adoption through incumbent platforms that already control enterprise data, permissions, workflows, users, and budget ownership.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-verified-agent-traffic",
+      "title": "Verified Agent Traffic",
+      "type": "concept",
+      "path": "wiki/concepts/Verified Agent Traffic.md",
+      "summary": "Machine-originated requests whose agent identity, authorization, purpose, and policy can be distinguished from malicious or unidentified automation.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-aws",
+      "title": "Amazon Web Services",
+      "type": "entity",
+      "path": "wiki/entities/Amazon Web Services.md",
+      "summary": "A cloud infrastructure provider represented here through controls for recognizing legitimate AI-agent traffic.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-bbva",
+      "title": "BBVA",
+      "type": "entity",
+      "path": "wiki/entities/BBVA.md",
+      "summary": "A global banking group represented in this graph as an early participant in a live AI-agent-initiated payment.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-cisco-webex",
+      "title": "Cisco Webex",
+      "type": "entity",
+      "path": "wiki/entities/Cisco Webex.md",
+      "summary": "Cisco's collaboration and contact-centre platform, represented as an enterprise distribution surface for coordinated human and AI work.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-datadome",
+      "title": "DataDome",
+      "type": "entity",
+      "path": "wiki/entities/DataDome.md",
+      "summary": "A bot-management and agent-trust provider whose traffic report is used as an issuer-reported signal of machine-originated web activity.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-french-competition-authority",
+      "title": "French Competition Authority",
+      "type": "entity",
+      "path": "wiki/entities/French Competition Authority.md",
+      "summary": "The Autorite de la concurrence, represented through its formal opinion on competition in the AI-agent sector.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-google",
+      "title": "Google",
+      "type": "entity",
+      "path": "wiki/entities/Google.md",
+      "summary": "A technology platform represented in the seed graph through reported institutional backing of open agent-payment standards.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-ploy-ai",
+      "title": "Ploy AI",
+      "type": "entity",
+      "path": "wiki/entities/Ploy AI.md",
+      "summary": "The publisher of a production-agent migration case study reporting changes in speed and cost.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-servicenow",
+      "title": "ServiceNow",
+      "type": "entity",
+      "path": "wiki/entities/ServiceNow.md",
+      "summary": "An enterprise workflow platform that supplies shared data, permissions, and execution surfaces for embedded agent use cases.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-stripe",
+      "title": "Stripe",
+      "type": "entity",
+      "path": "wiki/entities/Stripe.md",
+      "summary": "A payment infrastructure provider represented in the seed graph through reported institutional backing of agent-payment standards.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-successkpi",
+      "title": "SuccessKPI",
+      "type": "entity",
+      "path": "wiki/entities/SuccessKPI.md",
+      "summary": "A workforce-engagement and contact-centre analytics provider integrating its platform with Cisco Webex Contact Center.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-tenon",
+      "title": "Tenon",
+      "type": "entity",
+      "path": "wiki/entities/Tenon.md",
+      "summary": "A marketing-workflow provider built on ServiceNow and represented here through its expanded AI-platform integration.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-visa",
+      "title": "Visa",
+      "type": "entity",
+      "path": "wiki/entities/Visa.md",
+      "summary": "A global payment network participating in agent-initiated transactions and agent-payment infrastructure.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-x402-foundation",
+      "title": "x402 Foundation",
+      "type": "entity",
+      "path": "wiki/entities/x402 Foundation.md",
+      "summary": "An open-protocol initiative for making payments native to internet and AI-agent workflows.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "title": "AWS recognizes legitimate AI-agent traffic",
+      "type": "event",
+      "path": "wiki/events/2026-07-14 AWS recognizes legitimate AI-agent traffic.md",
+      "summary": "AWS published a production control pattern for authenticating legitimate AI-agent traffic with AWS WAF Bot Control.",
+      "metadata": {
+        "date": "2026-07-14",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "production",
+        "industry": "cloud-infrastructure",
+        "layer": "identity-and-security",
+        "updated": "2026-07-20"
+      },
+      "evidence": [
+        {
+          "label": "Authenticate legitimate AI agent traffic with AWS WAF Bot Control",
+          "url": "https://aws.amazon.com/blogs/security/authenticate-legitimate-ai-agent-traffic-with-aws-waf-bot-control/"
+        }
+      ]
+    },
+    {
+      "id": "event-bbva-visa-agent-payment-2026-07-02",
+      "title": "BBVA and Visa complete agent-initiated payment",
+      "type": "event",
+      "path": "wiki/events/2026-07-02 BBVA and Visa complete agent-initiated payment.md",
+      "summary": "BBVA reported completing its first AI-agent-initiated transaction together with Visa. This is evidence of a live transaction, but not yet scaled recurring activity.",
+      "metadata": {
+        "date": "2026-07-02",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "production",
+        "industry": "payments",
+        "layer": "transaction-rail",
+        "updated": "2026-07-20"
+      },
+      "evidence": [
+        {
+          "label": "BBVA Completes Its First AI Agent-Initiated Transaction Together with Visa",
+          "url": "https://www.bbva.com/en/innovation/bbva-completes-its-first-ai-agent-initiated-transaction-together-with-visa/"
+        }
+      ]
+    },
+    {
+      "id": "event-datadome-agent-traffic-q2-2026",
+      "title": "DataDome reports 45 percent Q2 agent-traffic growth",
+      "type": "event",
+      "path": "wiki/events/2026-07-16 DataDome reports 45 percent Q2 agent-traffic growth.md",
+      "summary": "DataDome reported that AI-agent traffic increased 45 percent in the second quarter and associated the increase with adoption of agent-trust policies.",
+      "metadata": {
+        "date": "2026-07-16",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "web-infrastructure",
+        "layer": "traffic-and-observability",
+        "updated": "2026-07-20"
+      },
+      "evidence": [
+        {
+          "label": "DataDome Report: AI Agent Traffic Surged 45% in Q2",
+          "url": "https://www.lelezard.com/en/news-22299606.html"
+        }
+      ]
+    },
+    {
+      "id": "event-french-competition-agent-opinion-2026-07-17",
+      "title": "French competition authority issues AI-agent opinion",
+      "type": "event",
+      "path": "wiki/events/2026-07-17 French competition authority issues AI-agent opinion.md",
+      "summary": "The French Competition Authority issued an opinion on competitive functioning in the AI-agent sector.",
+      "metadata": {
+        "date": "2026-07-17",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "regulation",
+        "layer": "governance",
+        "updated": "2026-07-20"
+      },
+      "evidence": [
+        {
+          "label": "AI agents: the Autorite de la concurrence issues its opinion",
+          "url": "https://www.autoritedelaconcurrence.fr/en/press-release/ai-agents-autorite-de-la-concurrence-issues-its-opinion-competitive-functioning-ai"
+        }
+      ]
+    },
+    {
+      "id": "event-production-agent-migration-2026-07-12",
+      "title": "Production agent migration improves cost and speed",
+      "type": "event",
+      "path": "wiki/events/2026-07-12 Production agent migration improves cost and speed.md",
+      "summary": "Ploy published a production-agent migration case study reporting 2.2 times faster execution and 27 percent lower cost.",
+      "metadata": {
+        "date": "2026-07-12",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "software",
+        "layer": "agent-runtime",
+        "updated": "2026-07-20"
+      },
+      "evidence": [
+        {
+          "label": "Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper",
+          "url": "https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6"
+        }
+      ]
+    },
+    {
+      "id": "event-successkpi-webex-wem-2026-07-15",
+      "title": "SuccessKPI brings WEM to Webex Contact Center",
+      "type": "event",
+      "path": "wiki/events/2026-07-15 SuccessKPI brings WEM to Webex Contact Center.md",
+      "summary": "SuccessKPI announced workforce engagement management for Webex Contact Center, combining planning, quality management, coaching, analytics, and conversational intelligence for hybrid human and AI operations.",
+      "metadata": {
+        "date": "2026-07-15",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "announcement",
+        "industry": "contact-centres",
+        "layer": "enterprise-workflow",
+        "updated": "2026-07-20"
+      },
+      "evidence": [
+        {
+          "label": "SuccessKPI Powers Next Generation Hybrid Contact Centers with WEM for Webex Cloud",
+          "url": "https://uk.finance.yahoo.com/news/successkpi-powers-next-generation-hybrid-130000779.html"
+        }
+      ]
+    },
+    {
+      "id": "event-tenon-servicenow-expansion-2026-07-15",
+      "title": "Tenon expands on ServiceNow AI Platform",
+      "type": "event",
+      "path": "wiki/events/2026-07-15 Tenon expands on ServiceNow AI Platform.md",
+      "summary": "Tenon announced expanded marketing automation on the ServiceNow AI Platform, linking marketing activity to shared customer data, workflows, and AI.",
+      "metadata": {
+        "date": "2026-07-15",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "announcement",
+        "industry": "marketing",
+        "layer": "enterprise-workflow",
+        "updated": "2026-07-20"
+      },
+      "evidence": [
+        {
+          "label": "Tenon Expands Marketing Automation into the ServiceNow AI Platform",
+          "url": "https://www.rutlandherald.com/news/business/tenon-expands-marketing-automation-into-the-servicenow-ai-platform-unifying-customer-engagement-across-the-enterprise/article_f8fa3195-41cb-5b19-9056-2c5ca725bb1e.html"
+        }
+      ]
+    },
+    {
+      "id": "event-x402-institutional-backing-2026-07-17",
+      "title": "x402 Foundation expands institutional backing",
+      "type": "event",
+      "path": "wiki/events/2026-07-17 x402 Foundation expands institutional backing.md",
+      "summary": "Secondary reporting described expanded backing for the x402 Foundation from major payment and technology companies, including Google, Visa, and Stripe.",
+      "metadata": {
+        "date": "2026-07-17",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "announcement",
+        "industry": "payments",
+        "layer": "protocol",
+        "updated": "2026-07-20"
+      },
+      "evidence": [
+        {
+          "label": "New Linux Foundation project aims to make payments native to AI workflows",
+          "url": "https://www.infoworld.com/article/4198170/new-linux-foundation-project-aims-to-make-payments-native-to-ai-workflows.html"
+        }
+      ]
+    },
+    {
+      "id": "index-home",
+      "title": "Agentic Evolution Navigator",
+      "type": "index",
+      "path": "wiki/Home.md",
+      "summary": "This is the entry point for evidence about AI-agent adoption, usage, economic activity, and constraints. Begin with the active theses, then follow events and concepts into their evidence.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "system-graph-dynamics",
+      "title": "Graph Dynamics",
+      "type": "system",
+      "path": "wiki/_system/Graph Dynamics.md",
+      "summary": "The current seed graph suggests four reinforcing movements.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "system-schema",
+      "title": "Graph Schema",
+      "type": "system",
+      "path": "wiki/_system/Schema.md",
+      "summary": "The graph separates dated evidence from reusable mechanisms and revisable interpretation.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "system-operational-log",
+      "title": "Operational Log",
+      "type": "system",
+      "path": "wiki/_system/Operational Log.md",
+      "summary": "Created the domain glossary, maintenance contract, source ledger, seed events, concepts, theses, graph compiler, Obsidian configuration, and GitHub Pages explorer.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "system-query-guide",
+      "title": "Query Guide",
+      "type": "system",
+      "path": "wiki/_system/Query Guide.md",
+      "summary": "Use deterministic traversal to collect a relevant evidence subgraph, then ask Codex to synthesize it.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "thesis-agent-payments-protocol-to-production",
+      "title": "Agent payments are moving from protocol to production",
+      "type": "thesis",
+      "path": "wiki/theses/Agent payments are moving from protocol to production.md",
+      "summary": "Open standards and institutional backing are being joined by early live transactions. The thesis remains medium-confidence because evidence of repeated usage, merchant breadth, dispute handling, and economic value is still limited.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20",
+        "review_after": "2026-08-31"
+      },
+      "evidence": []
+    },
+    {
+      "id": "thesis-agent-traffic-addressable-market",
+      "title": "Agent-originated traffic is becoming an addressable market",
+      "type": "thesis",
+      "path": "wiki/theses/Agent-originated traffic is becoming an addressable market.md",
+      "summary": "Web infrastructure is beginning to distinguish legitimate agents from undifferentiated bots, creating a basis for access policy, attribution, paid APIs, transaction fees, and agent-specific service tiers.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20",
+        "review_after": "2026-08-31"
+      },
+      "evidence": []
+    },
+    {
+      "id": "thesis-incumbent-platform-distribution",
+      "title": "Incumbent platforms are the distribution channel",
+      "type": "thesis",
+      "path": "wiki/theses/Incumbent platforms are the distribution channel.md",
+      "summary": "Enterprise agents are increasingly entering work through platforms that already hold data, permissions, workflows, and customer relationships. Native platform integrations may therefore distribute agents faster than standalone destinations.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20",
+        "review_after": "2026-09-30"
+      },
+      "evidence": []
+    },
+    {
+      "id": "thesis-trust-monetizes-early",
+      "title": "Trust infrastructure monetizes before full autonomy",
+      "type": "thesis",
+      "path": "wiki/theses/Trust infrastructure monetizes before full autonomy.md",
+      "summary": "Identity, traffic classification, policy, observability, security, and regulatory assurance may generate revenue before highly autonomous agents are widely trusted with consequential work.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-20",
+        "review_after": "2026-09-30"
+      },
+      "evidence": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "concept-verified-agent-traffic",
+      "type": "enables"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "entity-french-competition-authority",
+      "type": "constrained-by"
+    },
+    {
+      "source": "concept-agentic-marketing-automation",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "concept-agentic-marketing-automation",
+      "target": "concept-system-of-record-distribution",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "concept-protocol-standardization",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-human-ai-workforce-coordination",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "concept-human-ai-workforce-coordination",
+      "target": "concept-system-of-record-distribution",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "concept-verified-agent-traffic",
+      "type": "measured-by"
+    },
+    {
+      "source": "concept-protocol-standardization",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-protocol-standardization",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "concept-agentic-marketing-automation",
+      "type": "enables"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-aws",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-aws",
+      "target": "concept-verified-agent-traffic",
+      "type": "enables"
+    },
+    {
+      "source": "entity-bbva",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-cisco-webex",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "entity-cisco-webex",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-datadome",
+      "target": "concept-agent-trust-governance",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-datadome",
+      "target": "concept-verified-agent-traffic",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-french-competition-authority",
+      "target": "concept-agent-trust-governance",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-google",
+      "target": "concept-protocol-standardization",
+      "type": "enables"
+    },
+    {
+      "source": "entity-ploy-ai",
+      "target": "concept-production-agent-economics",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-servicenow",
+      "target": "concept-agentic-marketing-automation",
+      "type": "enables"
+    },
+    {
+      "source": "entity-servicenow",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-stripe",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-successkpi",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "entity-successkpi",
+      "target": "entity-cisco-webex",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-tenon",
+      "target": "concept-agentic-marketing-automation",
+      "type": "enables"
+    },
+    {
+      "source": "entity-tenon",
+      "target": "entity-servicenow",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-visa",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-visa",
+      "target": "concept-protocol-standardization",
+      "type": "enables"
+    },
+    {
+      "source": "entity-x402-foundation",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-x402-foundation",
+      "target": "concept-protocol-standardization",
+      "type": "enables"
+    },
+    {
+      "source": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "target": "concept-verified-agent-traffic",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "target": "entity-aws",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
+      "source": "event-bbva-visa-agent-payment-2026-07-02",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-bbva-visa-agent-payment-2026-07-02",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-bbva-visa-agent-payment-2026-07-02",
+      "target": "entity-bbva",
+      "type": "involves"
+    },
+    {
+      "source": "event-bbva-visa-agent-payment-2026-07-02",
+      "target": "entity-visa",
+      "type": "involves"
+    },
+    {
+      "source": "event-bbva-visa-agent-payment-2026-07-02",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-datadome-agent-traffic-q2-2026",
+      "target": "concept-verified-agent-traffic",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-datadome-agent-traffic-q2-2026",
+      "target": "entity-datadome",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-datadome-agent-traffic-q2-2026",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "challenges"
+    },
+    {
+      "source": "event-datadome-agent-traffic-q2-2026",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-datadome-agent-traffic-q2-2026",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
+      "source": "event-french-competition-agent-opinion-2026-07-17",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-french-competition-agent-opinion-2026-07-17",
+      "target": "entity-french-competition-authority",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-french-competition-agent-opinion-2026-07-17",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "challenges"
+    },
+    {
+      "source": "event-french-competition-agent-opinion-2026-07-17",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
+      "source": "event-production-agent-migration-2026-07-12",
+      "target": "concept-production-agent-economics",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-production-agent-migration-2026-07-12",
+      "target": "entity-ploy-ai",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-production-agent-migration-2026-07-12",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-successkpi-webex-wem-2026-07-15",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-successkpi-webex-wem-2026-07-15",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-successkpi-webex-wem-2026-07-15",
+      "target": "entity-cisco-webex",
+      "type": "involves"
+    },
+    {
+      "source": "event-successkpi-webex-wem-2026-07-15",
+      "target": "entity-successkpi",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-successkpi-webex-wem-2026-07-15",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-tenon-servicenow-expansion-2026-07-15",
+      "target": "concept-agentic-marketing-automation",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-tenon-servicenow-expansion-2026-07-15",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-tenon-servicenow-expansion-2026-07-15",
+      "target": "entity-servicenow",
+      "type": "involves"
+    },
+    {
+      "source": "event-tenon-servicenow-expansion-2026-07-15",
+      "target": "entity-tenon",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-tenon-servicenow-expansion-2026-07-15",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-x402-institutional-backing-2026-07-17",
+      "target": "concept-protocol-standardization",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-x402-institutional-backing-2026-07-17",
+      "target": "entity-google",
+      "type": "involves"
+    },
+    {
+      "source": "event-x402-institutional-backing-2026-07-17",
+      "target": "entity-stripe",
+      "type": "involves"
+    },
+    {
+      "source": "event-x402-institutional-backing-2026-07-17",
+      "target": "entity-visa",
+      "type": "involves"
+    },
+    {
+      "source": "event-x402-institutional-backing-2026-07-17",
+      "target": "entity-x402-foundation",
+      "type": "involves"
+    },
+    {
+      "source": "event-x402-institutional-backing-2026-07-17",
+      "target": "event-bbva-visa-agent-payment-2026-07-02",
+      "type": "references"
+    },
+    {
+      "source": "event-x402-institutional-backing-2026-07-17",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "index-home",
+      "target": "concept-agent-trust-governance",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "concept-agentic-payments",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "concept-production-agent-economics",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "concept-protocol-standardization",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "concept-system-of-record-distribution",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "concept-verified-agent-traffic",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-bbva-visa-agent-payment-2026-07-02",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-datadome-agent-traffic-q2-2026",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-french-competition-agent-opinion-2026-07-17",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-production-agent-migration-2026-07-12",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-successkpi-webex-wem-2026-07-15",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-tenon-servicenow-expansion-2026-07-15",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-x402-institutional-backing-2026-07-17",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "system-graph-dynamics",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "system-operational-log",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "system-query-guide",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "system-schema",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "thesis-trust-monetizes-early",
+      "type": "references"
+    },
+    {
+      "source": "system-graph-dynamics",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "references"
+    },
+    {
+      "source": "system-graph-dynamics",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "references"
+    },
+    {
+      "source": "system-graph-dynamics",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "references"
+    },
+    {
+      "source": "system-graph-dynamics",
+      "target": "thesis-trust-monetizes-early",
+      "type": "references"
+    },
+    {
+      "source": "system-query-guide",
+      "target": "system-schema",
+      "type": "depends-on"
+    },
+    {
+      "source": "system-schema",
+      "target": "system-graph-dynamics",
+      "type": "references"
+    },
+    {
+      "source": "system-schema",
+      "target": "system-query-guide",
+      "type": "enables"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "concept-agentic-payments",
+      "type": "depends-on"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "concept-protocol-standardization",
+      "type": "depends-on"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-bbva-visa-agent-payment-2026-07-02",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-x402-institutional-backing-2026-07-17",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "concept-production-agent-economics",
+      "type": "depends-on"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "concept-verified-agent-traffic",
+      "type": "depends-on"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-datadome-agent-traffic-q2-2026",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "concept-agentic-marketing-automation",
+      "type": "enables"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "concept-system-of-record-distribution",
+      "type": "depends-on"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-successkpi-webex-wem-2026-07-15",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-tenon-servicenow-expansion-2026-07-15",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "concept-verified-agent-traffic",
+      "type": "monetizes"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-datadome-agent-traffic-q2-2026",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-french-competition-agent-opinion-2026-07-17",
+      "type": "references"
+    }
+  ]
+}

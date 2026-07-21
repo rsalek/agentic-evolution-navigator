@@ -1,0 +1,29 @@
+{
+  "feeds": [
+    {
+      "id": "agent-adoption",
+      "label": "Agent adoption and production use",
+      "url": "https://news.google.com/rss/search?q=%22AI%20agent%22%20%28launch%20OR%20deployed%20OR%20production%20OR%20partnership%29&hl=en-GB&gl=GB&ceid=GB%3Aen"
+    },
+    {
+      "id": "agent-payments",
+      "label": "Agent payments and commerce",
+      "url": "https://news.google.com/rss/search?q=%22AI%20agent%22%20%28payment%20OR%20commerce%20OR%20x402%29&hl=en-GB&gl=GB&ceid=GB%3Aen"
+    },
+    {
+      "id": "agent-workflows",
+      "label": "Enterprise workflows and hybrid work",
+      "url": "https://news.google.com/rss/search?q=%22AI%20agent%22%20%28ServiceNow%20OR%20Salesforce%20OR%20SAP%20OR%20%22contact%20center%22%20OR%20marketing%29&hl=en-GB&gl=GB&ceid=GB%3Aen"
+    },
+    {
+      "id": "agent-economics",
+      "label": "Traffic, usage and monetization",
+      "url": "https://news.google.com/rss/search?q=%22AI%20agent%22%20%28traffic%20OR%20usage%20OR%20revenue%20OR%20monetization%29&hl=en-GB&gl=GB&ceid=GB%3Aen"
+    },
+    {
+      "id": "agent-governance",
+      "label": "Trust, security and regulation",
+      "url": "https://news.google.com/rss/search?q=%22AI%20agent%22%20%28regulation%20OR%20identity%20OR%20security%20OR%20trust%29&hl=en-GB&gl=GB&ceid=GB%3Aen"
+    }
+  ]
+}
