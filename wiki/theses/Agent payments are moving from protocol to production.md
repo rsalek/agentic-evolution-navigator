@@ -4,7 +4,7 @@ type: thesis
 title: Agent payments are moving from protocol to production
 status: active
 confidence: medium
-updated: 2026-07-20
+updated: 2026-07-21
 review_after: 2026-08-31
 ---
 
@@ -16,6 +16,8 @@ Open standards and institutional backing are being joined by early live transact
 
 - [[wiki/events/2026-07-02 BBVA and Visa complete agent-initiated payment]] is direct production evidence.
 - [[wiki/events/2026-07-17 x402 Foundation expands institutional backing]] broadens the protocol ecosystem.
+- [[wiki/events/2025-10-30 Mastercard completes first Agent Pay transaction]] adds a named live network transaction with issuer and merchant participation.
+- [[wiki/events/2026-03-10 Mastercard enables tokenized agent transactions]] adds broad card enablement and delegated-authorization controls, while leaving agent volume unquantified.
 
 ## Challenging evidence
 

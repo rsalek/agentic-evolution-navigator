@@ -4,7 +4,7 @@ type: index
 title: Agentic Evolution Navigator
 status: active
 confidence: high
-updated: 2026-07-20
+updated: 2026-07-21
 ---
 
 # Agentic Evolution Navigator
@@ -38,6 +38,12 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 - [[wiki/events/2026-07-16 DataDome reports 45 percent Q2 agent-traffic growth]]
 - [[wiki/events/2026-07-17 French competition authority issues AI-agent opinion]]
 - [[wiki/events/2026-07-17 x402 Foundation expands institutional backing]]
+- [[wiki/events/2026-06-09 Cloudflare presents Web Bot Auth for autonomous commerce]]
+- [[wiki/events/2026-05-04 ServiceNow agentifies customer production workflows]]
+- [[wiki/events/2026-03-10 Mastercard enables tokenized agent transactions]]
+- [[wiki/events/2026-02-19 Five9 scales healthcare AI-agent commitment]]
+- [[wiki/events/2026-01-15 Talkspace deploys clinically supervised AI intake workflow]]
+- [[wiki/queries/AI agent operational deployments|AI agent operational deployments]]
 
 ## Navigate and maintain
 

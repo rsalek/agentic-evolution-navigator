@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-07-21",
-  "nodeCount": 41,
-  "edgeCount": 141,
+  "nodeCount": 54,
+  "edgeCount": 205,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -14,8 +14,10 @@
     "measured-by",
     "monetizes",
     "partners-with",
+    "precedes",
     "references",
-    "supports"
+    "supports",
+    "updates"
   ],
   "nodes": [
     {
@@ -175,6 +177,19 @@
       "evidence": []
     },
     {
+      "id": "entity-cloudflare",
+      "title": "Cloudflare",
+      "type": "entity",
+      "path": "wiki/entities/Cloudflare.md",
+      "summary": "An internet infrastructure provider developing cryptographic identity and authorization controls for autonomous commerce.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-21"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-datadome",
       "title": "DataDome",
       "type": "entity",
@@ -193,6 +208,19 @@
       "type": "entity",
       "path": "wiki/entities/FIS.md",
       "summary": "A financial-technology provider whose banking infrastructure, data, and client relationships are being used to develop governed AI-agent workflows with Anthropic.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-21"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-five9",
+      "title": "Five9",
+      "type": "entity",
+      "path": "wiki/entities/Five9.md",
+      "summary": "A contact-center platform expanding AI-agent workflows through healthcare deployments and Epic integration.",
       "metadata": {
         "status": "active",
         "confidence": "high",
@@ -223,6 +251,19 @@
         "status": "active",
         "confidence": "medium",
         "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-mastercard",
+      "title": "Mastercard",
+      "type": "entity",
+      "path": "wiki/entities/Mastercard.md",
+      "summary": "A global payment network developing Agent Pay for delegated, tokenized agent transactions.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -275,6 +316,19 @@
         "status": "active",
         "confidence": "medium",
         "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-talkspace",
+      "title": "Talkspace",
+      "type": "entity",
+      "path": "wiki/entities/Talkspace.md",
+      "summary": "A behavioral-health provider using an AI intake and triage workflow with clinical validation, escalation, and therapist handoff.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -362,6 +416,28 @@
       ]
     },
     {
+      "id": "event-cloudflare-web-bot-auth-2026-06-09",
+      "title": "Cloudflare presents Web Bot Auth for autonomous commerce",
+      "type": "event",
+      "path": "wiki/events/2026-06-09 Cloudflare presents Web Bot Auth for autonomous commerce.md",
+      "summary": "Cloudflare presented Web Bot Auth as a way for merchants to cryptographically verify agent identity before processing transactions and bind that identity to specific transaction flows for fine-grained authorization. The cited slide named American Express, Mastercard, and Visa as payment-network adopters.",
+      "metadata": {
+        "date": "2026-06-09",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "announcement",
+        "industry": "payments",
+        "layer": "identity-and-authorization",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "Cloudflare Investor Day 2026 slides",
+          "url": "https://web.quartr.com/companies/4297/events/649448/slide"
+        }
+      ]
+    },
+    {
       "id": "event-datadome-agent-traffic-q2-2026",
       "title": "DataDome reports 45 percent Q2 agent-traffic growth",
       "type": "event",
@@ -406,6 +482,54 @@
       ]
     },
     {
+      "id": "event-five9-healthcare-ai-agent-expansion-2025-07-31",
+      "title": "Five9 expands healthcare AI-agent deployment",
+      "type": "event",
+      "path": "wiki/events/2025-07-31 Five9 expands healthcare AI-agent deployment.md",
+      "summary": "Five9 described a leading academic health system expanding after three years of success, with Five9 and Epic integrated to streamline clinical workflows. The initial order was expected to produce more than $1.1 million in ARR.",
+      "metadata": {
+        "date": "2025-07-31",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "healthcare",
+        "layer": "contact-center",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "Five9 Q2 2025 earnings call",
+          "url": "https://web.quartr.com/companies/3631/events/341105/overview"
+        },
+        {
+          "label": "Five9 launches new integration with Epic Toolbox",
+          "url": "https://www.five9.com/news/news-releases/five9-launches-new-integration-epic-toolbox"
+        }
+      ]
+    },
+    {
+      "id": "event-five9-healthcare-ai-agent-commitment-2026-02-19",
+      "title": "Five9 scales healthcare AI-agent commitment",
+      "type": "event",
+      "path": "wiki/events/2026-02-19 Five9 scales healthcare AI-agent commitment.md",
+      "summary": "Five9 said a healthcare provider increased its commitment from about $6 million to more than $10 million in ARR under a three-year commitment, while using AI agents to drive cost savings across the business.",
+      "metadata": {
+        "date": "2026-02-19",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "healthcare",
+        "layer": "contact-center",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "Five9 Q4 2025 earnings call",
+          "url": "https://web.quartr.com/companies/3631/events/412541/overview"
+        }
+      ]
+    },
+    {
       "id": "event-french-competition-agent-opinion-2026-07-17",
       "title": "French competition authority issues AI-agent opinion",
       "type": "event",
@@ -424,6 +548,50 @@
         {
           "label": "AI agents: the Autorite de la concurrence issues its opinion",
           "url": "https://www.autoritedelaconcurrence.fr/en/press-release/ai-agents-autorite-de-la-concurrence-issues-its-opinion-competitive-functioning-ai"
+        }
+      ]
+    },
+    {
+      "id": "event-mastercard-first-agent-pay-2025-10-30",
+      "title": "Mastercard completes first Agent Pay transaction",
+      "type": "event",
+      "path": "wiki/events/2025-10-30 Mastercard completes first Agent Pay transaction.md",
+      "summary": "Mastercard reported that Agent Pay completed its first agentic transaction on the network during the quarter. It said U.S. Bank and Citibank cardholders could use Agent Pay and named Walmart as a partner.",
+      "metadata": {
+        "date": "2025-10-30",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "payments",
+        "layer": "transaction-network",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "Mastercard Q3 2025 earnings call",
+          "url": "https://web.quartr.com/companies/3873/events/369248/overview"
+        }
+      ]
+    },
+    {
+      "id": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "title": "Mastercard enables tokenized agent transactions",
+      "type": "event",
+      "path": "wiki/events/2026-03-10 Mastercard enables tokenized agent transactions.md",
+      "summary": "Mastercard said all U.S. banks' cards were capable of conducting an agentic transaction by the end of the prior year. It described Agent Pay as providing agents with network tokens, identity, transparency, issuer visibility, fraud, safety, and security controls.",
+      "metadata": {
+        "date": "2026-03-10",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "payments",
+        "layer": "transaction-network",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "Mastercard Wolfe FinTech Forum",
+          "url": "https://web.quartr.com/companies/3873/events/557330/overview"
         }
       ]
     },
@@ -450,6 +618,28 @@
       ]
     },
     {
+      "id": "event-servicenow-customer-production-workflows-2026-05-04",
+      "title": "ServiceNow agentifies customer production workflows",
+      "type": "event",
+      "path": "wiki/events/2026-05-04 ServiceNow agentifies customer production workflows.md",
+      "summary": "ServiceNow described forward-deployed engineers agentifying workflows inside customer production environments. The cited examples were NTT Data keeping 70,000 configuration items under compliance, PayPal processing trillions of payments faster, and Robinhood supporting onboarding during acquisition integration and 26% headcount growth.",
+      "metadata": {
+        "date": "2026-05-04",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "pilot",
+        "industry": "enterprise-workflow",
+        "layer": "system-of-record",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "ServiceNow Investor Day 2026",
+          "url": "https://web.quartr.com/companies/5954/events/655052/overview"
+        }
+      ]
+    },
+    {
       "id": "event-successkpi-webex-wem-2026-07-15",
       "title": "SuccessKPI brings WEM to Webex Contact Center",
       "type": "event",
@@ -468,6 +658,50 @@
         {
           "label": "SuccessKPI Powers Next Generation Hybrid Contact Centers with WEM for Webex Cloud",
           "url": "https://uk.finance.yahoo.com/news/successkpi-powers-next-generation-hybrid-130000779.html"
+        }
+      ]
+    },
+    {
+      "id": "event-talkspace-ai-intake-2026-01-15",
+      "title": "Talkspace deploys clinically supervised AI intake workflow",
+      "type": "event",
+      "path": "wiki/events/2026-01-15 Talkspace deploys clinically supervised AI intake workflow.md",
+      "summary": "Talkspace described an AI Agent Intake workflow with risk assessment, consent, safety and quality controls, escalation, and live therapist handoff. The company said outputs are validated by licensed clinicians within its QMS and that the workflow is HIPAA compliant.",
+      "metadata": {
+        "date": "2026-01-15",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "pilot",
+        "industry": "healthcare",
+        "layer": "regulated-workflow",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "Talkspace 44th Annual J.P. Morgan Healthcare Conference slides",
+          "url": "https://web.quartr.com/companies/10994/events/535117/slide"
+        }
+      ]
+    },
+    {
+      "id": "event-talkspace-ai-triage-outcomes-2025-10-30",
+      "title": "Talkspace measures AI behavioral triage outcomes",
+      "type": "event",
+      "path": "wiki/events/2025-10-30 Talkspace measures AI behavioral triage outcomes.md",
+      "summary": "Talkspace reported a test in which its AI model improved identification and response to high-risk behaviors by 50%, increased therapeutic quality by 47%, and produced 3x higher user satisfaction versus the base model. The workflow retained real-time risk determination, live therapist referral, clinical oversight, and HIPAA protection.",
+      "metadata": {
+        "date": "2025-10-30",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "pilot",
+        "industry": "healthcare",
+        "layer": "regulated-workflow",
+        "updated": "2026-07-21"
+      },
+      "evidence": [
+        {
+          "label": "Talkspace Q3 2025 earnings call",
+          "url": "https://web.quartr.com/companies/10994/events/370538/overview"
         }
       ]
     },
@@ -524,7 +758,20 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
+      },
+      "evidence": []
+    },
+    {
+      "id": "query-ai-agent-operational-deployments",
+      "title": "AI agent operational deployments",
+      "type": "query",
+      "path": "wiki/queries/AI agent operational deployments.md",
+      "summary": "This synthesis is based on the user-supplied Quartr capture [AI agent operational deployments](https://web.quartr.com/) and its embedded links to 12 investor-call or slide records. The local PDF remains under `raw/private/` and is not published because it is a source capture rather than public-domain text.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -563,7 +810,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-20"
+        "updated": "2026-07-21"
       },
       "evidence": []
     },
@@ -589,7 +836,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20",
+        "updated": "2026-07-21",
         "review_after": "2026-08-31"
       },
       "evidence": []
@@ -617,7 +864,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20",
+        "updated": "2026-07-21",
         "review_after": "2026-09-30"
       },
       "evidence": []
@@ -631,7 +878,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20",
+        "updated": "2026-07-21",
         "review_after": "2026-09-30"
       },
       "evidence": []
@@ -769,6 +1016,16 @@
       "type": "enables"
     },
     {
+      "source": "entity-cloudflare",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-cloudflare",
+      "target": "concept-verified-agent-traffic",
+      "type": "enables"
+    },
+    {
       "source": "entity-datadome",
       "target": "concept-agent-trust-governance",
       "type": "monetizes"
@@ -794,6 +1051,21 @@
       "type": "partners-with"
     },
     {
+      "source": "entity-five9",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "entity-five9",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-five9",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
       "source": "entity-french-competition-authority",
       "target": "concept-agent-trust-governance",
       "type": "applies-to"
@@ -801,6 +1073,16 @@
     {
       "source": "entity-google",
       "target": "concept-protocol-standardization",
+      "type": "enables"
+    },
+    {
+      "source": "entity-mastercard",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-mastercard",
+      "target": "concept-agentic-payments",
       "type": "enables"
     },
     {
@@ -832,6 +1114,16 @@
       "source": "entity-successkpi",
       "target": "entity-cisco-webex",
       "type": "partners-with"
+    },
+    {
+      "source": "entity-talkspace",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-talkspace",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
     },
     {
       "source": "entity-tenon",
@@ -914,6 +1206,21 @@
       "type": "supports"
     },
     {
+      "source": "event-cloudflare-web-bot-auth-2026-06-09",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-web-bot-auth-2026-06-09",
+      "target": "concept-verified-agent-traffic",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-web-bot-auth-2026-06-09",
+      "target": "entity-cloudflare",
+      "type": "announced-by"
+    },
+    {
       "source": "event-datadome-agent-traffic-q2-2026",
       "target": "concept-verified-agent-traffic",
       "type": "measured-by"
@@ -969,6 +1276,41 @@
       "type": "supports"
     },
     {
+      "source": "event-five9-healthcare-ai-agent-commitment-2026-02-19",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-five9-healthcare-ai-agent-commitment-2026-02-19",
+      "target": "entity-five9",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-five9-healthcare-ai-agent-commitment-2026-02-19",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-five9-healthcare-ai-agent-expansion-2025-07-31",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-five9-healthcare-ai-agent-expansion-2025-07-31",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-five9-healthcare-ai-agent-expansion-2025-07-31",
+      "target": "entity-five9",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-five9-healthcare-ai-agent-expansion-2025-07-31",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
       "source": "event-french-competition-agent-opinion-2026-07-17",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -989,6 +1331,51 @@
       "type": "supports"
     },
     {
+      "source": "event-mastercard-first-agent-pay-2025-10-30",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-mastercard-first-agent-pay-2025-10-30",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mastercard-first-agent-pay-2025-10-30",
+      "target": "entity-mastercard",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-mastercard-first-agent-pay-2025-10-30",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "target": "entity-mastercard",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "target": "event-mastercard-first-agent-pay-2025-10-30",
+      "type": "updates"
+    },
+    {
+      "source": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
       "source": "event-production-agent-migration-2026-07-12",
       "target": "concept-production-agent-economics",
       "type": "demonstrates"
@@ -1001,6 +1388,26 @@
     {
       "source": "event-production-agent-migration-2026-07-12",
       "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-servicenow-customer-production-workflows-2026-05-04",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-servicenow-customer-production-workflows-2026-05-04",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-servicenow-customer-production-workflows-2026-05-04",
+      "target": "entity-servicenow",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-servicenow-customer-production-workflows-2026-05-04",
+      "target": "thesis-incumbent-platform-distribution",
       "type": "supports"
     },
     {
@@ -1027,6 +1434,46 @@
       "source": "event-successkpi-webex-wem-2026-07-15",
       "target": "thesis-incumbent-platform-distribution",
       "type": "supports"
+    },
+    {
+      "source": "event-talkspace-ai-intake-2026-01-15",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-talkspace-ai-intake-2026-01-15",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-talkspace-ai-intake-2026-01-15",
+      "target": "entity-talkspace",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-talkspace-ai-intake-2026-01-15",
+      "target": "event-talkspace-ai-triage-outcomes-2025-10-30",
+      "type": "updates"
+    },
+    {
+      "source": "event-talkspace-ai-triage-outcomes-2025-10-30",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-talkspace-ai-triage-outcomes-2025-10-30",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-talkspace-ai-triage-outcomes-2025-10-30",
+      "target": "entity-talkspace",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-talkspace-ai-triage-outcomes-2025-10-30",
+      "target": "event-talkspace-ai-intake-2026-01-15",
+      "type": "precedes"
     },
     {
       "source": "event-tenon-servicenow-expansion-2026-07-15",
@@ -1135,7 +1582,17 @@
     },
     {
       "source": "index-home",
+      "target": "event-cloudflare-web-bot-auth-2026-06-09",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "event-datadome-agent-traffic-q2-2026",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-five9-healthcare-ai-agent-commitment-2026-02-19",
       "type": "references"
     },
     {
@@ -1145,12 +1602,27 @@
     },
     {
       "source": "index-home",
+      "target": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "event-production-agent-migration-2026-07-12",
       "type": "references"
     },
     {
       "source": "index-home",
+      "target": "event-servicenow-customer-production-workflows-2026-05-04",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "event-successkpi-webex-wem-2026-07-15",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-talkspace-ai-intake-2026-01-15",
       "type": "references"
     },
     {
@@ -1161,6 +1633,11 @@
     {
       "source": "index-home",
       "target": "event-x402-institutional-backing-2026-07-17",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "query-ai-agent-operational-deployments",
       "type": "references"
     },
     {
@@ -1202,6 +1679,61 @@
       "source": "index-home",
       "target": "thesis-trust-monetizes-early",
       "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-cloudflare-web-bot-auth-2026-06-09",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-five9-healthcare-ai-agent-commitment-2026-02-19",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-five9-healthcare-ai-agent-expansion-2025-07-31",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-mastercard-first-agent-pay-2025-10-30",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-servicenow-customer-production-workflows-2026-05-04",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-talkspace-ai-intake-2026-01-15",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-talkspace-ai-triage-outcomes-2025-10-30",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
     },
     {
       "source": "system-graph-dynamics",
@@ -1260,6 +1792,16 @@
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-mastercard-first-agent-pay-2025-10-30",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-mastercard-tokenized-agent-transactions-2026-03-10",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
       "target": "event-x402-institutional-backing-2026-07-17",
       "type": "references"
     },
@@ -1310,6 +1852,16 @@
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-five9-healthcare-ai-agent-expansion-2025-07-31",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-servicenow-customer-production-workflows-2026-05-04",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-successkpi-webex-wem-2026-07-15",
       "type": "references"
     },
@@ -1335,12 +1887,27 @@
     },
     {
       "source": "thesis-trust-monetizes-early",
+      "target": "event-cloudflare-web-bot-auth-2026-06-09",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
       "target": "event-datadome-agent-traffic-q2-2026",
       "type": "references"
     },
     {
       "source": "thesis-trust-monetizes-early",
       "target": "event-french-competition-agent-opinion-2026-07-17",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-talkspace-ai-intake-2026-01-15",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "query-ai-agent-operational-deployments",
       "type": "references"
     }
   ]

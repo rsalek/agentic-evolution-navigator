@@ -21,7 +21,8 @@ class GraphSearchTests(unittest.TestCase):
         self.assertEqual(kinds, {"maturity-and-metric-gap", "thesis-stress-test"})
 
     def test_x402_query_keeps_the_protocol_anchor(self):
-        query = next(item for item in self.plan["queries"] if "x402" in item["label"])
+        _, all_plan, _ = derive_graph_feeds(ROOT, 100)
+        query = next(item for item in all_plan["queries"] if "x402" in item["label"])
         self.assertIn('"x402 Foundation"', query["query"])
 
     def test_graph_match_prioritizes_metrics_and_known_entities(self):

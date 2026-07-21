@@ -4,7 +4,7 @@ type: system
 title: Operational Log
 status: active
 confidence: high
-updated: 2026-07-20
+updated: 2026-07-21
 ---
 
 # Operational Log
@@ -28,3 +28,7 @@ Ran the scheduled collection and generated the current 12-query graph-informed s
 ## [2026-07-21] automation | FIS banking-agent pilot ingested
 
 Retried the public feed collection with network access and added 86 candidates. Promoted one independently verified primary-source finding: FIS and Anthropic are developing a financial-crimes agent with named banks BMO and Amalgamated Bank, classed as a pilot because general availability and outcome metrics remain prospective.
+
+## [2026-07-21] intake | Quartr operational-deployments packet
+
+Validated the four-page user-supplied Quartr PDF visually and by text extraction; SHA-256 is `93643f44283852021d94275d00a78d02bad9a53aaef0b3d933e282b4b00732dc`. Added eight concise event notes and one durable query covering Mastercard, ServiceNow, Five9, Talkspace, and Cloudflare. Preserved the PDF under `raw/private/` because the capture is not public-domain source text; published summaries retain the embedded Quartr links and explicitly preserve the missing agent-payment-volume gap. First-party web corroboration was attempted through an intermittently available search path; Five9's Epic Toolbox release independently corroborates the concrete workflow integration, but not the unnamed customer's ARR or scaled agent outcomes. The new event notes remain `reported` with medium confidence pending broader direct company-source verification.

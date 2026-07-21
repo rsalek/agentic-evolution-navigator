@@ -4,7 +4,7 @@ type: thesis
 title: Incumbent platforms are the distribution channel
 status: active
 confidence: medium
-updated: 2026-07-20
+updated: 2026-07-21
 review_after: 2026-09-30
 ---
 
@@ -17,6 +17,8 @@ Enterprise agents are increasingly entering work through platforms that already 
 - [[wiki/events/2026-07-15 SuccessKPI brings WEM to Webex Contact Center]] embeds coordination into an established contact-centre platform.
 - [[wiki/events/2026-07-15 Tenon expands on ServiceNow AI Platform]] embeds marketing automation into an enterprise workflow platform.
 - [[wiki/events/2026-05-04 FIS and Anthropic develop financial-crimes agent]] places a named-bank pilot inside a regulated system-of-record provider, while leaving production outcomes unproven.
+- [[wiki/events/2026-05-04 ServiceNow agentifies customer production workflows]] names customer production environments and operating scale.
+- [[wiki/events/2025-07-31 Five9 expands healthcare AI-agent deployment]] links AI-agent expansion to Epic integration and a multi-year ARR signal.
 
 ## Challenging evidence
 
