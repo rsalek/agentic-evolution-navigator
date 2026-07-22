@@ -36,6 +36,10 @@ const state = {
   focusLevels: new Map(),
   focusTreePairs: new Set(),
   communityByNode: new Map(),
+  communityCenters: new Map(),
+  labelNodeIds: null,
+  layoutTargets: new Map(),
+  draggingId: null,
   layoutRun: 0,
 };
 
@@ -206,12 +210,33 @@ function createGraphElements() {
     label.setAttribute("x", nodeRadius(node) + 5);
     label.setAttribute("y", "3.5");
     const shortTitle = node.title.length > 30 ? node.title.slice(0, 28) + "…" : node.title;
-    label.textContent = shortTitle + " · " + degree;
+    label.textContent = shortTitle;
     group.append(label);
 
     group.addEventListener("click", function handleNodeClick(event) {
       event.stopPropagation();
+      if (node.wasDragged) {
+        node.wasDragged = false;
+        return;
+      }
       activateNode(node.id);
+    });
+    group.addEventListener("pointerenter", function raiseHoveredNode() {
+      nodeLayer.append(group);
+      group.classList.add("label-peek");
+      node.labelElement.textContent = node.title;
+    });
+    group.addEventListener("pointerleave", function restoreShortTitle() {
+      group.classList.remove("label-peek");
+      node.labelElement.textContent = node.displayTitle;
+    });
+    group.addEventListener("focus", function showFocusedTitle() {
+      group.classList.add("label-peek");
+      node.labelElement.textContent = node.title;
+    });
+    group.addEventListener("blur", function restoreBlurredTitle() {
+      group.classList.remove("label-peek");
+      node.labelElement.textContent = node.displayTitle;
     });
     group.addEventListener("keydown", function handleNodeKey(event) {
       if (event.key === "Enter" || event.key === " ") {
@@ -228,51 +253,103 @@ function createGraphElements() {
     installNodeDrag(group, node);
     node.element = group;
     node.circle = circle;
+    node.labelElement = label;
+    node.displayTitle = shortTitle;
     nodeLayer.append(group);
   });
 }
 
-function simulate(iterations) {
+function nodeLabelBounds(node) {
+  const scale = Math.max(state.transform.scale, 0.45);
+  const width = Math.min(156, Math.max(44, node.displayTitle.length * 5.45)) / scale;
+  const height = 15 / scale;
+  const gap = nodeRadius(node) + 5 / scale;
+  return node.labelOnLeft
+    ? { left: node.x - gap - width, right: node.x - gap, top: node.y - height / 2, bottom: node.y + height / 2 }
+    : { left: node.x + gap, right: node.x + gap + width, top: node.y - height / 2, bottom: node.y + height / 2 };
+}
+
+function labelsOverlap(a, b) {
+  return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+}
+
+function nodeHasPersistentLabel(node) {
+  return !state.labelNodeIds || state.labelNodeIds.has(node.id) || node.id === state.selectedId;
+}
+
+function simulate(iterations, fitAfter) {
   const run = ++state.layoutRun;
+  const mode = state.viewMode;
   const totalIterations = reducedMotion.matches ? 1 : (iterations || 190);
-  const nodes = state.graph.nodes.filter(function simulatedNode(node) {
-    return isTypeVisible(node) && node.type !== "system";
+  const nodes = visibleNodes().filter(function simulatedNode(node) {
+    return node.type !== "system";
+  });
+  const nodeIds = new Set(nodes.map(function nodeId(node) { return node.id; }));
+  const edges = state.graph.edges.filter(function simulatedEdge(edge) {
+    return edge.type !== "references" && nodeIds.has(edge.source) && nodeIds.has(edge.target);
   });
   const cx = state.width / 2;
   const cy = state.height / 2;
   let tick = 0;
 
   function step() {
-    if (run !== state.layoutRun || state.viewMode !== "overview") return;
-    const alpha = 1 - tick / totalIterations;
+    if (run !== state.layoutRun || state.viewMode !== mode) return;
+    const progress = tick / Math.max(totalIterations, 1);
+    const alpha = Math.max(0.025, Math.pow(1 - progress, 1.35));
+
     for (let i = 0; i < nodes.length; i += 1) {
       for (let j = i + 1; j < nodes.length; j += 1) {
         const a = nodes[i];
         const b = nodes[j];
         let dx = b.x - a.x;
         let dy = b.y - a.y;
-        const distance2 = Math.max(dx * dx + dy * dy, 90);
+        if (dx === 0 && dy === 0) {
+          dx = (i % 2 ? -1 : 1) * 0.1;
+          dy = (j % 2 ? -1 : 1) * 0.1;
+        }
+        const distance2 = Math.max(dx * dx + dy * dy, 30);
         const distance = Math.sqrt(distance2);
-        const force = 390 / distance2 * alpha;
-        dx /= distance;
-        dy /= distance;
-        a.vx -= dx * force;
-        a.vy -= dy * force;
-        b.vx += dx * force;
-        b.vy += dy * force;
+        const minimumDistance = nodeRadius(a) + nodeRadius(b) + (mode === "overview" ? 10 : 24);
+        const repulsion = (mode === "overview" ? 390 : 260) / distance2 * alpha;
+        const collision = distance < minimumDistance ? (minimumDistance - distance) * 0.026 * alpha : 0;
+        const force = repulsion + collision;
+        const unitX = dx / distance;
+        const unitY = dy / distance;
+        a.vx -= unitX * force;
+        a.vy -= unitY * force;
+        b.vx += unitX * force;
+        b.vy += unitY * force;
+
+        if (mode !== "overview" && nodeHasPersistentLabel(a) && nodeHasPersistentLabel(b) &&
+            labelsOverlap(nodeLabelBounds(a), nodeLabelBounds(b))) {
+          const direction = a.y <= b.y ? -1 : 1;
+          const labelForce = 0.85 * alpha;
+          a.vy += direction * labelForce;
+          b.vy -= direction * labelForce;
+        }
       }
     }
 
-    state.graph.edges.forEach(function applyEdgeForce(edge) {
-      if (edge.type === "references") return;
+    edges.forEach(function applyEdgeForce(edge) {
       const a = state.nodeById.get(edge.source);
       const b = state.nodeById.get(edge.target);
-      if (!a || !b || !isTypeVisible(a) || !isTypeVisible(b)) return;
       const dx = b.x - a.x;
       const dy = b.y - a.y;
       const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
-      const desired = 100 + (a.type === "thesis" || b.type === "thesis" ? 18 : 0);
-      const force = (distance - desired) * 0.0026 * alpha;
+      let desired = 100 + (a.type === "thesis" || b.type === "thesis" ? 18 : 0);
+      let strength = 0.0026;
+      if (mode === "focus") {
+        desired = state.focusTreePairs.has(edgePair(edge)) ? 112 : 148;
+        strength = state.focusTreePairs.has(edgePair(edge)) ? 0.0034 : 0.00055;
+      } else if (mode === "clusters") {
+        const sameCommunity = state.communityByNode.get(a.id) === state.communityByNode.get(b.id);
+        desired = sameCommunity ? 78 : 190;
+        strength = sameCommunity ? 0.003 : 0.00025;
+      } else if (mode === "layers") {
+        desired = 170;
+        strength = 0.0007;
+      }
+      const force = (distance - desired) * strength * alpha;
       a.vx += dx / distance * force;
       a.vy += dy / distance * force;
       b.vx -= dx / distance * force;
@@ -280,16 +357,34 @@ function simulate(iterations) {
     });
 
     nodes.forEach(function moveNode(node) {
-      node.vx += (cx - node.x) * 0.00055 * alpha;
-      node.vy += (cy - node.y) * 0.00055 * alpha;
-      node.vx *= 0.88;
-      node.vy *= 0.88;
+      const target = state.layoutTargets.get(node.id);
+      if (target && mode !== "overview" && node.id !== state.draggingId) {
+        const xStrength = mode === "layers" ? 0.045 : (mode === "focus" ? 0.0075 : 0.009);
+        const yStrength = mode === "layers" ? 0.012 : (mode === "focus" ? 0.0075 : 0.009);
+        node.vx += (target.x - node.x) * xStrength * alpha;
+        node.vy += (target.y - node.y) * yStrength * alpha;
+      } else if (mode === "overview") {
+        node.vx += (cx - node.x) * 0.00055 * alpha;
+        node.vy += (cy - node.y) * 0.00055 * alpha;
+      }
+      if (node.id === state.draggingId) {
+        node.vx = 0;
+        node.vy = 0;
+        return;
+      }
+      node.vx *= mode === "overview" ? 0.88 : 0.84;
+      node.vy *= mode === "overview" ? 0.88 : 0.84;
       node.x += node.vx;
       node.y += node.vy;
+      constrainStructuredPosition(node, mode);
     });
     renderPositions();
     tick += 1;
-    if (tick < totalIterations) requestAnimationFrame(step);
+    if (tick < totalIterations) {
+      requestAnimationFrame(step);
+    } else if (fitAfter && state.draggingId == null) {
+      fitVisibleNodes();
+    }
   }
   requestAnimationFrame(step);
 }
@@ -340,12 +435,34 @@ function renderPositions() {
     const geometry = edgeGeometry(edge, source, target);
     edge.element.setAttribute("d", geometry.path);
     if (edge.labelElement) {
-      edge.labelElement.setAttribute("x", geometry.labelX);
-      edge.labelElement.setAttribute("y", geometry.labelY - 3);
+      let labelX = geometry.labelX;
+      let labelY = geometry.labelY;
+      if (state.viewMode === "layers" && state.selectedId &&
+          (edge.source === state.selectedId || edge.target === state.selectedId)) {
+        const selected = edge.source === state.selectedId ? source : target;
+        const other = edge.source === state.selectedId ? target : source;
+        labelX = selected.x + (other.x - selected.x) * 0.7;
+        labelY = selected.y + (other.y - selected.y) * 0.7;
+      }
+      edge.labelElement.setAttribute("x", labelX);
+      edge.labelElement.setAttribute("y", labelY - 3);
     }
   });
   state.graph.nodes.forEach(function positionNode(node) {
     if (!Number.isFinite(node.x) || !Number.isFinite(node.y)) return;
+    const scale = Math.max(state.transform.scale, 0.3);
+    let labelOnLeft = false;
+    if (state.viewMode === "focus" && state.focusId) {
+      const hub = state.nodeById.get(state.focusId);
+      labelOnLeft = Boolean(hub && node.id !== hub.id && node.x < hub.x);
+    } else if (state.viewMode === "layers") {
+      labelOnLeft = node.x > state.width * 0.78;
+    } else {
+      labelOnLeft = node.x > state.width * 0.68;
+    }
+    node.labelOnLeft = labelOnLeft;
+    node.labelElement.setAttribute("x", (labelOnLeft ? -1 : 1) * (nodeRadius(node) + 5 / scale));
+    node.labelElement.setAttribute("text-anchor", labelOnLeft ? "end" : "start");
     node.element.setAttribute("transform", "translate(" + node.x + " " + node.y + ")");
   });
 }
@@ -364,20 +481,31 @@ function edgePair(edge) {
 
 function updateVisibility() {
   let visibleCount = 0;
+  const labelledRelationTypes = new Set();
   state.graph.nodes.forEach(function toggleNode(node) {
     const visible = isVisible(node);
     node.element.classList.toggle("hidden", !visible);
+    node.element.classList.toggle(
+      "label-collapsed",
+      Boolean(visible && state.labelNodeIds && !state.labelNodeIds.has(node.id))
+    );
     node.element.setAttribute("aria-hidden", visible ? "false" : "true");
     if (visible) visibleCount += 1;
   });
   state.graph.edges.forEach(function toggleEdge(edge) {
     const visible = edgeIsVisible(edge);
     const focusTreeEdge = state.viewMode === "focus" && state.focusTreePairs.has(edgePair(edge));
+    const labelledFocusEdge = focusTreeEdge &&
+      (edge.source === state.focusId || edge.target === state.focusId);
     edge.element.classList.toggle("hidden", !visible);
     edge.element.classList.toggle("focus-edge", visible && focusTreeEdge);
     edge.element.classList.toggle("focus-context-edge", visible && state.viewMode === "focus" && !focusTreeEdge);
+    edge.element.classList.toggle("layer-edge", visible && state.viewMode === "layers");
     const selectedLayerEdge = state.viewMode === "layers" && state.selectedId &&
       (edge.source === state.selectedId || edge.target === state.selectedId);
+    const contextLabelCandidate = selectedLayerEdge || labelledFocusEdge;
+    const showContextLabel = contextLabelCandidate && !labelledRelationTypes.has(edge.type);
+    if (showContextLabel) labelledRelationTypes.add(edge.type);
     edge.element.classList.toggle("layer-selected-edge", Boolean(visible && selectedLayerEdge));
     edge.element.classList.toggle(
       "layer-context-edge",
@@ -386,7 +514,7 @@ function updateVisibility() {
     if (edge.labelElement) {
       edge.labelElement.classList.toggle(
         "visible",
-        visible && (selectedLayerEdge || focusTreeEdge)
+        visible && showContextLabel
       );
     }
     if (state.viewMode === "clusters" && visible) {
@@ -497,9 +625,10 @@ function selectNode(nodeId, center) {
   updateHighlights();
   renderDetails(node);
   if (state.viewMode === "layers") {
-    graphKey.textContent = "Entities → events → concepts → theses · labels show the selected node's relations";
+    graphKey.textContent = "Drag to rearrange · hover nodes for names · edge labels show each relation type once";
   }
   if (center !== false) centerNode(node);
+  simulate(110);
 }
 
 function navigateFocus(nodeId, pushHistory) {
@@ -630,6 +759,7 @@ function performSearch(query) {
     container.replaceChildren();
     state.searchMatches = null;
     updateHighlights();
+    simulate(90);
     return;
   }
   const matches = state.graph.nodes
@@ -659,6 +789,7 @@ function performSearch(query) {
     });
   });
   updateHighlights();
+  simulate(90);
 }
 
 function resolveTitle(value) {
@@ -726,11 +857,13 @@ function tracePath() {
 }
 
 function applyTransform() {
+  viewport.style.setProperty("--label-scale", String(1 / Math.max(state.transform.scale, 0.3)));
   viewport.setAttribute(
     "transform",
     "translate(" + state.transform.x + " " + state.transform.y + ") scale(" + state.transform.scale + ")"
   );
   document.querySelector("#zoom-reset").textContent = "Fit";
+  if (state.graph) renderPositions();
 }
 
 function centerNode(node) {
@@ -749,8 +882,8 @@ function fitVisibleNodes() {
     return;
   }
   const rect = svg.getBoundingClientRect();
-  const minX = Math.min.apply(null, nodes.map(function x(node) { return node.x - nodeRadius(node); }));
-  const maxX = Math.max.apply(null, nodes.map(function x(node) { return node.x + nodeRadius(node) + 110; }));
+  const minX = Math.min.apply(null, nodes.map(function x(node) { return node.x - nodeRadius(node) - 125; }));
+  const maxX = Math.max.apply(null, nodes.map(function x(node) { return node.x + nodeRadius(node) + 125; }));
   const minY = Math.min.apply(null, nodes.map(function y(node) { return node.y - nodeRadius(node) - 24; }));
   const maxY = Math.max.apply(null, nodes.map(function y(node) { return node.y + nodeRadius(node) + 24; }));
   const contentWidth = Math.max(maxX - minX, 1);
@@ -809,21 +942,100 @@ function installPanAndZoom() {
       updateHighlights();
       clearDetails();
       if (state.viewMode === "layers") {
-        graphKey.textContent = "Entities → events → concepts → theses · select a node to label its relations";
+        graphKey.textContent = "Drag to rearrange · hover nodes for names · select a node to label its relations";
       }
+      simulate(90);
     }
   });
+}
+
+function constrainedDropTarget(node) {
+  const original = state.layoutTargets.get(node.id) || { x: node.x, y: node.y };
+  if (state.viewMode === "layers") {
+    return {
+      x: original.x,
+      y: Math.min(state.height - 34, Math.max(58, node.y)),
+    };
+  }
+  if (state.viewMode === "clusters") {
+    const community = state.communityByNode.get(node.id);
+    const center = state.communityCenters.get(community);
+    if (!center) return { x: node.x, y: node.y };
+    const dx = node.x - center.x;
+    const dy = node.y - center.y;
+    const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
+    const radius = Math.max(34, center.radius - nodeRadius(node) - 12);
+    const scale = Math.min(1, radius / distance);
+    return { x: center.x + dx * scale, y: center.y + dy * scale };
+  }
+  if (state.viewMode === "focus" && node.id !== state.focusId) {
+    const hubTarget = state.layoutTargets.get(state.focusId);
+    if (!hubTarget) return { x: node.x, y: node.y };
+    const originalRadius = Math.max(64, Math.sqrt(
+      Math.pow(original.x - hubTarget.x, 2) + Math.pow(original.y - hubTarget.y, 2)
+    ));
+    const dx = node.x - hubTarget.x;
+    const dy = node.y - hubTarget.y;
+    const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
+    return {
+      x: hubTarget.x + dx / distance * originalRadius,
+      y: hubTarget.y + dy / distance * originalRadius,
+    };
+  }
+  return original;
+}
+
+function constrainStructuredPosition(node, mode) {
+  const target = state.layoutTargets.get(node.id);
+  if (!target) return;
+  if (mode === "layers") {
+    node.x = Math.min(target.x + 22, Math.max(target.x - 22, node.x));
+    return;
+  }
+  if (mode === "clusters") {
+    const community = state.communityByNode.get(node.id);
+    const center = state.communityCenters.get(community);
+    if (!center) return;
+    const dx = node.x - center.x;
+    const dy = node.y - center.y;
+    const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
+    const radius = Math.max(30, center.radius - nodeRadius(node) - 4);
+    if (distance > radius) {
+      node.x = center.x + dx / distance * radius;
+      node.y = center.y + dy / distance * radius;
+      node.vx *= 0.35;
+      node.vy *= 0.35;
+    }
+    return;
+  }
+  if (mode === "focus" && node.id !== state.focusId) {
+    const hubTarget = state.layoutTargets.get(state.focusId);
+    if (!hubTarget) return;
+    const targetRadius = Math.max(64, Math.sqrt(
+      Math.pow(target.x - hubTarget.x, 2) + Math.pow(target.y - hubTarget.y, 2)
+    ));
+    const dx = node.x - hubTarget.x;
+    const dy = node.y - hubTarget.y;
+    const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
+    const clampedRadius = Math.min(targetRadius * 1.18, Math.max(targetRadius * 0.82, distance));
+    if (clampedRadius !== distance) {
+      node.x = hubTarget.x + dx / distance * clampedRadius;
+      node.y = hubTarget.y + dy / distance * clampedRadius;
+    }
+  }
 }
 
 function installNodeDrag(element, node) {
   let drag = null;
   element.addEventListener("pointerdown", function startDrag(event) {
-    if (state.viewMode !== "overview") return;
     event.stopPropagation();
     drag = { x: event.clientX, y: event.clientY, nx: node.x, ny: node.y, moved: false };
+    state.draggingId = node.id;
+    nodeLayer.append(element);
     element.setPointerCapture(event.pointerId);
+    simulate(90);
   });
-  element.addEventListener("pointermove", function moveDrag(event) {
+  window.addEventListener("pointermove", function moveDrag(event) {
     if (!drag) return;
     const dx = (event.clientX - drag.x) / state.transform.scale;
     const dy = (event.clientY - drag.y) / state.transform.scale;
@@ -834,15 +1046,37 @@ function installNodeDrag(element, node) {
     node.vy = 0;
     renderPositions();
   });
-  element.addEventListener("pointerup", function endDrag(event) {
-    if (drag?.moved) event.stopPropagation();
+  window.addEventListener("pointerup", function endDrag(event) {
+    if (!drag) return;
+    if (drag?.moved) {
+      event.stopPropagation();
+      node.wasDragged = true;
+      if (state.viewMode !== "overview") {
+        state.layoutTargets.set(node.id, constrainedDropTarget(node));
+      }
+    }
+    state.draggingId = null;
     drag = null;
+    simulate(100);
+  });
+  window.addEventListener("pointercancel", function cancelDrag() {
+    if (!drag) return;
+    state.draggingId = null;
+    drag = null;
+    simulate(70);
+  });
+  element.addEventListener("lostpointercapture", function releaseLostDrag() {
+    if (!drag) return;
+    state.draggingId = null;
+    drag = null;
+    simulate(70);
   });
 }
 
 function clearLayoutGuides() {
   guideLayer.replaceChildren();
   state.communityByNode.clear();
+  state.communityCenters.clear();
   state.graph.nodes.forEach(function clearViewClasses(node) {
     node.element.classList.remove("focus-hub", "focus-level-2");
   });
@@ -855,6 +1089,7 @@ function renderClusterGuides(result) {
     });
   });
   result.groups.forEach(function clusterGuide(group) {
+    state.communityCenters.set(group.id, { x: group.x, y: group.y, radius: group.radius });
     const guide = document.createElementNS("http://www.w3.org/2000/svg", "g");
     const boundary = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     boundary.classList.add("cluster-boundary");
@@ -868,14 +1103,14 @@ function renderClusterGuides(result) {
     label.setAttribute("y", group.y - group.radius + 17);
     const title = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     const clusterLead = group.label.length > 30 ? group.label.slice(0, 28) + "…" : group.label;
-    title.textContent = "Cluster led by " + clusterLead;
+    title.textContent = clusterLead;
     title.setAttribute("x", group.x);
     label.append(title);
     const count = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     count.classList.add("cluster-label-count");
     count.setAttribute("x", group.x);
     count.setAttribute("dy", "12");
-    count.textContent = group.count + " nodes";
+    count.textContent = group.count + " connected nodes";
     label.append(count);
     guide.append(label);
     guideLayer.append(guide);
@@ -951,6 +1186,8 @@ function applyCurrentLayout(shouldFit) {
 
   if (state.viewMode === "overview") {
     state.viewNodeIds = null;
+    state.labelNodeIds = null;
+    state.layoutTargets.clear();
     state.focusLevels.clear();
     state.focusTreePairs.clear();
     initializePositions();
@@ -975,6 +1212,10 @@ function applyCurrentLayout(shouldFit) {
       state.visibleTypes
     );
     state.viewNodeIds = result.nodeIds;
+    state.labelNodeIds = new Set(Array.from(result.nodeIds).filter(function focusLabel(id) {
+      return (result.levels.get(id) || 0) <= 1 || id === state.selectedId;
+    }));
+    state.layoutTargets = new Map(result.positions);
     state.focusLevels = result.levels;
     state.focusTreePairs = result.treePairs;
     applyPositions(result.positions);
@@ -986,8 +1227,9 @@ function applyCurrentLayout(shouldFit) {
     updateHighlights();
     renderPositions();
     updateFocusStatus();
-    graphKey.textContent = "Select a neighbour to make it the centre · Back retraces your path";
+    graphKey.textContent = "Drag to rearrange · select a neighbour to recenter · edge labels show each relation type once";
     if (shouldFit !== false) fitVisibleNodes();
+    simulate(110, true);
   } else if (state.viewMode === "clusters") {
     state.focusTreePairs.clear();
     const result = GraphLayouts.clusterLayout(
@@ -997,6 +1239,14 @@ function applyCurrentLayout(shouldFit) {
       state.visibleTypes
     );
     state.viewNodeIds = new Set(result.positions.keys());
+    state.labelNodeIds = new Set();
+    result.communities.forEach(function labelCommunityLeaders(community) {
+      const labelCount = community.nodes.length <= 4 ? community.nodes.length : (community.nodes.length >= 12 ? 4 : 3);
+      community.nodes.slice(1, labelCount + 1).forEach(function addLabel(node) {
+        state.labelNodeIds.add(node.id);
+      });
+    });
+    state.layoutTargets = new Map(result.positions);
     applyPositions(result.positions);
     renderClusterGuides(result);
     updateVisibility();
@@ -1004,8 +1254,9 @@ function applyCurrentLayout(shouldFit) {
     renderPositions();
     viewStatus.textContent = "Clusters · " + result.groups.length + " connectivity groups · " +
       state.viewNodeIds.size + " nodes";
-    graphKey.textContent = "Groups reflect graph connectivity, not editorial categories";
+    graphKey.textContent = "Drag to rearrange · hover any node for its label · groups reflect connectivity";
     if (shouldFit !== false) fitVisibleNodes();
+    simulate(120, true);
   } else if (state.viewMode === "layers") {
     state.focusTreePairs.clear();
     const result = GraphLayouts.layerLayout(
@@ -1015,6 +1266,13 @@ function applyCurrentLayout(shouldFit) {
       state.visibleTypes
     );
     state.viewNodeIds = new Set(result.positions.keys());
+    state.labelNodeIds = new Set();
+    result.layers.forEach(function labelLayerLeaders(layer) {
+      layer.nodes.slice(0, 6).forEach(function addLayerLabel(node) {
+        state.labelNodeIds.add(node.id);
+      });
+    });
+    state.layoutTargets = new Map(result.positions);
     applyPositions(result.positions);
     renderLayerGuides(result);
     updateVisibility();
@@ -1022,9 +1280,10 @@ function applyCurrentLayout(shouldFit) {
     renderPositions();
     viewStatus.textContent = "Layers · entities → events → concepts → theses and synthesis";
     graphKey.textContent = state.selectedId
-      ? "Entities → events → concepts → theses · labels show the selected node's relations"
-      : "Entities → events → concepts → theses · select a node to label its relations";
+      ? "Drag to rearrange · hover nodes for names · edge labels show each relation type once"
+      : "Drag to rearrange · hover nodes for names · select a node to label its relations";
     if (shouldFit !== false) fitVisibleNodes();
+    simulate(110, true);
   }
   updateViewControls();
 }

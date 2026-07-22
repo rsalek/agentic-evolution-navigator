@@ -347,18 +347,19 @@ h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp
 .edge.path { stroke: var(--primary); stroke-width: 2.5; opacity: 1; }
 .edge.focus-edge { stroke: #8d8176; stroke-width: 1.35; opacity: .78; }
 .edge.focus-context-edge { opacity: .09; }
+.edge.layer-edge { opacity: .07; }
 .edge.layer-selected-edge { stroke: #8d8176; stroke-width: 1.4; opacity: .82; }
 .edge.layer-context-edge { opacity: .045; }
 
 .edge-label {
   display: none;
   fill: #65594f;
-  font-size: 8px;
+  font-size: calc(9px * var(--label-scale, 1));
   font-weight: 650;
   paint-order: stroke;
   stroke: #fdfcfb;
   stroke-linejoin: round;
-  stroke-width: 4px;
+  stroke-width: calc(4px * var(--label-scale, 1));
   text-anchor: middle;
   pointer-events: none;
 }
@@ -372,6 +373,16 @@ h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp
 .node.dimmed { opacity: .15; }
 .node.hidden, .edge.hidden { display: none; }
 .node text { fill: var(--ink); font-size: 10px; font-weight: 600; paint-order: stroke; stroke: #fdfcfb; stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+.node .node-title {
+  font-size: calc(10.5px * var(--label-scale, 1));
+  stroke-width: calc(3.5px * var(--label-scale, 1));
+}
+.node:hover .node-title, .node.selected .node-title, .node:focus-visible .node-title { font-weight: 750; }
+.node.label-collapsed .node-title { display: none; }
+.node.label-collapsed:hover .node-title,
+.node.label-collapsed.label-peek .node-title,
+.node.label-collapsed.selected .node-title,
+.node.label-collapsed:focus-visible .node-title { display: block; }
 .node .node-count {
   fill: #fff;
   font-size: 7px;
@@ -394,7 +405,7 @@ h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp
 
 .cluster-label, .layer-label {
   fill: #65594f;
-  font-size: 10px;
+  font-size: calc(10px * var(--label-scale, 1));
   font-weight: 700;
   text-anchor: middle;
   pointer-events: none;
@@ -402,7 +413,7 @@ h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp
 
 .cluster-label-count {
   fill: var(--muted);
-  font-size: 8px;
+  font-size: calc(8px * var(--label-scale, 1));
   font-weight: 500;
 }
 
