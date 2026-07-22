@@ -56,6 +56,7 @@ const state = {
   graph: null,
   nodeById: new Map(),
   adjacency: new Map(),
+  typedAdjacency: new Map(),
   visibleTypes: new Set(["event", "entity", "concept", "thesis", "query", "index"]),
   selectedId: null,
   keyboardNodeId: null,
@@ -119,17 +120,17 @@ function isVisible(node) {
 }
 
 function relatedEdges(nodeId, includeReferences) {
-  const edges = state.adjacency.get(nodeId) || [];
-  return includeReferences === false ? edges.filter(function typedOnly(edge) {
-    return edge.type !== "references";
-  }) : edges;
+  return (includeReferences === false ? state.typedAdjacency : state.adjacency).get(nodeId) || [];
 }
 
 function typedRelationshipCount(nodeId) {
-  return relatedEdges(nodeId, false).length;
+  const node = state.nodeById.get(nodeId);
+  return node?.typedDegree ?? relatedEdges(nodeId, false).length;
 }
 
 function uniqueTypedNeighborCount(nodeId) {
+  const node = state.nodeById.get(nodeId);
+  if (node?.uniqueTypedNeighbors != null) return node.uniqueTypedNeighbors;
   return new Set(relatedEdges(nodeId, false).map(function toOtherId(edge) {
     return otherEnd(edge, nodeId);
   })).size;
@@ -146,10 +147,18 @@ function buildIndexes() {
   state.adjacency = new Map(state.graph.nodes.map(function seedAdjacency(node) {
     return [node.id, []];
   }));
+  state.typedAdjacency = new Map(state.graph.nodes.map(function seedTypedAdjacency(node) {
+    return [node.id, []];
+  }));
   const parallelGroups = new Map();
   state.graph.edges.forEach(function indexEdge(edge) {
+    edge.key = edgeKey(edge);
     state.adjacency.get(edge.source)?.push(edge);
     state.adjacency.get(edge.target)?.push(edge);
+    if (edge.type !== "references") {
+      state.typedAdjacency.get(edge.source)?.push(edge);
+      state.typedAdjacency.get(edge.target)?.push(edge);
+    }
     const pair = [edge.source, edge.target].sort().join("|");
     if (!parallelGroups.has(pair)) parallelGroups.set(pair, []);
     parallelGroups.get(pair).push(edge);
@@ -160,11 +169,18 @@ function buildIndexes() {
       edge.parallelCount = edges.length;
     });
   });
+  state.graph.nodes.forEach(function cacheNodeMetrics(node) {
+    const typedEdges = relatedEdges(node.id, false);
+    node.typedDegree = typedEdges.length;
+    node.uniqueTypedNeighbors = new Set(typedEdges.map(function neighborId(edge) {
+      return otherEnd(edge, node.id);
+    })).size;
+    node.radius = 6 + Math.min(12, Math.sqrt(Math.max(node.uniqueTypedNeighbors, 1)) * 2.35);
+  });
 }
 
 function nodeRadius(node) {
-  const degree = uniqueTypedNeighborCount(node.id);
-  return 6 + Math.min(12, Math.sqrt(Math.max(degree, 1)) * 2.35);
+  return node.radius;
 }
 
 function updateCanvasSize() {
@@ -198,7 +214,7 @@ function createGraphElements() {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.classList.add("edge");
     if (edge.type === "references") path.classList.add("reference");
-    path.dataset.key = edgeKey(edge);
+    path.dataset.key = edge.key;
     path.dataset.source = edge.source;
     path.dataset.target = edge.target;
     edge.element = path;
@@ -283,7 +299,6 @@ function createGraphElements() {
         focusNodeElement(state.focusId);
       }
     });
-    installNodeDrag(group, node);
     node.element = group;
     node.circle = circle;
     node.labelElement = label;
@@ -579,7 +594,7 @@ function updateHighlights() {
   });
   state.graph.edges.forEach(function highlightEdge(edge) {
     const pathActive = state.pathNodes.size > 0;
-    const onPath = state.pathEdges.has(edgeKey(edge));
+    const onPath = state.pathEdges.has(edge.key);
     edge.element.classList.toggle("path", onPath);
     edge.element.classList.toggle("dimmed", pathActive && !onPath);
     if (edge.labelElement) {
@@ -652,17 +667,21 @@ function activateNode(nodeId) {
   }
 }
 
-function selectNode(nodeId, center) {
-  const node = state.nodeById.get(nodeId);
-  if (!node) return;
-  state.selectedId = nodeId;
-  state.keyboardNodeId = nodeId;
+function prepareNodeSelection(node) {
+  state.selectedId = node.id;
+  state.keyboardNodeId = node.id;
   state.visibleTypes.add(node.type);
   const checkbox = document.querySelector('.filter-list input[value="' + node.type + '"]');
   if (checkbox) checkbox.checked = true;
+  renderDetails(node);
+}
+
+function selectNode(nodeId, center) {
+  const node = state.nodeById.get(nodeId);
+  if (!node) return;
+  prepareNodeSelection(node);
   updateVisibility();
   updateHighlights();
-  renderDetails(node);
   if (state.viewMode === "layers") {
     graphKey.textContent = "Drag to rearrange · hover nodes for names · edge labels show each relation type once";
   }
@@ -675,12 +694,7 @@ function navigateFocus(nodeId, pushHistory) {
   if (!node) return;
   if (pushHistory && state.focusId && state.focusId !== nodeId) state.focusHistory.push(state.focusId);
   state.focusId = nodeId;
-  state.selectedId = nodeId;
-  state.keyboardNodeId = nodeId;
-  state.visibleTypes.add(node.type);
-  const checkbox = document.querySelector('.filter-list input[value="' + node.type + '"]');
-  if (checkbox) checkbox.checked = true;
-  renderDetails(node);
+  prepareNodeSelection(node);
   applyCurrentLayout(true);
 }
 
@@ -889,7 +903,7 @@ function tracePath() {
       status.textContent = "";
     }
     result.nodes.forEach(function markPathNode(id) { state.pathNodes.add(id); });
-    result.edges.forEach(function markPathEdge(edge) { state.pathEdges.add(edgeKey(edge)); });
+    result.edges.forEach(function markPathEdge(edge) { state.pathEdges.add(edge.key); });
     status.textContent += result.edges.length + " hop" + (result.edges.length === 1 ? "" : "s") + ": " +
       result.nodes.map(function pathTitle(id) { return state.nodeById.get(id).title; }).join(" → ");
     selectNode(end.id, true);
@@ -1099,26 +1113,37 @@ function constrainStructuredPosition(node, mode) {
   }
 }
 
-function installNodeDrag(element, node) {
+function installNodeInteractions() {
   let drag = null;
-  element.addEventListener("pointerdown", function startDrag(event) {
+  nodeLayer.addEventListener("pointerdown", function startDrag(event) {
+    const element = event.target.closest?.(".node");
+    if (!element) return;
+    const node = state.nodeById.get(element.dataset.id);
+    if (!node || !isVisible(node)) return;
     event.stopPropagation();
-    state.selectedId = node.id;
-    state.keyboardNodeId = node.id;
+    prepareNodeSelection(node);
     updateVisibility();
     updateHighlights();
-    renderDetails(node);
-    drag = { x: event.clientX, y: event.clientY, nx: node.x, ny: node.y, moved: false };
+    drag = {
+      node: node,
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      nx: node.x,
+      ny: node.y,
+      moved: false,
+    };
     state.draggingId = node.id;
     nodeLayer.append(element);
     element.setPointerCapture(event.pointerId);
     simulate(90);
   });
   window.addEventListener("pointermove", function moveDrag(event) {
-    if (!drag) return;
+    if (!drag || event.pointerId !== drag.pointerId) return;
     const dx = (event.clientX - drag.x) / state.transform.scale;
     const dy = (event.clientY - drag.y) / state.transform.scale;
     drag.moved = drag.moved || Math.abs(dx) + Math.abs(dy) > 3;
+    const node = drag.node;
     node.x = drag.nx + dx;
     node.y = drag.ny + dy;
     node.vx = 0;
@@ -1126,7 +1151,8 @@ function installNodeDrag(element, node) {
     renderPositions();
   });
   window.addEventListener("pointerup", function endDrag(event) {
-    if (!drag) return;
+    if (!drag || event.pointerId !== drag.pointerId) return;
+    const node = drag.node;
     const moved = drag.moved;
     if (moved) {
       event.stopPropagation();
@@ -1139,13 +1165,14 @@ function installNodeDrag(element, node) {
     if (moved) simulate(100);
     else activateNode(node.id);
   });
-  window.addEventListener("pointercancel", function cancelDrag() {
-    if (!drag) return;
+  window.addEventListener("pointercancel", function cancelDrag(event) {
+    if (!drag || event.pointerId !== drag.pointerId) return;
     state.draggingId = null;
     drag = null;
     simulate(70);
   });
-  element.addEventListener("lostpointercapture", function releaseLostDrag() {
+  nodeLayer.addEventListener("lostpointercapture", function releaseLostDrag(event) {
+    if (drag && event.pointerId !== drag.pointerId) return;
     if (!drag) return;
     state.draggingId = null;
     drag = null;
@@ -1381,9 +1408,7 @@ function setViewMode(mode) {
     }
     state.focusHistory = [];
     if (state.focusId) {
-      state.selectedId = state.focusId;
-      state.keyboardNodeId = state.focusId;
-      renderDetails(state.nodeById.get(state.focusId));
+      prepareNodeSelection(state.nodeById.get(state.focusId));
     }
   }
   applyCurrentLayout(true);
@@ -1396,8 +1421,7 @@ function handleTypeFilterChange(input) {
     state.focusId = GraphLayouts.mostConnectedEntity(state.graph.nodes, state.graph.edges, state.visibleTypes);
     state.focusHistory = [];
     if (state.focusId) {
-      state.selectedId = state.focusId;
-      renderDetails(state.nodeById.get(state.focusId));
+      prepareNodeSelection(state.nodeById.get(state.focusId));
     }
   }
   applyCurrentLayout(true);
@@ -1502,6 +1526,7 @@ async function initialize() {
     buildIndexes();
     initializePositions();
     createGraphElements();
+    installNodeInteractions();
     renderCounts();
     renderTimeline();
     installPanAndZoom();
