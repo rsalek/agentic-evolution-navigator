@@ -4,7 +4,7 @@ type: index
 title: Agentic Evolution Navigator
 status: active
 confidence: high
-updated: 2026-07-21
+updated: 2026-07-22
 ---
 
 # Agentic Evolution Navigator
@@ -17,6 +17,7 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 - [[wiki/theses/Incumbent platforms are the distribution channel]]
 - [[wiki/theses/Trust infrastructure monetizes before full autonomy]]
 - [[wiki/theses/Agent-originated traffic is becoming an addressable market]]
+- [[wiki/theses/Scaled agent adoption concentrates in bounded service operations]]
 
 ## Core concepts
 
@@ -27,9 +28,16 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 - [[wiki/concepts/Production Agent Economics]]
 - [[wiki/concepts/Agent Trust and Governance]]
 - [[wiki/concepts/Protocol Standardization]]
+- [[wiki/concepts/Agentic Service Operations]]
 
 ## Recent event chain
 
+- [[wiki/events/2026-07-22 x402 reports 75 million monthly transactions]]
+- [[wiki/events/2026-06-18 Rossmann scales agentic store support]]
+- [[wiki/events/2026-06-03 C Spire scales agent email triage]]
+- [[wiki/events/2026-05-18 R1 pilots agentic revenue-cycle calls]]
+- [[wiki/events/2026-04-29 Railway adds guardrails after agent deletes production data]]
+- [[wiki/events/2026-03-04 Singtel scales Shirley across support and roaming transactions]]
 - [[wiki/events/2026-07-02 BBVA and Visa complete agent-initiated payment]]
 - [[wiki/events/2026-07-12 Production agent migration improves cost and speed]]
 - [[wiki/events/2026-07-14 AWS recognizes legitimate AI-agent traffic]]

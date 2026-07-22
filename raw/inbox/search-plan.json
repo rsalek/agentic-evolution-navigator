@@ -1,11 +1,50 @@
 {
-  "generated_at": "2026-07-21T12:30:13+00:00",
+  "generated_at": "2026-07-22T01:14:10+00:00",
   "graph": {
-    "nodes": 38,
-    "edges": 129
+    "nodes": 68,
+    "edges": 301
   },
   "query_count": 12,
   "queries": [
+    {
+      "id": "graph-challenge-incumbent-platform-distribution",
+      "label": "Graph stress test: Incumbent platforms are the distribution channel",
+      "query": "\"AI agent\" (channel OR distribution OR incumbent OR platforms) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-incumbent-platform-distribution"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 11,
+        "challenging_edges": 1
+      }
+    },
+    {
+      "id": "graph-challenge-scaled-agents-bounded-service-operations",
+      "label": "Graph stress test: Scaled agent adoption concentrates in bounded service operations",
+      "query": "\"AI agent\" (adoption OR bounded OR concentrates OR operations OR scaled OR service) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-scaled-agents-bounded-service-operations"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 6,
+        "challenging_edges": 0
+      }
+    },
+    {
+      "id": "graph-challenge-agent-payments-protocol-to-production",
+      "label": "Graph stress test: Agent payments are moving from protocol to production",
+      "query": "\"AI agent\" (payments OR production OR protocol) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-agent-payments-protocol-to-production"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 6,
+        "challenging_edges": 1
+      }
+    },
     {
       "id": "graph-stage-successkpi-webex-wem-2026-07-15",
       "label": "Graph gap: SuccessKPI brings WEM to Webex Contact Center (announcement -> evidence)",
@@ -59,37 +98,24 @@
       }
     },
     {
-      "id": "graph-challenge-trust-monetizes-early",
-      "label": "Graph stress test: Trust infrastructure monetizes before full autonomy",
-      "query": "\"AI agent\" (autonomy OR infrastructure OR monetizes OR trust) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
-      "target_ids": [
-        "thesis-trust-monetizes-early"
-      ],
-      "reason": {
-        "kind": "thesis-stress-test",
-        "supporting_edges": 3,
-        "challenging_edges": 0
-      }
-    },
-    {
-      "id": "graph-challenge-agent-payments-protocol-to-production",
-      "label": "Graph stress test: Agent payments are moving from protocol to production",
-      "query": "\"AI agent\" (payments OR production OR protocol) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
-      "target_ids": [
-        "thesis-agent-payments-protocol-to-production"
-      ],
-      "reason": {
-        "kind": "thesis-stress-test",
-        "supporting_edges": 2,
-        "challenging_edges": 0
-      }
-    },
-    {
       "id": "graph-challenge-agent-traffic-addressable-market",
       "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
       "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
       "target_ids": [
         "thesis-agent-traffic-addressable-market"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 3,
+        "challenging_edges": 1
+      }
+    },
+    {
+      "id": "graph-challenge-trust-monetizes-early",
+      "label": "Graph stress test: Trust infrastructure monetizes before full autonomy",
+      "query": "\"AI agent\" (autonomy OR infrastructure OR monetizes OR trust) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-trust-monetizes-early"
       ],
       "reason": {
         "kind": "thesis-stress-test",
@@ -123,16 +149,47 @@
       }
     },
     {
-      "id": "graph-challenge-incumbent-platform-distribution",
-      "label": "Graph stress test: Incumbent platforms are the distribution channel",
-      "query": "\"AI agent\" (channel OR distribution OR incumbent OR platforms) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "id": "graph-stage-fis-anthropic-financial-crimes-2026-05-04",
+      "label": "Graph gap: FIS and Anthropic develop financial-crimes agent (pilot -> evidence)",
+      "query": "(\"Anthropic\" OR \"FIS\") \"AI agent\" (production OR rollout OR usage OR volume OR customer OR outcomes)",
       "target_ids": [
-        "thesis-incumbent-platform-distribution"
+        "event-fis-anthropic-financial-crimes-2026-05-04"
       ],
       "reason": {
-        "kind": "thesis-stress-test",
-        "supporting_edges": 2,
-        "challenging_edges": 1
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "pilot",
+        "open_questions": [
+          "Have BMO or Amalgamated Bank moved the agent into live operations, and at what investigation volume",
+          "What are the measured false-positive, review-time, quality, and escalation outcomes relative to the claimed targets"
+        ],
+        "desired_signals": [
+          "production",
+          "rollout",
+          "usage",
+          "volume",
+          "customer",
+          "outcomes"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-cloudflare-web-bot-auth-2026-06-09",
+      "label": "Graph gap: Cloudflare presents Web Bot Auth for autonomous commerce (announcement -> evidence)",
+      "query": "(\"Cloudflare\") \"AI agent\" (pilot OR production OR deployed OR live OR customer)",
+      "target_ids": [
+        "event-cloudflare-web-bot-auth-2026-06-09"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer"
+        ]
       }
     },
     {
@@ -178,74 +235,6 @@
           "deployed",
           "live",
           "customer"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-production-agent-migration-2026-07-12",
-      "label": "Graph gap: Production agent migration improves cost and speed (production -> evidence)",
-      "query": "(\"Ploy AI\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers OR cost OR failure)",
-      "target_ids": [
-        "event-production-agent-migration-2026-07-12"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "production",
-        "open_questions": [
-          "Did task success and exception rates remain constant",
-          "Does the cost figure include integration, review, and failure recovery"
-        ],
-        "desired_signals": [
-          "scaled",
-          "volume",
-          "transactions",
-          "revenue",
-          "customers",
-          "cost",
-          "failure"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-x402-institutional-backing-2026-07-17",
-      "label": "Graph gap: x402 Foundation expands institutional backing (announcement -> evidence)",
-      "query": "(\"Google\" OR \"Stripe\" OR \"Visa\" OR \"x402 Foundation\") \"AI agent\" (pilot OR production OR deployed OR live OR customer)",
-      "target_ids": [
-        "event-x402-institutional-backing-2026-07-17"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "announcement",
-        "open_questions": [
-          "What are the exact membership classes and technical commitments",
-          "Which independent production implementations interoperate today"
-        ],
-        "desired_signals": [
-          "pilot",
-          "production",
-          "deployed",
-          "live",
-          "customer"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-aws-legitimate-agent-traffic-2026-07-14",
-      "label": "Graph gap: AWS recognizes legitimate AI-agent traffic (production -> evidence)",
-      "query": "(\"Amazon Web Services\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers)",
-      "target_ids": [
-        "event-aws-legitimate-agent-traffic-2026-07-14"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "production",
-        "open_questions": [],
-        "desired_signals": [
-          "scaled",
-          "volume",
-          "transactions",
-          "revenue",
-          "customers"
         ]
       }
     }

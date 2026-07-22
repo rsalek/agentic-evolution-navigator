@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-21",
-  "nodeCount": 54,
-  "edgeCount": 207,
+  "generatedAt": "2026-07-22",
+  "nodeCount": 68,
+  "edgeCount": 301,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -29,7 +29,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -55,7 +55,20 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-agentic-service-operations",
+      "title": "Agentic Service Operations",
+      "type": "concept",
+      "path": "wiki/concepts/Agentic Service Operations.md",
+      "summary": "High-volume customer, employee, store, and revenue-cycle workflows in which agents interpret service requests, retrieve structured records, execute a bounded set of state changes, and escalate exceptions through established service systems.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -68,7 +81,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -81,7 +94,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -94,7 +107,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -107,7 +120,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -160,6 +173,19 @@
         "status": "active",
         "confidence": "high",
         "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-c-spire",
+      "title": "C Spire",
+      "type": "entity",
+      "path": "wiki/entities/C Spire.md",
+      "summary": "A telecommunications provider represented through its ServiceNow-based inbound-email triage and support workflow.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -281,6 +307,45 @@
       "evidence": []
     },
     {
+      "id": "entity-r1-rcm",
+      "title": "R1 RCM",
+      "type": "entity",
+      "path": "wiki/entities/R1 RCM.md",
+      "summary": "A healthcare revenue-cycle company represented through an early Sierra-powered call workflow for balances, payments, payment plans, and account questions.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-22"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-railway",
+      "title": "Railway",
+      "type": "entity",
+      "path": "wiki/entities/Railway.md",
+      "summary": "A cloud application platform represented through a production-deletion incident and its subsequent agent-safety changes.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-22"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-rossmann",
+      "title": "Rossmann",
+      "type": "entity",
+      "path": "wiki/entities/Rossmann.md",
+      "summary": "A European retailer represented through its ServiceNow-based store-support deployment.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-22"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-servicenow",
       "title": "ServiceNow",
       "type": "entity",
@@ -289,7 +354,33 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20"
+        "updated": "2026-07-22"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-sierra-ai",
+      "title": "Sierra AI",
+      "type": "entity",
+      "path": "wiki/entities/Sierra AI.md",
+      "summary": "An enterprise customer-service agent platform represented through deployments at Singtel and R1 RCM.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-22"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-singtel",
+      "title": "Singtel",
+      "type": "entity",
+      "path": "wiki/entities/Singtel.md",
+      "summary": "A telecommunications group represented through its Shirley customer-service agent deployment.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -412,6 +503,28 @@
         {
           "label": "BBVA Completes Its First AI Agent-Initiated Transaction Together with Visa",
           "url": "https://www.bbva.com/en/innovation/bbva-completes-its-first-ai-agent-initiated-transaction-together-with-visa/"
+        }
+      ]
+    },
+    {
+      "id": "event-c-spire-agent-email-triage-2026-06-03",
+      "title": "C Spire scales agent email triage",
+      "type": "event",
+      "path": "wiki/events/2026-06-03 C Spire scales agent email triage.md",
+      "summary": "ServiceNow reported that C Spire automated 70% to 72% of inbound email-case triage and routing through three sequential agents. Triage time fell 44%, from 54 minutes to 30 minutes; first-line case closure increased 125%; and more than 283 staff hours per month were returned.",
+      "metadata": {
+        "date": "2026-06-03",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "telecommunications",
+        "layer": "service-operations",
+        "updated": "2026-07-22"
+      },
+      "evidence": [
+        {
+          "label": "C Spire",
+          "url": "https://www.servicenow.com/customers/cspire.html"
         }
       ]
     },
@@ -618,6 +731,76 @@
       ]
     },
     {
+      "id": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "title": "R1 pilots agentic revenue-cycle calls",
+      "type": "event",
+      "path": "wiki/events/2026-05-18 R1 pilots agentic revenue-cycle calls.md",
+      "summary": "R1 and Sierra described an AI-enabled contact-centre workflow for balance questions, payment processing, payment-plan setup, and account questions. The agent connects across electronic medical records, scheduling systems, and account databases.",
+      "metadata": {
+        "date": "2026-05-18",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "pilot",
+        "industry": "healthcare",
+        "layer": "service-operations",
+        "updated": "2026-07-22"
+      },
+      "evidence": [
+        {
+          "label": "How R1 left the IVR behind and built something better for patients",
+          "url": "https://sierra.ai/customers/r1-rcm"
+        }
+      ]
+    },
+    {
+      "id": "event-railway-agent-production-deletion-2026-04-29",
+      "title": "Railway adds guardrails after agent deletes production data",
+      "type": "event",
+      "path": "wiki/events/2026-04-29 Railway adds guardrails after agent deletes production data.md",
+      "summary": "Railway confirmed that an authenticated agent called its legacy GraphQL `volumeDelete` endpoint against a customer's production environment using a long-lived, account-scoped token. The endpoint executed immediately and had no undo path at the time.",
+      "metadata": {
+        "date": "2026-04-29",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "cloud-infrastructure",
+        "layer": "trust-and-governance",
+        "updated": "2026-07-22"
+      },
+      "evidence": [
+        {
+          "label": "An AI agent just destroyed our production data",
+          "url": "https://www.reddit.com/r/ExperiencedFounders/comments/1sx8obj/an_ai_agent_just_destroyed_our_production_data_it/"
+        },
+        {
+          "label": "Your AI wants to nuke your database. Guardrails fix that.",
+          "url": "https://blog.railway.com/p/your-ai-wants-to-nuke-your-database"
+        }
+      ]
+    },
+    {
+      "id": "event-rossmann-agentic-store-support-2026-06-18",
+      "title": "Rossmann scales agentic store support",
+      "type": "event",
+      "path": "wiki/events/2026-06-18 Rossmann scales agentic store support.md",
+      "summary": "ServiceNow reported that Rossmann had six agents live in store support. The system automatically categorised and prioritised 89% of incoming tickets across more than 200 service categories, reached 98% routing accuracy, and reduced labour cost by 50% on AI-handled cases.",
+      "metadata": {
+        "date": "2026-06-18",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "retail",
+        "layer": "service-operations",
+        "updated": "2026-07-22"
+      },
+      "evidence": [
+        {
+          "label": "Rossmann",
+          "url": "https://www.servicenow.com/customers/rossmann.html"
+        }
+      ]
+    },
+    {
       "id": "event-servicenow-customer-production-workflows-2026-05-04",
       "title": "ServiceNow agentifies customer production workflows",
       "type": "event",
@@ -636,6 +819,28 @@
         {
           "label": "ServiceNow Investor Day 2026",
           "url": "https://web.quartr.com/companies/5954/events/655052/overview"
+        }
+      ]
+    },
+    {
+      "id": "event-singtel-shirley-scaled-service-2026-03-04",
+      "title": "Singtel scales Shirley across support and roaming transactions",
+      "type": "event",
+      "path": "wiki/events/2026-03-04 Singtel scales Shirley across support and roaming transactions.md",
+      "summary": "Singtel reported that its Sierra-powered Shirley agent handled more than 70,000 cases in its first six weeks. It resolved 73% of mobile and home troubleshooting cases without an officer, completed 76% of roaming sign-ups without an officer, and completed more than 200 roaming add-on purchases.",
+      "metadata": {
+        "date": "2026-03-04",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "telecommunications",
+        "layer": "service-operations",
+        "updated": "2026-07-22"
+      },
+      "evidence": [
+        {
+          "label": "Singtel Group partners Sierra to transform customer engagement with AI",
+          "url": "https://www.singtel.com/about-us/media-centre/news-releases/singtel-group-partners-sierra-to-transform-custome-engagement-with-ai"
         }
       ]
     },
@@ -750,6 +955,28 @@
       ]
     },
     {
+      "id": "event-x402-monthly-activity-2026-07-22",
+      "title": "x402 reports 75 million monthly transactions",
+      "type": "event",
+      "path": "wiki/events/2026-07-22 x402 reports 75 million monthly transactions.md",
+      "summary": "The x402 Foundation homepage displayed 75.41 million transactions and USD 24.24 million in volume for the preceding 30 days when accessed on 22 July 2026.",
+      "metadata": {
+        "date": "2026-07-22",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "payments",
+        "layer": "protocol",
+        "updated": "2026-07-22"
+      },
+      "evidence": [
+        {
+          "label": "x402",
+          "url": "https://x402.org/"
+        }
+      ]
+    },
+    {
       "id": "index-home",
       "title": "Agentic Evolution Navigator",
       "type": "index",
@@ -758,7 +985,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -767,11 +994,11 @@
       "title": "AI agent operational deployments",
       "type": "query",
       "path": "wiki/queries/AI agent operational deployments.md",
-      "summary": "This synthesis is based on the user-supplied Quartr capture [AI agent operational deployments](https://web.quartr.com/) and its embedded links to 12 investor-call or slide records. The local PDF remains under `raw/private/` and is not published because it is a source capture rather than public-domain text.",
+      "summary": "This synthesis combines the user-supplied Quartr capture [AI agent operational deployments](https://web.quartr.com/) with the later deep-research packet `Operational Adoption of AI Agents in Corporate Workflows`. Both source captures remain under `raw/private/` and are not published because they are research artifacts rather than public-domain text. The later PDF exposed the primary-source URLs absent from the Markdown export; one table also rendered as raw HTML, so the packet was used for discovery rather than as proof.",
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -780,11 +1007,11 @@
       "title": "Graph Dynamics",
       "type": "system",
       "path": "wiki/_system/Graph Dynamics.md",
-      "summary": "The current seed graph suggests four reinforcing movements.",
+      "summary": "The current graph suggests five reinforcing movements.",
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-20"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -810,7 +1037,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-21"
+        "updated": "2026-07-22"
       },
       "evidence": []
     },
@@ -836,7 +1063,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21",
+        "updated": "2026-07-22",
         "review_after": "2026-08-31"
       },
       "evidence": []
@@ -864,7 +1091,21 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21",
+        "updated": "2026-07-22",
+        "review_after": "2026-09-30"
+      },
+      "evidence": []
+    },
+    {
+      "id": "thesis-scaled-agents-bounded-service-operations",
+      "title": "Scaled agent adoption concentrates in bounded service operations",
+      "type": "thesis",
+      "path": "wiki/theses/Scaled agent adoption concentrates in bounded service operations.md",
+      "summary": "The strongest current public evidence of scaled enterprise-agent use clusters in repetitive, high-volume service workflows with structured systems of record, limited action vocabularies, measurable service pain, and established exception paths. Comparable evidence of safe, broad cross-functional autonomy remains sparse.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-22",
         "review_after": "2026-09-30"
       },
       "evidence": []
@@ -878,7 +1119,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21",
+        "updated": "2026-07-22",
         "review_after": "2026-09-30"
       },
       "evidence": []
@@ -923,6 +1164,26 @@
     {
       "source": "concept-agentic-payments",
       "target": "concept-protocol-standardization",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-agentic-service-operations",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "concept-agentic-service-operations",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "depends-on"
+    },
+    {
+      "source": "concept-agentic-service-operations",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "concept-agentic-service-operations",
+      "target": "concept-system-of-record-distribution",
       "type": "depends-on"
     },
     {
@@ -1004,6 +1265,16 @@
       "source": "entity-bbva",
       "target": "concept-agentic-payments",
       "type": "enables"
+    },
+    {
+      "source": "entity-c-spire",
+      "target": "concept-agentic-service-operations",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-c-spire",
+      "target": "entity-servicenow",
+      "type": "partners-with"
     },
     {
       "source": "entity-cisco-webex",
@@ -1091,14 +1362,74 @@
       "type": "applies-to"
     },
     {
+      "source": "entity-r1-rcm",
+      "target": "concept-agentic-service-operations",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-r1-rcm",
+      "target": "entity-sierra-ai",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-railway",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-railway",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-rossmann",
+      "target": "concept-agentic-service-operations",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-rossmann",
+      "target": "entity-servicenow",
+      "type": "partners-with"
+    },
+    {
       "source": "entity-servicenow",
       "target": "concept-agentic-marketing-automation",
       "type": "enables"
     },
     {
       "source": "entity-servicenow",
+      "target": "concept-agentic-service-operations",
+      "type": "enables"
+    },
+    {
+      "source": "entity-servicenow",
       "target": "concept-system-of-record-distribution",
       "type": "enables"
+    },
+    {
+      "source": "entity-sierra-ai",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-sierra-ai",
+      "target": "concept-agentic-service-operations",
+      "type": "enables"
+    },
+    {
+      "source": "entity-sierra-ai",
+      "target": "concept-system-of-record-distribution",
+      "type": "depends-on"
+    },
+    {
+      "source": "entity-singtel",
+      "target": "concept-agentic-service-operations",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-singtel",
+      "target": "entity-sierra-ai",
+      "type": "partners-with"
     },
     {
       "source": "entity-stripe",
@@ -1203,6 +1534,51 @@
     {
       "source": "event-bbva-visa-agent-payment-2026-07-02",
       "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "entity-c-spire",
+      "type": "involves"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "entity-servicenow",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "event-servicenow-customer-production-workflows-2026-05-04",
+      "type": "updates"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-c-spire-agent-email-triage-2026-06-03",
+      "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
     },
     {
@@ -1391,6 +1767,111 @@
       "type": "supports"
     },
     {
+      "source": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "target": "entity-r1-rcm",
+      "type": "involves"
+    },
+    {
+      "source": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "target": "entity-sierra-ai",
+      "type": "involves"
+    },
+    {
+      "source": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "supports"
+    },
+    {
+      "source": "event-railway-agent-production-deletion-2026-04-29",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-railway-agent-production-deletion-2026-04-29",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-railway-agent-production-deletion-2026-04-29",
+      "target": "entity-railway",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-railway-agent-production-deletion-2026-04-29",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "supports"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "entity-rossmann",
+      "type": "involves"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "entity-servicenow",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "event-servicenow-customer-production-workflows-2026-05-04",
+      "type": "updates"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-rossmann-agentic-store-support-2026-06-18",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "supports"
+    },
+    {
       "source": "event-servicenow-customer-production-workflows-2026-05-04",
       "target": "concept-human-ai-workforce-coordination",
       "type": "demonstrates"
@@ -1408,6 +1889,46 @@
     {
       "source": "event-servicenow-customer-production-workflows-2026-05-04",
       "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-singtel-shirley-scaled-service-2026-03-04",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-singtel-shirley-scaled-service-2026-03-04",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-singtel-shirley-scaled-service-2026-03-04",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-singtel-shirley-scaled-service-2026-03-04",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-singtel-shirley-scaled-service-2026-03-04",
+      "target": "entity-sierra-ai",
+      "type": "involves"
+    },
+    {
+      "source": "event-singtel-shirley-scaled-service-2026-03-04",
+      "target": "entity-singtel",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-singtel-shirley-scaled-service-2026-03-04",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-singtel-shirley-scaled-service-2026-03-04",
+      "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
     },
     {
@@ -1536,6 +2057,41 @@
       "type": "supports"
     },
     {
+      "source": "event-x402-monthly-activity-2026-07-22",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-x402-monthly-activity-2026-07-22",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-x402-monthly-activity-2026-07-22",
+      "target": "concept-protocol-standardization",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-x402-monthly-activity-2026-07-22",
+      "target": "entity-x402-foundation",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-x402-monthly-activity-2026-07-22",
+      "target": "event-x402-institutional-backing-2026-07-17",
+      "type": "updates"
+    },
+    {
+      "source": "event-x402-monthly-activity-2026-07-22",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "challenges"
+    },
+    {
+      "source": "event-x402-monthly-activity-2026-07-22",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
       "source": "index-home",
       "target": "concept-agent-trust-governance",
       "type": "references"
@@ -1543,6 +2099,11 @@
     {
       "source": "index-home",
       "target": "concept-agentic-payments",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "concept-agentic-service-operations",
       "type": "references"
     },
     {
@@ -1582,6 +2143,11 @@
     },
     {
       "source": "index-home",
+      "target": "event-c-spire-agent-email-triage-2026-06-03",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "event-cloudflare-web-bot-auth-2026-06-09",
       "type": "references"
     },
@@ -1612,7 +2178,27 @@
     },
     {
       "source": "index-home",
+      "target": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-railway-agent-production-deletion-2026-04-29",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-rossmann-agentic-store-support-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "event-servicenow-customer-production-workflows-2026-05-04",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-singtel-shirley-scaled-service-2026-03-04",
       "type": "references"
     },
     {
@@ -1633,6 +2219,11 @@
     {
       "source": "index-home",
       "target": "event-x402-institutional-backing-2026-07-17",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-x402-monthly-activity-2026-07-22",
       "type": "references"
     },
     {
@@ -1677,7 +2268,22 @@
     },
     {
       "source": "index-home",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "thesis-trust-monetizes-early",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "concept-agentic-service-operations",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-c-spire-agent-email-triage-2026-06-03",
       "type": "references"
     },
     {
@@ -1707,7 +2313,27 @@
     },
     {
       "source": "query-ai-agent-operational-deployments",
+      "target": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-railway-agent-production-deletion-2026-04-29",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-rossmann-agentic-store-support-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
       "target": "event-servicenow-customer-production-workflows-2026-05-04",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "event-singtel-shirley-scaled-service-2026-03-04",
       "type": "references"
     },
     {
@@ -1722,12 +2348,22 @@
     },
     {
       "source": "query-ai-agent-operational-deployments",
+      "target": "event-x402-monthly-activity-2026-07-22",
+      "type": "references"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
       "target": "thesis-agent-payments-protocol-to-production",
       "type": "supports"
     },
     {
       "source": "query-ai-agent-operational-deployments",
       "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "query-ai-agent-operational-deployments",
+      "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
     },
     {
@@ -1748,6 +2384,11 @@
     {
       "source": "system-graph-dynamics",
       "target": "thesis-incumbent-platform-distribution",
+      "type": "references"
+    },
+    {
+      "source": "system-graph-dynamics",
+      "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "references"
     },
     {
@@ -1806,6 +2447,11 @@
       "type": "references"
     },
     {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-x402-monthly-activity-2026-07-22",
+      "type": "references"
+    },
+    {
       "source": "thesis-agent-traffic-addressable-market",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -1852,6 +2498,11 @@
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-c-spire-agent-email-triage-2026-06-03",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-fis-anthropic-financial-crimes-2026-05-04",
       "type": "references"
     },
@@ -1867,7 +2518,22 @@
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-rossmann-agentic-store-support-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-servicenow-customer-production-workflows-2026-05-04",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-singtel-shirley-scaled-service-2026-03-04",
       "type": "references"
     },
     {
@@ -1878,6 +2544,46 @@
     {
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-tenon-servicenow-expansion-2026-07-15",
+      "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "concept-agentic-service-operations",
+      "type": "depends-on"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-c-spire-agent-email-triage-2026-06-03",
+      "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-railway-agent-production-deletion-2026-04-29",
+      "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-rossmann-agentic-store-support-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-singtel-shirley-scaled-service-2026-03-04",
       "type": "references"
     },
     {
@@ -1908,6 +2614,11 @@
     {
       "source": "thesis-trust-monetizes-early",
       "target": "event-french-competition-agent-opinion-2026-07-17",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-railway-agent-production-deletion-2026-04-29",
       "type": "references"
     },
     {

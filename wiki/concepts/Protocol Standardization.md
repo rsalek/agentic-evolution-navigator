@@ -4,7 +4,7 @@ type: concept
 title: Protocol Standardization
 status: active
 confidence: medium
-updated: 2026-07-21
+updated: 2026-07-22
 ---
 
 # Protocol Standardization
@@ -20,6 +20,7 @@ Convergence on interoperable ways for agents, services, and machines to authenti
 ## Current graph evidence
 
 - Mastercard's first Agent Pay transaction and later card-enablement milestone show a payment-network implementation moving beyond protocol discussion.
+- x402's dynamic homepage counters add scaled protocol-activity evidence, but do not disclose the agent share, implementation mix, concentration, or dispute and authorization performance.
 - The new evidence still does not establish independent interoperability across networks, merchants, or dispute systems.
 
 ## Relations

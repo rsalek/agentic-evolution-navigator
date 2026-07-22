@@ -4,7 +4,7 @@ type: concept
 title: System-of-Record Distribution
 status: active
 confidence: medium
-updated: 2026-07-21
+updated: 2026-07-22
 ---
 
 # System-of-Record Distribution
@@ -21,6 +21,9 @@ Adoption through incumbent platforms that already control enterprise data, permi
 
 - ServiceNow describes forward-deployed engineers agentifying named customer production environments, including large operating estates; the surrounding customer figures are not agent-attributed.
 - Five9 connects healthcare expansion to Epic integration, and its first-party Epic Toolbox release corroborates native workflow integration; the academic health-system customer remains unnamed.
+- ServiceNow's C Spire and Rossmann stories add named scaled workflows with agent-attributed routing, time, closure, accuracy, and labour metrics inside established service operations.
+- R1's pilot connects the Sierra agent layer across electronic medical records, scheduling systems, and account databases; Singtel similarly distributes Shirley through an existing customer-service channel.
+- The remaining gap is action-level evidence showing which system writes are autonomous, which are deterministic, which require approval, and how permission failures are handled.
 
 ## Relations
 

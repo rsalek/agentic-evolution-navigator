@@ -4,17 +4,18 @@ type: system
 title: Graph Dynamics
 status: active
 confidence: high
-updated: 2026-07-20
+updated: 2026-07-22
 ---
 
 # Graph Dynamics
 
-The current seed graph suggests four reinforcing movements.
+The current graph suggests five reinforcing movements.
 
 1. Agents move from generating recommendations to executing transactions.
 2. Incumbent enterprise platforms supply distribution, data, permissions, and budget ownership.
 3. Machine-originated traffic becomes identifiable and economically addressable.
 4. Identity, controls, observability, and regulation expand alongside autonomy.
+5. Scaled operational adoption concentrates in bounded service workflows where structured records, repetitive triggers, measurable pain, and established escalation paths make execution tractable.
 
 These are hypotheses, not settled conclusions. Each is represented as a thesis with supporting and challenging evidence.
 
@@ -43,3 +44,4 @@ The generated search plan is inspectable at `raw/inbox/search-plan.json`. Releva
 - `references` [[wiki/theses/Incumbent platforms are the distribution channel]]
 - `references` [[wiki/theses/Trust infrastructure monetizes before full autonomy]]
 - `references` [[wiki/theses/Agent-originated traffic is becoming an addressable market]]
+- `references` [[wiki/theses/Scaled agent adoption concentrates in bounded service operations]]

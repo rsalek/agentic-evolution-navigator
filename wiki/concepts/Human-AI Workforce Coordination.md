@@ -4,7 +4,7 @@ type: concept
 title: Human-AI Workforce Coordination
 status: active
 confidence: medium
-updated: 2026-07-21
+updated: 2026-07-22
 ---
 
 # Human-AI Workforce Coordination
@@ -21,6 +21,8 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 
 - Talkspace reports clinician validation, risk assessment, escalation, live therapist handoff, and quality controls around AI intake and behavioral triage; its outcome metrics are pilot/test evidence.
 - ServiceNow describes forward-deployed engineers agentifying workflows inside customer production environments, showing human implementation and governance around deployment rather than unsupervised replacement.
+- C Spire routes possible duplicate and major-incident cases to humans after automated triage; Singtel retains human oversight; R1 transfers higher-judgement calls with context preserved.
+- These examples support a bounded allocation pattern, but the public sources do not disclose comparable escalation, correction, rework, or supervisor-effort rates.
 
 ## Relations
 

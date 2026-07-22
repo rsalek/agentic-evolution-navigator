@@ -4,12 +4,12 @@ type: query
 title: AI agent operational deployments
 status: active
 confidence: medium
-updated: 2026-07-21
+updated: 2026-07-22
 ---
 
 # AI agent operational deployments
 
-This synthesis is based on the user-supplied Quartr capture [AI agent operational deployments](https://web.quartr.com/) and its embedded links to 12 investor-call or slide records. The local PDF remains under `raw/private/` and is not published because it is a source capture rather than public-domain text.
+This synthesis combines the user-supplied Quartr capture [AI agent operational deployments](https://web.quartr.com/) with the later deep-research packet `Operational Adoption of AI Agents in Corporate Workflows`. Both source captures remain under `raw/private/` and are not published because they are research artifacts rather than public-domain text. The later PDF exposed the primary-source URLs absent from the Markdown export; one table also rendered as raw HTML, so the packet was used for discovery rather than as proof.
 
 ## What the packet adds
 
@@ -19,6 +19,28 @@ This synthesis is based on the user-supplied Quartr capture [AI agent operationa
 - Trust infrastructure is being positioned as transaction-path infrastructure: Cloudflare presented cryptographic agent identity and flow-specific authorization for autonomous commerce, but the slide does not prove live traffic.
 - The packet does not contain a standalone agent-payment volume-growth metric. Mastercard provides the strongest live evidence, but readiness and enablement should not be confused with measured agent volume.
 - The packet also contains an unpromoted Fiserv Investor Day pricing claim: a shift from basis points toward percentage points and higher take rates. It remains a lead until the first-party presentation and agent attribution are independently verified.
+
+## What the corporate-workflow packet adds
+
+- [Singtel's customer release](https://www.singtel.com/about-us/media-centre/news-releases/singtel-group-partners-sierra-to-transform-custome-engagement-with-ai) provides the strongest new scaled evidence: more than 70,000 cases in six weeks, officer-free resolution and sign-up rates, and more than 200 completed roaming add-on purchases.
+- [C Spire](https://www.servicenow.com/customers/cspire.html) and [Rossmann](https://www.servicenow.com/customers/rossmann.html) add material named scaled deployments inside ServiceNow, with automation, service-time, routing, closure, labour, and projected-savings metrics. They remain medium-confidence because the evidence is vendor-published and not independently customer-confirmed.
+- [R1's co-authored story](https://sierra.ai/customers/r1-rcm) extends the pattern into healthcare revenue-cycle calls and system-of-record actions, but “up to 40%” of incoming calls in early testing is pilot evidence rather than scale.
+- [Railway's response](https://blog.railway.com/p/your-ai-wants-to-nuke-your-database) confirms that real agents can discover credentials and invoke destructive production APIs. Its new soft deletion, narrower scopes, staged environments, and short-lived consented access make the control boundary concrete.
+- The recurring pattern is now strong enough for [[wiki/concepts/Agentic Service Operations|Agentic Service Operations]]: agents own repetitive, high-volume, policy-bounded service work while people own ambiguity, sensitive judgement, and exceptions.
+- The public economics remain service-level and labour proxies rather than standardised agent unit economics. Cost per successful action, error recovery, corrections, reversals, and durable multi-period savings are usually absent.
+- Singtel's add-on purchases and R1's payment handling are transaction-adjacent customer-service actions. They are not treated as evidence for autonomous agent-payment networks.
+
+## Leads not promoted
+
+- Booking.com, Chime, and Curology remain useful discovery leads, but the located evidence is vendor-led and does not add enough independent or non-duplicative proof to justify new event nodes yet.
+- Salesforce, Workday, Microsoft, and Kraken materials describe availability, partnerships, or intended deployments without named current workflow volume and outcome evidence. They remain announcement watchlist items.
+- The PocketOS founder and Railway disagree about the final recovery state after the production deletion. The graph preserves the disagreement instead of selecting one account.
+
+## Collector follow-up
+
+- The refreshed graph-driven collector added 44 new candidates. A high-scoring aggregator claimed USD 15 million of x402 volume; the [current primary x402 counter](https://x402.org/) instead displayed 75.41 million transactions and USD 24.24 million of 30-day volume. The graph records the primary figure while explicitly withholding agent attribution.
+- Multiple candidates described an OpenAI agent breaching Hugging Face production systems during evaluation. An OpenAI-labelled feed item exists, but the primary article could not be resolved and inspected in this run, so the incident remains unpromoted pending direct-source verification.
+- Other high-scoring items were secondary, licensed, promotional, duplicated, or announcement-only and did not add material verified evidence.
 
 ## Relations
 
@@ -30,12 +52,25 @@ This synthesis is based on the user-supplied Quartr capture [AI agent operationa
 - `references` [[wiki/events/2026-01-15 Talkspace deploys clinically supervised AI intake workflow|Talkspace deploys clinically supervised AI intake workflow]]
 - `references` [[wiki/events/2025-10-30 Talkspace measures AI behavioral triage outcomes|Talkspace measures AI behavioral triage outcomes]]
 - `references` [[wiki/events/2026-06-09 Cloudflare presents Web Bot Auth for autonomous commerce|Cloudflare presents Web Bot Auth for autonomous commerce]]
+- `references` [[wiki/events/2026-03-04 Singtel scales Shirley across support and roaming transactions|Singtel scales Shirley across support and roaming transactions]]
+- `references` [[wiki/events/2026-04-29 Railway adds guardrails after agent deletes production data|Railway adds guardrails after agent deletes production data]]
+- `references` [[wiki/events/2026-05-18 R1 pilots agentic revenue-cycle calls|R1 pilots agentic revenue-cycle calls]]
+- `references` [[wiki/events/2026-06-03 C Spire scales agent email triage|C Spire scales agent email triage]]
+- `references` [[wiki/events/2026-06-18 Rossmann scales agentic store support|Rossmann scales agentic store support]]
+- `references` [[wiki/events/2026-07-22 x402 reports 75 million monthly transactions|x402 reports 75 million monthly transactions]]
 - `supports` [[wiki/theses/Agent payments are moving from protocol to production|Agent payments are moving from protocol to production]]
 - `supports` [[wiki/theses/Incumbent platforms are the distribution channel|Incumbent platforms are the distribution channel]]
+- `supports` [[wiki/theses/Scaled agent adoption concentrates in bounded service operations|Scaled agent adoption concentrates in bounded service operations]]
 - `challenges` [[wiki/theses/Trust infrastructure monetizes before full autonomy|Trust infrastructure monetizes before full autonomy]]
 
 ## Open questions
 
 - Which named deployments have recurring agent task volume, rather than readiness, pilot, or expansion evidence?
 - What portion of ARR, cost savings, take-rate expansion, and payment volume is directly attributable to agents?
+- How much reported “resolution” is fully autonomous completion rather than classification, preparation, deterministic automation, or later human recovery?
+- What are the correction, reversal, escalation, reliability, and customer-outcome rates over repeated periods?
+- Which permissions, approval gates, audit settings, and reversible-action controls are active in each named deployment?
+- What was PocketOS's final recovered state, and did the agent vendor change its safeguards?
+- Can the x402 activity counters be independently reproduced, and what share is attributable to verified AI agents?
+- What do the direct OpenAI and Hugging Face incident reports establish about the reported evaluation-time production breach?
 - Still-unpromoted leads requiring first-party verification include Fiserv's Investor Day pricing language, Mastercard's Q4 switching and service-monetization comments, Mastercard's AGM Agent Pay for Machines addressable-market claim, and Visa's Q2 value-added-services and agentic-commerce positioning.
