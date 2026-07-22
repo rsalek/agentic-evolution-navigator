@@ -6,7 +6,7 @@
     <meta name="description" content="Explore evidence, actors, use cases, and theses shaping the AI-agent economy.">
     <title>Agentic Evolution Navigator</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23faf8f5' stroke='%23a54f0c' stroke-width='4'/%3E%3Cpath d='M18 39 30 17h4l12 22h-7l-2-5H27l-2 5Zm12-11h5l-2.5-6Z' fill='%23743506'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css?v=20260722-dynamic">
+    <link rel="stylesheet" href="styles.css?v=20260722-interactions">
   </head>
   <body>
     <a class="skip-link" href="#graph-panel">Skip to graph</a>
@@ -53,25 +53,7 @@
           <button id="find-path" class="primary-button" type="button">Trace connection</button>
           <p id="path-status" class="status-text" aria-live="polite">Uses typed relations, excluding generic references.</p>
 
-          <div class="example-paths" aria-label="Example graph paths">
-            <p>Examples to try</p>
-            <button type="button" data-path-from="BBVA" data-path-to="Trust infrastructure monetizes before full autonomy">
-              <strong>Payments → trust</strong>
-              <span class="example-description">How a live payment reaches the trust thesis</span>
-            </button>
-            <button type="button" data-path-from="SuccessKPI" data-path-to="Incumbent platforms are the distribution channel">
-              <strong>Enterprise distribution</strong>
-              <span class="example-description">How a partner reaches the platform thesis</span>
-            </button>
-            <button type="button" data-path-from="DataDome reports 45 percent Q2 agent-traffic growth" data-path-to="Agent-originated traffic is becoming an addressable market">
-              <strong>Traffic metric tension</strong>
-              <span class="example-description">Follow evidence that both informs and qualifies</span>
-            </button>
-            <button type="button" data-path-from="Google" data-path-to="Agent payments are moving from protocol to production">
-              <strong>Protocol backing</strong>
-              <span class="example-description">Connect an institution to the payments thesis</span>
-            </button>
-          </div>
+          <div id="view-examples" class="example-paths" aria-label="Examples for the current graph view"></div>
         </div>
 
         <footer class="sidebar-footer">
@@ -141,7 +123,7 @@
         <article id="detail-content" hidden></article>
       </aside>
     </div>
-    <script src="graph-layouts.js?v=20260722-dynamic"></script>
-    <script src="app.js?v=20260722-dynamic"></script>
+    <script src="graph-layouts.js?v=20260722-interactions"></script>
+    <script src="app.js?v=20260722-interactions"></script>
   </body>
 </html>

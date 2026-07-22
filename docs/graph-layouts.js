@@ -306,7 +306,7 @@
     });
     var positions = new Map();
     var left = 90;
-    var right = Math.max(left + 1, width - 120);
+    var right = Math.max(left + 1, width - 250);
     var availableHeight = Math.max(320, height - 108);
     var maxRows = Math.max(8, Math.floor(availableHeight / 34));
 

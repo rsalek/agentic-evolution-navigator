@@ -15,6 +15,43 @@ const VIEW_COPY = {
   layers: "Read the evidence flow from entities to events, concepts, and theses.",
 };
 
+const HIDDEN_PUBLIC_NODE_IDS = new Set(["index-home"]);
+
+const VIEW_EXAMPLES = {
+  overview: {
+    label: "Evidence paths",
+    items: [
+      { title: "Production → bounded adoption", description: "Connect a scaled deployment to the bounded-service thesis", action: "path", from: "C Spire scales agent email triage", to: "Scaled agent adoption concentrates in bounded service operations" },
+      { title: "Payments → trust", description: "Follow a production payment into the trust layer", action: "path", from: "BBVA and Visa complete agent-initiated payment", to: "Trust infrastructure monetizes before full autonomy" },
+      { title: "Traffic → market", description: "Trace measured agent traffic to its economic thesis", action: "path", from: "DataDome reports 45 percent Q2 agent-traffic growth", to: "Agent-originated traffic is becoming an addressable market" },
+    ],
+  },
+  focus: {
+    label: "Connected hubs",
+    items: [
+      { title: "ServiceNow ecosystem", description: "Explore the most cross-connected enterprise platform", action: "focus", node: "ServiceNow" },
+      { title: "Trust and governance", description: "Open the graph's broadest control mechanism", action: "focus", node: "Agent Trust and Governance" },
+      { title: "Mastercard network", description: "Follow the payment network and its production events", action: "focus", node: "Mastercard" },
+    ],
+  },
+  clusters: {
+    label: "Community anchors",
+    items: [
+      { title: "ServiceNow", description: "Highlight its enterprise-workflow community", action: "select", node: "ServiceNow" },
+      { title: "Agent trust", description: "Highlight the security and governance community", action: "select", node: "Agent Trust and Governance" },
+      { title: "Agent payments", description: "Highlight the payments and protocol community", action: "select", node: "Agentic Payments" },
+    ],
+  },
+  layers: {
+    label: "Evidence chains",
+    items: [
+      { title: "Platform distribution", description: "Read ServiceNow across entity, event, concept, and thesis", action: "path", from: "ServiceNow", to: "Incumbent platforms are the distribution channel" },
+      { title: "Payments production", description: "Read Mastercard across the payment evidence chain", action: "path", from: "Mastercard", to: "Agent payments are moving from protocol to production" },
+      { title: "Traffic economics", description: "Read DataDome across measurement and monetization", action: "path", from: "DataDome", to: "Agent-originated traffic is becoming an addressable market" },
+    ],
+  },
+};
+
 const state = {
   graph: null,
   nodeById: new Map(),
@@ -456,7 +493,7 @@ function renderPositions() {
       const hub = state.nodeById.get(state.focusId);
       labelOnLeft = Boolean(hub && node.id !== hub.id && node.x < hub.x);
     } else if (state.viewMode === "layers") {
-      labelOnLeft = node.x > state.width * 0.78;
+      labelOnLeft = false;
     } else {
       labelOnLeft = node.x > state.width * 0.68;
     }
@@ -741,8 +778,10 @@ function renderCounts() {
     const target = document.querySelector("#count-" + entry[0]);
     if (target) target.textContent = entry[1];
   });
+  const indexFilter = document.querySelector('.filter-list input[value="index"]')?.closest("label");
+  if (indexFilter) indexFilter.hidden = !counts.index;
   document.querySelector("#graph-stats").textContent =
-    state.graph.nodeCount + " nodes · " + state.graph.edgeCount + " links";
+    state.graph.nodes.length + " nodes · " + state.graph.edges.length + " links";
   document.querySelector("#node-titles").innerHTML = state.graph.nodes
     .filter(function selectableTitle(node) {
       return !["system"].includes(node.type);
@@ -882,8 +921,9 @@ function fitVisibleNodes() {
     return;
   }
   const rect = svg.getBoundingClientRect();
-  const minX = Math.min.apply(null, nodes.map(function x(node) { return node.x - nodeRadius(node) - 125; }));
-  const maxX = Math.max.apply(null, nodes.map(function x(node) { return node.x + nodeRadius(node) + 125; }));
+  const horizontalLabelRoom = state.viewMode === "layers" ? 190 : 145;
+  const minX = Math.min.apply(null, nodes.map(function x(node) { return node.x - nodeRadius(node) - horizontalLabelRoom; }));
+  const maxX = Math.max.apply(null, nodes.map(function x(node) { return node.x + nodeRadius(node) + horizontalLabelRoom; }));
   const minY = Math.min.apply(null, nodes.map(function y(node) { return node.y - nodeRadius(node) - 24; }));
   const maxY = Math.max.apply(null, nodes.map(function y(node) { return node.y + nodeRadius(node) + 24; }));
   const contentWidth = Math.max(maxX - minX, 1);
@@ -897,6 +937,38 @@ function fitVisibleNodes() {
   state.transform.x = rect.width / 2 - (minX + maxX) / 2 * scale;
   state.transform.y = rect.height / 2 - (minY + maxY) / 2 * scale;
   applyTransform();
+}
+
+function renderViewExamples() {
+  const group = VIEW_EXAMPLES[state.viewMode] || VIEW_EXAMPLES.overview;
+  const container = document.querySelector("#view-examples");
+  container.innerHTML = "<p>Examples to try · " + escapeHtml(group.label) + "</p>" + group.items.map(function exampleButton(item) {
+    return '<button type="button" data-example-action="' + escapeHtml(item.action) + '"' +
+      (item.node ? ' data-example-node="' + escapeHtml(item.node) + '"' : "") +
+      (item.from ? ' data-path-from="' + escapeHtml(item.from) + '"' : "") +
+      (item.to ? ' data-path-to="' + escapeHtml(item.to) + '"' : "") +
+      "><strong>" + escapeHtml(item.title) + '</strong><span class="example-description">' +
+      escapeHtml(item.description) + "</span></button>";
+  }).join("");
+}
+
+function activateViewExample(button) {
+  const action = button.dataset.exampleAction;
+  if (action === "path") {
+    document.querySelector("#path-from").value = button.dataset.pathFrom;
+    document.querySelector("#path-to").value = button.dataset.pathTo;
+    tracePath();
+    return;
+  }
+  const node = resolveTitle(button.dataset.exampleNode || "");
+  if (!node) return;
+  if (action === "focus") {
+    state.selectedId = node.id;
+    state.focusId = node.id;
+    setViewMode("focus");
+  } else {
+    selectNode(node.id, false);
+  }
 }
 
 function changeZoom(factor, origin) {
@@ -1029,6 +1101,13 @@ function installNodeDrag(element, node) {
   let drag = null;
   element.addEventListener("pointerdown", function startDrag(event) {
     event.stopPropagation();
+    if (state.viewMode !== "focus") {
+      state.selectedId = node.id;
+      state.keyboardNodeId = node.id;
+      updateVisibility();
+      updateHighlights();
+      renderDetails(node);
+    }
     drag = { x: event.clientX, y: event.clientY, nx: node.x, ny: node.y, moved: false };
     state.draggingId = node.id;
     nodeLayer.append(element);
@@ -1100,7 +1179,8 @@ function renderClusterGuides(result) {
     const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
     label.classList.add("cluster-label");
     label.setAttribute("x", group.x);
-    label.setAttribute("y", group.y - group.radius + 17);
+    const labelAbove = group.y <= state.height / 2;
+    label.setAttribute("y", labelAbove ? group.y - group.radius - 18 : group.y + group.radius + 18);
     const title = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
     const clusterLead = group.label.length > 30 ? group.label.slice(0, 28) + "…" : group.label;
     title.textContent = clusterLead;
@@ -1158,12 +1238,12 @@ function updateFocusStatus() {
   focusStatus.textContent = message;
   viewStatus.textContent = message;
   const back = document.querySelector("#focus-back");
-  back.disabled = state.focusHistory.length === 0;
+  back.disabled = false;
   back.setAttribute(
     "aria-label",
     state.focusHistory.length
       ? "Back to " + state.nodeById.get(state.focusHistory.at(-1)).title
-      : "No previous focus node"
+      : "Back to Overview"
   );
 }
 
@@ -1177,6 +1257,7 @@ function updateViewControls() {
   const focusMode = state.viewMode === "focus";
   focusControls.hidden = !focusMode;
   viewStatus.hidden = focusMode;
+  renderViewExamples();
 }
 
 function applyCurrentLayout(shouldFit) {
@@ -1347,17 +1428,17 @@ function bindControls() {
     });
   });
   document.querySelector("#focus-back").addEventListener("click", function backFocus() {
-    if (!state.focusHistory.length) return;
-    navigateFocus(state.focusHistory.pop(), false);
-    focusNodeElement(state.focusId);
+    if (state.focusHistory.length) {
+      navigateFocus(state.focusHistory.pop(), false);
+      focusNodeElement(state.focusId);
+    } else {
+      setViewMode("overview");
+    }
   });
   document.querySelector("#find-path").addEventListener("click", tracePath);
-  document.querySelectorAll("[data-path-from][data-path-to]").forEach(function bindExample(button) {
-    button.addEventListener("click", function examplePath() {
-      document.querySelector("#path-from").value = button.dataset.pathFrom;
-      document.querySelector("#path-to").value = button.dataset.pathTo;
-      tracePath();
-    });
+  document.querySelector("#view-examples").addEventListener("click", function chooseExample(event) {
+    const button = event.target.closest("[data-example-action]");
+    if (button) activateViewExample(button);
   });
   document.querySelector("#swap-path").addEventListener("click", function swapPath() {
     const from = document.querySelector("#path-from");
@@ -1410,6 +1491,13 @@ async function initialize() {
     const response = await fetch("graph.json", { cache: "no-store" });
     if (!response.ok) throw new Error("HTTP " + response.status);
     state.graph = await response.json();
+    state.graph.nodes = state.graph.nodes.filter(function publicNode(node) {
+      return !HIDDEN_PUBLIC_NODE_IDS.has(node.id);
+    });
+    const publicNodeIds = new Set(state.graph.nodes.map(function publicNodeId(node) { return node.id; }));
+    state.graph.edges = state.graph.edges.filter(function publicEdge(edge) {
+      return publicNodeIds.has(edge.source) && publicNodeIds.has(edge.target);
+    });
     buildIndexes();
     initializePositions();
     createGraphElements();
