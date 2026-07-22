@@ -347,6 +347,7 @@ h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp
 .edge { stroke: #bdb5ac; stroke-width: 1; opacity: .47; vector-effect: non-scaling-stroke; }
 .edge.reference { stroke-dasharray: 2 4; opacity: .18; }
 .edge.path { stroke: var(--primary); stroke-width: 2.5; opacity: 1; }
+.edge.dimmed { opacity: .025 !important; }
 .edge.focus-edge { stroke: #8d8176; stroke-width: 1.35; opacity: .78; }
 .edge.focus-context-edge { opacity: .09; }
 .edge.layer-edge { opacity: .07; }
@@ -367,6 +368,7 @@ h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp
 }
 
 .edge-label.visible { display: block; }
+.edge-label.dimmed { opacity: .08; }
 
 .node { cursor: pointer; }
 .node circle { stroke: #fff; stroke-width: 2; vector-effect: non-scaling-stroke; transition: r .12s ease; }

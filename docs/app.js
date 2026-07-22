@@ -252,11 +252,7 @@ function createGraphElements() {
 
     group.addEventListener("click", function handleNodeClick(event) {
       event.stopPropagation();
-      if (node.wasDragged) {
-        node.wasDragged = false;
-        return;
-      }
-      activateNode(node.id);
+      if (event.detail === 0) activateNode(node.id);
     });
     group.addEventListener("pointerenter", function raiseHoveredNode() {
       nodeLayer.append(group);
@@ -582,7 +578,13 @@ function updateHighlights() {
     node.element.classList.toggle("dimmed", Boolean(pathDimmed || searchDimmed));
   });
   state.graph.edges.forEach(function highlightEdge(edge) {
-    edge.element.classList.toggle("path", state.pathEdges.has(edgeKey(edge)));
+    const pathActive = state.pathNodes.size > 0;
+    const onPath = state.pathEdges.has(edgeKey(edge));
+    edge.element.classList.toggle("path", onPath);
+    edge.element.classList.toggle("dimmed", pathActive && !onPath);
+    if (edge.labelElement) {
+      edge.labelElement.classList.toggle("dimmed", pathActive && !onPath);
+    }
   });
   document.querySelectorAll(".timeline-item").forEach(function highlightTimelineItem(item) {
     item.classList.toggle("selected", item.dataset.id === state.selectedId);
@@ -1101,13 +1103,11 @@ function installNodeDrag(element, node) {
   let drag = null;
   element.addEventListener("pointerdown", function startDrag(event) {
     event.stopPropagation();
-    if (state.viewMode !== "focus") {
-      state.selectedId = node.id;
-      state.keyboardNodeId = node.id;
-      updateVisibility();
-      updateHighlights();
-      renderDetails(node);
-    }
+    state.selectedId = node.id;
+    state.keyboardNodeId = node.id;
+    updateVisibility();
+    updateHighlights();
+    renderDetails(node);
     drag = { x: event.clientX, y: event.clientY, nx: node.x, ny: node.y, moved: false };
     state.draggingId = node.id;
     nodeLayer.append(element);
@@ -1127,16 +1127,17 @@ function installNodeDrag(element, node) {
   });
   window.addEventListener("pointerup", function endDrag(event) {
     if (!drag) return;
-    if (drag?.moved) {
+    const moved = drag.moved;
+    if (moved) {
       event.stopPropagation();
-      node.wasDragged = true;
       if (state.viewMode !== "overview") {
         state.layoutTargets.set(node.id, constrainedDropTarget(node));
       }
     }
     state.draggingId = null;
     drag = null;
-    simulate(100);
+    if (moved) simulate(100);
+    else activateNode(node.id);
   });
   window.addEventListener("pointercancel", function cancelDrag() {
     if (!drag) return;
