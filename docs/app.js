@@ -8,43 +8,90 @@ const TYPE_COLORS = {
   query: "#287095",
 };
 
+const VIEW_COPY = {
+  overview: "All visible nodes in one network.",
+  focus: "Explore one node and its nearest connections.",
+  clusters: "Group nodes by the connections they share.",
+  layers: "Read the evidence flow from entities to events, concepts, and theses.",
+};
+
 const state = {
   graph: null,
   nodeById: new Map(),
   adjacency: new Map(),
-  visibleTypes: new Set(["event", "entity", "concept", "thesis", "index"]),
+  visibleTypes: new Set(["event", "entity", "concept", "thesis", "query", "index"]),
   selectedId: null,
+  keyboardNodeId: null,
   pathNodes: new Set(),
   pathEdges: new Set(),
+  searchMatches: null,
   transform: { x: 0, y: 0, scale: 1 },
   width: 0,
   height: 0,
+  viewMode: "overview",
+  viewNodeIds: null,
+  focusId: null,
+  focusHops: 2,
+  focusHistory: [],
+  focusLevels: new Map(),
+  focusTreePairs: new Set(),
+  communityByNode: new Map(),
+  layoutRun: 0,
 };
 
 const svg = document.querySelector("#graph");
 const viewport = document.querySelector("#viewport");
-const nodeLayer = document.querySelector("#nodes");
+const guideLayer = document.querySelector("#layout-guides");
 const edgeLayer = document.querySelector("#edges");
+const edgeLabelLayer = document.querySelector("#edge-labels");
+const nodeLayer = document.querySelector("#nodes");
 const detailEmpty = document.querySelector("#detail-empty");
 const detailContent = document.querySelector("#detail-content");
+const focusControls = document.querySelector("#focus-controls");
+const focusStatus = document.querySelector("#focus-status");
+const viewStatus = document.querySelector("#view-status");
+const graphKey = document.querySelector("#graph-key");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>'"]/g, char => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
-  })[char]);
+  return String(value == null ? "" : value).replace(/[&<>'"]/g, function replaceCharacter(char) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "'": "&#39;",
+      '"': "&quot;",
+    }[char];
+  });
 }
 
 function edgeKey(edge) {
-  return `${edge.source}|${edge.type}|${edge.target}`;
+  return edge.source + "|" + edge.type + "|" + edge.target;
 }
 
-function isVisible(node) {
+function isTypeVisible(node) {
   return state.visibleTypes.has(node.type);
 }
 
-function relatedEdges(nodeId, includeReferences = true) {
+function isVisible(node) {
+  return isTypeVisible(node) && (!state.viewNodeIds || state.viewNodeIds.has(node.id));
+}
+
+function relatedEdges(nodeId, includeReferences) {
   const edges = state.adjacency.get(nodeId) || [];
-  return includeReferences ? edges : edges.filter(edge => edge.type !== "references");
+  return includeReferences === false ? edges.filter(function typedOnly(edge) {
+    return edge.type !== "references";
+  }) : edges;
+}
+
+function typedRelationshipCount(nodeId) {
+  return relatedEdges(nodeId, false).length;
+}
+
+function uniqueTypedNeighborCount(nodeId) {
+  return new Set(relatedEdges(nodeId, false).map(function toOtherId(edge) {
+    return otherEnd(edge, nodeId);
+  })).size;
 }
 
 function otherEnd(edge, nodeId) {
@@ -52,29 +99,48 @@ function otherEnd(edge, nodeId) {
 }
 
 function buildIndexes() {
-  state.nodeById = new Map(state.graph.nodes.map(node => [node.id, node]));
-  state.adjacency = new Map(state.graph.nodes.map(node => [node.id, []]));
-  state.graph.edges.forEach(edge => {
+  state.nodeById = new Map(state.graph.nodes.map(function indexNode(node) {
+    return [node.id, node];
+  }));
+  state.adjacency = new Map(state.graph.nodes.map(function seedAdjacency(node) {
+    return [node.id, []];
+  }));
+  const parallelGroups = new Map();
+  state.graph.edges.forEach(function indexEdge(edge) {
     state.adjacency.get(edge.source)?.push(edge);
     state.adjacency.get(edge.target)?.push(edge);
+    const pair = [edge.source, edge.target].sort().join("|");
+    if (!parallelGroups.has(pair)) parallelGroups.set(pair, []);
+    parallelGroups.get(pair).push(edge);
+  });
+  parallelGroups.forEach(function numberParallelEdges(edges) {
+    edges.forEach(function assignParallelPosition(edge, index) {
+      edge.parallelIndex = index;
+      edge.parallelCount = edges.length;
+    });
   });
 }
 
 function nodeRadius(node) {
-  const degree = relatedEdges(node.id, false).length;
-  return node.type === "thesis" ? 9 + Math.min(degree, 7) : 6 + Math.min(degree * .65, 6);
+  const degree = uniqueTypedNeighborCount(node.id);
+  return 6 + Math.min(12, Math.sqrt(Math.max(degree, 1)) * 2.35);
 }
 
-function initializePositions() {
+function updateCanvasSize() {
   const rect = svg.getBoundingClientRect();
   state.width = Math.max(rect.width, 600);
   state.height = Math.max(rect.height, 400);
+}
+
+function initializePositions() {
+  updateCanvasSize();
   const cx = state.width / 2;
   const cy = state.height / 2;
-  const count = state.graph.nodes.length;
-  state.graph.nodes.forEach((node, index) => {
-    const angle = (index / count) * Math.PI * 2 + (index % 3) * .3;
-    const ring = 85 + (index % 7) * 24;
+  const nodes = state.graph.nodes.filter(isTypeVisible);
+  const count = Math.max(nodes.length, 1);
+  nodes.forEach(function positionNode(node, index) {
+    const angle = index / count * Math.PI * 2 + index % 3 * 0.3;
+    const ring = 86 + index % 8 * 27;
     node.x = cx + Math.cos(angle) * ring;
     node.y = cy + Math.sin(angle) * ring;
     node.vx = 0;
@@ -84,71 +150,110 @@ function initializePositions() {
 
 function createGraphElements() {
   edgeLayer.replaceChildren();
+  edgeLabelLayer.replaceChildren();
   nodeLayer.replaceChildren();
 
-  state.graph.edges.forEach(edge => {
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.classList.add("edge");
-    if (edge.type === "references") line.classList.add("reference");
-    line.dataset.key = edgeKey(edge);
-    line.dataset.source = edge.source;
-    line.dataset.target = edge.target;
-    edge.element = line;
-    edgeLayer.append(line);
+  state.graph.edges.forEach(function createEdge(edge) {
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.classList.add("edge");
+    if (edge.type === "references") path.classList.add("reference");
+    path.dataset.key = edgeKey(edge);
+    path.dataset.source = edge.source;
+    path.dataset.target = edge.target;
+    edge.element = path;
+    edgeLayer.append(path);
+
+    if (edge.type !== "references") {
+      const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      label.classList.add("edge-label");
+      label.textContent = edge.type;
+      edge.labelElement = label;
+      edgeLabelLayer.append(label);
+    }
   });
 
-  state.graph.nodes.forEach(node => {
+  state.graph.nodes.forEach(function createNode(node) {
+    const degree = typedRelationshipCount(node.id);
+    const uniqueNeighbors = uniqueTypedNeighborCount(node.id);
     const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
     group.classList.add("node");
     group.dataset.id = node.id;
     group.setAttribute("role", "button");
-    group.setAttribute("tabindex", "0");
-    group.setAttribute("aria-label", `${node.title}, ${node.type}`);
+    group.setAttribute("tabindex", "-1");
+    group.setAttribute(
+      "aria-label",
+      node.title + ", " + node.type + ", " + uniqueNeighbors + " connected nodes, " + degree + " typed relationships"
+    );
+
+    const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+    title.textContent = node.title + " · " + degree + " typed relationships";
+    group.append(title);
 
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.setAttribute("r", nodeRadius(node));
     circle.setAttribute("fill", TYPE_COLORS[node.type] || TYPE_COLORS.system);
     group.append(circle);
 
+    const count = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    count.classList.add("node-count");
+    count.setAttribute("x", "0");
+    count.setAttribute("y", "2.7");
+    count.textContent = degree;
+    group.append(count);
+
     const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    label.classList.add("node-title");
     label.setAttribute("x", nodeRadius(node) + 5);
     label.setAttribute("y", "3.5");
-    label.textContent = node.title.length > 36 ? `${node.title.slice(0, 34)}…` : node.title;
+    const shortTitle = node.title.length > 30 ? node.title.slice(0, 28) + "…" : node.title;
+    label.textContent = shortTitle + " · " + degree;
     group.append(label);
 
-    group.addEventListener("click", event => {
+    group.addEventListener("click", function handleNodeClick(event) {
       event.stopPropagation();
-      selectNode(node.id);
+      activateNode(node.id);
     });
-    group.addEventListener("keydown", event => {
+    group.addEventListener("keydown", function handleNodeKey(event) {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        selectNode(node.id);
+        activateNode(node.id);
+      } else if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) {
+        event.preventDefault();
+        moveNodeFocus(node.id, event.key);
+      } else if (event.key === "Escape" && state.viewMode === "focus" && state.focusId) {
+        event.preventDefault();
+        focusNodeElement(state.focusId);
       }
     });
     installNodeDrag(group, node);
     node.element = group;
+    node.circle = circle;
     nodeLayer.append(group);
   });
 }
 
-function simulate(iterations = 190) {
-  const nodes = state.graph.nodes.filter(node => node.type !== "system");
+function simulate(iterations) {
+  const run = ++state.layoutRun;
+  const totalIterations = reducedMotion.matches ? 1 : (iterations || 190);
+  const nodes = state.graph.nodes.filter(function simulatedNode(node) {
+    return isTypeVisible(node) && node.type !== "system";
+  });
   const cx = state.width / 2;
   const cy = state.height / 2;
   let tick = 0;
 
   function step() {
-    const alpha = 1 - tick / iterations;
+    if (run !== state.layoutRun || state.viewMode !== "overview") return;
+    const alpha = 1 - tick / totalIterations;
     for (let i = 0; i < nodes.length; i += 1) {
       for (let j = i + 1; j < nodes.length; j += 1) {
         const a = nodes[i];
         const b = nodes[j];
         let dx = b.x - a.x;
         let dy = b.y - a.y;
-        const distance2 = Math.max(dx * dx + dy * dy, 80);
+        const distance2 = Math.max(dx * dx + dy * dy, 90);
         const distance = Math.sqrt(distance2);
-        const force = (340 / distance2) * alpha;
+        const force = 390 / distance2 * alpha;
         dx /= distance;
         dy /= distance;
         a.vx -= dx * force;
@@ -158,151 +263,364 @@ function simulate(iterations = 190) {
       }
     }
 
-    state.graph.edges.forEach(edge => {
+    state.graph.edges.forEach(function applyEdgeForce(edge) {
       if (edge.type === "references") return;
       const a = state.nodeById.get(edge.source);
       const b = state.nodeById.get(edge.target);
+      if (!a || !b || !isTypeVisible(a) || !isTypeVisible(b)) return;
       const dx = b.x - a.x;
       const dy = b.y - a.y;
       const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
-      const desired = 88 + (a.type === "thesis" || b.type === "thesis" ? 18 : 0);
-      const force = (distance - desired) * .0028 * alpha;
-      a.vx += (dx / distance) * force;
-      a.vy += (dy / distance) * force;
-      b.vx -= (dx / distance) * force;
-      b.vy -= (dy / distance) * force;
+      const desired = 100 + (a.type === "thesis" || b.type === "thesis" ? 18 : 0);
+      const force = (distance - desired) * 0.0026 * alpha;
+      a.vx += dx / distance * force;
+      a.vy += dy / distance * force;
+      b.vx -= dx / distance * force;
+      b.vy -= dy / distance * force;
     });
 
-    nodes.forEach(node => {
-      node.vx += (cx - node.x) * .0006 * alpha;
-      node.vy += (cy - node.y) * .0006 * alpha;
-      node.vx *= .88;
-      node.vy *= .88;
+    nodes.forEach(function moveNode(node) {
+      node.vx += (cx - node.x) * 0.00055 * alpha;
+      node.vy += (cy - node.y) * 0.00055 * alpha;
+      node.vx *= 0.88;
+      node.vy *= 0.88;
       node.x += node.vx;
       node.y += node.vy;
     });
     renderPositions();
     tick += 1;
-    if (tick < iterations) requestAnimationFrame(step);
+    if (tick < totalIterations) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
 
+function edgeGeometry(edge, source, target) {
+  const dx = target.x - source.x;
+  const dy = target.y - source.y;
+  const length = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
+  const normalX = -dy / length;
+  const normalY = dx / length;
+  const offset = (edge.parallelIndex - (edge.parallelCount - 1) / 2) * 8;
+
+  if (state.viewMode === "layers") {
+    const controlOne = {
+      x: source.x + dx * 0.42 + normalX * offset,
+      y: source.y + normalY * offset,
+    };
+    const controlTwo = {
+      x: target.x - dx * 0.42 + normalX * offset,
+      y: target.y + normalY * offset,
+    };
+    return {
+      path: "M " + source.x + " " + source.y + " C " +
+        controlOne.x + " " + controlOne.y + ", " +
+        controlTwo.x + " " + controlTwo.y + ", " +
+        target.x + " " + target.y,
+      labelX: (source.x + 3 * controlOne.x + 3 * controlTwo.x + target.x) / 8,
+      labelY: (source.y + 3 * controlOne.y + 3 * controlTwo.y + target.y) / 8,
+    };
+  }
+
+  const control = {
+    x: (source.x + target.x) / 2 + normalX * offset * 1.8,
+    y: (source.y + target.y) / 2 + normalY * offset * 1.8,
+  };
+  return {
+    path: "M " + source.x + " " + source.y + " Q " + control.x + " " + control.y + " " + target.x + " " + target.y,
+    labelX: (source.x + 2 * control.x + target.x) / 4,
+    labelY: (source.y + 2 * control.y + target.y) / 4,
+  };
+}
+
 function renderPositions() {
-  state.graph.edges.forEach(edge => {
+  state.graph.edges.forEach(function positionEdge(edge) {
     const source = state.nodeById.get(edge.source);
     const target = state.nodeById.get(edge.target);
-    edge.element.setAttribute("x1", source.x);
-    edge.element.setAttribute("y1", source.y);
-    edge.element.setAttribute("x2", target.x);
-    edge.element.setAttribute("y2", target.y);
+    if (!source || !target || !Number.isFinite(source.x) || !Number.isFinite(target.x)) return;
+    const geometry = edgeGeometry(edge, source, target);
+    edge.element.setAttribute("d", geometry.path);
+    if (edge.labelElement) {
+      edge.labelElement.setAttribute("x", geometry.labelX);
+      edge.labelElement.setAttribute("y", geometry.labelY - 3);
+    }
   });
-  state.graph.nodes.forEach(node => node.element.setAttribute("transform", `translate(${node.x} ${node.y})`));
+  state.graph.nodes.forEach(function positionNode(node) {
+    if (!Number.isFinite(node.x) || !Number.isFinite(node.y)) return;
+    node.element.setAttribute("transform", "translate(" + node.x + " " + node.y + ")");
+  });
+}
+
+function edgeIsVisible(edge) {
+  const source = state.nodeById.get(edge.source);
+  const target = state.nodeById.get(edge.target);
+  if (!source || !target || !isVisible(source) || !isVisible(target)) return false;
+  if ((state.viewMode === "focus" || state.viewMode === "layers") && edge.type === "references") return false;
+  return true;
+}
+
+function edgePair(edge) {
+  return [edge.source, edge.target].sort().join("|");
 }
 
 function updateVisibility() {
   let visibleCount = 0;
-  state.graph.nodes.forEach(node => {
+  state.graph.nodes.forEach(function toggleNode(node) {
     const visible = isVisible(node);
     node.element.classList.toggle("hidden", !visible);
+    node.element.setAttribute("aria-hidden", visible ? "false" : "true");
     if (visible) visibleCount += 1;
   });
-  state.graph.edges.forEach(edge => {
-    const visible = isVisible(state.nodeById.get(edge.source)) && isVisible(state.nodeById.get(edge.target));
+  state.graph.edges.forEach(function toggleEdge(edge) {
+    const visible = edgeIsVisible(edge);
+    const focusTreeEdge = state.viewMode === "focus" && state.focusTreePairs.has(edgePair(edge));
     edge.element.classList.toggle("hidden", !visible);
+    edge.element.classList.toggle("focus-edge", visible && focusTreeEdge);
+    edge.element.classList.toggle("focus-context-edge", visible && state.viewMode === "focus" && !focusTreeEdge);
+    const selectedLayerEdge = state.viewMode === "layers" && state.selectedId &&
+      (edge.source === state.selectedId || edge.target === state.selectedId);
+    edge.element.classList.toggle("layer-selected-edge", Boolean(visible && selectedLayerEdge));
+    edge.element.classList.toggle(
+      "layer-context-edge",
+      Boolean(visible && state.viewMode === "layers" && state.selectedId && !selectedLayerEdge)
+    );
+    if (edge.labelElement) {
+      edge.labelElement.classList.toggle(
+        "visible",
+        visible && (selectedLayerEdge || focusTreeEdge)
+      );
+    }
+    if (state.viewMode === "clusters" && visible) {
+      const sourceCommunity = state.communityByNode.get(edge.source);
+      const targetCommunity = state.communityByNode.get(edge.target);
+      edge.element.style.opacity = sourceCommunity && targetCommunity && sourceCommunity !== targetCommunity ? "0.13" : "";
+    } else {
+      edge.element.style.opacity = "";
+    }
   });
-  document.querySelector("#empty-state").hidden = visibleCount !== 0;
+  const empty = document.querySelector("#empty-state");
+  empty.hidden = visibleCount !== 0;
+  if (!visibleCount) {
+    empty.textContent = state.viewMode === "focus"
+      ? "No nodes remain in this focus after filtering."
+      : "No nodes match the current filters.";
+  }
+  updateRovingTabIndex();
 }
 
 function updateHighlights() {
-  state.graph.nodes.forEach(node => {
+  state.graph.nodes.forEach(function highlightNode(node) {
+    const pathDimmed = state.pathNodes.size > 0 && !state.pathNodes.has(node.id);
+    const searchDimmed = state.searchMatches && !state.searchMatches.has(node.id);
     node.element.classList.toggle("selected", node.id === state.selectedId);
+    node.element.setAttribute("aria-pressed", node.id === state.selectedId ? "true" : "false");
     node.element.classList.toggle("path", state.pathNodes.has(node.id));
-    node.element.classList.toggle("dimmed", state.pathNodes.size > 0 && !state.pathNodes.has(node.id));
+    node.element.classList.toggle("dimmed", Boolean(pathDimmed || searchDimmed));
   });
-  state.graph.edges.forEach(edge => edge.element.classList.toggle("path", state.pathEdges.has(edgeKey(edge))));
-  document.querySelectorAll(".timeline-item").forEach(item => item.classList.toggle("selected", item.dataset.id === state.selectedId));
+  state.graph.edges.forEach(function highlightEdge(edge) {
+    edge.element.classList.toggle("path", state.pathEdges.has(edgeKey(edge)));
+  });
+  document.querySelectorAll(".timeline-item").forEach(function highlightTimelineItem(item) {
+    item.classList.toggle("selected", item.dataset.id === state.selectedId);
+  });
 }
 
-function selectNode(nodeId, center = true) {
+function visibleNodes() {
+  return state.graph.nodes.filter(isVisible);
+}
+
+function updateRovingTabIndex() {
+  const visible = visibleNodes();
+  const visibleIds = new Set(visible.map(function toId(node) { return node.id; }));
+  let activeId = state.keyboardNodeId;
+  if (!visibleIds.has(activeId)) {
+    activeId = [state.selectedId, state.focusId].find(function visibleCandidate(id) {
+      return visibleIds.has(id);
+    }) || (visible[0] && visible[0].id);
+  }
+  state.keyboardNodeId = activeId || null;
+  state.graph.nodes.forEach(function setTabIndex(node) {
+    node.element.setAttribute("tabindex", node.id === activeId ? "0" : "-1");
+  });
+}
+
+function focusNodeElement(nodeId) {
+  const node = state.nodeById.get(nodeId);
+  if (!node || !isVisible(node)) return;
+  state.keyboardNodeId = nodeId;
+  updateRovingTabIndex();
+  node.element.focus();
+}
+
+function moveNodeFocus(currentId, key) {
+  const current = state.nodeById.get(currentId);
+  if (!current) return;
+  const direction = {
+    ArrowLeft: { x: -1, y: 0 },
+    ArrowRight: { x: 1, y: 0 },
+    ArrowUp: { x: 0, y: -1 },
+    ArrowDown: { x: 0, y: 1 },
+  }[key];
+  const candidates = visibleNodes().filter(function directionalCandidate(node) {
+    if (node.id === currentId) return false;
+    const dx = node.x - current.x;
+    const dy = node.y - current.y;
+    return dx * direction.x + dy * direction.y > 3;
+  }).map(function scoreCandidate(node) {
+    const dx = node.x - current.x;
+    const dy = node.y - current.y;
+    const forward = dx * direction.x + dy * direction.y;
+    const sideways = Math.abs(dx * direction.y - dy * direction.x);
+    return { node: node, score: forward + sideways * 1.65 };
+  }).sort(function nearestDirection(a, b) {
+    return a.score - b.score;
+  });
+  if (candidates.length) focusNodeElement(candidates[0].node.id);
+}
+
+function activateNode(nodeId) {
+  if (state.viewMode === "focus" && nodeId !== state.focusId) {
+    navigateFocus(nodeId, true);
+  } else {
+    selectNode(nodeId, true);
+  }
+}
+
+function selectNode(nodeId, center) {
   const node = state.nodeById.get(nodeId);
   if (!node) return;
   state.selectedId = nodeId;
+  state.keyboardNodeId = nodeId;
   state.visibleTypes.add(node.type);
-  const checkbox = document.querySelector(`.filter-list input[value="${node.type}"]`);
+  const checkbox = document.querySelector('.filter-list input[value="' + node.type + '"]');
   if (checkbox) checkbox.checked = true;
   updateVisibility();
   updateHighlights();
   renderDetails(node);
-  if (center) centerNode(node);
+  if (state.viewMode === "layers") {
+    graphKey.textContent = "Entities → events → concepts → theses · labels show the selected node's relations";
+  }
+  if (center !== false) centerNode(node);
+}
+
+function navigateFocus(nodeId, pushHistory) {
+  const node = state.nodeById.get(nodeId);
+  if (!node) return;
+  if (pushHistory && state.focusId && state.focusId !== nodeId) state.focusHistory.push(state.focusId);
+  state.focusId = nodeId;
+  state.selectedId = nodeId;
+  state.keyboardNodeId = nodeId;
+  state.visibleTypes.add(node.type);
+  const checkbox = document.querySelector('.filter-list input[value="' + node.type + '"]');
+  if (checkbox) checkbox.checked = true;
+  renderDetails(node);
+  applyCurrentLayout(true);
 }
 
 function renderDetails(node) {
   detailEmpty.hidden = true;
   detailContent.hidden = false;
-  const metadata = Object.entries(node.metadata || {}).filter(([key]) => !["updated", "status"].includes(key));
-  const relations = relatedEdges(node.id, false)
-    .map(edge => ({ edge, node: state.nodeById.get(otherEnd(edge, node.id)) }))
-    .filter(item => item.node)
-    .sort((a, b) => a.edge.type.localeCompare(b.edge.type) || a.node.title.localeCompare(b.node.title));
-  const evidence = node.evidence || [];
-
-  detailContent.innerHTML = `
-    <div class="type-badge"><span class="dot ${escapeHtml(node.type)}"></span>${escapeHtml(node.type)}</div>
-    <h2 class="detail-title">${escapeHtml(node.title)}</h2>
-    <p class="detail-summary">${escapeHtml(node.summary || "No summary has been written yet.")}</p>
-    ${metadata.length ? `<dl class="meta-grid">${metadata.map(([key, value]) => `<div class="meta-item"><dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>` : ""}
-    <section class="detail-section">
-      <h3>Typed relationships · ${relations.length}</h3>
-      <ul class="relation-list">${relations.length ? relations.map(({ edge, node: related }) => {
-        const direction = edge.source === node.id ? "→" : "←";
-        return `<li><button class="relation-button" data-node-id="${escapeHtml(related.id)}"><small>${direction} ${escapeHtml(edge.type)}</small><br>${escapeHtml(related.title)}</button></li>`;
-      }).join("") : "<li>No typed relationships.</li>"}</ul>
-    </section>
-    ${evidence.length ? `<section class="detail-section"><h3>Evidence · ${evidence.length}</h3><ul class="evidence-list">${evidence.map(item => `<li><a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.label)}</a></li>`).join("")}</ul></section>` : ""}
-    <div class="note-path">Obsidian note: ${escapeHtml(node.path)}</div>
-  `;
-
-  detailContent.querySelectorAll("[data-node-id]").forEach(button => {
-    button.addEventListener("click", () => selectNode(button.dataset.nodeId));
+  const metadata = Object.entries(node.metadata || {}).filter(function filterMetadata(entry) {
+    return !["updated", "status"].includes(entry[0]);
   });
+  const relations = relatedEdges(node.id, false)
+    .map(function relationItem(edge) {
+      return { edge: edge, node: state.nodeById.get(otherEnd(edge, node.id)) };
+    })
+    .filter(function hasNode(item) {
+      return Boolean(item.node);
+    })
+    .sort(function sortRelations(a, b) {
+      return a.edge.type.localeCompare(b.edge.type) || a.node.title.localeCompare(b.node.title);
+    });
+  const evidence = node.evidence || [];
+  const uniqueNeighbors = uniqueTypedNeighborCount(node.id);
+
+  let html = '<div class="type-badge"><span class="dot ' + escapeHtml(node.type) + '"></span>' + escapeHtml(node.type) + "</div>";
+  html += '<h2 class="detail-title">' + escapeHtml(node.title) + "</h2>";
+  html += '<p class="connection-summary">' + uniqueNeighbors + " connected nodes · " + relations.length + " typed relationships</p>";
+  html += '<p class="detail-summary">' + escapeHtml(node.summary || "No summary has been written yet.") + "</p>";
+  if (metadata.length) {
+    html += '<dl class="meta-grid">' + metadata.map(function metadataItem(entry) {
+      return '<div class="meta-item"><dt>' + escapeHtml(entry[0]) + "</dt><dd>" + escapeHtml(entry[1]) + "</dd></div>";
+    }).join("") + "</dl>";
+  }
+  html += '<section class="detail-section"><h3>Typed relationships · ' + relations.length + "</h3>";
+  html += '<ul class="relation-list">' + (relations.length ? relations.map(function relationButton(item) {
+    const direction = item.edge.source === node.id ? "→" : "←";
+    return '<li><button class="relation-button" data-node-id="' + escapeHtml(item.node.id) + '"><small>' +
+      direction + " " + escapeHtml(item.edge.type) + "</small><br>" + escapeHtml(item.node.title) + "</button></li>";
+  }).join("") : "<li>No typed relationships.</li>") + "</ul></section>";
+  if (evidence.length) {
+    html += '<section class="detail-section"><h3>Evidence · ' + evidence.length + '</h3><ul class="evidence-list">' +
+      evidence.map(function evidenceLink(item) {
+        return '<li><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' +
+          escapeHtml(item.label) + "</a></li>";
+      }).join("") + "</ul></section>";
+  }
+  html += '<div class="note-path">Obsidian note: ' + escapeHtml(node.path) + "</div>";
+  detailContent.innerHTML = html;
+  detailContent.querySelectorAll("[data-node-id]").forEach(function bindRelation(button) {
+    button.addEventListener("click", function activateRelation() {
+      activateNode(button.dataset.nodeId);
+    });
+  });
+}
+
+function clearDetails() {
+  detailContent.hidden = true;
+  detailContent.replaceChildren();
+  detailEmpty.hidden = false;
 }
 
 function renderTimeline() {
   const events = state.graph.nodes
-    .filter(node => node.type === "event")
-    .sort((a, b) => (a.metadata.date || "").localeCompare(b.metadata.date || ""));
+    .filter(function eventOnly(node) { return node.type === "event"; })
+    .sort(function byDate(a, b) {
+      return (a.metadata.date || "").localeCompare(b.metadata.date || "");
+    });
   const container = document.querySelector("#timeline-items");
-  container.innerHTML = events.map(node => `
-    <button class="timeline-item" type="button" data-id="${escapeHtml(node.id)}">
-      <time datetime="${escapeHtml(node.metadata.date)}">${escapeHtml(formatDate(node.metadata.date))}</time>
-      <strong>${escapeHtml(node.title)}</strong>
-      <span>${escapeHtml(node.metadata.stage || "unknown")} · ${escapeHtml(node.metadata.industry || "general")}</span>
-    </button>
-  `).join("");
-  container.querySelectorAll(".timeline-item").forEach(item => item.addEventListener("click", () => selectNode(item.dataset.id)));
+  container.innerHTML = events.map(function timelineItem(node) {
+    return '<button class="timeline-item" type="button" data-id="' + escapeHtml(node.id) + '">' +
+      '<time datetime="' + escapeHtml(node.metadata.date) + '">' + escapeHtml(formatDate(node.metadata.date)) + "</time>" +
+      "<strong>" + escapeHtml(node.title) + "</strong>" +
+      "<span>" + escapeHtml(node.metadata.stage || "unknown") + " · " + escapeHtml(node.metadata.industry || "general") + "</span>" +
+      "</button>";
+  }).join("");
+  container.querySelectorAll(".timeline-item").forEach(function bindTimeline(item) {
+    item.addEventListener("click", function selectTimelineNode() {
+      activateNode(item.dataset.id);
+    });
+  });
   if (events.length) {
-    document.querySelector("#timeline-range").textContent = `${formatDate(events[0].metadata.date)} — ${formatDate(events.at(-1).metadata.date)}`;
+    document.querySelector("#timeline-range").textContent =
+      formatDate(events[0].metadata.date) + " — " + formatDate(events.at(-1).metadata.date);
   }
 }
 
 function formatDate(value) {
   if (!value) return "Undated";
-  const date = new Date(`${value}T00:00:00`);
+  const date = new Date(value + "T00:00:00");
   return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
 function renderCounts() {
   const counts = {};
-  state.graph.nodes.forEach(node => { counts[node.type] = (counts[node.type] || 0) + 1; });
-  Object.entries(counts).forEach(([type, count]) => {
-    const target = document.querySelector(`#count-${type}`);
-    if (target) target.textContent = count;
+  state.graph.nodes.forEach(function countNode(node) {
+    counts[node.type] = (counts[node.type] || 0) + 1;
   });
-  document.querySelector("#graph-stats").textContent = `${state.graph.nodeCount} nodes · ${state.graph.edgeCount} links`;
+  Object.entries(counts).forEach(function displayCount(entry) {
+    const target = document.querySelector("#count-" + entry[0]);
+    if (target) target.textContent = entry[1];
+  });
+  document.querySelector("#graph-stats").textContent =
+    state.graph.nodeCount + " nodes · " + state.graph.edgeCount + " links";
   document.querySelector("#node-titles").innerHTML = state.graph.nodes
-    .filter(node => !["system", "index"].includes(node.type))
-    .map(node => `<option value="${escapeHtml(node.title)}"></option>`).join("");
+    .filter(function selectableTitle(node) {
+      return !["system"].includes(node.type);
+    })
+    .map(function titleOption(node) {
+      return '<option value="' + escapeHtml(node.title) + '"></option>';
+    }).join("");
 }
 
 function performSearch(query) {
@@ -310,29 +628,44 @@ function performSearch(query) {
   const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
   if (!terms.length) {
     container.replaceChildren();
-    state.graph.nodes.forEach(node => node.element.classList.remove("dimmed"));
+    state.searchMatches = null;
     updateHighlights();
     return;
   }
   const matches = state.graph.nodes
-    .map(node => {
-      const haystack = `${node.title} ${node.summary} ${Object.values(node.metadata || {}).join(" ")}`.toLowerCase();
-      return { node, score: terms.reduce((score, term) => score + (node.title.toLowerCase().includes(term) ? 4 : 0) + (haystack.includes(term) ? 1 : 0), 0) };
+    .map(function scoreNode(node) {
+      const haystack = (node.title + " " + node.summary + " " + Object.values(node.metadata || {}).join(" ")).toLowerCase();
+      const score = terms.reduce(function totalScore(total, term) {
+        return total + (node.title.toLowerCase().includes(term) ? 4 : 0) + (haystack.includes(term) ? 1 : 0);
+      }, 0);
+      return { node: node, score: score };
     })
-    .filter(item => item.score > 0)
-    .sort((a, b) => b.score - a.score || a.node.title.localeCompare(b.node.title))
+    .filter(function positiveScore(item) { return item.score > 0; })
+    .sort(function byScore(a, b) {
+      return b.score - a.score || a.node.title.localeCompare(b.node.title);
+    })
     .slice(0, 7);
-  const ids = new Set(matches.map(item => item.node.id));
-  state.graph.nodes.forEach(node => node.element.classList.toggle("dimmed", !ids.has(node.id)));
+  state.searchMatches = new Set(matches.map(function resultId(item) { return item.node.id; }));
   container.innerHTML = matches.length
-    ? matches.map(({ node }) => `<button class="search-result" type="button" data-node-id="${escapeHtml(node.id)}">${escapeHtml(node.title)}<small>${escapeHtml(node.type)}</small></button>`).join("")
-    : `<p class="status-text">No matching nodes.</p>`;
-  container.querySelectorAll("[data-node-id]").forEach(button => button.addEventListener("click", () => selectNode(button.dataset.nodeId)));
+    ? matches.map(function resultButton(item) {
+      return '<button class="search-result" type="button" data-node-id="' + escapeHtml(item.node.id) + '">' +
+        escapeHtml(item.node.title) + "<small>" + escapeHtml(item.node.type) + " · " +
+        typedRelationshipCount(item.node.id) + " relationships</small></button>";
+    }).join("")
+    : '<p class="status-text">No matching nodes.</p>';
+  container.querySelectorAll("[data-node-id]").forEach(function bindResult(button) {
+    button.addEventListener("click", function activateResult() {
+      activateNode(button.dataset.nodeId);
+    });
+  });
+  updateHighlights();
 }
 
 function resolveTitle(value) {
   const folded = value.trim().toLowerCase();
-  return state.graph.nodes.find(node => node.title.toLowerCase() === folded || node.id.toLowerCase() === folded);
+  return state.graph.nodes.find(function exactTitle(node) {
+    return node.title.toLowerCase() === folded || node.id.toLowerCase() === folded;
+  });
 }
 
 function findPath(startId, goalId) {
@@ -340,13 +673,13 @@ function findPath(startId, goalId) {
   const previous = new Map([[startId, null]]);
   while (queue.length && !previous.has(goalId)) {
     const current = queue.shift();
-    for (const edge of relatedEdges(current, false)) {
+    relatedEdges(current, false).forEach(function visitEdge(edge) {
       const neighbor = otherEnd(edge, current);
       if (!previous.has(neighbor)) {
-        previous.set(neighbor, { prior: current, edge });
+        previous.set(neighbor, { prior: current, edge: edge });
         queue.push(neighbor);
       }
-    }
+    });
   }
   if (!previous.has(goalId)) return null;
   const nodes = [goalId];
@@ -375,17 +708,29 @@ function tracePath() {
   if (!result) {
     status.textContent = "No typed-relation path was found.";
   } else {
-    result.nodes.forEach(id => state.pathNodes.add(id));
-    result.edges.forEach(edge => state.pathEdges.add(edgeKey(edge)));
-    status.textContent = `${result.edges.length} hop${result.edges.length === 1 ? "" : "s"}: ${result.nodes.map(id => state.nodeById.get(id).title).join(" → ")}`;
-    selectNode(end.id);
+    if (state.viewMode === "focus" && result.nodes.some(function outsideFocus(id) {
+      return !state.viewNodeIds.has(id);
+    })) {
+      setViewMode("overview");
+      status.textContent = "Switched to Overview to show the complete path. ";
+    } else {
+      status.textContent = "";
+    }
+    result.nodes.forEach(function markPathNode(id) { state.pathNodes.add(id); });
+    result.edges.forEach(function markPathEdge(edge) { state.pathEdges.add(edgeKey(edge)); });
+    status.textContent += result.edges.length + " hop" + (result.edges.length === 1 ? "" : "s") + ": " +
+      result.nodes.map(function pathTitle(id) { return state.nodeById.get(id).title; }).join(" → ");
+    selectNode(end.id, true);
   }
   updateHighlights();
 }
 
 function applyTransform() {
-  viewport.setAttribute("transform", `translate(${state.transform.x} ${state.transform.y}) scale(${state.transform.scale})`);
-  document.querySelector("#zoom-reset").textContent = `${Math.round(state.transform.scale * 100)}%`;
+  viewport.setAttribute(
+    "transform",
+    "translate(" + state.transform.x + " " + state.transform.y + ") scale(" + state.transform.scale + ")"
+  );
+  document.querySelector("#zoom-reset").textContent = "Fit";
 }
 
 function centerNode(node) {
@@ -395,11 +740,37 @@ function centerNode(node) {
   applyTransform();
 }
 
-function changeZoom(factor, origin = null) {
+function fitVisibleNodes() {
+  const nodes = visibleNodes().filter(function positioned(node) {
+    return Number.isFinite(node.x) && Number.isFinite(node.y);
+  });
+  if (!nodes.length) {
+    resetTransform();
+    return;
+  }
+  const rect = svg.getBoundingClientRect();
+  const minX = Math.min.apply(null, nodes.map(function x(node) { return node.x - nodeRadius(node); }));
+  const maxX = Math.max.apply(null, nodes.map(function x(node) { return node.x + nodeRadius(node) + 110; }));
+  const minY = Math.min.apply(null, nodes.map(function y(node) { return node.y - nodeRadius(node) - 24; }));
+  const maxY = Math.max.apply(null, nodes.map(function y(node) { return node.y + nodeRadius(node) + 24; }));
+  const contentWidth = Math.max(maxX - minX, 1);
+  const contentHeight = Math.max(maxY - minY, 1);
+  const padding = state.viewMode === "focus" ? 62 : 42;
+  const scale = Math.min(
+    1.22,
+    Math.max(0.38, Math.min((rect.width - padding * 2) / contentWidth, (rect.height - padding * 2) / contentHeight))
+  );
+  state.transform.scale = scale;
+  state.transform.x = rect.width / 2 - (minX + maxX) / 2 * scale;
+  state.transform.y = rect.height / 2 - (minY + maxY) / 2 * scale;
+  applyTransform();
+}
+
+function changeZoom(factor, origin) {
   const rect = svg.getBoundingClientRect();
   const point = origin || { x: rect.width / 2, y: rect.height / 2 };
   const oldScale = state.transform.scale;
-  const newScale = Math.min(2.4, Math.max(.38, oldScale * factor));
+  const newScale = Math.min(2.6, Math.max(0.3, oldScale * factor));
   const worldX = (point.x - state.transform.x) / oldScale;
   const worldY = (point.y - state.transform.y) / oldScale;
   state.transform.x = point.x - worldX * newScale;
@@ -410,94 +781,350 @@ function changeZoom(factor, origin = null) {
 
 function installPanAndZoom() {
   let pan = null;
-  svg.addEventListener("pointerdown", event => {
+  svg.addEventListener("pointerdown", function startPan(event) {
     if (event.target.closest?.(".node")) return;
     pan = { x: event.clientX, y: event.clientY, tx: state.transform.x, ty: state.transform.y };
     svg.setPointerCapture(event.pointerId);
   });
-  svg.addEventListener("pointermove", event => {
+  svg.addEventListener("pointermove", function movePan(event) {
     if (!pan) return;
     state.transform.x = pan.tx + event.clientX - pan.x;
     state.transform.y = pan.ty + event.clientY - pan.y;
     applyTransform();
   });
-  svg.addEventListener("pointerup", () => { pan = null; });
-  svg.addEventListener("wheel", event => {
+  svg.addEventListener("pointerup", function endPan() { pan = null; });
+  svg.addEventListener("wheel", function wheelZoom(event) {
     event.preventDefault();
     const rect = svg.getBoundingClientRect();
-    changeZoom(event.deltaY < 0 ? 1.12 : .89, { x: event.clientX - rect.left, y: event.clientY - rect.top });
+    changeZoom(event.deltaY < 0 ? 1.12 : 0.89, {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top,
+    });
   }, { passive: false });
-  svg.addEventListener("click", event => {
+  svg.addEventListener("click", function clearSelection(event) {
+    if (state.viewMode === "focus") return;
     if (event.target === svg || event.target.closest?.("#viewport") === viewport) {
       state.selectedId = null;
+      updateVisibility();
       updateHighlights();
+      clearDetails();
+      if (state.viewMode === "layers") {
+        graphKey.textContent = "Entities → events → concepts → theses · select a node to label its relations";
+      }
     }
   });
 }
 
 function installNodeDrag(element, node) {
   let drag = null;
-  element.addEventListener("pointerdown", event => {
+  element.addEventListener("pointerdown", function startDrag(event) {
+    if (state.viewMode !== "overview") return;
     event.stopPropagation();
     drag = { x: event.clientX, y: event.clientY, nx: node.x, ny: node.y, moved: false };
     element.setPointerCapture(event.pointerId);
   });
-  element.addEventListener("pointermove", event => {
+  element.addEventListener("pointermove", function moveDrag(event) {
     if (!drag) return;
     const dx = (event.clientX - drag.x) / state.transform.scale;
     const dy = (event.clientY - drag.y) / state.transform.scale;
-    drag.moved ||= Math.abs(dx) + Math.abs(dy) > 3;
+    drag.moved = drag.moved || Math.abs(dx) + Math.abs(dy) > 3;
     node.x = drag.nx + dx;
     node.y = drag.ny + dy;
     node.vx = 0;
     node.vy = 0;
     renderPositions();
   });
-  element.addEventListener("pointerup", event => {
+  element.addEventListener("pointerup", function endDrag(event) {
     if (drag?.moved) event.stopPropagation();
     drag = null;
   });
 }
 
+function clearLayoutGuides() {
+  guideLayer.replaceChildren();
+  state.communityByNode.clear();
+  state.graph.nodes.forEach(function clearViewClasses(node) {
+    node.element.classList.remove("focus-hub", "focus-level-2");
+  });
+}
+
+function renderClusterGuides(result) {
+  result.communities.forEach(function mapCommunity(community) {
+    community.nodes.forEach(function mapMember(node) {
+      state.communityByNode.set(node.id, community.id);
+    });
+  });
+  result.groups.forEach(function clusterGuide(group) {
+    const guide = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    const boundary = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    boundary.classList.add("cluster-boundary");
+    boundary.setAttribute("cx", group.x);
+    boundary.setAttribute("cy", group.y);
+    boundary.setAttribute("r", group.radius);
+    guide.append(boundary);
+    const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    label.classList.add("cluster-label");
+    label.setAttribute("x", group.x);
+    label.setAttribute("y", group.y - group.radius + 17);
+    const title = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    const clusterLead = group.label.length > 30 ? group.label.slice(0, 28) + "…" : group.label;
+    title.textContent = "Cluster led by " + clusterLead;
+    title.setAttribute("x", group.x);
+    label.append(title);
+    const count = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    count.classList.add("cluster-label-count");
+    count.setAttribute("x", group.x);
+    count.setAttribute("dy", "12");
+    count.textContent = group.count + " nodes";
+    label.append(count);
+    guide.append(label);
+    guideLayer.append(guide);
+  });
+}
+
+function renderLayerGuides(result) {
+  result.layers.forEach(function layerGuide(layer) {
+    const rule = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    rule.classList.add("layer-rule");
+    rule.setAttribute("x1", layer.x);
+    rule.setAttribute("x2", layer.x);
+    rule.setAttribute("y1", 48);
+    rule.setAttribute("y2", state.height - 20);
+    guideLayer.append(rule);
+    const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    label.classList.add("layer-label");
+    label.setAttribute("x", layer.x);
+    label.setAttribute("y", 29);
+    label.textContent = layer.label + " · " + layer.nodes.length;
+    guideLayer.append(label);
+  });
+}
+
+function applyPositions(positions) {
+  positions.forEach(function assignPosition(position, nodeId) {
+    const node = state.nodeById.get(nodeId);
+    if (!node) return;
+    node.x = position.x;
+    node.y = position.y;
+    node.vx = 0;
+    node.vy = 0;
+  });
+}
+
+function updateFocusStatus() {
+  if (state.viewMode !== "focus" || !state.focusId) return;
+  const node = state.nodeById.get(state.focusId);
+  const total = state.graph.nodes.filter(isTypeVisible).length;
+  const shown = state.viewNodeIds ? state.viewNodeIds.size : total;
+  const outside = Math.max(0, total - shown);
+  const message = "Focus: " + node.title + " · " + state.focusHops + " hop" +
+    (state.focusHops === 1 ? "" : "s") + " · " + shown + " of " + total +
+    " nodes shown · " + outside + " outside this view";
+  focusStatus.textContent = message;
+  viewStatus.textContent = message;
+  const back = document.querySelector("#focus-back");
+  back.disabled = state.focusHistory.length === 0;
+  back.setAttribute(
+    "aria-label",
+    state.focusHistory.length
+      ? "Back to " + state.nodeById.get(state.focusHistory.at(-1)).title
+      : "No previous focus node"
+  );
+}
+
+function updateViewControls() {
+  document.querySelectorAll("[data-view]").forEach(function updateViewButton(button) {
+    button.setAttribute("aria-pressed", button.dataset.view === state.viewMode ? "true" : "false");
+  });
+  document.querySelectorAll("[data-hops]").forEach(function updateHopButton(button) {
+    button.setAttribute("aria-pressed", Number(button.dataset.hops) === state.focusHops ? "true" : "false");
+  });
+  const focusMode = state.viewMode === "focus";
+  focusControls.hidden = !focusMode;
+  viewStatus.hidden = focusMode;
+}
+
+function applyCurrentLayout(shouldFit) {
+  state.layoutRun += 1;
+  updateCanvasSize();
+  clearLayoutGuides();
+
+  if (state.viewMode === "overview") {
+    state.viewNodeIds = null;
+    state.focusLevels.clear();
+    state.focusTreePairs.clear();
+    initializePositions();
+    updateVisibility();
+    renderPositions();
+    resetTransform();
+    viewStatus.textContent = "Overview · " + state.graph.nodes.filter(isTypeVisible).length + " visible nodes";
+    graphKey.textContent = "Drag nodes · scroll to zoom · select for evidence";
+    simulate();
+  } else if (state.viewMode === "focus") {
+    if (!state.focusId || !isTypeVisible(state.nodeById.get(state.focusId))) {
+      state.focusId = GraphLayouts.mostConnectedEntity(state.graph.nodes, state.graph.edges, state.visibleTypes);
+      state.focusHistory = [];
+    }
+    if (!state.focusId) return;
+    const result = GraphLayouts.focusLayout(
+      state.graph,
+      state.focusId,
+      state.focusHops,
+      state.width,
+      state.height,
+      state.visibleTypes
+    );
+    state.viewNodeIds = result.nodeIds;
+    state.focusLevels = result.levels;
+    state.focusTreePairs = result.treePairs;
+    applyPositions(result.positions);
+    state.graph.nodes.forEach(function markFocusLevel(node) {
+      node.element.classList.toggle("focus-hub", node.id === state.focusId);
+      node.element.classList.toggle("focus-level-2", result.levels.get(node.id) === 2);
+    });
+    updateVisibility();
+    updateHighlights();
+    renderPositions();
+    updateFocusStatus();
+    graphKey.textContent = "Select a neighbour to make it the centre · Back retraces your path";
+    if (shouldFit !== false) fitVisibleNodes();
+  } else if (state.viewMode === "clusters") {
+    state.focusTreePairs.clear();
+    const result = GraphLayouts.clusterLayout(
+      state.graph,
+      Math.max(state.width, 900),
+      Math.max(state.height, 560),
+      state.visibleTypes
+    );
+    state.viewNodeIds = new Set(result.positions.keys());
+    applyPositions(result.positions);
+    renderClusterGuides(result);
+    updateVisibility();
+    updateHighlights();
+    renderPositions();
+    viewStatus.textContent = "Clusters · " + result.groups.length + " connectivity groups · " +
+      state.viewNodeIds.size + " nodes";
+    graphKey.textContent = "Groups reflect graph connectivity, not editorial categories";
+    if (shouldFit !== false) fitVisibleNodes();
+  } else if (state.viewMode === "layers") {
+    state.focusTreePairs.clear();
+    const result = GraphLayouts.layerLayout(
+      state.graph,
+      Math.max(state.width, 1100),
+      Math.max(state.height, 560),
+      state.visibleTypes
+    );
+    state.viewNodeIds = new Set(result.positions.keys());
+    applyPositions(result.positions);
+    renderLayerGuides(result);
+    updateVisibility();
+    updateHighlights();
+    renderPositions();
+    viewStatus.textContent = "Layers · entities → events → concepts → theses and synthesis";
+    graphKey.textContent = state.selectedId
+      ? "Entities → events → concepts → theses · labels show the selected node's relations"
+      : "Entities → events → concepts → theses · select a node to label its relations";
+    if (shouldFit !== false) fitVisibleNodes();
+  }
+  updateViewControls();
+}
+
+function setViewMode(mode) {
+  if (!VIEW_COPY[mode]) return;
+  state.viewMode = mode;
+  if (mode === "focus") {
+    const selected = state.selectedId && state.nodeById.get(state.selectedId);
+    if (selected && isTypeVisible(selected)) state.focusId = selected.id;
+    if (!state.focusId) {
+      state.focusId = GraphLayouts.mostConnectedEntity(state.graph.nodes, state.graph.edges, state.visibleTypes);
+    }
+    state.focusHistory = [];
+    if (state.focusId) {
+      state.selectedId = state.focusId;
+      state.keyboardNodeId = state.focusId;
+      renderDetails(state.nodeById.get(state.focusId));
+    }
+  }
+  applyCurrentLayout(true);
+}
+
+function handleTypeFilterChange(input) {
+  if (input.checked) state.visibleTypes.add(input.value);
+  else state.visibleTypes.delete(input.value);
+  if (state.viewMode === "focus" && state.focusId && !isTypeVisible(state.nodeById.get(state.focusId))) {
+    state.focusId = GraphLayouts.mostConnectedEntity(state.graph.nodes, state.graph.edges, state.visibleTypes);
+    state.focusHistory = [];
+    if (state.focusId) {
+      state.selectedId = state.focusId;
+      renderDetails(state.nodeById.get(state.focusId));
+    }
+  }
+  applyCurrentLayout(true);
+}
+
 function bindControls() {
-  document.querySelector("#search").addEventListener("input", event => performSearch(event.target.value));
-  document.querySelector("#clear-search").addEventListener("click", () => {
+  document.querySelector("#search").addEventListener("input", function searchInput(event) {
+    performSearch(event.target.value);
+  });
+  document.querySelector("#clear-search").addEventListener("click", function clearSearch() {
     document.querySelector("#search").value = "";
     performSearch("");
   });
-  document.querySelectorAll(".filter-list input").forEach(input => {
-    input.addEventListener("change", () => {
-      if (input.checked) state.visibleTypes.add(input.value);
-      else state.visibleTypes.delete(input.value);
-      updateVisibility();
+  document.querySelectorAll(".filter-list input").forEach(function bindFilter(input) {
+    input.addEventListener("change", function filterChanged() {
+      handleTypeFilterChange(input);
     });
   });
+  document.querySelectorAll("[data-view]").forEach(function bindView(button) {
+    button.addEventListener("click", function switchView() {
+      setViewMode(button.dataset.view);
+    });
+  });
+  document.querySelectorAll("[data-hops]").forEach(function bindHopDepth(button) {
+    button.addEventListener("click", function switchDepth() {
+      state.focusHops = Number(button.dataset.hops);
+      applyCurrentLayout(true);
+      focusNodeElement(state.focusId);
+    });
+  });
+  document.querySelector("#focus-back").addEventListener("click", function backFocus() {
+    if (!state.focusHistory.length) return;
+    navigateFocus(state.focusHistory.pop(), false);
+    focusNodeElement(state.focusId);
+  });
   document.querySelector("#find-path").addEventListener("click", tracePath);
-  document.querySelectorAll("[data-path-from][data-path-to]").forEach(button => {
-    button.addEventListener("click", () => {
+  document.querySelectorAll("[data-path-from][data-path-to]").forEach(function bindExample(button) {
+    button.addEventListener("click", function examplePath() {
       document.querySelector("#path-from").value = button.dataset.pathFrom;
       document.querySelector("#path-to").value = button.dataset.pathTo;
       tracePath();
     });
   });
-  document.querySelector("#swap-path").addEventListener("click", () => {
+  document.querySelector("#swap-path").addEventListener("click", function swapPath() {
     const from = document.querySelector("#path-from");
     const to = document.querySelector("#path-to");
-    [from.value, to.value] = [to.value, from.value];
+    const previous = from.value;
+    from.value = to.value;
+    to.value = previous;
   });
-  document.querySelector("#zoom-in").addEventListener("click", () => changeZoom(1.18));
-  document.querySelector("#zoom-out").addEventListener("click", () => changeZoom(.84));
-  document.querySelector("#zoom-reset").addEventListener("click", resetTransform);
-  document.querySelector("#reset-view").addEventListener("click", () => {
+  document.querySelector("#zoom-in").addEventListener("click", function zoomIn() { changeZoom(1.18); });
+  document.querySelector("#zoom-out").addEventListener("click", function zoomOut() { changeZoom(0.84); });
+  document.querySelector("#zoom-reset").addEventListener("click", fitVisibleNodes);
+  document.querySelector("#reset-view").addEventListener("click", function resetView() {
     state.pathNodes.clear();
     state.pathEdges.clear();
     state.selectedId = null;
+    state.focusId = null;
+    state.focusHistory = [];
+    state.searchMatches = null;
+    document.querySelector("#search").value = "";
+    document.querySelector("#search-results").replaceChildren();
     document.querySelector("#path-from").value = "";
     document.querySelector("#path-to").value = "";
     document.querySelector("#path-status").textContent = "Uses typed relations, excluding generic references.";
-    performSearch("");
+    clearDetails();
+    setViewMode("overview");
     updateHighlights();
-    resetTransform();
   });
 }
 
@@ -506,25 +1133,37 @@ function resetTransform() {
   applyTransform();
 }
 
+function installResizeHandling() {
+  let pending = false;
+  const observer = new ResizeObserver(function graphResized() {
+    if (pending || !state.graph) return;
+    pending = true;
+    requestAnimationFrame(function applyResize() {
+      pending = false;
+      applyCurrentLayout(true);
+    });
+  });
+  observer.observe(svg);
+}
+
 async function initialize() {
   try {
     const response = await fetch("graph.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    if (!response.ok) throw new Error("HTTP " + response.status);
     state.graph = await response.json();
     buildIndexes();
     initializePositions();
     createGraphElements();
     renderCounts();
     renderTimeline();
-    updateVisibility();
     installPanAndZoom();
     bindControls();
-    renderPositions();
-    simulate();
+    installResizeHandling();
+    setViewMode("overview");
   } catch (error) {
     document.querySelector("#graph-stats").textContent = "Graph unavailable";
     document.querySelector("#empty-state").hidden = false;
-    document.querySelector("#empty-state").textContent = `Could not load graph.json: ${error.message}`;
+    document.querySelector("#empty-state").textContent = "Could not load graph.json: " + error.message;
   }
 }
 

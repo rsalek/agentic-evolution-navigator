@@ -47,7 +47,7 @@ Then open `http://127.0.0.1:8000`.
 
 The repository can be hosted on GitHub and deployed through the included GitHub Pages workflow. A public repository makes all committed notes and source metadata public. Keep private or licensed source material under `raw/private/`, which is ignored by Git.
 
-GitHub stores and versions the Obsidian vault; GitHub Pages serves the generated browser interface. Obsidian's own Graph View remains a local desktop feature, while `docs/` provides its public counterpart with filters, evidence details, a timeline, and multi-hop path tracing.
+GitHub stores and versions the Obsidian vault; GitHub Pages serves the generated browser interface. Obsidian's own Graph View remains a local desktop feature, while `docs/` provides its public counterpart with filters, evidence details, a timeline, multi-hop path tracing, and switchable Overview, Focus, Clusters, and Layers views.
 
 After creating a GitHub repository, push the `main` branch and select **GitHub Actions** as the Pages source in the repository settings. The included workflow rebuilds and validates the graph before every deployment.
 
