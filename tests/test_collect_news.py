@@ -59,6 +59,12 @@ class GraphSearchTests(unittest.TestCase):
         self.assertEqual(result["graph_context"][0]["id"], "concept-verified-agent-traffic")
         self.assertIn("quantitative", result["signals"])
         self.assertIn("usage", result["signals"])
+        self.assertTrue(result["evidence_contract"]["routing_only"])
+        self.assertEqual(
+            result["evidence_contract"]["source_role"],
+            "aggregator-headline",
+        )
+        self.assertTrue(result["evidence_contract"]["headline_only"])
 
     def test_calendar_year_alone_is_not_a_quantitative_signal(self):
         result = graph_match(
@@ -66,6 +72,19 @@ class GraphSearchTests(unittest.TestCase):
             {"nodes": []},
         )
         self.assertNotIn("quantitative", result["signals"])
+        self.assertIn(
+            result["evidence_contract"]["admission_route"],
+            {"discovery_only", "announcement_watchlist"},
+        )
+
+    def test_signal_matching_uses_word_boundaries(self):
+        result = graph_match(
+            {"title": "Delivery to Costco is unrestricted", "publisher": "Coffee Weekly"},
+            {"nodes": []},
+        )
+        self.assertNotIn("production", result["signals"])
+        self.assertNotIn("monetization", result["signals"])
+        self.assertNotIn("counterevidence", result["signals"])
 
     def test_duplicate_feed_hits_preserve_query_lineage(self):
         candidate = {

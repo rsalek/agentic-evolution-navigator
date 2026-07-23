@@ -4,7 +4,7 @@ type: index
 title: Agentic Evolution Navigator
 status: active
 confidence: high
-updated: 2026-07-22
+updated: 2026-07-23
 ---
 
 # Agentic Evolution Navigator
@@ -29,9 +29,19 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 - [[wiki/concepts/Agent Trust and Governance]]
 - [[wiki/concepts/Protocol Standardization]]
 - [[wiki/concepts/Agentic Service Operations]]
+- [[wiki/concepts/Agentic Software Engineering]]
+- [[wiki/concepts/Agentic Cyber Operations]]
 
 ## Recent event chain
 
+- [[wiki/events/2026-05-06 Lufthansa operates scaled service-agent network]]
+- [[wiki/events/2026-04-30 MoneyHero measures autonomous service resolution]]
+- [[wiki/events/2025-05-14 ixigo scales TARA customer support]]
+- [[wiki/events/2026-07-21 OpenAI attributes Hugging Face breach to evaluation agents]]
+- [[wiki/events/2026-07-16 Hugging Face discloses autonomous production intrusion]]
+- [[wiki/events/2026-04-30 Delivery Hero scales autonomous software deployment]]
+- [[wiki/events/2026-02-24 Falabella scales automated customer-service resolution]]
+- [[wiki/events/2026-02-13 NatWest reports higher autonomous Cora resolution]]
 - [[wiki/events/2026-07-22 x402 reports 75 million monthly transactions]]
 - [[wiki/events/2026-06-18 Rossmann scales agentic store support]]
 - [[wiki/events/2026-06-03 C Spire scales agent email triage]]
@@ -56,6 +66,7 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 ## Navigate and maintain
 
 - [[wiki/_system/Schema|Graph schema]]
+- [[wiki/_system/Evidence Ontology|Evidence ontology]]
 - [[wiki/_system/Graph Dynamics|Dynamics map]]
 - [[wiki/_system/Query Guide|Query guide]]
 - [[wiki/_system/Operational Log|Operational log]]

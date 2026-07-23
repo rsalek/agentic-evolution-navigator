@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "routing_notice": "Lexical matches route review. They do not establish truth, maturity, causality, or graph admission.",
+  "source_roles": [
+    "aggregator-headline",
+    "discovery-passage",
+    "primary-operator",
+    "primary-vendor",
+    "regulator-or-standard",
+    "independent-corroboration"
+  ],
+  "search": {
+    "metric_terms": [
+      "active",
+      "agents",
+      "applications",
+      "approval",
+      "automation",
+      "containment",
+      "conversion",
+      "correction",
+      "cost",
+      "customers",
+      "disputes",
+      "error",
+      "exceptions",
+      "failure",
+      "fees",
+      "growth",
+      "handoff",
+      "margin",
+      "merchants",
+      "outcomes",
+      "quality",
+      "reliability",
+      "resolution",
+      "retention",
+      "revenue",
+      "transactions",
+      "traffic",
+      "usage",
+      "users",
+      "volume"
+    ],
+    "stage_terms": {
+      "announcement": ["pilot", "production", "deployed", "live", "customer"],
+      "pilot": ["production", "rollout", "usage", "volume", "customer"],
+      "production": ["scaled", "volume", "transactions", "revenue", "customers"],
+      "scaled": ["growth", "revenue", "retention", "margin", "regulation"]
+    },
+    "research_goals": {
+      "announcement": ["named_operator", "workflow_trigger", "agent_action", "state_change"],
+      "pilot": ["live_environment", "task_volume", "outcome_metric", "control_boundary"],
+      "production": ["task_volume", "economic_effect", "quality_metric", "human_handoff"],
+      "scaled": ["multi_period_evidence", "unit_economics", "failure_rate", "counterevidence"]
+    },
+    "signal_groups": {
+      "production": ["deployed", "deployment", "live", "pilot", "production", "rollout", "scaled"],
+      "usage": ["active agents", "customers", "growth", "transactions", "traffic", "usage", "users", "volume"],
+      "monetization": ["cost", "fee", "margin", "monetization", "payment", "pricing", "revenue"],
+      "counterevidence": ["breach", "delayed", "failed", "failure", "paused", "restricted", "risk", "slower", "stopped", "suspended"]
+    }
+  },
+  "dimensions": {
+    "workflow_trigger": ["inbound", "request", "query", "case", "ticket", "order", "call", "alert", "feature description"],
+    "agent_action": ["resolve", "resolved", "route", "routed", "triage", "triaged", "handle", "handled", "deploy", "deployed", "approve", "approved", "purchase", "purchased", "transact", "transacted", "update", "updated", "schedule", "scheduled", "investigate", "investigated", "execute", "executed"],
+    "system_or_record": ["crm", "erp", "app", "database", "account", "system of record", "contact center", "service channel", "workflow"],
+    "state_change": ["resolved", "completed", "deployed", "approved", "purchased", "updated", "closed", "booked", "submitted", "paid"],
+    "live_environment": ["in production", "production", "live", "operating", "implemented", "deployed", "since"],
+    "control_boundary": ["approval", "permission", "guardrail", "audit", "human review", "human intervention", "human oversight", "escalate", "escalated", "escalation", "escalating"],
+    "task_volume": ["interaction", "interactions", "query", "queries", "case", "cases", "ticket", "tickets", "call", "calls", "transaction", "transactions", "task", "tasks", "workload", "volume"],
+    "outcome_metric": ["resolution", "resolved", "conversion", "approved application", "cycle time", "waiting time", "quality", "accuracy"],
+    "economic_effect": ["cost saving", "cost savings", "cost reduction", "revenue", "margin", "employee benefit expense", "engineer equivalent", "labour cost"],
+    "quality_metric": ["accuracy", "error rate", "defect", "rollback", "reversal", "correction", "quality"],
+    "human_handoff": ["without human intervention", "human intervention", "human handoff", "escalate", "escalated", "escalation", "escalating", "contained"],
+    "time_window": ["per week", "per month", "per quarter", "during the year", "fiscal year", "q1", "q2", "q3", "q4", "since"],
+    "denominator": ["of queries", "of calls", "of interactions", "of cases", "of transactions", "percentage point", "%"],
+    "baseline": ["versus", "compared with", "compared to", "year over year", "year-on-year", "baseline"],
+    "attribution_limit": ["linked to", "may reflect", "not isolated", "alternative explanation", "broader process"]
+  },
+  "maturity": {
+    "announcement": ["announce", "announces", "announced", "launch", "launches", "launched", "partnership", "will", "plans to", "available", "roadmap"],
+    "pilot": ["pilot", "proof of concept", "testing", "trial", "early deployment"],
+    "production": ["in production", "production", "live", "operating", "implemented", "deployed"],
+    "scaled": ["million", "thousand", "all interactions", "across markets", "regional level", "double-digit weekly", "enterprise-wide"]
+  },
+  "risk_flags": {
+    "future_intent": ["will", "plans to", "expects to", "intends to", "roadmap"],
+    "announcement_only": ["announce", "announces", "announced", "launch", "launches", "launched", "partnership", "availability"],
+    "rebranding_risk": ["ai-powered", "copilot", "assistant", "chatbot", "automation"],
+    "vendor_attribution": ["customer story", "case study", "vendor claim"]
+  },
+  "admission": {
+    "core_dimensions": ["agent_action", "state_change", "live_environment"],
+    "scaled_dimensions": ["task_volume", "outcome_metric", "time_window"]
+  }
+}

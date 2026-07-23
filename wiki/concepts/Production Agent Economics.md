@@ -4,7 +4,7 @@ type: concept
 title: Production Agent Economics
 status: active
 confidence: medium
-updated: 2026-07-22
+updated: 2026-07-23
 ---
 
 # Production Agent Economics
@@ -24,6 +24,9 @@ The end-to-end cost and value of completed agent work after latency, failures, s
 - C Spire reports a 44% triage-time reduction, 125% more first-line closure, and more than 283 staff hours returned per month.
 - Rossmann reports a 50% labour-cost reduction on AI-handled cases, while its EUR 20 million to EUR 30 million annual savings figure remains a projection.
 - Singtel adds transaction and officer-avoidance volumes, while R1 adds early authentication-time and call-coverage metrics.
+- Falabella adds a bounded autonomous-resolution denominator and NatWest adds a comparative resolution lift, but neither reports direct economics.
+- MoneyHero reports simultaneous application growth and employee-cost reduction but does not isolate AI causality; Lufthansa's vendor-side savings claim lacks a published calculation; ixigo/TARA reports no direct economics.
+- Delivery Hero reports engineer-equivalent output and weekly growth for Herogen without accepted-change, quality, review-effort, or financial-impact measures.
 - The graph therefore has stronger service-level and labour evidence, but still lacks customer-audited cost per successful task, correction and recovery cost, agent-attributed margin, and durable multi-period savings.
 
 ## Relations

@@ -18,8 +18,10 @@ from urllib.parse import urlencode, urlparse
 
 try:
     from graph import compile_graph, load_notes
+    from evidence_contract import extract_evidence_contract, load_ontology, matched_terms
 except ModuleNotFoundError:  # supports imports from repository-level tests
     from scripts.graph import compile_graph, load_notes
+    from scripts.evidence_contract import extract_evidence_contract, load_ontology, matched_terms
 
 
 TAG = re.compile(r"<[^>]+>")
@@ -38,23 +40,11 @@ STOPWORDS = {
     "while", "who", "will", "would", "across", "using", "used", "uses", "have", "has", "had", "for",
     "how", "does", "did", "its", "not", "yet", "than", "then", "they", "them", "were", "was", "been",
 }
-METRIC_TERMS = {
-    "active", "agents", "customers", "conversion", "cost", "disputes", "exceptions", "failure", "fees",
-    "growth", "margin", "merchants", "outcomes", "reliability", "resolution", "retention", "revenue",
-    "transactions", "traffic", "usage", "users", "volume",
-}
-STAGE_SEARCH = {
-    "announcement": ("pilot", "production", "deployed", "live", "customer"),
-    "pilot": ("production", "rollout", "usage", "volume", "customer"),
-    "production": ("scaled", "volume", "transactions", "revenue", "customers"),
-    "scaled": ("growth", "revenue", "retention", "margin", "regulation"),
-}
-SIGNAL_GROUPS = {
-    "production": ("deployed", "deployment", "live", "pilot", "production", "rollout", "scaled"),
-    "usage": ("active agents", "customers", "growth", "transactions", "traffic", "usage", "users", "volume"),
-    "monetization": ("cost", "fee", "margin", "monetization", "payment", "pricing", "revenue"),
-    "counterevidence": ("breach", "delayed", "failed", "failure", "paused", "risk", "slower", "stopped"),
-}
+EVIDENCE_ONTOLOGY = load_ontology()
+METRIC_TERMS = set(EVIDENCE_ONTOLOGY["search"]["metric_terms"])
+STAGE_SEARCH = EVIDENCE_ONTOLOGY["search"]["stage_terms"]
+RESEARCH_GOALS = EVIDENCE_ONTOLOGY["search"]["research_goals"]
+SIGNAL_GROUPS = EVIDENCE_ONTOLOGY["search"]["signal_groups"]
 
 
 def clean_text(value: str | None) -> str:
@@ -214,6 +204,7 @@ def derive_graph_feeds(root: Path, max_feeds: int) -> tuple[list[dict], dict, li
             "current_stage": stage,
             "open_questions": questions,
             "desired_signals": expansion,
+            "research_goals": RESEARCH_GOALS.get(stage, []),
         }
         candidates.append((priority, feed))
 
@@ -239,6 +230,7 @@ def derive_graph_feeds(root: Path, max_feeds: int) -> tuple[list[dict], dict, li
             "kind": "thesis-stress-test",
             "supporting_edges": supporting,
             "challenging_edges": challenging,
+            "research_goals": ["counterevidence", "alternative_explanation", "failure_or_restriction"],
         }
         candidates.append((4 + imbalance, feed))
 
@@ -309,7 +301,7 @@ def graph_match(candidate: dict, graph: dict) -> dict:
         )
     context.sort(key=lambda item: (item["type"] not in {"concept", "thesis"}, item["title"]))
 
-    signals = [name for name, terms in SIGNAL_GROUPS.items() if any(term in haystack for term in terms)]
+    signals = [name for name, terms in SIGNAL_GROUPS.items() if matched_terms(haystack, terms)]
     if QUANTITATIVE.search(haystack):
         signals.append("quantitative")
     signals = list(dict.fromkeys(signals))
@@ -321,6 +313,12 @@ def graph_match(candidate: dict, graph: dict) -> dict:
         "graph_matches": matches[:5],
         "graph_context": context[:8],
         "signals": signals,
+        "evidence_contract": extract_evidence_contract(
+            haystack,
+            ontology=EVIDENCE_ONTOLOGY,
+            source_role="aggregator-headline",
+            headline_only=True,
+        ),
     }
 
 
@@ -387,6 +385,7 @@ def write_report(
                 f"{item['title']} ({item['relation']})" for item in candidate.get("graph_context", [])[:4]
             )
             signals = ", ".join(candidate.get("signals", []))
+            contract = candidate.get("evidence_contract", {})
             lines.append(
                 f"- {date} · [{candidate['title']}]({candidate['url']}) "
                 f"— {candidate['publisher']} · `{candidate['feed_id']}` · graph score `{score}`"
@@ -397,6 +396,12 @@ def write_report(
                 lines.append(f"  - Graph context: {context}")
             if signals:
                 lines.append(f"  - Signals: {signals}")
+            if contract:
+                missing = ", ".join(contract.get("missing_core_dimensions", [])) or "none"
+                lines.append(
+                    f"  - Evidence contract: `{contract.get('admission_route', 'unknown')}`; "
+                    f"maturity hint `{contract.get('maturity_hint', 'unknown')}`; missing core: {missing}"
+                )
             if candidate.get("matched_query_ids"):
                 lines.append(f"  - Graph searches: {', '.join(candidate['matched_query_ids'])}")
     else:

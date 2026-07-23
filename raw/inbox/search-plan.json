@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-22T01:14:10+00:00",
+  "generated_at": "2026-07-23T15:41:38+00:00",
   "graph": {
-    "nodes": 68,
-    "edges": 301
+    "nodes": 88,
+    "edges": 406
   },
   "query_count": 12,
   "queries": [
@@ -15,8 +15,13 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 11,
-        "challenging_edges": 1
+        "supporting_edges": 12,
+        "challenging_edges": 1,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
       }
     },
     {
@@ -28,8 +33,13 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 6,
-        "challenging_edges": 0
+        "supporting_edges": 11,
+        "challenging_edges": 4,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
       }
     },
     {
@@ -42,13 +52,18 @@
       "reason": {
         "kind": "thesis-stress-test",
         "supporting_edges": 6,
-        "challenging_edges": 1
+        "challenging_edges": 1,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
       }
     },
     {
       "id": "graph-stage-successkpi-webex-wem-2026-07-15",
       "label": "Graph gap: SuccessKPI brings WEM to Webex Contact Center (announcement -> evidence)",
-      "query": "(\"Cisco Webex\" OR \"SuccessKPI\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR customers OR outcomes OR resolution)",
+      "query": "(\"Cisco Webex\" OR \"SuccessKPI\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR customers OR outcomes OR quality)",
       "target_ids": [
         "event-successkpi-webex-wem-2026-07-15"
       ],
@@ -67,7 +82,13 @@
           "customer",
           "customers",
           "outcomes",
-          "resolution"
+          "quality"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
         ]
       }
     },
@@ -94,6 +115,43 @@
           "conversion",
           "cost",
           "outcomes"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-fis-anthropic-financial-crimes-2026-05-04",
+      "label": "Graph gap: FIS and Anthropic develop financial-crimes agent (pilot -> evidence)",
+      "query": "(\"Anthropic\" OR \"FIS\") \"AI agent\" (production OR rollout OR usage OR volume OR customer OR outcomes OR quality)",
+      "target_ids": [
+        "event-fis-anthropic-financial-crimes-2026-05-04"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "pilot",
+        "open_questions": [
+          "Have BMO or Amalgamated Bank moved the agent into live operations, and at what investigation volume",
+          "What are the measured false-positive, review-time, quality, and escalation outcomes relative to the claimed targets"
+        ],
+        "desired_signals": [
+          "production",
+          "rollout",
+          "usage",
+          "volume",
+          "customer",
+          "outcomes",
+          "quality"
+        ],
+        "research_goals": [
+          "live_environment",
+          "task_volume",
+          "outcome_metric",
+          "control_boundary"
         ]
       }
     },
@@ -107,7 +165,12 @@
       "reason": {
         "kind": "thesis-stress-test",
         "supporting_edges": 3,
-        "challenging_edges": 1
+        "challenging_edges": 1,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
       }
     },
     {
@@ -120,7 +183,12 @@
       "reason": {
         "kind": "thesis-stress-test",
         "supporting_edges": 3,
-        "challenging_edges": 1
+        "challenging_edges": 1,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
       }
     },
     {
@@ -145,22 +213,61 @@
           "customers",
           "active",
           "merchants"
+        ],
+        "research_goals": [
+          "task_volume",
+          "economic_effect",
+          "quality_metric",
+          "human_handoff"
         ]
       }
     },
     {
-      "id": "graph-stage-fis-anthropic-financial-crimes-2026-05-04",
-      "label": "Graph gap: FIS and Anthropic develop financial-crimes agent (pilot -> evidence)",
-      "query": "(\"Anthropic\" OR \"FIS\") \"AI agent\" (production OR rollout OR usage OR volume OR customer OR outcomes)",
+      "id": "graph-stage-natwest-cora-production-2026-02-13",
+      "label": "Graph gap: NatWest reports higher autonomous Cora resolution (production -> evidence)",
+      "query": "(\"NatWest Group\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers OR correction OR cost)",
       "target_ids": [
-        "event-fis-anthropic-financial-crimes-2026-05-04"
+        "event-natwest-cora-production-2026-02-13"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "production",
+        "open_questions": [
+          "What absolute query volume and query mix underlie the 20-percentage-point improvement",
+          "How much of the improvement comes from the GenAI system rather than journey redesign or routing",
+          "What are correction, escalation, customer-outcome, control, and unit-cost measures"
+        ],
+        "desired_signals": [
+          "scaled",
+          "volume",
+          "transactions",
+          "revenue",
+          "customers",
+          "correction",
+          "cost"
+        ],
+        "research_goals": [
+          "task_volume",
+          "economic_effect",
+          "quality_metric",
+          "human_handoff"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-r1-agentic-revenue-cycle-pilot-2026-05-18",
+      "label": "Graph gap: R1 pilots agentic revenue-cycle calls (pilot -> evidence)",
+      "query": "(\"R1 RCM\" OR \"Sierra AI\") \"AI agent\" (production OR rollout OR usage OR volume OR customer OR approval OR correction)",
+      "target_ids": [
+        "event-r1-agentic-revenue-cycle-pilot-2026-05-18"
       ],
       "reason": {
         "kind": "maturity-and-metric-gap",
         "current_stage": "pilot",
         "open_questions": [
-          "Have BMO or Amalgamated Bank moved the agent into live operations, and at what investigation volume",
-          "What are the measured false-positive, review-time, quality, and escalation outcomes relative to the claimed targets"
+          "How many calls now complete autonomously, including payment or plan setup",
+          "What are the human-escalation, correction, reversal, privacy-incident, and patient-outcome rates",
+          "Which actions require approval and how are agent identities and permissions audited across connected systems"
         ],
         "desired_signals": [
           "production",
@@ -168,44 +275,31 @@
           "usage",
           "volume",
           "customer",
-          "outcomes"
+          "approval",
+          "correction"
+        ],
+        "research_goals": [
+          "live_environment",
+          "task_volume",
+          "outcome_metric",
+          "control_boundary"
         ]
       }
     },
     {
-      "id": "graph-stage-cloudflare-web-bot-auth-2026-06-09",
-      "label": "Graph gap: Cloudflare presents Web Bot Auth for autonomous commerce (announcement -> evidence)",
-      "query": "(\"Cloudflare\") \"AI agent\" (pilot OR production OR deployed OR live OR customer)",
+      "id": "graph-stage-c-spire-agent-email-triage-2026-06-03",
+      "label": "Graph gap: C Spire scales agent email triage (scaled -> evidence)",
+      "query": "(\"C Spire\" OR \"ServiceNow\") \"AI agent\" (growth OR revenue OR retention OR margin OR regulation OR approval OR correction OR error)",
       "target_ids": [
-        "event-cloudflare-web-bot-auth-2026-06-09"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "announcement",
-        "open_questions": [],
-        "desired_signals": [
-          "pilot",
-          "production",
-          "deployed",
-          "live",
-          "customer"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-datadome-agent-traffic-q2-2026",
-      "label": "Graph gap: DataDome reports 45 percent Q2 agent-traffic growth (scaled -> evidence)",
-      "query": "(\"DataDome\") \"AI agent\" (growth OR revenue OR retention OR margin OR regulation OR customers OR traffic)",
-      "target_ids": [
-        "event-datadome-agent-traffic-q2-2026"
+        "event-c-spire-agent-email-triage-2026-06-03"
       ],
       "reason": {
         "kind": "maturity-and-metric-gap",
         "current_stage": "scaled",
         "open_questions": [
-          "How is an AI agent distinguished from conventional automation",
-          "Is growth concentrated in a few customers or broadly distributed",
-          "How much traffic converts, pays, or creates net-new demand"
+          "What share of cases is fully resolved rather than classified or routed",
+          "What are the error, correction, escalation, and later-rework rates",
+          "How were permissions, incident thresholds, and human approval rules configured"
         ],
         "desired_signals": [
           "growth",
@@ -213,28 +307,15 @@
           "retention",
           "margin",
           "regulation",
-          "customers",
-          "traffic"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-french-competition-agent-opinion-2026-07-17",
-      "label": "Graph gap: French competition authority issues AI-agent opinion (announcement -> evidence)",
-      "query": "(\"French Competition Authority\") \"AI agent\" (pilot OR production OR deployed OR live OR customer)",
-      "target_ids": [
-        "event-french-competition-agent-opinion-2026-07-17"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "announcement",
-        "open_questions": [],
-        "desired_signals": [
-          "pilot",
-          "production",
-          "deployed",
-          "live",
-          "customer"
+          "approval",
+          "correction",
+          "error"
+        ],
+        "research_goals": [
+          "multi_period_evidence",
+          "unit_economics",
+          "failure_rate",
+          "counterevidence"
         ]
       }
     }

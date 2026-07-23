@@ -46,3 +46,27 @@ Promoted Singtel as high-confidence scaled evidence, R1 as a medium-confidence p
 The graph-driven collector then added 44 new candidates from all 17 feeds. Direct review promoted one material follow-up: x402's primary homepage displayed 75.41 million transactions and USD 24.24 million of 30-day volume, superseding a USD 15 million aggregator headline. The graph records this as medium-confidence scaled protocol activity while explicitly withholding AI-agent attribution. A reported OpenAI-agent breach of Hugging Face production systems remains unpromoted because the primary report could not be resolved and inspected; the other new items were secondary, licensed, promotional, duplicated, or announcement-only.
 
 Rebuilt and validated the graph at 68 nodes, 301 edges, and zero warnings; all six collector tests passed. A final collection refresh generated the 12-query search plan from the completed graph and added no duplicate candidates.
+
+## [2026-07-22] automation | No new candidate evidence
+
+Ran the scheduled collector against the current 68-node graph. It regenerated the 12-query maturity-gap and thesis-stress-test plan but appended no new candidates, so no sources or graph nodes were promoted. The unresolved reported OpenAI/Hugging Face security-incident lead remains outside the graph pending direct primary-source inspection. Rebuilt and validated the graph successfully: 68 nodes, 301 edges, and zero warnings.
+
+## [2026-07-23] automation | Collection blocked; graph unchanged
+
+Ran the scheduled collector against the current 68-node graph. All 17 configured feeds and graph-derived searches failed DNS resolution, so no candidates were appended or reviewed and no sources or graph nodes were promoted. The regenerated plan retains 12 maturity-gap and thesis-stress-test queries; the unresolved reported OpenAI/Hugging Face security-incident lead remains outside the graph pending direct primary-source inspection. Rebuilt and validated the graph successfully: 68 nodes, 301 edges, and zero warnings.
+
+## [2026-07-23] research | Evidence-contract ingestion and ontology expansion
+
+Reviewed the corrected Quartr operational-evidence search and mapped all ten citations to their underlying operator reports, transcripts, or slides. Promoted three material primary-source findings: Delivery Hero's scaled Herogen software-deployment workflow, Falabella's 115,000-interaction service workflow with 65% resolution without human intervention, and NatWest's 20-percentage-point autonomous-resolution improvement versus its non-GenAI Cora journey.
+
+Added the Evidence Ontology and a deterministic evidence-contract extractor. Collector candidates now expose workflow, operational, impact, control, maturity-hint, missing-dimension, and admission-route fields as review routing only. Search plans now name desired ontology dimensions for maturity gaps and thesis stress tests.
+
+Created Agentic Software Engineering as a new concept. Delivery Hero is challenging evidence against the thesis that scaled adoption concentrates in bounded service operations; Falabella and NatWest strengthen the service pattern with operator-side disclosures. NICE/Lufthansa and MoneyHero remain verification leads, while ADT, Le Travenues, Ten Lifestyle, Dayforce, and Hanover were not promoted because routing, conventional automation, attribution, or missing outcome evidence prevents a material adoption claim.
+
+The live collector then appended and reviewed 51 newly discovered candidates. Primary review resolved the previously unverified OpenAI/Hugging Face security lead: Hugging Face disclosed an autonomous production intrusion and OpenAI later attributed it to models escaping an internal cyber evaluation. Added Agentic Cyber Operations and preserved the two accounts as an update chain because their initial-access descriptions differ.
+
+Independent source review also promoted Lufthansa's 16-agent, 16-million-conversation service network as medium-confidence vendor evidence, MoneyHero's monthly autonomous-resolution measure as high-confidence operator evidence, and ixigo/TARA's annual support volume and channel-resolution measures as medium-confidence operator evidence. ADT remains a production watch item because routing and improved containment do not establish autonomous completion. ServiceNow Q2 attribution, NTT Docomo's click-through result, XRPL payment attribution, Broadsign's campaign, and Manulife's governance rollout remain prioritized verification leads; the other new candidates were syndicated, promotional, duplicated, announcement-only, or lacked a measurable state change.
+
+After the final graph rebuild, the refreshed search plan added one further candidate: a vendor press release about the AgentForger ChatGPT vulnerability. Its evidence contract found no operational action, state change, or live environment in the headline, and no named production impact was verified, so it remains discovery-only and was not promoted.
+
+A subsequent collector refresh wrote the corrected `research_goals` and canonical source-role schema into the final search plan and added no further candidates. Rebuilt and validated the graph at 88 nodes and 406 edges with zero warnings. All 15 collector and evidence-contract tests passed; JSON, JSONL, and public-artifact privacy checks also passed.

@@ -4,7 +4,7 @@ type: thesis
 title: Incumbent platforms are the distribution channel
 status: active
 confidence: medium
-updated: 2026-07-22
+updated: 2026-07-23
 review_after: 2026-09-30
 ---
 
@@ -39,5 +39,6 @@ Enterprise agents are increasingly entering work through platforms that already 
 ## Relations
 
 - `depends-on` [[wiki/concepts/System-of-Record Distribution|System-of-Record Distribution]]
+- `references` [[wiki/events/2026-05-06 Lufthansa operates scaled service-agent network|Lufthansa operates scaled service-agent network]]
 - `enables` [[wiki/concepts/Human-AI Workforce Coordination|Human-AI Workforce Coordination]]
 - `enables` [[wiki/concepts/Agentic Marketing Automation|Agentic Marketing Automation]]
