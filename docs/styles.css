@@ -98,6 +98,44 @@ button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
 .brand strong { font-size: 13px; letter-spacing: .01em; }
 .brand span { margin-top: 2px; color: var(--muted); font-size: 11px; }
 
+.site-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav a {
+  position: relative;
+  padding: 11px 18px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+  text-align: center;
+  text-decoration: none;
+}
+
+.site-nav a + a { border-left: 1px solid var(--line); }
+.site-nav a:hover { background: var(--paper); color: var(--ink); }
+.site-nav a[aria-current="page"] { color: var(--ink); }
+.site-nav a[aria-current="page"]::after {
+  position: absolute;
+  right: 18px;
+  bottom: -1px;
+  left: 18px;
+  height: 2px;
+  background: var(--primary);
+  content: "";
+}
+.site-nav span {
+  display: block;
+  margin-top: 2px;
+  color: var(--thesis);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
 .control-block {
   padding: 16px 18px;
   border: 0;
@@ -550,6 +588,7 @@ h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp
   .app-shell { display: block; height: auto; }
   .sidebar { border-right: 0; }
   .brand { position: sticky; top: 0; z-index: 5; background: var(--surface); }
+  .site-nav { position: sticky; top: 71px; z-index: 5; background: var(--surface); }
   .control-block { display: none; }
   .control-block:first-of-type { display: block; }
   .path-controls { display: block; }

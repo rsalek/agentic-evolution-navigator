@@ -1533,6 +1533,16 @@ async function initialize() {
     bindControls();
     installResizeHandling();
     setViewMode("overview");
+    const requestedNode = new URLSearchParams(window.location.search).get("node");
+    if (requestedNode) {
+      const linkedNode = state.nodeById.get(requestedNode) || state.graph.nodes.find(function matchLinkedNode(node) {
+        return node.title.toLowerCase() === requestedNode.toLowerCase();
+      });
+      if (linkedNode && isTypeVisible(linkedNode)) {
+        setViewMode("focus");
+        activateNode(linkedNode.id);
+      }
+    }
   } catch (error) {
     document.querySelector("#graph-stats").textContent = "Graph unavailable";
     document.querySelector("#empty-state").hidden = false;
