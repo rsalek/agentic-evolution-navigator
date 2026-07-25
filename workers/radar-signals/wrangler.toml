@@ -1,0 +1,7 @@
+name = "agentic-evolution-radar-signals"
+main = "worker.js"
+compatibility_date = "2026-07-25"
+
+[vars]
+ALLOWED_ORIGIN = "https://rsalek.github.io"
+CACHE_SECONDS = "900"

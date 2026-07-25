@@ -178,7 +178,7 @@ body.thesis-mode #toggle-interpretation { display: none !important; }
   color: var(--muted);
   font-size: 10px;
 }
-.source-footer label, .source-footer span { display: block; }
+.source-footer label, .source-footer strong, .source-footer span { display: block; }
 .source-footer label { color: var(--ink); font-size: 10px; font-weight: 700; }
 .source-footer select {
   width: 100%;
@@ -191,7 +191,8 @@ body.thesis-mode #toggle-interpretation { display: none !important; }
   color: var(--ink);
   font-size: 10px;
 }
-.source-footer span { font-size: 9px; }
+.source-footer strong { color: var(--ink); font-size: 9px; }
+.source-footer span { margin-top: 2px; font-size: 9px; line-height: 1.35; }
 
 #signals-main { min-width: 0; }
 .signals-toolbar {
@@ -273,6 +274,42 @@ h1 {
   cursor: pointer;
 }
 .panel-toggle[aria-pressed="true"] { border-color: var(--primary); color: var(--primary-dark); }
+.toolbar-actions { display: flex; flex: 0 0 auto; align-items: flex-end; gap: 6px; }
+.refresh-button {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--primary-dark);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.refresh-button:hover { background: #fff9f4; }
+.refresh-button:disabled { border-color: var(--line-strong); color: var(--muted); cursor: wait; }
+.data-notice {
+  margin: 0 26px;
+  padding: 8px 11px;
+  border: 1px solid #dbc8b8;
+  border-top: 0;
+  background: #fff9f4;
+  color: var(--primary-dark);
+  font-size: 9px;
+  line-height: 1.45;
+}
+.data-notice[data-tone="error"] { border-color: #dfb4c0; background: #fff7fa; color: var(--thesis); }
+.data-notice[data-tone="success"] { border-color: #b9d6cf; background: #f5fbf9; color: var(--positive); }
+.empty-state {
+  display: grid;
+  min-height: 300px;
+  place-content: center;
+  padding: 30px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: center;
+}
 
 .signal-summary {
   display: grid;
@@ -730,6 +767,7 @@ td:last-child { width: 40%; white-space: normal; }
 @media (max-width: 620px) {
   .signals-toolbar { align-items: stretch; flex-wrap: wrap; gap: 8px; height: auto; }
   .signals-workspace-heading { flex-basis: 100%; }
+  .toolbar-actions { margin-left: auto; }
   .filter-bar { width: 100%; grid-template-columns: .7fr 1fr 1fr; }
 }
 

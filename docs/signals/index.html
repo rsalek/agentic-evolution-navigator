@@ -15,7 +15,7 @@
     <meta name="twitter:image" content="https://rsalek.github.io/agentic-evolution-navigator/signals/og.png">
     <title>Signals · Evolution Navigator</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23faf8f5' stroke='%23a54f0c' stroke-width='4'/%3E%3Cpath d='M18 39 30 17h4l12 22h-7l-2-5H27l-2 5Zm12-11h5l-2.5-6Z' fill='%23743506'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css?v=20260725-inspector">
+    <link rel="stylesheet" href="styles.css?v=20260725-radar-live">
   </head>
   <body>
     <a class="skip-link" href="#signals-main">Skip to signals</a>
@@ -58,7 +58,7 @@
 
         <section class="signals-examples control-block" aria-labelledby="signals-examples-title">
           <h2 id="signals-examples-title">Examples to try</h2>
-          <p>Explore the illustrative Radar-connected model.</p>
+          <p id="examples-context">Explore the illustrative Radar-connected model.</p>
           <button type="button" data-signal-select="value">
             <strong>Test reciprocal value</strong>
             <span>Compare crawl demand with referral value.</span>
@@ -78,7 +78,8 @@
           <select id="source-model-filter">
             <option value="cloudflare">Cloudflare Radar</option>
           </select>
-          <span>Illustrative model · not live data</span>
+          <strong id="source-status">Illustrative fallback</strong>
+          <span id="source-status-detail">Live source not connected</span>
         </footer>
       </aside>
 
@@ -115,8 +116,12 @@
               </select>
             </label>
           </form>
-          <button id="toggle-interpretation" class="panel-toggle" type="button" aria-pressed="true" aria-controls="interpretation-rail">Inspector</button>
+          <div class="toolbar-actions">
+            <button id="refresh-data" class="refresh-button" type="button">Refresh data</button>
+            <button id="toggle-interpretation" class="panel-toggle" type="button" aria-pressed="true" aria-controls="interpretation-rail">Inspector</button>
+          </div>
         </header>
+        <p id="data-notice" class="data-notice" role="status" aria-live="polite" hidden></p>
 
         <section id="observatory-view" class="workspace">
           <section class="signal-summary" aria-label="Navigate through key results">
@@ -131,14 +136,14 @@
               <span id="metric-access-note">+3.1 pp</span>
             </button>
             <button class="summary-metric" type="button" data-signal-select="readiness">
-              <div><h2>Readiness adoption</h2><p>Sites exposing selected standards</p></div>
+              <div><h2>Readiness coverage</h2><p>Successfully scanned domains exposing checks</p></div>
               <strong id="metric-readiness">37.6%</strong>
               <span id="metric-readiness-note">+6.4 pp</span>
             </button>
             <button class="summary-metric" type="button" data-signal-select="purpose">
-              <div><h2>Markdown savings</h2><p>Median response-size reduction</p></div>
+              <div><h2>Markdown reduction</h2><p>Median HTML-to-markdown reduction ratio</p></div>
               <strong id="metric-markdown">1.28 PB</strong>
-              <span>estimated bandwidth</span>
+              <span id="metric-markdown-note">illustrative estimate</span>
             </button>
           </section>
 
@@ -167,7 +172,7 @@
                   <button class="thesis-button" type="button" data-show-view="thesis">Open thesis analysis</button>
                 </aside>
               </div>
-              <footer>Illustrative scenario · a sustained inflection remains a candidate until verified across periods and sources.</footer>
+              <footer id="value-boundary">Illustrative scenario · a sustained inflection remains a candidate until verified across periods and sources.</footer>
             </article>
 
             <article class="focus-panel" data-signal-panel="geography" hidden>
@@ -191,7 +196,7 @@
                   <h2>Readiness by standard</h2>
                   <span id="readiness-context">Global comparison · share of successfully scanned domains</span>
                 </div>
-                <div class="focus-state"><span>Adoption change</span><strong id="readiness-change">+6.4 pp</strong></div>
+                <div class="focus-state"><span id="readiness-state-label">Adoption change</span><strong id="readiness-change">+6.4 pp</strong></div>
               </header>
               <div id="readiness-list" class="readiness-list large-bars"></div>
               <footer>Readiness indicates capability exposure, not proven agent adoption.</footer>
@@ -212,7 +217,7 @@
                 </div>
                 <ul id="friction-list" aria-label="Access friction by cause"></ul>
               </div>
-              <footer>Friction can represent deliberate publisher policy, not only technical failure.</footer>
+              <footer id="friction-boundary">Friction can represent deliberate publisher policy, not only technical failure.</footer>
             </article>
 
             <article class="focus-panel" data-signal-panel="purpose" hidden>
@@ -255,12 +260,12 @@
                 <h2>Regime-change log</h2>
                 <p>Weekly movement stays in Signals; only durable inflections become graph events.</p>
               </div>
-              <span class="log-rule">3 candidates · 0 promoted</span>
+              <span id="regime-log-summary" class="log-rule">3 candidates · 0 promoted</span>
             </header>
             <div class="regime-table-wrap">
               <table>
                 <thead><tr><th>Date</th><th>Signal</th><th>Change</th><th>Status</th><th>Promotion test</th></tr></thead>
-                <tbody>
+                <tbody id="regime-log-body">
                   <tr><td>Week 12</td><td>Training / retrieval share</td><td class="positive">+3.4 pp</td><td>Monitoring</td><td>Needs four-week persistence</td></tr>
                   <tr><td>Week 11</td><td>Readiness adoption</td><td class="positive">+4.2 pp</td><td>Monitoring</td><td>Check scan methodology and breadth</td></tr>
                   <tr><td>Week 10</td><td>Access friction</td><td class="negative">+2.1 pp</td><td>Watching</td><td>Confirm across multiple geographies</td></tr>
@@ -285,8 +290,8 @@
             </div>
             <div class="thesis-toolbar-actions">
               <div class="model-status">
-                <strong>Illustrative model</strong>
-                <span>Not live data</span>
+                <strong id="thesis-data-status">Illustrative model</strong>
+                <span id="thesis-data-detail">Not live data</span>
               </div>
               <a class="graph-link" href="../?node=thesis-agent-traffic-addressable-market">Trace thesis in graph</a>
             </div>
@@ -379,8 +384,8 @@
           <h2 id="interpretation-title" class="detail-title">Value vs extraction</h2>
           <p id="interpretation-observed" class="detail-summary">In this illustrative scenario, crawl demand rises while returned referral value falls.</p>
           <dl class="meta-grid">
-            <div class="meta-item"><dt>Method</dt><dd>Normalized trend</dd></div>
-            <div class="meta-item"><dt>Evidence status</dt><dd>Illustrative model</dd></div>
+            <div class="meta-item"><dt>Method</dt><dd id="interpretation-method">Normalized trend</dd></div>
+            <div class="meta-item"><dt>Evidence status</dt><dd id="interpretation-evidence">Illustrative model</dd></div>
           </dl>
           <section class="detail-section"><h3>Graph connection</h3><p id="interpretation-connection">These measurements connect traffic observability to agent trust infrastructure and production economics.</p></section>
           <section class="detail-section"><h3>Interpretation</h3><p id="interpretation-inference">The ecosystem may be becoming more agent-readable before it becomes economically reciprocal.</p></section>
@@ -390,6 +395,7 @@
       </aside>
     </div>
     <button id="open-rail" class="open-rail" type="button" hidden>Interpretation</button>
-    <script src="app.js?v=20260725-inspector"></script>
+    <script src="config.js?v=20260725-radar-live"></script>
+    <script src="app.js?v=20260725-radar-live"></script>
   </body>
 </html>
