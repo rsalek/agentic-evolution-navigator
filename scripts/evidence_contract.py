@@ -46,6 +46,59 @@ def has_numeric_claim(text: str) -> bool:
     return False
 
 
+def extract_comparison_context(text: str, model: dict, observed_dimensions: set[str]) -> dict:
+    """Describe the measurement surface so unlike studies are not treated as comparable."""
+    context = model.get("comparison_context", {})
+    method_hits = {
+        name: matched_terms(text, terms)
+        for name, terms in context.get("observation_methods", {}).items()
+    }
+    surface_hits = {
+        name: matched_terms(text, terms)
+        for name, terms in context.get("product_surfaces", {}).items()
+    }
+    unit_hits = {
+        name: matched_terms(text, terms)
+        for name, terms in context.get("observation_units", {}).items()
+    }
+    population_hits = {
+        name: matched_terms(text, terms)
+        for name, terms in context.get("population_scopes", {}).items()
+    }
+    coverage_hits = matched_terms(text, context.get("coverage_limits", []))
+
+    observed = {
+        "observation_method": any(method_hits.values()),
+        "product_surface": any(surface_hits.values()),
+        "observation_unit": any(unit_hits.values()),
+        "population_scope": any(population_hits.values()),
+        "time_window": "time_window" in observed_dimensions,
+        "coverage_limits": bool(coverage_hits),
+    }
+    required = context.get("required_for_cross_study_comparison", [])
+    missing = [name for name in required if not observed.get(name, False)]
+    warnings: list[str] = []
+    if len([name for name, hits in method_hits.items() if hits]) > 1:
+        warnings.append("mixed-observation-methods")
+    if len([name for name, hits in unit_hits.items() if hits]) > 1:
+        warnings.append("mixed-observation-units")
+    if method_hits.get("provider-telemetry") and method_hits.get("survey-self-report"):
+        warnings.append("provider-telemetry-and-survey-are-not-directly-comparable")
+    if method_hits.get("provider-telemetry") and not coverage_hits:
+        warnings.append("provider-visibility-limit-unstated")
+
+    return {
+        "routing_only": True,
+        "observation_methods": {name: hits for name, hits in method_hits.items() if hits},
+        "product_surfaces": {name: hits for name, hits in surface_hits.items() if hits},
+        "observation_units": {name: hits for name, hits in unit_hits.items() if hits},
+        "population_scopes": {name: hits for name, hits in population_hits.items() if hits},
+        "coverage_limit_terms": coverage_hits,
+        "missing_comparison_dimensions": missing,
+        "comparison_warnings": warnings,
+    }
+
+
 def extract_evidence_contract(
     text: str,
     *,
@@ -123,6 +176,8 @@ def extract_evidence_contract(
     else:
         route = "discovery_only"
 
+    comparison_context = extract_comparison_context(text, model, observed_set)
+
     return {
         "ontology_version": model["version"],
         "routing_only": True,
@@ -138,6 +193,7 @@ def extract_evidence_contract(
         "maturity_matches": {stage: hits for stage, hits in maturity_hits.items() if hits},
         "risk_flags": risk_flags,
         "risk_matches": {name: hits for name, hits in risk_hits.items() if hits},
+        "measurement_context": comparison_context,
         "notice": model["routing_notice"],
     }
 

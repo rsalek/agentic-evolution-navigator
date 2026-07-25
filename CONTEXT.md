@@ -56,6 +56,14 @@ _Avoid_: Acceptance decision
 The epistemic role a source plays: discovery lead, primary operator evidence, primary vendor evidence, regulator or standards evidence, or independent corroboration.
 _Avoid_: Treating all primary-looking documents as equivalent
 
+**Measurement Surface**:
+The observable slice of activity defined by a source's method, product coverage, unit of analysis, population, period, and exclusions.
+_Avoid_: Comparing provider telemetry, surveys, conversations, messages, tasks, agents, and organizations as if they measure the same thing
+
+**Measurement Surface Bias**:
+The predictable distortion that arises when a study's visible products, users, and units are treated as representative of the entire agent economy.
+_Avoid_: Dismissing a source because it is partial; use triangulation and preserve its boundary
+
 **Maturity Stage**:
 The observed degree of operational adoption: announcement, pilot, production, or scaled.
 _Avoid_: Progress, status

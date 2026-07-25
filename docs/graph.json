@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-23",
-  "nodeCount": 88,
-  "edgeCount": 406,
+  "generatedAt": "2026-07-25",
+  "nodeCount": 95,
+  "edgeCount": 459,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -107,7 +107,20 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-23"
+        "updated": "2026-07-25"
+      },
+      "evidence": []
+    },
+    {
+      "id": "concept-measurement-surface-bias",
+      "title": "Measurement Surface Bias",
+      "type": "concept",
+      "path": "wiki/concepts/Measurement Surface Bias.md",
+      "summary": "The predictable distortion that arises when activity visible to one product, provider, method, unit, or population is treated as representative of the whole agent economy.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -120,7 +133,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-23"
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -324,11 +337,11 @@
       "title": "Google",
       "type": "entity",
       "path": "wiki/entities/Google.md",
-      "summary": "A technology platform represented in the seed graph through reported institutional backing of open agent-payment standards.",
+      "summary": "A technology platform represented through institutional backing of open agent-payment standards and the ATLAS measurement study of AI use across selected Google products.",
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-20"
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -385,6 +398,19 @@
       "evidence": []
     },
     {
+      "id": "entity-microsoft",
+      "title": "Microsoft",
+      "type": "entity",
+      "path": "wiki/entities/Microsoft.md",
+      "summary": "An enterprise software and cloud platform represented here through Microsoft 365 Copilot agent telemetry and its disclosure of how active-agent growth is measured.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-25"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-moneyhero",
       "title": "MoneyHero",
       "type": "entity",
@@ -428,11 +454,11 @@
       "title": "OpenAI",
       "type": "entity",
       "path": "wiki/entities/OpenAI.md",
-      "summary": "An AI research and product organization represented here through its disclosure of an evaluation-agent security incident that crossed into external production infrastructure.",
+      "summary": "An AI research and product organization represented here through B2B agent-use telemetry and its disclosure of an evaluation-agent security incident that crossed into external production infrastructure.",
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-23"
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -852,6 +878,32 @@
       ]
     },
     {
+      "id": "event-google-atlas-v1-2026-07-23",
+      "title": "Google publishes ATLAS v1",
+      "type": "event",
+      "path": "wiki/events/2026-07-23 Google publishes ATLAS v1.md",
+      "summary": "Google published the first AI & Economy ATLAS using 15 million aggregated and de-identified interactions across the Gemini App, AI Mode, and Gemini API. The release spans more than 150 countries, 140 languages, more than 800 occupations, and 4,000 tasks.",
+      "metadata": {
+        "date": "2026-07-23",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "cross-industry",
+        "layer": "measurement",
+        "updated": "2026-07-25"
+      },
+      "evidence": [
+        {
+          "label": "Google: Understanding the AI economy",
+          "url": "https://blog.google/innovation-and-ai/technology/research/understanding-the-ai-economy/"
+        },
+        {
+          "label": "Google ATLAS v1 report",
+          "url": "https://ai.google/static/documents/GoogleATLASv1.pdf"
+        }
+      ]
+    },
+    {
       "id": "event-hugging-face-agent-intrusion-2026-07-16",
       "title": "Hugging Face discloses autonomous production intrusion",
       "type": "event",
@@ -966,6 +1018,28 @@
       ]
     },
     {
+      "id": "event-microsoft-active-agent-growth-2026-05-05",
+      "title": "Microsoft reports 15x active-agent growth",
+      "type": "event",
+      "path": "wiki/events/2026-05-05 Microsoft reports 15x active-agent growth.md",
+      "summary": "Microsoft's 2026 Work Trend Index reported that unique active agents across the Microsoft 365 Copilot Agents platform and SharePoint agents grew 15x year over year from March 2025 to March 2026.",
+      "metadata": {
+        "date": "2026-05-05",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "cross-industry",
+        "layer": "enterprise platform",
+        "updated": "2026-07-25"
+      },
+      "evidence": [
+        {
+          "label": "Microsoft 2026 Work Trend Index",
+          "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization"
+        }
+      ]
+    },
+    {
       "id": "event-moneyhero-service-resolution-scaled-2026-04-30",
       "title": "MoneyHero measures autonomous service resolution",
       "type": "event",
@@ -1032,6 +1106,28 @@
         {
           "label": "Security incident disclosure — July 2026",
           "url": "https://huggingface.co/blog/security-incident-july-2026"
+        }
+      ]
+    },
+    {
+      "id": "event-openai-codex-usage-gap-2026-05-06",
+      "title": "OpenAI reports 16x Codex usage gap",
+      "type": "event",
+      "path": "wiki/events/2026-05-06 OpenAI reports 16x Codex usage gap.md",
+      "summary": "OpenAI B2B Signals reported that firms at the 95th percentile of AI use sent 16x as many Codex messages per worker as firms at the 50th percentile. The same frontier firms generated 3.5x as many tokens per worker across OpenAI tools, up from 2x in April 2025.",
+      "metadata": {
+        "date": "2026-05-06",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "cross-industry",
+        "layer": "developer agent",
+        "updated": "2026-07-25"
+      },
+      "evidence": [
+        {
+          "label": "OpenAI B2B Signals",
+          "url": "https://openai.com/signals/b2b/"
         }
       ]
     },
@@ -1312,7 +1408,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-23"
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -1330,6 +1426,19 @@
       "evidence": []
     },
     {
+      "id": "query-why-public-ai-usage-studies-disagree",
+      "title": "Why public AI usage studies disagree",
+      "type": "query",
+      "path": "wiki/queries/Why public AI usage studies disagree.md",
+      "summary": "Public AI-usage studies often report different task, automation, and adoption rates because they observe different products, populations, units, thresholds, and definitions. The disagreement is frequently methodological rather than factual.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-25"
+      },
+      "evidence": []
+    },
+    {
       "id": "system-evidence-ontology",
       "title": "Evidence Ontology",
       "type": "system",
@@ -1338,7 +1447,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-23"
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -1347,11 +1456,11 @@
       "title": "Graph Dynamics",
       "type": "system",
       "path": "wiki/_system/Graph Dynamics.md",
-      "summary": "The current graph suggests six reinforcing movements.",
+      "summary": "The current graph suggests seven reinforcing movements.",
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-23"
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -1364,7 +1473,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-23"
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -1377,7 +1486,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-22"
+        "updated": "2026-07-25"
       },
       "evidence": []
     },
@@ -1423,6 +1532,20 @@
       "evidence": []
     },
     {
+      "id": "thesis-agentic-depth-frontier-gap",
+      "title": "Agentic depth is separating frontier firms from the median",
+      "type": "thesis",
+      "path": "wiki/theses/Agentic depth is separating frontier firms from the median.md",
+      "summary": "AI use is broadening across occupations and organizations, but the deepest delegation is concentrating among frontier enterprise users. The emerging divide is not access alone; it is how far organizations embed agentic tools into repeatable work.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-25",
+        "review_after": "2026-10-31"
+      },
+      "evidence": []
+    },
+    {
       "id": "thesis-incumbent-platform-distribution",
       "title": "Incumbent platforms are the distribution channel",
       "type": "thesis",
@@ -1431,7 +1554,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-23",
+        "updated": "2026-07-25",
         "review_after": "2026-09-30"
       },
       "evidence": []
@@ -1573,12 +1696,42 @@
     },
     {
       "source": "concept-human-ai-workforce-coordination",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "concept-human-ai-workforce-coordination",
       "target": "concept-system-of-record-distribution",
       "type": "depends-on"
     },
     {
+      "source": "concept-measurement-surface-bias",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "applies-to"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
+      "target": "concept-production-agent-economics",
+      "type": "applies-to"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
+      "target": "query-why-public-ai-usage-studies-disagree",
+      "type": "references"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
+      "target": "system-evidence-ontology",
+      "type": "constrained-by"
+    },
+    {
       "source": "concept-production-agent-economics",
       "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "concept-measurement-surface-bias",
       "type": "constrained-by"
     },
     {
@@ -1738,6 +1891,11 @@
     },
     {
       "source": "entity-google",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-google",
       "target": "concept-protocol-standardization",
       "type": "enables"
     },
@@ -1777,6 +1935,21 @@
       "type": "enables"
     },
     {
+      "source": "entity-microsoft",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "entity-microsoft",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-microsoft",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
       "source": "entity-moneyhero",
       "target": "concept-agentic-service-operations",
       "type": "applies-to"
@@ -1810,6 +1983,16 @@
       "source": "entity-openai",
       "target": "concept-agentic-cyber-operations",
       "type": "applies-to"
+    },
+    {
+      "source": "entity-openai",
+      "target": "concept-agentic-software-engineering",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-openai",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
     },
     {
       "source": "entity-ploy-ai",
@@ -2217,6 +2400,26 @@
       "type": "supports"
     },
     {
+      "source": "event-google-atlas-v1-2026-07-23",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "applies-to"
+    },
+    {
+      "source": "event-google-atlas-v1-2026-07-23",
+      "target": "concept-measurement-surface-bias",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-google-atlas-v1-2026-07-23",
+      "target": "entity-google",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-google-atlas-v1-2026-07-23",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "challenges"
+    },
+    {
       "source": "event-hugging-face-agent-intrusion-2026-07-16",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -2347,6 +2550,41 @@
       "type": "supports"
     },
     {
+      "source": "event-microsoft-active-agent-growth-2026-05-05",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-microsoft-active-agent-growth-2026-05-05",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-microsoft-active-agent-growth-2026-05-05",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-microsoft-active-agent-growth-2026-05-05",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-microsoft-active-agent-growth-2026-05-05",
+      "target": "entity-microsoft",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-microsoft-active-agent-growth-2026-05-05",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
+    },
+    {
+      "source": "event-microsoft-active-agent-growth-2026-05-05",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
       "source": "event-moneyhero-service-resolution-scaled-2026-04-30",
       "target": "concept-agentic-service-operations",
       "type": "demonstrates"
@@ -2425,6 +2663,36 @@
       "source": "event-openai-attributes-hugging-face-breach-2026-07-21",
       "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "challenges"
+    },
+    {
+      "source": "event-openai-codex-usage-gap-2026-05-06",
+      "target": "concept-agentic-software-engineering",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-openai-codex-usage-gap-2026-05-06",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-openai-codex-usage-gap-2026-05-06",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-openai-codex-usage-gap-2026-05-06",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-openai-codex-usage-gap-2026-05-06",
+      "target": "entity-openai",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-openai-codex-usage-gap-2026-05-06",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
     },
     {
       "source": "event-production-agent-migration-2026-07-12",
@@ -2798,6 +3066,11 @@
     },
     {
       "source": "index-home",
+      "target": "concept-measurement-surface-bias",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "concept-production-agent-economics",
       "type": "references"
     },
@@ -2863,6 +3136,11 @@
     },
     {
       "source": "index-home",
+      "target": "event-google-atlas-v1-2026-07-23",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "event-hugging-face-agent-intrusion-2026-07-16",
       "type": "references"
     },
@@ -2883,6 +3161,11 @@
     },
     {
       "source": "index-home",
+      "target": "event-microsoft-active-agent-growth-2026-05-05",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "event-moneyhero-service-resolution-scaled-2026-04-30",
       "type": "references"
     },
@@ -2894,6 +3177,11 @@
     {
       "source": "index-home",
       "target": "event-openai-attributes-hugging-face-breach-2026-07-21",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-openai-codex-usage-gap-2026-05-06",
       "type": "references"
     },
     {
@@ -2958,6 +3246,11 @@
     },
     {
       "source": "index-home",
+      "target": "query-why-public-ai-usage-studies-disagree",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "system-evidence-ontology",
       "type": "references"
     },
@@ -2989,6 +3282,11 @@
     {
       "source": "index-home",
       "target": "thesis-agent-traffic-addressable-market",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "thesis-agentic-depth-frontier-gap",
       "type": "references"
     },
     {
@@ -3152,9 +3450,44 @@
       "type": "challenges"
     },
     {
+      "source": "query-why-public-ai-usage-studies-disagree",
+      "target": "concept-measurement-surface-bias",
+      "type": "references"
+    },
+    {
+      "source": "query-why-public-ai-usage-studies-disagree",
+      "target": "event-google-atlas-v1-2026-07-23",
+      "type": "references"
+    },
+    {
+      "source": "query-why-public-ai-usage-studies-disagree",
+      "target": "event-microsoft-active-agent-growth-2026-05-05",
+      "type": "references"
+    },
+    {
+      "source": "query-why-public-ai-usage-studies-disagree",
+      "target": "event-openai-codex-usage-gap-2026-05-06",
+      "type": "references"
+    },
+    {
+      "source": "query-why-public-ai-usage-studies-disagree",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "challenges"
+    },
+    {
+      "source": "query-why-public-ai-usage-studies-disagree",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
+    },
+    {
       "source": "system-evidence-ontology",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
+    },
+    {
+      "source": "system-evidence-ontology",
+      "target": "concept-measurement-surface-bias",
+      "type": "references"
     },
     {
       "source": "system-evidence-ontology",
@@ -3173,6 +3506,11 @@
     },
     {
       "source": "system-graph-dynamics",
+      "target": "concept-measurement-surface-bias",
+      "type": "references"
+    },
+    {
+      "source": "system-graph-dynamics",
       "target": "system-evidence-ontology",
       "type": "references"
     },
@@ -3184,6 +3522,11 @@
     {
       "source": "system-graph-dynamics",
       "target": "thesis-agent-traffic-addressable-market",
+      "type": "references"
+    },
+    {
+      "source": "system-graph-dynamics",
+      "target": "thesis-agentic-depth-frontier-gap",
       "type": "references"
     },
     {
@@ -3297,6 +3640,46 @@
       "type": "references"
     },
     {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "depends-on"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-delivery-hero-herogen-scaled-2026-04-30",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-google-atlas-v1-2026-07-23",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-microsoft-active-agent-growth-2026-05-05",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-openai-codex-usage-gap-2026-05-06",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "references"
+    },
+    {
       "source": "thesis-incumbent-platform-distribution",
       "target": "concept-agentic-marketing-automation",
       "type": "enables"
@@ -3334,6 +3717,11 @@
     {
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-lufthansa-service-agents-scaled-2026-05-06",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-microsoft-active-agent-growth-2026-05-05",
       "type": "references"
     },
     {

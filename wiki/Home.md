@@ -4,7 +4,7 @@ type: index
 title: Agentic Evolution Navigator
 status: active
 confidence: high
-updated: 2026-07-23
+updated: 2026-07-25
 ---
 
 # Agentic Evolution Navigator
@@ -18,6 +18,7 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 - [[wiki/theses/Trust infrastructure monetizes before full autonomy]]
 - [[wiki/theses/Agent-originated traffic is becoming an addressable market]]
 - [[wiki/theses/Scaled agent adoption concentrates in bounded service operations]]
+- [[wiki/theses/Agentic depth is separating frontier firms from the median]]
 
 ## Core concepts
 
@@ -31,9 +32,13 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 - [[wiki/concepts/Agentic Service Operations]]
 - [[wiki/concepts/Agentic Software Engineering]]
 - [[wiki/concepts/Agentic Cyber Operations]]
+- [[wiki/concepts/Measurement Surface Bias]]
 
 ## Recent event chain
 
+- [[wiki/events/2026-07-23 Google publishes ATLAS v1]]
+- [[wiki/events/2026-05-06 OpenAI reports 16x Codex usage gap]]
+- [[wiki/events/2026-05-05 Microsoft reports 15x active-agent growth]]
 - [[wiki/events/2026-05-06 Lufthansa operates scaled service-agent network]]
 - [[wiki/events/2026-04-30 MoneyHero measures autonomous service resolution]]
 - [[wiki/events/2025-05-14 ixigo scales TARA customer support]]
@@ -62,6 +67,7 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 - [[wiki/events/2026-02-19 Five9 scales healthcare AI-agent commitment]]
 - [[wiki/events/2026-01-15 Talkspace deploys clinically supervised AI intake workflow]]
 - [[wiki/queries/AI agent operational deployments|AI agent operational deployments]]
+- [[wiki/queries/Why public AI usage studies disagree|Why public AI usage studies disagree]]
 
 ## Navigate and maintain
 

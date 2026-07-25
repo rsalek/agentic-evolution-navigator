@@ -4,7 +4,7 @@ type: concept
 title: Production Agent Economics
 status: active
 confidence: medium
-updated: 2026-07-23
+updated: 2026-07-25
 ---
 
 # Production Agent Economics
@@ -27,9 +27,11 @@ The end-to-end cost and value of completed agent work after latency, failures, s
 - Falabella adds a bounded autonomous-resolution denominator and NatWest adds a comparative resolution lift, but neither reports direct economics.
 - MoneyHero reports simultaneous application growth and employee-cost reduction but does not isolate AI causality; Lufthansa's vendor-side savings claim lacks a published calculation; ixigo/TARA reports no direct economics.
 - Delivery Hero reports engineer-equivalent output and weekly growth for Herogen without accepted-change, quality, review-effort, or financial-impact measures.
+- OpenAI's 16x Codex message gap and Microsoft's 15x active-agent growth are directional intensity measures, not absolute task volume, outcomes, or unit economics.
 - The graph therefore has stronger service-level and labour evidence, but still lacks customer-audited cost per successful task, correction and recovery cost, agent-attributed margin, and durable multi-period savings.
 
 ## Relations
 
 - `measured-by` [[wiki/concepts/Verified Agent Traffic|Verified Agent Traffic]]
+- `constrained-by` [[wiki/concepts/Measurement Surface Bias|Measurement Surface Bias]]
 - `constrained-by` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]

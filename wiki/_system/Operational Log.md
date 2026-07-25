@@ -4,7 +4,7 @@ type: system
 title: Operational Log
 status: active
 confidence: high
-updated: 2026-07-22
+updated: 2026-07-25
 ---
 
 # Operational Log
@@ -70,3 +70,21 @@ Independent source review also promoted Lufthansa's 16-agent, 16-million-convers
 After the final graph rebuild, the refreshed search plan added one further candidate: a vendor press release about the AgentForger ChatGPT vulnerability. Its evidence contract found no operational action, state change, or live environment in the headline, and no named production impact was verified, so it remains discovery-only and was not promoted.
 
 A subsequent collector refresh wrote the corrected `research_goals` and canonical source-role schema into the final search plan and added no further candidates. Rebuilt and validated the graph at 88 nodes and 406 edges with zero warnings. All 15 collector and evidence-contract tests passed; JSON, JSONL, and public-artifact privacy checks also passed.
+
+## [2026-07-24] automation | Collection blocked; graph unchanged
+
+Ran the scheduled collector against the current 88-node graph. All five broad feeds and all 12 graph-derived maturity-gap and thesis-stress-test searches failed DNS resolution, so no candidates were appended and no sources or graph nodes were promoted. The refreshed plan retains its 12 targets, including counterevidence for incumbent distribution, bounded service operations, payments, traffic, and trust, plus live-outcome gaps for SuccessKPI/Webex, Tenon/ServiceNow, FIS/Anthropic, BBVA/Visa, NatWest Cora, R1, and C Spire. Rebuilt and validated the graph successfully: 88 nodes, 406 edges, and zero warnings.
+
+## [2026-07-25] intake | ATLAS comparison and measurement-surface ontology
+
+Preserved the user-supplied `Comparing Google ATLAS With Anthropic, Microsoft, OpenAI, Stanford, and Other Public Research` PDF privately with SHA-256 `e3edfedaafcac0eea7f3da0811d6e457ba39cba0c1768e272fe9978c8716aa38`. The 14-page ChatGPT Deep Research packet rendered cleanly and exposed useful primary-source links, but it remains discovery-only and is not published.
+
+Verified the material claims against Google ATLAS, OpenAI B2B Signals, Microsoft 2026 Work Trend Index, Anthropic Economic Index, and Federal Reserve-linked research. Promoted Microsoft's 15x active-agent growth and OpenAI's 16x Codex-messages-per-worker gap as medium-confidence production signals because both are relative provider telemetry without absolute task volume or outcomes. Added Google's ATLAS release as a high-confidence research-publication event, not agent-adoption evidence.
+
+Primary review corrected two packet-level precision issues: Google's less-than-10% automation figure applies only to non-routine cognitive-work conversations, and the cited Anthropic launch page does not support the 27%-to-39% directive shift; the supporting comparison is in Anthropic's September 2025 report.
+
+Added Measurement Surface Bias and extended evidence-ontology version 2 to capture observation method, product surface, unit, population, time window, and coverage limits. The extractor now flags mixed methods and units, including direct comparisons between provider telemetry and worker surveys. Added the medium-confidence thesis that agentic depth is separating frontier firms from the median, with Google ATLAS, missing absolute counts, provider visibility, classifier changes, and absent outcome causality preserved as challenging evidence. The incumbent-distribution thesis is modestly strengthened by Microsoft 365 telemetry.
+
+Corrected the public explorer's node-type filter label from `Theses` to `Thesis`.
+
+Rebuilt and validated the graph at 95 nodes and 459 edges with zero warnings. All 17 collector and evidence-contract tests and the graph-layout test passed; JSON and JSONL validation passed.

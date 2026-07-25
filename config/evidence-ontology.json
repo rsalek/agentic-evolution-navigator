@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "routing_notice": "Lexical matches route review. They do not establish truth, maturity, causality, or graph admission.",
   "source_roles": [
     "aggregator-headline",
@@ -77,6 +77,59 @@
     "denominator": ["of queries", "of calls", "of interactions", "of cases", "of transactions", "percentage point", "%"],
     "baseline": ["versus", "compared with", "compared to", "year over year", "year-on-year", "baseline"],
     "attribution_limit": ["linked to", "may reflect", "not isolated", "alternative explanation", "broader process"]
+  },
+  "comparison_context": {
+    "observation_methods": {
+      "provider-telemetry": ["telemetry", "chat logs", "chat-log", "transcripts", "de-identified interactions", "aggregated interactions", "product logs"],
+      "survey-self-report": ["survey", "self-reported", "respondents", "nationally representative"],
+      "operator-disclosure": ["annual report", "earnings call", "operator report", "customer disclosure"],
+      "vendor-customer-study": ["customer story", "case study", "vendor-reported"],
+      "experiment-or-audit": ["experiment", "evaluation", "audit", "benchmark"]
+    },
+    "product_surfaces": {
+      "consumer-assistant": ["consumer chat", "Gemini App", "ChatGPT consumer", "Claude.ai"],
+      "enterprise-workplace": ["Microsoft 365", "Google Workspace", "Gemini Enterprise", "enterprise platform", "workplace AI"],
+      "developer-agent": ["Codex", "Claude Code", "coding agent", "agentic coding"],
+      "api-embedded": ["Gemini API", "API transcripts", "enterprise API", "embedded API"]
+    },
+    "observation_units": {
+      "interaction": ["interaction", "interactions"],
+      "message": ["message", "messages"],
+      "conversation": ["conversation", "conversations", "transcript", "transcripts"],
+      "session": ["session", "sessions"],
+      "task": ["task", "tasks"],
+      "user": ["user", "users", "worker", "workers"],
+      "agent": ["active agent", "active agents", "autonomous run", "autonomous runs"],
+      "organization": ["firm", "firms", "organization", "organizations"],
+      "transaction": ["transaction", "transactions"]
+    },
+    "population_scopes": {
+      "consumer": ["consumer", "personal use", "outside work"],
+      "workforce": ["worker", "workers", "occupation", "occupations", "job tasks"],
+      "enterprise": ["enterprise", "business users", "employees", "firms"],
+      "developer": ["developer", "developers", "engineers"],
+      "global": ["global", "countries", "languages"],
+      "customer-base": ["customers", "customer segments"]
+    },
+    "coverage_limits": [
+      "excludes",
+      "excluded",
+      "not included",
+      "not reflected",
+      "does not include",
+      "no absolute counts",
+      "provider-specific",
+      "selection bias",
+      "visibility bias"
+    ],
+    "required_for_cross_study_comparison": [
+      "observation_method",
+      "product_surface",
+      "observation_unit",
+      "population_scope",
+      "time_window",
+      "coverage_limits"
+    ]
   },
   "maturity": {
     "announcement": ["announce", "announces", "announced", "launch", "launches", "launched", "partnership", "will", "plans to", "available", "roadmap"],

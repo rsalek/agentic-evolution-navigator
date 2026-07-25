@@ -4,7 +4,7 @@ type: system
 title: Graph Schema
 status: active
 confidence: high
-updated: 2026-07-23
+updated: 2026-07-25
 ---
 
 # Graph Schema
@@ -38,7 +38,9 @@ The graph separates dated evidence from reusable mechanisms and revisable interp
 
 Before promotion, run the passage through the [[wiki/_system/Evidence Ontology|Evidence Ontology]] or assess the same dimensions manually. The resulting evidence contract is routing context, not proof.
 
-An accepted event should identify the source role, workflow anatomy, observed state change, maturity, confidence, and material evidence gaps. Scaled classification requires repeated operation plus a meaningful usage, economic, or outcome measure; a large number without a denominator or period is weaker than a bounded, reproducible metric.
+An accepted event should identify the source role, workflow anatomy, observed state change, maturity, confidence, and material evidence gaps. For comparative telemetry or research, it should also identify the observation method, product surface, unit, population, period, and coverage limits. Scaled classification requires repeated operation plus a meaningful usage, economic, or outcome measure; a large number without a denominator or period is weaker than a bounded, reproducible metric.
+
+Provider telemetry, surveys, operator disclosures, and vendor studies are complementary but not directly interchangeable. A relative growth rate or percentile gap can establish a directional production signal without establishing absolute scale.
 
 ## Relation discipline
 

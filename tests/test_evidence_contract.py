@@ -71,6 +71,32 @@ class EvidenceContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             extract_evidence_contract("text", source_role="primary-report")
 
+    def test_measurement_context_exposes_surface_unit_and_coverage(self):
+        result = extract_evidence_contract(
+            "Provider telemetry covers 15 million aggregated interactions across the Gemini App "
+            "and Gemini API in more than 150 countries, but excludes Google Workspace and agentic coding."
+        )
+        context = result["measurement_context"]
+        self.assertIn("provider-telemetry", context["observation_methods"])
+        self.assertIn("consumer-assistant", context["product_surfaces"])
+        self.assertIn("api-embedded", context["product_surfaces"])
+        self.assertIn("interaction", context["observation_units"])
+        self.assertIn("global", context["population_scopes"])
+        self.assertIn("excludes", context["coverage_limit_terms"])
+        self.assertNotIn("coverage_limits", context["missing_comparison_dimensions"])
+
+    def test_mixed_survey_and_telemetry_comparison_is_flagged(self):
+        result = extract_evidence_contract(
+            "A nationally representative survey of workers reports tasks, while provider telemetry "
+            "counts platform conversations and messages."
+        )
+        context = result["measurement_context"]
+        self.assertIn(
+            "provider-telemetry-and-survey-are-not-directly-comparable",
+            context["comparison_warnings"],
+        )
+        self.assertIn("mixed-observation-units", context["comparison_warnings"])
+
 
 if __name__ == "__main__":
     unittest.main()

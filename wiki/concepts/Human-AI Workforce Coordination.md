@@ -4,7 +4,7 @@ type: concept
 title: Human-AI Workforce Coordination
 status: active
 confidence: medium
-updated: 2026-07-23
+updated: 2026-07-25
 ---
 
 # Human-AI Workforce Coordination
@@ -26,9 +26,11 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 - MoneyHero and ixigo/TARA extend autonomous-resolution evidence across financial-product and travel support, while still omitting later recovery, quality, and exception rates.
 - Delivery Hero's Herogen shifts implementation work toward objective-setting and review, but the public disclosure omits review effort, failed-deployment, and rollback rates.
 - Hugging Face reports AI-assisted detection and analysis over more than 17,000 incident events, compressing forensic reconstruction from days to hours while human responders contained and remediated the breach.
+- Google ATLAS suggests collaboration dominates on the observed mainstream work surfaces, while OpenAI and Microsoft report much deeper agent use at the enterprise frontier. The different measurement surfaces prevent a direct automation-rate comparison.
 - These examples support a bounded allocation pattern, but the public sources do not disclose comparable escalation, correction, rework, or supervisor-effort rates.
 
 ## Relations
 
 - `depends-on` [[wiki/concepts/System-of-Record Distribution|System-of-Record Distribution]]
+- `constrained-by` [[wiki/concepts/Measurement Surface Bias|Measurement Surface Bias]]
 - `constrained-by` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]

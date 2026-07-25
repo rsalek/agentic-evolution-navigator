@@ -4,7 +4,7 @@ type: thesis
 title: Incumbent platforms are the distribution channel
 status: active
 confidence: medium
-updated: 2026-07-23
+updated: 2026-07-25
 review_after: 2026-09-30
 ---
 
@@ -24,12 +24,14 @@ Enterprise agents are increasingly entering work through platforms that already 
 - [[wiki/events/2026-05-04 ServiceNow agentifies customer production workflows]] names customer production environments and operating scale.
 - [[wiki/events/2025-07-31 Five9 expands healthcare AI-agent deployment]] links AI-agent expansion to Epic integration and a multi-year ARR signal.
 - [[wiki/events/2026-02-19 Five9 scales healthcare AI-agent commitment]] adds a three-year healthcare commitment with ARR expansion and claimed cost savings, although the agent-attributed share remains undisclosed.
+- [[wiki/events/2026-05-05 Microsoft reports 15x active-agent growth]] adds direct platform telemetry showing rapid growth in agent objects inside Microsoft 365 and SharePoint.
 
 ## Challenging evidence
 
 - Integration announcements and ARR commitments do not yet prove sustained agent usage, better outcomes, or durable platform power; the new Five9 evidence still does not isolate agent-attributed economics.
 - Sierra's role at Singtel and R1 shows that a specialist agent vendor can own the orchestration layer even when incumbent systems and customer channels supply distribution.
 - C Spire and Rossmann materially strengthen the operating evidence, but both remain vendor-published stories without independent customer-side measurement or audited economics.
+- Microsoft's ratio has no absolute agent, run, user, or firm count, and its active definition allows very light use; it supports distribution direction without establishing economic depth.
 
 ## What would change the thesis
 
