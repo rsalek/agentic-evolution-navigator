@@ -15,7 +15,7 @@
     <meta name="twitter:image" content="https://rsalek.github.io/agentic-evolution-navigator/signals/og.png">
     <title>Signals · Evolution Navigator</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23faf8f5' stroke='%23a54f0c' stroke-width='4'/%3E%3Cpath d='M18 39 30 17h4l12 22h-7l-2-5H27l-2 5Zm12-11h5l-2.5-6Z' fill='%23743506'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css?v=20260725-radar-live">
+    <link rel="stylesheet" href="styles.css?v=20260725-radar-demand">
   </head>
   <body>
     <a class="skip-link" href="#signals-main">Skip to signals</a>
@@ -306,7 +306,7 @@
                 <p class="confidence-note"><span>Confidence</span><strong>Medium</strong> Commercial value remains unverified.</p>
               </div>
               <dl>
-                <div><dt>Crawl demand</dt><dd id="thesis-demand-metric">210</dd></div>
+                <div><dt id="thesis-demand-label">Crawl demand</dt><dd id="thesis-demand-metric">210</dd></div>
                 <div><dt>Referral value</dt><dd id="thesis-referral-metric">58</dd></div>
                 <div><dt>Gap</dt><dd id="thesis-gap-metric">152</dd></div>
               </dl>
@@ -314,14 +314,14 @@
 
             <article class="panel story-chart">
               <header class="panel-header">
-                <div><h2>The signal</h2><p>Crawl demand and referral value, indexed to 100 at the start of the selected period</p></div>
+                <div><h2>The signal</h2><p id="thesis-signal-context">Crawl demand and referral value, indexed to 100 at the start of the selected period</p></div>
                 <div class="current-state"><span>Current state</span><strong id="thesis-current-state">Extraction gap widening</strong></div>
               </header>
               <div id="value-focus-legend" class="chart-legend"></div>
               <div id="value-focus-chart" class="chart value-chart" role="img" aria-label="Illustrative crawl demand and referral value divergence"></div>
               <div class="chart-reading">
                 <strong>How to read this</strong>
-                <p>The orange line represents demand placed on publishers. The green line represents attributable referral value returned. A wider distance is a warning signal, not proof of economic loss.</p>
+                <p id="thesis-chart-reading">The orange line represents demand placed on publishers. The green line represents attributable referral value returned. A wider distance is a warning signal, not proof of economic loss.</p>
               </div>
             </article>
 
@@ -331,7 +331,7 @@
                 <div>
                   <h2>What we observe</h2>
                   <p id="thesis-observed-copy">Identified agent demand expands while attributable referral value weakens across the selected period.</p>
-                  <ul><li>Traffic is observable and increasing.</li><li>Access controls increasingly distinguish agent requests.</li><li>The values remain illustrative until connected to dated Radar snapshots.</li></ul>
+                  <ul><li>Traffic is observable and increasing.</li><li>Access controls increasingly distinguish agent requests.</li><li id="thesis-observed-data-note">The values remain illustrative until connected to dated Radar snapshots.</li></ul>
                 </div>
               </article>
               <article>
@@ -395,7 +395,7 @@
       </aside>
     </div>
     <button id="open-rail" class="open-rail" type="button" hidden>Interpretation</button>
-    <script src="config.js?v=20260725-radar-live"></script>
-    <script src="app.js?v=20260725-radar-live"></script>
+    <script src="config.js?v=20260725-radar-demand"></script>
+    <script src="app.js?v=20260725-radar-demand"></script>
   </body>
 </html>

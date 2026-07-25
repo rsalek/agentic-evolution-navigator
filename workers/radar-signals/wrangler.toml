@@ -3,5 +3,5 @@ main = "worker.js"
 compatibility_date = "2026-07-25"
 
 [vars]
-ALLOWED_ORIGIN = "https://rsalek.github.io"
+ALLOWED_ORIGINS = "https://rsalek.github.io,http://127.0.0.1:8767,http://localhost:8767"
 CACHE_SECONDS = "900"

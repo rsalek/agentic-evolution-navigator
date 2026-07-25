@@ -413,6 +413,21 @@ h1 {
 .chart-legend { display: flex; flex-wrap: wrap; gap: 7px 15px; padding: 12px 18px 0; }
 .legend-item { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 8px; }
 .legend-swatch { width: 14px; height: 3px; background: var(--swatch); }
+.legend-item.is-unavailable { color: #7f7872; }
+.legend-item.is-unavailable .legend-swatch {
+  height: 0;
+  border-top: 2px dashed var(--swatch);
+  background: transparent;
+}
+.chart-data-boundary {
+  margin: -3px 8px 10px;
+  padding: 9px 11px;
+  border-left: 2px solid var(--line-strong);
+  background: #fbf9f6;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.45;
+}
 
 .bar-list, .readiness-list { padding: 18px 22px 20px; }
 .bar-list > div, .readiness-list > div {

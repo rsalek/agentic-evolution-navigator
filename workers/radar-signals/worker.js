@@ -1,5 +1,9 @@
 const RADAR_API = "https://api.cloudflare.com/client/v4";
-const DEFAULT_ORIGIN = "https://rsalek.github.io";
+const DEFAULT_ORIGINS = Object.freeze([
+  "https://rsalek.github.io",
+  "http://127.0.0.1:8767",
+  "http://localhost:8767",
+]);
 const REGION_LOCATIONS = Object.freeze({
   global: [
     ["GB", "United Kingdom", "#1f766b"],
@@ -24,8 +28,8 @@ const REGION_LOCATIONS = Object.freeze({
   ],
 });
 
-function corsHeaders(origin, allowedOrigin) {
-  const allowed = origin === allowedOrigin ? origin : allowedOrigin;
+function corsHeaders(origin, allowedOrigins) {
+  const allowed = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
   return {
     "Access-Control-Allow-Origin": allowed,
     "Access-Control-Allow-Methods": "GET, OPTIONS",
@@ -196,9 +200,12 @@ async function buildSignals(period, region, token) {
 export default {
   async fetch(request, env, context) {
     const url = new URL(request.url);
-    const allowedOrigin = env.ALLOWED_ORIGIN || DEFAULT_ORIGIN;
-    const origin = request.headers.get("Origin") || allowedOrigin;
-    const cors = corsHeaders(origin, allowedOrigin);
+    const allowedOrigins = String(env.ALLOWED_ORIGINS || env.ALLOWED_ORIGIN || DEFAULT_ORIGINS.join(","))
+      .split(",")
+      .map((origin) => origin.trim())
+      .filter(Boolean);
+    const origin = request.headers.get("Origin") || allowedOrigins[0];
+    const cors = corsHeaders(origin, allowedOrigins);
 
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
     if (request.method !== "GET") return json({ error: "Method not allowed" }, 405, cors);

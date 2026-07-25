@@ -41,5 +41,6 @@ Relevant official references:
 - [Markdown-for-agents summary](https://developers.cloudflare.com/api/resources/radar/subresources/ai/subresources/markdown_for_agents/methods/summary/)
 
 Radar does not provide publisher referral, conversion, or revenue data. The
-value-versus-extraction thesis therefore remains unavailable in live mode until
-a publisher analytics source is connected.
+live value-versus-extraction view therefore plots the available demand series
+while leaving the referral/value series and gap explicitly unavailable until a
+publisher analytics source is connected.

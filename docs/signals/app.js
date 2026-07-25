@@ -293,13 +293,20 @@ function renderLegend(target, series) {
   target.replaceChildren();
   series.forEach(function legendItem(item) {
     const wrapper = document.createElement("span");
-    wrapper.className = "legend-item";
+    wrapper.className = "legend-item" + (item.unavailable ? " is-unavailable" : "");
     const swatch = document.createElement("i");
     swatch.className = "legend-swatch";
     swatch.style.setProperty("--swatch", item.color);
     wrapper.append(swatch, document.createTextNode(item.name));
     target.append(wrapper);
   });
+}
+
+function appendChartBoundary(target, message) {
+  const boundary = document.createElement("p");
+  boundary.className = "chart-data-boundary";
+  boundary.textContent = message;
+  target.append(boundary);
 }
 
 function geographySeries(slice) {
@@ -409,19 +416,72 @@ function renderSummary(slice) {
 function renderValue(slice) {
   if (slice.live) {
     const reason = slice.live.value.reason;
-    renderEmptyState(document.querySelector("#value-stage-chart"), "Value exchange is not measured by Cloudflare Radar. Connect attributable referral, conversion, or revenue analytics to calculate this thesis signal.");
-    document.querySelector("#value-stage-legend").replaceChildren();
-    renderEmptyState(document.querySelector("#value-focus-chart"), "Radar supplies agent-traffic demand signals, but not publisher referral or commercial-value data.");
-    document.querySelector("#value-focus-legend").replaceChildren();
-    document.querySelector("#value-state").textContent = "Needs publisher analytics";
+    const values = slice.live.activity.values;
+    const timestamps = slice.live.activity.timestamps;
+    const activityChange = liveActivityChange();
+    const demandSeries = values.length
+      ? [{
+        name: "AI-bot request activity · Radar",
+        color: "#a54f0c",
+        values: normalizeVisible(values, values.length),
+      }]
+      : [];
+    const legend = demandSeries.concat([{
+      name: "Referral value · source required",
+      color: "#9b948d",
+      unavailable: true,
+    }]);
+    const labels = timestamps.slice(-values.length).map(function activityLabel(value) {
+      return new Date(value).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+    });
+    const stageChart = document.querySelector("#value-stage-chart");
+    const focusChart = document.querySelector("#value-focus-chart");
+
+    renderLegend(document.querySelector("#value-stage-legend"), legend);
+    renderLegend(document.querySelector("#value-focus-legend"), legend);
+    if (demandSeries.length) {
+      const chartValues = demandSeries[0].values;
+      const minValue = Math.floor(Math.min(...chartValues) / 10) * 10;
+      const maxValue = Math.ceil(Math.max(...chartValues) / 10) * 10;
+      renderLineChart(stageChart, demandSeries, labels, {
+        width: 920,
+        height: 380,
+        minValue,
+        maxValue,
+        points: true,
+      });
+      appendChartBoundary(stageChart, "Demand is indexed to 100 at the first visible week. Referral, conversion, and revenue are not available from Radar.");
+      renderLineChart(focusChart, demandSeries, labels, {
+        width: 900,
+        height: 390,
+        minValue,
+        maxValue,
+        points: true,
+      });
+      appendChartBoundary(focusChart, "Live demand signal only · a value gap cannot be calculated until attributable publisher analytics are connected.");
+    } else {
+      renderEmptyState(stageChart, "Radar returned no request-activity series for this scope.");
+      renderEmptyState(focusChart, "Radar returned no request-activity series for this scope.");
+    }
+    stageChart.setAttribute("aria-label", "Live normalized AI-bot request activity. Referral value is unavailable from Cloudflare Radar.");
+    focusChart.setAttribute("aria-label", "Live normalized AI-bot request activity. Referral value is unavailable from Cloudflare Radar.");
+    document.querySelector("#value-state").textContent = "Demand visible · value source needed";
     document.querySelector("#value-gap").textContent = "Not measured";
-    document.querySelector("#value-reading").textContent = reason;
-    document.querySelector("#value-boundary").textContent = "Live boundary · Radar measures identified request activity, not reciprocal publisher value.";
-    document.querySelector("#dock-value").textContent = "Needs value source";
+    document.querySelector("#value-reading").textContent = activityChange == null
+      ? reason
+      : "Identified AI-bot request activity changed " + signed(activityChange, "%") + " across the selected period. " + reason;
+    document.querySelector("#value-boundary").textContent = "Live demand shown · Radar does not measure reciprocal publisher value.";
+    document.querySelector("#dock-value").textContent = activityChange == null
+      ? "Value source needed"
+      : "Demand " + signed(activityChange, "%") + " · value unavailable";
     document.querySelector("#thesis-demand-metric").textContent = "—";
     document.querySelector("#thesis-referral-metric").textContent = "—";
     document.querySelector("#thesis-gap-metric").textContent = "—";
+    document.querySelector("#thesis-demand-label").textContent = "AI-bot activity";
     document.querySelector("#thesis-current-state").textContent = "Not measurable from Radar alone";
+    document.querySelector("#thesis-signal-context").textContent = "Identified AI-bot request activity, indexed to 100 at the start of the selected period";
+    document.querySelector("#thesis-chart-reading").textContent = "The orange line is the demand signal available from Radar. Referral value is not plotted because Radar does not provide attributable referral, conversion, or revenue data. No value gap is inferred.";
+    document.querySelector("#thesis-observed-data-note").textContent = "The demand series is live Radar data; the reciprocal-value side still requires publisher analytics.";
     document.querySelector("#thesis-lead").textContent = "Radar can measure agent demand, but not the value returned to publishers.";
     document.querySelector("#thesis-lead-detail").textContent = "The live traffic series can test whether demand is changing. Referral, conversion, revenue, or paid-access evidence is still required before the value-versus-extraction gap can be calculated.";
     document.querySelector("#thesis-observed-copy").textContent = "Cloudflare Radar reports identified AI-bot request activity for the selected period. It does not report attributable publisher referral or commercial outcomes.";
@@ -463,7 +523,11 @@ function renderValue(slice) {
   document.querySelector("#thesis-demand-metric").textContent = Math.round(finalCrawl);
   document.querySelector("#thesis-referral-metric").textContent = Math.round(finalReferral);
   document.querySelector("#thesis-gap-metric").textContent = Math.round(gap);
+  document.querySelector("#thesis-demand-label").textContent = "Crawl demand";
   document.querySelector("#thesis-current-state").textContent = state;
+  document.querySelector("#thesis-signal-context").textContent = "Crawl demand and referral value, indexed to 100 at the start of the selected period";
+  document.querySelector("#thesis-chart-reading").textContent = "The orange line represents demand placed on publishers. The green line represents attributable referral value returned. A wider distance is a warning signal, not proof of economic loss.";
+  document.querySelector("#thesis-observed-data-note").textContent = "The values remain illustrative until connected to dated Radar snapshots.";
   document.querySelector("#thesis-lead").textContent = gap > 60
     ? "Agent demand is rising faster than the referral value returned."
     : gap > 25
