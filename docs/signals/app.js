@@ -141,6 +141,17 @@ function formatTimestamp(value) {
   });
 }
 
+function formatChartDate(value) {
+  if (!value) return "unknown";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "unknown";
+  return date.toLocaleDateString(undefined, {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 function formatCompactNumber(value) {
   if (value == null || !Number.isFinite(Number(value))) return "—";
   return new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 }).format(Number(value));
@@ -434,6 +445,8 @@ function renderValue(slice) {
     const labels = timestamps.slice(-values.length).map(function activityLabel(value) {
       return new Date(value).toLocaleDateString(undefined, { day: "numeric", month: "short" });
     });
+    const latestObservation = formatChartDate(timestamps.at(-1));
+    const rollingUpdateNote = "Rolling " + slice.period + " weeks · latest plotted week " + latestObservation + ".\nDates advance when Radar publishes a new weekly observation. Data is checked when the page opens or Refresh data is pressed; responses may be cached for up to 15 minutes.";
     const stageChart = document.querySelector("#value-stage-chart");
     const focusChart = document.querySelector("#value-focus-chart");
 
@@ -450,7 +463,7 @@ function renderValue(slice) {
         maxValue,
         points: true,
       });
-      appendChartBoundary(stageChart, "Demand is indexed to 100 at the first visible week. Referral, conversion, and revenue are not available from Radar.");
+      appendChartBoundary(stageChart, rollingUpdateNote + "\nDemand is indexed to 100 at the first visible week. Referral, conversion, and revenue are not available from Radar.");
       renderLineChart(focusChart, demandSeries, labels, {
         width: 900,
         height: 390,
@@ -458,7 +471,7 @@ function renderValue(slice) {
         maxValue,
         points: true,
       });
-      appendChartBoundary(focusChart, "Live demand signal only · a value gap cannot be calculated until attributable publisher analytics are connected.");
+      appendChartBoundary(focusChart, rollingUpdateNote + "\nThis is a live demand signal only; a value gap cannot be calculated until attributable publisher analytics are connected.");
     } else {
       renderEmptyState(stageChart, "Radar returned no request-activity series for this scope.");
       renderEmptyState(focusChart, "Radar returned no request-activity series for this scope.");
@@ -474,11 +487,19 @@ function renderValue(slice) {
     document.querySelector("#dock-value").textContent = activityChange == null
       ? "Value source needed"
       : "Demand " + signed(activityChange, "%") + " · value unavailable";
-    document.querySelector("#thesis-demand-metric").textContent = "—";
-    document.querySelector("#thesis-referral-metric").textContent = "—";
-    document.querySelector("#thesis-gap-metric").textContent = "—";
-    document.querySelector("#thesis-demand-label").textContent = "AI-bot activity";
-    document.querySelector("#thesis-current-state").textContent = "Not measurable from Radar alone";
+    const latestDemandIndex = demandSeries.length ? demandSeries[0].values.at(-1) : null;
+    const demandMetric = document.querySelector("#thesis-demand-metric");
+    const referralMetric = document.querySelector("#thesis-referral-metric");
+    const gapMetric = document.querySelector("#thesis-gap-metric");
+    demandMetric.textContent = latestDemandIndex == null ? "Unavailable" : Math.round(latestDemandIndex);
+    referralMetric.textContent = "Unavailable";
+    gapMetric.textContent = "Not calculated";
+    demandMetric.classList.toggle("is-status", latestDemandIndex == null);
+    referralMetric.classList.add("is-status");
+    gapMetric.classList.add("is-status");
+    document.querySelector("#thesis-demand-label").textContent = "AI-bot activity index";
+    document.querySelector("#thesis-current-state").textContent = "Demand tracked · value gap unavailable";
+    document.querySelector("#thesis-current-state").classList.add("is-boundary");
     document.querySelector("#thesis-signal-context").textContent = "Identified AI-bot request activity, indexed to 100 at the start of the selected period";
     document.querySelector("#thesis-chart-reading").textContent = "The orange line is the demand signal available from Radar. Referral value is not plotted because Radar does not provide attributable referral, conversion, or revenue data. No value gap is inferred.";
     document.querySelector("#thesis-observed-data-note").textContent = "The demand series is live Radar data; the reciprocal-value side still requires publisher analytics.";
@@ -523,8 +544,12 @@ function renderValue(slice) {
   document.querySelector("#thesis-demand-metric").textContent = Math.round(finalCrawl);
   document.querySelector("#thesis-referral-metric").textContent = Math.round(finalReferral);
   document.querySelector("#thesis-gap-metric").textContent = Math.round(gap);
+  document.querySelector("#thesis-demand-metric").classList.remove("is-status");
+  document.querySelector("#thesis-referral-metric").classList.remove("is-status");
+  document.querySelector("#thesis-gap-metric").classList.remove("is-status");
   document.querySelector("#thesis-demand-label").textContent = "Crawl demand";
   document.querySelector("#thesis-current-state").textContent = state;
+  document.querySelector("#thesis-current-state").classList.remove("is-boundary");
   document.querySelector("#thesis-signal-context").textContent = "Crawl demand and referral value, indexed to 100 at the start of the selected period";
   document.querySelector("#thesis-chart-reading").textContent = "The orange line represents demand placed on publishers. The green line represents attributable referral value returned. A wider distance is a warning signal, not proof of economic loss.";
   document.querySelector("#thesis-observed-data-note").textContent = "The values remain illustrative until connected to dated Radar snapshots.";

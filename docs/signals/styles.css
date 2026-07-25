@@ -427,6 +427,7 @@ h1 {
   color: var(--muted);
   font-size: 9px;
   line-height: 1.45;
+  white-space: pre-line;
 }
 
 .bar-list, .readiness-list { padding: 18px 22px 20px; }
@@ -678,6 +679,13 @@ td:last-child { width: 40%; white-space: normal; }
 .story-lead dl > div + div { border-left: 1px solid var(--line); }
 .story-lead dt { color: var(--muted); font-size: 8px; }
 .story-lead dd { margin: 5px 0 0; color: var(--ink); font-size: 18px; font-weight: 700; }
+.story-lead dd.is-status {
+  display: grid;
+  min-height: 25px;
+  place-items: center;
+  font-size: 10px;
+  line-height: 1.25;
+}
 .story-lead dl > div:last-child dd { color: var(--thesis); }
 .story-chart { width: 100%; }
 .story-chart .panel-header { padding: 17px 20px 12px; }
@@ -685,6 +693,7 @@ td:last-child { width: 40%; white-space: normal; }
 .current-state span, .current-state strong { display: block; }
 .current-state span { color: var(--muted); font-size: 8px; letter-spacing: .07em; text-transform: uppercase; }
 .current-state strong { margin-top: 4px; color: var(--thesis); font-size: 11px; }
+.current-state strong.is-boundary { color: var(--ink); }
 .value-chart { width: 100%; max-width: 900px; min-height: 360px; margin: 0 auto; }
 .chart-reading { display: grid; grid-template-columns: 110px 1fr; gap: 15px; margin: 0 20px 18px; padding: 13px 15px; border-left: 3px solid var(--primary); background: #fff9f4; }
 .chart-reading strong { font-size: 10px; }
