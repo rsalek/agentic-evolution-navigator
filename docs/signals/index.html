@@ -144,6 +144,16 @@
               <div id="access-legend" class="chart-legend"></div>
               <div id="access-chart" class="chart focus-chart" role="img" aria-label="Weekly HTTP response-status composition"></div>
               <div id="access-list" class="outcome-grid"></div>
+              <section class="access-code-guide" aria-labelledby="access-code-guide-title">
+                <h3 id="access-code-guide-title">What the constrained codes mean</h3>
+                <p>These responses suggest a request met an access control, but the code alone does not reveal the publisher's intent.</p>
+                <dl>
+                  <div><dt>401 · Authentication required</dt><dd>The request did not provide valid credentials.</dd></div>
+                  <div><dt>403 · Access refused</dt><dd>The server understood the request but did not authorize it.</dd></div>
+                  <div><dt>429 · Rate limited</dt><dd>The requester sent too many requests within the server's limit.</dd></div>
+                  <div><dt>404 · Not found</dt><dd>A missing resource; shown under other client errors, not the constrained proxy.</dd></div>
+                </dl>
+              </section>
               <footer>Only 401, 403 and 429 are grouped as an access-constrained proxy. Redirects and ordinary client errors remain separate.</footer>
             </article>
 
@@ -154,10 +164,10 @@
             </article>
 
             <article class="focus-panel" data-signal-panel="geography" hidden>
-              <header class="focus-header"><div><p>Market signal</p><h2>Traffic geography</h2><span id="geography-context">Locations requested together on one Radar normalization scale</span></div><button class="quiet-button" type="button" data-explain="geography">Method</button></header>
+              <header class="focus-header"><div><p>Market signal</p><h2>Traffic geography</h2><span id="geography-context">Compare growth paths across locations</span></div><div class="chart-mode-control" role="group" aria-label="Geography chart scale"><button type="button" data-geography-mode="trend" aria-pressed="true">Trend</button><button type="button" data-geography-mode="volume" aria-pressed="false">Relative volume</button></div></header>
               <div id="geography-legend" class="chart-legend"></div>
               <div id="geography-chart" class="chart focus-chart" role="img" aria-label="Comparable relative AI-bot request activity by geography"></div>
-              <footer>Relative request activity can be compared across the displayed locations because Radar normalizes them in one request. It is not absolute market size.</footer>
+              <footer id="geography-boundary">Trend rebases each location to 100 at its first visible week. It compares direction and growth, not traffic magnitude or absolute market size.</footer>
             </article>
 
             <article class="focus-panel" data-signal-panel="readiness" hidden>

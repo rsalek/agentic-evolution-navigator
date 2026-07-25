@@ -29,6 +29,18 @@
     "5xx": "#b5365a",
     "1xx": "#a89d94",
   };
+  const ACCESS_GROUPS = {
+    "2xx": { label: "Served successfully (2xx)", color: "#1f766b" },
+    success: { label: "Served successfully (2xx)", color: "#1f766b" },
+    "3xx": { label: "Redirected (3xx)", color: "#287095" },
+    redirection: { label: "Redirected (3xx)", color: "#287095" },
+    "4xx": { label: "Client response (4xx)", color: "#b86b2d" },
+    client_error: { label: "Client response (4xx)", color: "#b86b2d" },
+    "5xx": { label: "Server failure (5xx)", color: "#b5365a" },
+    server_error: { label: "Server failure (5xx)", color: "#b5365a" },
+    "1xx": { label: "Informational (1xx)", color: "#a89d94" },
+    informational: { label: "Informational (1xx)", color: "#a89d94" },
+  };
 
   const state = {
     data: null,
@@ -36,6 +48,7 @@
     view: "observatory",
     loading: false,
     cacheStatus: null,
+    geographyMode: "trend",
   };
 
   function $(selector) {
@@ -380,6 +393,17 @@
     return (items || []).find((item) => String(item.key).toLowerCase() === String(key).toLowerCase());
   }
 
+  function accessGroup(group) {
+    return ACCESS_GROUPS[String(group && group.key || "").toLowerCase()]
+      || { label: group && group.label || "HTTP response", color: "#8f8881" };
+  }
+
+  function indexedValues(values) {
+    const base = (values || []).find((value) => finite(value) != null && finite(value) !== 0);
+    if (base == null) return [];
+    return values.map((value) => finite(value) == null ? null : finite(value) / base * 100);
+  }
+
   function renderSummary() {
     const data = state.data;
     if (!data) return;
@@ -494,7 +518,10 @@
       return;
     }
     const groups = access.trend && access.trend.groups || [];
-    renderLegend($("#access-legend"), groups.map((group) => ({ name: group.label, color: COLORS[group.key] || "#8f8881" })));
+    renderLegend($("#access-legend"), groups.map((group) => {
+      const readable = accessGroup(group);
+      return { name: readable.label, color: readable.color };
+    }));
     renderStackedChart($("#access-chart"), groups, access.trend && access.trend.timestamps);
     const list = $("#access-list");
     list.replaceChildren();
@@ -562,18 +589,39 @@
       $("#dock-geography").textContent = "Unavailable";
       return;
     }
-    const series = geography.series.filter((item) => item.values && item.values.length).map((item) => ({
+    const sourceSeries = geography.series.filter((item) => item.values && item.values.length);
+    const trendMode = state.geographyMode === "trend";
+    const series = sourceSeries.map((item) => ({
       name: item.name,
       color: item.color,
-      values: item.values.map((value) => value * 100),
+      values: trendMode ? indexedValues(item.values) : item.values.map((value) => value * 100),
     }));
     renderLegend($("#geography-legend"), series);
     const timestamps = geography.series.find((item) => item.timestamps && item.timestamps.length)?.timestamps || [];
+    const chartValues = series.flatMap((item) => item.values).filter((value) => finite(value) != null);
+    const chartMin = trendMode && chartValues.length ? Math.min(...chartValues) : 0;
+    const chartMax = trendMode && chartValues.length ? Math.max(...chartValues) : null;
+    const padding = trendMode && chartMin != null && chartMax != null ? Math.max((chartMax - chartMin) * 0.12, 5) : 0;
     renderLineChart($("#geography-chart"), series, timestamps.map((value) => formatDate(value).replace(/ \d{4}$/, "")), {
-      min: 0,
+      min: trendMode ? Math.max(0, chartMin - padding) : 0,
+      max: trendMode ? chartMax + padding : null,
       tick: (value) => round(value, 0),
     });
-    $("#geography-context").textContent = `${formatRange(geography.meta)} · ${geography.meta && geography.meta.normalization || "Radar"} shared scale`;
+    $$("[data-geography-mode]").forEach((control) => {
+      control.setAttribute("aria-pressed", String(control.dataset.geographyMode === state.geographyMode));
+    });
+    $("#geography-chart").setAttribute(
+      "aria-label",
+      trendMode
+        ? "AI-bot request activity by geography, each location indexed to 100 at the first visible week"
+        : "Comparable AI-bot request activity by geography on one shared Cloudflare scale"
+    );
+    $("#geography-context").textContent = trendMode
+      ? `${formatRange(geography.meta)} · each location starts at 100`
+      : `${formatRange(geography.meta)} · ${geography.meta && geography.meta.normalization || "Radar"} shared scale`;
+    $("#geography-boundary").textContent = trendMode
+      ? "Trend rebases each location to 100 at its first visible week. It compares direction and growth, not traffic magnitude or absolute market size."
+      : "Relative volume preserves Radar's shared normalization so locations remain comparable in magnitude. It is not an absolute request count or market-size estimate.";
     $("#dock-geography").textContent = `${series.length} comparable locations`;
   }
 
@@ -761,12 +809,20 @@
       geography: {
         ...common,
         title: "Geography",
-        observed: geography.available ? `${geography.series.filter((item) => item.values && item.values.length).length} locations share one Cloudflare normalization scale.` : "Geographic comparison is unavailable.",
-        method: geography.meta && geography.meta.normalization || "Multi-series comparison",
+        observed: geography.available
+          ? state.geographyMode === "trend"
+            ? `${geography.series.filter((item) => item.values && item.values.length).length} locations are rebased to 100 to compare their growth paths.`
+            : `${geography.series.filter((item) => item.values && item.values.length).length} locations share one Cloudflare normalization scale.`
+          : "Geographic comparison is unavailable.",
+        method: state.geographyMode === "trend"
+          ? "First visible week = 100, calculated from one shared Radar response"
+          : geography.meta && geography.meta.normalization || "Multi-series comparison",
         connection: "Geographic divergence can show where agent-traffic changes appear first and whether movement is broad.",
         inference: "Broad movement is more durable than a single-market spike, but coverage and classification still shape the signal.",
-        boundaryTitle: "Not absolute market size.",
-        boundary: "Locations are comparable only because they are requested together. The values do not estimate total agent usage by country.",
+        boundaryTitle: state.geographyMode === "trend" ? "Trend hides magnitude." : "Not absolute market size.",
+        boundary: state.geographyMode === "trend"
+          ? "Indexing makes direction readable but removes relative traffic magnitude. Switch to Relative volume for the shared Radar scale."
+          : "Locations are comparable only because they are requested together. The values do not estimate total agent usage by country.",
         updated: sourceUpdated(geography),
       },
       readiness: {
@@ -938,12 +994,13 @@
     ["#period-filter", "#region-filter", "#agent-filter"].forEach((selector) => {
       $(selector).addEventListener("change", () => refreshLiveData());
     });
+    $$("[data-geography-mode]").forEach((control) => control.addEventListener("click", () => {
+      state.geographyMode = control.dataset.geographyMode;
+      renderGeography();
+      renderInspector();
+    }));
     $("#refresh-data").addEventListener("click", () => refreshLiveData());
     $("a[href='#regime-log']").addEventListener("click", () => setView("observatory", { updateLocation: false, scroll: false }));
-    $("[data-explain='geography']").addEventListener("click", () => {
-      setRailOpen(true);
-      $(".method-note").scrollIntoView({ behavior: "smooth", block: "center" });
-    });
     $("#close-rail").addEventListener("click", () => setRailOpen(false));
     $("#open-rail").addEventListener("click", () => setRailOpen(true));
     $("#toggle-interpretation").addEventListener("click", () => setRailOpen($("#toggle-interpretation").getAttribute("aria-pressed") !== "true"));
