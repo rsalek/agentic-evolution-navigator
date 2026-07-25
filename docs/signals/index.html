@@ -3,19 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Signals observatory for agentic traffic, readiness, access friction, and value exchange.">
+    <meta name="description" content="Cloudflare Radar evidence for agent demand, intent, access, operators, geography, and readiness.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Agentic traffic: value or extraction?">
-    <meta property="og:description" content="Observed traffic, readiness, access friction, and returned value — connected to the evidence graph.">
+    <meta property="og:title" content="Agent traffic signals · Evolution Navigator">
+    <meta property="og:description" content="Live demand-side evidence connected to the Value versus extraction thesis.">
     <meta property="og:url" content="https://rsalek.github.io/agentic-evolution-navigator/signals/">
     <meta property="og:image" content="https://rsalek.github.io/agentic-evolution-navigator/signals/og.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Agentic traffic: value or extraction?">
-    <meta name="twitter:description" content="Observed traffic, readiness, access friction, and returned value — connected to the evidence graph.">
-    <meta name="twitter:image" content="https://rsalek.github.io/agentic-evolution-navigator/signals/og.png">
     <title>Signals · Evolution Navigator</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23faf8f5' stroke='%23a54f0c' stroke-width='4'/%3E%3Cpath d='M18 39 30 17h4l12 22h-7l-2-5H27l-2 5Zm12-11h5l-2.5-6Z' fill='%23743506'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css?v=20260725-radar-clarity">
+    <link rel="stylesheet" href="styles.css?v=20260725-signals-v2">
   </head>
   <body>
     <a class="skip-link" href="#signals-main">Skip to signals</a>
@@ -23,10 +20,7 @@
       <aside class="signals-sidebar">
         <header class="brand">
           <img class="brand-logo" src="../assets/agentic-evolution-logo.png?v=20260725" alt="" aria-hidden="true">
-          <div>
-            <strong>Evolution Navigator</strong>
-            <span>Evidence Graph &amp; Signals</span>
-          </div>
+          <div><strong>Evolution Navigator</strong><span>Evidence Graph &amp; Signals</span></div>
         </header>
 
         <nav class="site-nav" aria-label="Navigator views">
@@ -36,50 +30,33 @@
 
         <nav class="saved-views control-block" aria-label="Signal views">
           <h2>Signal views</h2>
-          <button type="button" data-show-view="observatory" aria-current="page">
-            <span aria-hidden="true">01</span><strong>Observatory</strong>
-          </button>
-          <button type="button" data-show-view="thesis">
-            <span aria-hidden="true">02</span><strong>Thesis analysis</strong>
-          </button>
-          <a href="#regime-log">
-            <span aria-hidden="true">03</span><strong>Regime-change log</strong>
-          </a>
+          <button type="button" data-show-view="observatory" aria-current="page"><span>01</span><strong>Observatory</strong></button>
+          <button type="button" data-show-view="thesis"><span>02</span><strong>Thesis analysis</strong></button>
+          <a href="#regime-log"><span>03</span><strong>Regime-change log</strong></a>
         </nav>
 
         <nav class="signal-nav control-block" aria-label="Observatory signals">
           <h2>Observatory signals</h2>
-          <button type="button" data-signal-select="value" aria-current="true"><span aria-hidden="true">↗</span><strong>Value vs extraction</strong></button>
-          <button type="button" data-signal-select="geography"><span aria-hidden="true">↗</span><strong>Traffic geography</strong></button>
-          <button type="button" data-signal-select="readiness"><span aria-hidden="true">↗</span><strong>Readiness</strong></button>
-          <button type="button" data-signal-select="friction"><span aria-hidden="true">↗</span><strong>Access friction</strong></button>
-          <button type="button" data-signal-select="purpose"><span aria-hidden="true">↗</span><strong>Purpose mix</strong></button>
+          <button type="button" data-signal-select="demand" aria-current="true"><span>01</span><strong>Demand pressure</strong></button>
+          <button type="button" data-signal-select="purpose"><span>02</span><strong>Purpose</strong></button>
+          <button type="button" data-signal-select="access"><span>03</span><strong>Access outcomes</strong></button>
+          <button type="button" data-signal-select="operators"><span>04</span><strong>Operators</strong></button>
+          <button type="button" data-signal-select="geography"><span>05</span><strong>Geography</strong></button>
+          <button type="button" data-signal-select="readiness"><span>06</span><strong>Readiness</strong></button>
         </nav>
 
-        <section class="signals-examples control-block" aria-labelledby="signals-examples-title">
-          <h2 id="signals-examples-title">Examples to try</h2>
-          <p id="examples-context">Explore the illustrative Radar-connected model.</p>
-          <button type="button" data-signal-select="value">
-            <strong>Test reciprocal value</strong>
-            <span>Compare crawl demand with referral value.</span>
-          </button>
-          <button type="button" data-signal-select="geography">
-            <strong>Compare traffic markets</strong>
-            <span>See where identified activity diverges.</span>
-          </button>
-          <button type="button" data-signal-select="readiness">
-            <strong>Inspect agent readiness</strong>
-            <span>Review standards exposed to agents.</span>
-          </button>
+        <section class="signals-examples control-block" aria-labelledby="signals-questions-title">
+          <h2 id="signals-questions-title">Questions to test</h2>
+          <button type="button" data-signal-select="demand"><strong>Is agent demand changing?</strong><span>Compare the selected period with its preceding period.</span></button>
+          <button type="button" data-signal-select="purpose"><strong>What is the traffic for?</strong><span>Separate training, mixed, search and user-action intent.</span></button>
+          <button type="button" data-signal-select="access"><strong>How do publishers respond?</strong><span>Distinguish served, redirected, constrained and failed requests.</span></button>
         </section>
 
         <footer class="sidebar-footer source-footer">
           <label for="source-model-filter">Data source</label>
-          <select id="source-model-filter">
-            <option value="cloudflare">Cloudflare Radar</option>
-          </select>
-          <strong id="source-status">Illustrative fallback</strong>
-          <span id="source-status-detail">Live source not connected</span>
+          <select id="source-model-filter"><option value="cloudflare">Cloudflare Radar</option></select>
+          <strong id="source-status">Connecting to Radar</strong>
+          <span id="source-status-detail">No dataset loaded yet</span>
         </footer>
       </aside>
 
@@ -87,19 +64,17 @@
         <header class="signals-toolbar">
           <div class="signals-workspace-heading">
             <h1>Agent traffic signals</h1>
-            <p id="signals-workspace-context">Illustrative model · Global comparison · All identified AI agents · 12 weeks</p>
+            <p id="signals-workspace-context">Loading the selected Cloudflare Radar scope</p>
           </div>
           <form class="filter-bar" aria-label="Signal scope">
-            <label>
-              Period
+            <label>Period
               <select id="period-filter">
                 <option value="12">12 weeks</option>
                 <option value="8">8 weeks</option>
                 <option value="6">6 weeks</option>
               </select>
             </label>
-            <label>
-              Geography
+            <label>Geography
               <select id="region-filter">
                 <option value="global">Global comparison</option>
                 <option value="europe">Europe</option>
@@ -107,169 +82,115 @@
                 <option value="anglosphere">United Kingdom + United States</option>
               </select>
             </label>
-            <label>
-              Agent class
+            <label>Agent category
               <select id="agent-filter">
                 <option value="all">All identified AI agents</option>
                 <option value="crawler">AI crawlers</option>
                 <option value="assistant">AI assistants</option>
+                <option value="search">AI search</option>
               </select>
             </label>
           </form>
           <div class="toolbar-actions">
-            <button id="refresh-data" class="refresh-button" type="button">Refresh data</button>
+            <button id="refresh-data" class="refresh-button" type="button">Refresh latest</button>
             <button id="toggle-interpretation" class="panel-toggle" type="button" aria-pressed="true" aria-controls="interpretation-rail">Inspector</button>
           </div>
         </header>
         <p id="data-notice" class="data-notice" role="status" aria-live="polite" hidden></p>
 
         <section id="observatory-view" class="workspace">
-          <section class="signal-summary" aria-label="Navigate through key results">
-            <button class="summary-metric" type="button" data-signal-select="geography">
-              <div><h2>Agent activity</h2><p>Normalized request trend</p></div>
-              <strong id="metric-activity">+18%</strong>
-              <span id="metric-activity-note">versus prior period</span>
-            </button>
-            <button class="summary-metric" type="button" data-signal-select="friction">
-              <div><h2>Successful access</h2><p>2xx share of identified traffic</p></div>
-              <strong id="metric-access">62.3%</strong>
-              <span id="metric-access-note">+3.1 pp</span>
-            </button>
-            <button class="summary-metric" type="button" data-signal-select="readiness">
-              <div><h2>Readiness coverage</h2><p>Successfully scanned domains exposing checks</p></div>
-              <strong id="metric-readiness">37.6%</strong>
-              <span id="metric-readiness-note">+6.4 pp</span>
-            </button>
-            <button class="summary-metric" type="button" data-signal-select="purpose">
-              <div><h2>Markdown reduction</h2><p>Median HTML-to-markdown reduction ratio</p></div>
-              <strong id="metric-markdown">1.28 PB</strong>
-              <span id="metric-markdown-note">illustrative estimate</span>
-            </button>
+          <section class="signal-summary" aria-label="Key results">
+            <button class="summary-metric" type="button" data-signal-select="demand"><div><h2>Demand change</h2><p>Current vs preceding period</p></div><strong id="metric-demand">—</strong><span id="metric-demand-note">Awaiting comparable series</span></button>
+            <button class="summary-metric" type="button" data-signal-select="purpose"><div><h2>Training share</h2><p>Identified request purpose</p></div><strong id="metric-purpose">—</strong><span id="metric-purpose-note">Mixed Purpose remains separate</span></button>
+            <button class="summary-metric" type="button" data-signal-select="access"><div><h2>Access constrained</h2><p>401 + 403 + 429 proxy</p></div><strong id="metric-access">—</strong><span id="metric-access-note">Not all 4xx responses</span></button>
+            <button class="summary-metric" type="button" data-signal-select="readiness"><div><h2>AI policy rules</h2><p>Successful readiness scans</p></div><strong id="metric-readiness">—</strong><span id="metric-readiness-note">Global weekly scan</span></button>
           </section>
 
           <section class="focus-stage" aria-label="Selected signal">
-            <article class="focus-panel value-panel" data-signal-panel="value">
+            <article class="focus-panel primary-signal" data-signal-panel="demand">
               <header class="focus-header">
-                <div>
-                  <p>Primary thesis signal</p>
-                  <h2>Value versus extraction</h2>
-                  <span>Crawl demand compared with attributable referral value · indexed to 100</span>
-                </div>
-                <div class="focus-state">
-                  <span>Current state</span>
-                  <strong id="value-state">Extraction gap widening</strong>
-                </div>
+                <div><p>Primary thesis signal · Value versus extraction</p><h2>Agent demand pressure and intent</h2><span id="demand-context">Current period compared with the preceding period on one Radar scale</span></div>
+                <div class="focus-state"><span>Current reading</span><strong id="demand-state">Loading live evidence</strong></div>
               </header>
-              <div class="focus-body value-focus-body">
+              <div class="focus-body primary-body">
                 <div>
-                  <div id="value-stage-legend" class="chart-legend"></div>
-                  <div id="value-stage-chart" class="chart focus-chart" role="img" aria-label="Illustrative divergence between crawl demand and referral value"></div>
+                  <div id="demand-legend" class="chart-legend"></div>
+                  <div id="demand-chart" class="chart focus-chart" role="img" aria-label="Current and preceding AI-bot request activity"></div>
                 </div>
                 <aside class="focus-reading">
-                  <strong id="value-gap">152 index points</strong>
-                  <span>crawl–referral gap</span>
-                  <p id="value-reading">Demand has outpaced returned referral value for six consecutive weeks.</p>
+                  <dl class="evidence-list">
+                    <div><dt>Demand</dt><dd id="demand-evidence">—</dd></div>
+                    <div><dt>Training intent</dt><dd id="training-evidence">—</dd></div>
+                    <div><dt>Mixed Purpose</dt><dd id="mixed-evidence">—</dd></div>
+                    <div><dt>Returned value</dt><dd>Source required</dd></div>
+                  </dl>
+                  <p id="demand-reading">Radar can measure demand and classified intent, but not reciprocal publisher value.</p>
                   <button class="thesis-button" type="button" data-show-view="thesis">Open thesis analysis</button>
                 </aside>
               </div>
-              <footer id="value-boundary">Illustrative scenario · a sustained inflection remains a candidate until verified across periods and sources.</footer>
-            </article>
-
-            <article class="focus-panel" data-signal-panel="geography" hidden>
-              <header class="focus-header">
-                <div>
-                  <p>Operating signal</p>
-                  <h2>Traffic by geography</h2>
-                  <span>Comparable normalized request trend · first visible week = 100</span>
-                </div>
-                <button class="quiet-button" type="button" data-explain="geography">Method</button>
-              </header>
-              <div id="geography-legend" class="chart-legend"></div>
-              <div id="geography-chart" class="chart focus-chart" role="img" aria-label="Illustrative normalized agent traffic trends by geography"></div>
-              <footer>Locations are compared in one request so normalization stays consistent.</footer>
-            </article>
-
-            <article class="focus-panel" data-signal-panel="readiness" hidden>
-              <header class="focus-header">
-                <div>
-                  <p>Capability signal</p>
-                  <h2>Readiness by standard</h2>
-                  <span id="readiness-context">Global comparison · share of successfully scanned domains</span>
-                </div>
-                <div class="focus-state"><span id="readiness-state-label">Adoption change</span><strong id="readiness-change">+6.4 pp</strong></div>
-              </header>
-              <div id="readiness-list" class="readiness-list large-bars"></div>
-              <footer>Readiness indicates capability exposure, not proven agent adoption.</footer>
-            </article>
-
-            <article class="focus-panel" data-signal-panel="friction" hidden>
-              <header class="focus-header">
-                <div>
-                  <p>Access signal</p>
-                  <h2>Access friction</h2>
-                  <span id="friction-context">Global comparison · blocked or challenged identified requests</span>
-                </div>
-              </header>
-              <div class="friction-figure">
-                <div id="friction-gauge" class="friction-gauge">
-                  <strong id="friction-total">37.7%</strong>
-                  <span>blocked or challenged</span>
-                </div>
-                <ul id="friction-list" aria-label="Access friction by cause"></ul>
-              </div>
-              <footer id="friction-boundary">Friction can represent deliberate publisher policy, not only technical failure.</footer>
+              <footer id="demand-boundary">Relative Cloudflare request volume · not absolute global usage.</footer>
             </article>
 
             <article class="focus-panel" data-signal-panel="purpose" hidden>
-              <header class="focus-header">
-                <div>
-                  <p>Intent signal</p>
-                  <h2>Crawl purpose mix</h2>
-                  <span id="purpose-context">All identified AI agents · share of identified requests</span>
-                </div>
-              </header>
-              <div id="purpose-list" class="bar-list large-bars"></div>
-              <footer>Purpose is classified from identified agent behavior and remains methodology-dependent.</footer>
+              <header class="focus-header"><div><p>Intent signal</p><h2>Crawl purpose</h2><span id="purpose-context">Weekly share of identified AI-bot requests</span></div><div class="focus-state"><span>Largest purpose</span><strong id="purpose-state">—</strong></div></header>
+              <div id="purpose-legend" class="chart-legend"></div>
+              <div id="purpose-chart" class="chart focus-chart" role="img" aria-label="Weekly crawl-purpose composition"></div>
+              <div id="purpose-list" class="comparison-list"></div>
+              <footer>Purpose is classified intent. Training is not automatically harmful, and User Action is not attributable publisher value.</footer>
+            </article>
+
+            <article class="focus-panel" data-signal-panel="access" hidden>
+              <header class="focus-header"><div><p>Publisher response signal</p><h2>Access outcomes</h2><span id="access-context">HTTP response outcomes for identified AI-bot requests</span></div><div class="focus-state"><span>Constrained proxy</span><strong id="access-state">—</strong></div></header>
+              <div id="access-legend" class="chart-legend"></div>
+              <div id="access-chart" class="chart focus-chart" role="img" aria-label="Weekly HTTP response-status composition"></div>
+              <div id="access-list" class="outcome-grid"></div>
+              <footer>Only 401, 403 and 429 are grouped as an access-constrained proxy. Redirects and ordinary client errors remain separate.</footer>
+            </article>
+
+            <article class="focus-panel" data-signal-panel="operators" hidden>
+              <header class="focus-header"><div><p>Addressability signal</p><h2>Operator concentration</h2><span id="operators-context">Share of identified bot requests by operator</span></div><div class="focus-state"><span>Top three share</span><strong id="operators-state">—</strong></div></header>
+              <div id="operators-list" class="bar-list large-bars"></div>
+              <footer>Named operators create identifiable counterparties. Concentration does not establish adoption, revenue or willingness to pay.</footer>
+            </article>
+
+            <article class="focus-panel" data-signal-panel="geography" hidden>
+              <header class="focus-header"><div><p>Market signal</p><h2>Traffic geography</h2><span id="geography-context">Locations requested together on one Radar normalization scale</span></div><button class="quiet-button" type="button" data-explain="geography">Method</button></header>
+              <div id="geography-legend" class="chart-legend"></div>
+              <div id="geography-chart" class="chart focus-chart" role="img" aria-label="Comparable relative AI-bot request activity by geography"></div>
+              <footer>Relative request activity can be compared across the displayed locations because Radar normalizes them in one request. It is not absolute market size.</footer>
+            </article>
+
+            <article class="focus-panel" data-signal-panel="readiness" hidden>
+              <header class="focus-header"><div><p>Capability signal</p><h2>Agent readiness</h2><span id="readiness-context">Global weekly bulk scan · unaffected by traffic geography and agent category</span></div><div class="focus-state"><span>Scan date</span><strong id="readiness-state">—</strong></div></header>
+              <div id="readiness-groups" class="readiness-groups"></div>
+              <div class="method-strip">
+                <div><span>Successful scans</span><strong id="readiness-successful">—</strong></div>
+                <div><span>Attempted scans</span><strong id="readiness-total">—</strong></div>
+                <div><span>Scan coverage</span><strong id="readiness-coverage">—</strong></div>
+                <div><span>Markdown reduction</span><strong id="efficiency-ratio">—</strong></div>
+              </div>
+              <footer>Checks show exposed capabilities among successfully scanned domains. They do not prove usage, adoption or commercial value.</footer>
             </article>
           </section>
 
           <section class="signal-browser">
             <header><strong>Related signals</strong><span>Select a result to bring it to centre stage</span></header>
             <nav class="signal-dock" aria-label="Choose centre-stage signal">
-              <button type="button" data-signal-select="value" aria-current="true">
-                <span>Primary thesis</span><strong>Value vs extraction</strong><small id="dock-value">Gap +152</small>
-              </button>
-              <button type="button" data-signal-select="geography">
-                <span>Traffic</span><strong>Geography</strong><small id="dock-geography">6 locations</small>
-              </button>
-              <button type="button" data-signal-select="readiness">
-                <span>Capability</span><strong>Readiness</strong><small id="dock-readiness">37.6%</small>
-              </button>
-              <button type="button" data-signal-select="friction">
-                <span>Access</span><strong>Friction</strong><small id="dock-friction">37.7%</small>
-              </button>
-              <button type="button" data-signal-select="purpose">
-                <span>Intent</span><strong>Purpose mix</strong><small id="dock-purpose">Training 38.7%</small>
-              </button>
+              <button type="button" data-signal-select="demand" aria-current="true"><span>Thesis evidence</span><strong>Demand pressure</strong><small id="dock-demand">Loading</small></button>
+              <button type="button" data-signal-select="purpose"><span>Intent</span><strong>Purpose</strong><small id="dock-purpose">Loading</small></button>
+              <button type="button" data-signal-select="access"><span>Response</span><strong>Access outcomes</strong><small id="dock-access">Loading</small></button>
+              <button type="button" data-signal-select="operators"><span>Market</span><strong>Operators</strong><small id="dock-operators">Loading</small></button>
+              <button type="button" data-signal-select="geography"><span>Market</span><strong>Geography</strong><small id="dock-geography">Loading</small></button>
+              <button type="button" data-signal-select="readiness"><span>Capability</span><strong>Readiness</strong><small id="dock-readiness">Loading</small></button>
             </nav>
           </section>
 
           <section id="regime-log" class="panel regime-panel">
-            <header class="panel-header">
-              <div>
-                <h2>Regime-change log</h2>
-                <p>Weekly movement stays in Signals; only durable inflections become graph events.</p>
-              </div>
-              <span id="regime-log-summary" class="log-rule">3 candidates · 0 promoted</span>
-            </header>
+            <header class="panel-header"><div><h2>Regime-change log</h2><p>Measured observations stay in Signals. Graph promotion remains manual.</p></div><span id="regime-log-summary" class="log-rule">0 candidates · 0 promoted</span></header>
             <div class="regime-table-wrap">
               <table>
-                <thead><tr><th>Date</th><th>Signal</th><th>Change</th><th>Status</th><th>Promotion test</th></tr></thead>
-                <tbody id="regime-log-body">
-                  <tr><td>Week 12</td><td>Training / retrieval share</td><td class="positive">+3.4 pp</td><td>Monitoring</td><td>Needs four-week persistence</td></tr>
-                  <tr><td>Week 11</td><td>Readiness adoption</td><td class="positive">+4.2 pp</td><td>Monitoring</td><td>Check scan methodology and breadth</td></tr>
-                  <tr><td>Week 10</td><td>Access friction</td><td class="negative">+2.1 pp</td><td>Watching</td><td>Confirm across multiple geographies</td></tr>
-                </tbody>
+                <thead><tr><th>Date</th><th>Observation</th><th>Change</th><th>Status</th><th>Promotion test</th></tr></thead>
+                <tbody id="regime-log-body"><tr><td colspan="5">Waiting for live Radar evidence.</td></tr></tbody>
               </table>
             </div>
           </section>
@@ -279,121 +200,70 @@
           <header class="workspace-header thesis-header">
             <div class="thesis-heading">
               <button class="back-button" type="button" data-show-view="observatory">← Observatory</button>
-              <div>
-                <h1>Is agent traffic creating reciprocal value?</h1>
-                <p class="thesis-toolbar-context">
-                  <span class="thesis-linkline">Thesis · Agent-originated traffic is becoming an addressable market</span>
-                  <span aria-hidden="true"> · </span>
-                  <span id="thesis-slice" class="thesis-slice">Global comparison · All identified AI agents · 12 weeks</span>
-                </p>
-              </div>
+              <div><h1>Is agent traffic creating reciprocal value?</h1><p class="thesis-toolbar-context"><span class="thesis-linkline">Thesis · Agent-originated traffic is becoming an addressable market</span><span aria-hidden="true"> · </span><span id="thesis-slice">Selected Radar scope</span></p></div>
             </div>
             <div class="thesis-toolbar-actions">
-              <div class="model-status">
-                <strong id="thesis-data-status">Illustrative model</strong>
-                <span id="thesis-data-detail">Not live data</span>
-              </div>
+              <div class="model-status"><strong id="thesis-data-status">Cloudflare Radar</strong><span id="thesis-data-detail">Demand-side evidence only</span></div>
               <a class="graph-link" href="../?node=thesis-agent-traffic-addressable-market">Trace thesis in graph</a>
             </div>
           </header>
 
           <section class="thesis-story">
             <article class="story-lead">
-              <div>
-                <span>Current reading</span>
-                <h2 id="thesis-lead">Agent demand is rising while returned referral value is falling.</h2>
-                <p id="thesis-lead-detail">The selected scenario shows an extraction gap, but not yet verified commercial harm or a durable market shift.</p>
-                <p class="confidence-note"><span>Confidence</span><strong>Medium</strong> Commercial value remains unverified.</p>
-              </div>
+              <div><span>Current reading</span><h2 id="thesis-lead">Radar can test agent demand, intent and access—but not publisher value.</h2><p id="thesis-lead-detail">The thesis remains open until attributable referral, conversion, revenue, paid access or serving-cost evidence is connected.</p><p class="confidence-note"><span>Thesis confidence</span><strong>Medium</strong> Economic evidence remains incomplete.</p></div>
               <dl>
-                <div><dt id="thesis-demand-label">Crawl demand</dt><dd id="thesis-demand-metric">210</dd></div>
-                <div><dt>Referral value</dt><dd id="thesis-referral-metric">58</dd></div>
-                <div><dt>Gap</dt><dd id="thesis-gap-metric">152</dd></div>
+                <div><dt>Demand change</dt><dd id="thesis-demand-metric">—</dd></div>
+                <div><dt>Training share</dt><dd id="thesis-purpose-metric">—</dd></div>
+                <div><dt>Publisher value</dt><dd>Source required</dd></div>
               </dl>
             </article>
 
-            <article class="panel story-chart">
-              <header class="panel-header">
-                <div><h2>The signal</h2><p id="thesis-signal-context">Crawl demand and referral value, indexed to 100 at the start of the selected period</p></div>
-                <div class="current-state"><span>Current state</span><strong id="thesis-current-state">Extraction gap widening</strong></div>
-              </header>
-              <div id="value-focus-legend" class="chart-legend"></div>
-              <div id="value-focus-chart" class="chart value-chart" role="img" aria-label="Illustrative crawl demand and referral value divergence"></div>
-              <div class="chart-reading">
-                <strong>How to read this</strong>
-                <p id="thesis-chart-reading">The orange line represents demand placed on publishers. The green line represents attributable referral value returned. A wider distance is a warning signal, not proof of economic loss.</p>
-              </div>
-            </article>
+            <section class="evidence-ladder" aria-label="Value versus extraction evidence ladder">
+              <header><h2>Evidence ladder</h2><p>Each step separates measurement from inference.</p></header>
+              <ol>
+                <li><strong>Demand</strong><span id="ladder-demand">Compare identified requests with the preceding period.</span></li>
+                <li><strong>Intent</strong><span id="ladder-purpose">Separate Training, Mixed Purpose, Search and User Action.</span></li>
+                <li><strong>Publisher response</strong><span id="ladder-access">Distinguish served, redirected, constrained and failed requests.</span></li>
+                <li><strong>Operators</strong><span id="ladder-operators">Measure whether traffic comes from identifiable counterparties.</span></li>
+                <li><strong>Identity and transaction readiness</strong><span id="ladder-readiness">Inspect exposed controls and protocols.</span></li>
+                <li class="evidence-missing"><strong>Returned publisher value</strong><span>Not measured by Radar. Attribution, conversion, revenue, licensing and serving-cost data are required.</span></li>
+              </ol>
+            </section>
 
-            <section class="narrative-steps" aria-label="Thesis narrative">
-              <article>
-                <span>1</span>
-                <div>
-                  <h2>What we observe</h2>
-                  <p id="thesis-observed-copy">Identified agent demand expands while attributable referral value weakens across the selected period.</p>
-                  <ul><li>Traffic is observable and increasing.</li><li>Access controls increasingly distinguish agent requests.</li><li id="thesis-observed-data-note">The values remain illustrative until connected to dated Radar snapshots.</li></ul>
-                </div>
-              </article>
-              <article>
-                <span>2</span>
-                <div>
-                  <h2>What it may mean</h2>
-                  <p id="thesis-meaning-copy">The web may be becoming easier for agents to consume before the value exchange becomes reciprocal.</p>
-                  <ul><li>This supports the addressable-market thesis.</li><li>It challenges the assumption that more traffic automatically creates publisher value.</li><li>Readiness alone does not establish adoption or willingness to pay.</li></ul>
-                </div>
-              </article>
-              <article>
-                <span>3</span>
-                <div>
-                  <h2>What would confirm or change the thesis</h2>
-                  <p>Commercial evidence must close the gap between technical demand and economic value.</p>
-                  <ul><li>Verified conversion or attributable revenue.</li><li>Paid access or licensing at repeatable scale.</li><li>Evidence that agents create net-new demand or user benefit.</li></ul>
-                </div>
-              </article>
+            <section class="narrative-steps" aria-label="Thesis interpretation">
+              <article><span>1</span><div><h2>What Radar observes</h2><p>Identified request activity, classified intent, HTTP outcomes, operators and exposed readiness checks.</p></div></article>
+              <article><span>2</span><div><h2>What it may mean</h2><p>Growing or training-led demand can increase pressure on publishers and make traffic governance more valuable. It does not establish extraction or harm.</p></div></article>
+              <article><span>3</span><div><h2>What would confirm or change the thesis</h2><p>Attributable referral, task completion, net-new demand, revenue, paid access, licensing and serving costs must be connected.</p></div></article>
             </section>
 
             <section class="thesis-conclusion">
-              <article>
-                <span>Promotion rule</span>
-                <h2>Keep this in Signals until the change is durable.</h2>
-                <p>A new standard, major operator shift, or sustained multi-period inflection must be verified before this becomes a dated graph event.</p>
-                <div class="candidate-marker"><span></span><strong>Candidate inflection</strong><small>Monitoring persistence, breadth, and counterevidence</small></div>
-              </article>
-              <aside>
-                <h2>Source and thesis</h2>
-                <a href="../?node=entity-cloudflare">Cloudflare source node</a>
-                <a href="../?node=thesis-agent-traffic-addressable-market">Open the thesis in the graph</a>
-              </aside>
+              <article><span>Promotion rule</span><h2>Keep routine movement in Signals.</h2><p>A graph event requires at least four comparable weekly observations, unchanged methodology, geographic breadth or a second source, and supporting plus challenging evidence.</p><div class="candidate-marker"><span></span><strong>Observation only</strong><small>No automatic graph promotion</small></div></article>
+              <aside><h2>Source and thesis</h2><a href="../?node=entity-cloudflare">Cloudflare source node</a><a href="../?node=thesis-agent-traffic-addressable-market">Open the thesis in the graph</a></aside>
             </section>
           </section>
         </section>
       </main>
 
       <aside id="interpretation-rail" class="interpretation-rail" aria-label="Signal interpretation">
-        <header class="inspector-header">
-          <strong>Inspector</strong>
-          <div class="inspector-actions">
-            <span id="inspector-position" class="inspector-position">Value vs extraction</span>
-            <button id="close-rail" class="panel-dismiss" type="button">Hide</button>
-          </div>
-        </header>
+        <header class="inspector-header"><strong>Inspector</strong><div class="inspector-actions"><span id="inspector-position">Demand pressure</span><button id="close-rail" class="panel-dismiss" type="button">Hide</button></div></header>
         <article class="interpretation-content">
-          <span class="type-badge">Signal interpretation</span>
-          <h2 id="interpretation-title" class="detail-title">Value vs extraction</h2>
-          <p id="interpretation-observed" class="detail-summary">In this illustrative scenario, crawl demand rises while returned referral value falls.</p>
+          <h2 id="interpretation-title" class="detail-title">Demand pressure</h2>
+          <p id="interpretation-observed" class="detail-summary">Waiting for live Cloudflare Radar evidence.</p>
           <dl class="meta-grid">
-            <div class="meta-item"><dt>Method</dt><dd id="interpretation-method">Normalized trend</dd></div>
-            <div class="meta-item"><dt>Evidence status</dt><dd id="interpretation-evidence">Illustrative model</dd></div>
+            <div class="meta-item"><dt>Method</dt><dd id="interpretation-method">Comparable periods</dd></div>
+            <div class="meta-item"><dt>Evidence status</dt><dd id="interpretation-evidence">Loading</dd></div>
+            <div class="meta-item"><dt>Scope</dt><dd id="interpretation-scope">Selected filters</dd></div>
+            <div class="meta-item"><dt>Updated</dt><dd id="interpretation-updated">—</dd></div>
           </dl>
-          <section class="detail-section"><h3>Graph connection</h3><p id="interpretation-connection">These measurements connect traffic observability to agent trust infrastructure and production economics.</p></section>
-          <section class="detail-section"><h3>Interpretation</h3><p id="interpretation-inference">The ecosystem may be becoming more agent-readable before it becomes economically reciprocal.</p></section>
-          <section class="detail-section method-note"><h3>Evidence boundary</h3><strong>Not absolute global usage.</strong><p>Readiness exposes capabilities; it does not prove agent adoption or commercial value.</p></section>
-          <section class="detail-section"><h3>Promotion rule</h3><p>Routine observations remain in Signals. Verified regime changes become dated graph events with supporting and challenging evidence.</p></section>
+          <section class="detail-section"><h3>Graph connection</h3><p id="interpretation-connection">Demand observability is one prerequisite for treating agent traffic as an addressable market.</p></section>
+          <section class="detail-section"><h3>Interpretation</h3><p id="interpretation-inference">No inference is available until the live source loads.</p></section>
+          <section class="detail-section method-note"><h3>Evidence boundary</h3><strong id="interpretation-boundary-title">Not absolute global usage.</strong><p id="interpretation-boundary">Radar does not measure attributable publisher value.</p></section>
+          <section class="detail-section"><h3>Graph navigation</h3><p><a href="../?node=entity-cloudflare">Cloudflare source</a><br><a href="../?node=thesis-agent-traffic-addressable-market">Addressable-market thesis</a></p></section>
         </article>
       </aside>
     </div>
-    <button id="open-rail" class="open-rail" type="button" hidden>Interpretation</button>
-    <script src="config.js?v=20260725-radar-clarity"></script>
-    <script src="app.js?v=20260725-radar-clarity"></script>
+    <button id="open-rail" class="open-rail" type="button" hidden>Inspector</button>
+    <script src="config.js?v=20260725-signals-v2"></script>
+    <script src="app.js?v=20260725-signals-v2"></script>
   </body>
 </html>

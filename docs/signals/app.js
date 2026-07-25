@@ -1,1069 +1,962 @@
-const SIGNAL_DATA = {
-  weeks: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12"],
-  geographies: {
-    gb: { name: "United Kingdom", color: "#1f766b", region: "anglosphere", values: [100, 111, 116, 124, 136, 145, 151, 164, 168, 181, 188, 202] },
-    us: { name: "United States", color: "#287095", region: "anglosphere", values: [100, 106, 110, 118, 123, 130, 137, 141, 147, 155, 161, 172] },
-    de: { name: "Germany", color: "#a54f0c", region: "europe", values: [100, 101, 106, 108, 112, 111, 117, 119, 121, 126, 129, 136] },
-    fr: { name: "France", color: "#6b5ca5", region: "europe", values: [100, 91, 86, 81, 84, 88, 86, 91, 94, 92, 96, 101] },
-    jp: { name: "Japan", color: "#b5365a", region: "asia", values: [100, 88, 74, 67, 61, 58, 60, 57, 62, 66, 69, 76] },
-    in: { name: "India", color: "#398f88", region: "asia", values: [100, 82, 68, 59, 51, 47, 44, 49, 51, 55, 58, 63] },
-  },
-  value: {
-    crawl: { name: "Crawl demand", color: "#a54f0c", values: [100, 115, 126, 142, 151, 164, 178, 187, 191, 199, 202, 210] },
-    referral: { name: "Referral value", color: "#1f766b", values: [100, 99, 99, 98, 94, 89, 87, 82, 77, 73, 70, 58] },
-  },
-  standards: ["Markdown negotiation", "robots.txt AI rules", "Agent discovery metadata", "Structured data", "Commerce protocols"],
-  purposes: ["AI training / retrieval", "Search / discovery", "Monitoring / uptime", "Content rendering", "SEO / analytics", "Other / unknown"],
-};
+(function signalsApplication() {
+  "use strict";
 
-const REGION_PROFILES = {
-  global: {
-    name: "Global comparison",
-    regions: ["anglosphere", "europe", "asia"],
-    activityOffset: 0,
-    accessOffset: 0,
-    readiness: 37.6,
-    readinessChange: 6.4,
-    standards: [46.8, 38.9, 34.1, 28.2, 16.7],
-    friction: [18.4, 10.2, 6.7, 2.4],
-    crawlFactor: 1,
-    referralFactor: 1,
-  },
-  europe: {
-    name: "Europe",
-    regions: ["europe", "anglosphere"],
-    geographyNames: ["United Kingdom", "Germany", "France"],
-    activityOffset: -2,
-    accessOffset: 3.7,
-    readiness: 42.8,
-    readinessChange: 5.1,
-    standards: [53.4, 45.7, 39.2, 31.6, 18.9],
-    friction: [15.1, 12.4, 5.3, 1.2],
-    crawlFactor: .92,
-    referralFactor: 1.08,
-  },
-  asia: {
-    name: "Asia",
-    regions: ["asia"],
-    activityOffset: 4,
-    accessOffset: -4.6,
-    readiness: 31.2,
-    readinessChange: 7.8,
-    standards: [39.5, 31.4, 28.7, 24.9, 14.2],
-    friction: [22.6, 8.1, 8.8, 3.1],
-    crawlFactor: 1.12,
-    referralFactor: .85,
-  },
-  anglosphere: {
-    name: "United Kingdom + United States",
-    regions: ["anglosphere"],
-    activityOffset: 7,
-    accessOffset: 5.9,
-    readiness: 48.9,
-    readinessChange: 8.2,
-    standards: [61.2, 50.1, 44.5, 35.8, 22.9],
-    friction: [13.2, 9.6, 4.1, 1.5],
-    crawlFactor: 1.18,
-    referralFactor: .78,
-  },
-};
-
-const AGENT_PROFILES = {
-  all: {
-    name: "All identified AI agents",
-    activity: 18,
-    access: 62.3,
-    accessChange: 3.1,
-    readinessOffset: 0,
-    markdown: 1.28,
-    trendFactor: 1,
-    crawlFactor: 1,
-    referralFactor: 1,
-    frictionFactor: 1,
-    purposes: [38.7, 24.5, 11.6, 9.4, 6.1, 9.7],
-  },
-  crawler: {
-    name: "AI crawlers",
-    activity: 24,
-    access: 54.8,
-    accessChange: 1.7,
-    readinessOffset: -1.4,
-    markdown: 1.46,
-    trendFactor: 1.12,
-    crawlFactor: 1.08,
-    referralFactor: .84,
-    frictionFactor: 1.18,
-    purposes: [49.6, 26.4, 8.2, 5.1, 4.4, 6.3],
-  },
-  assistant: {
-    name: "AI assistants",
-    activity: 11,
-    access: 74.6,
-    accessChange: 5.2,
-    readinessOffset: 3.2,
-    markdown: .82,
-    trendFactor: .76,
-    crawlFactor: .72,
-    referralFactor: 1.24,
-    frictionFactor: .72,
-    purposes: [18.2, 31.8, 8.4, 19.6, 7.1, 14.9],
-  },
-};
-
-const FRICTION_META = [
-  { name: "WAF / firewall", className: "firewall", color: "#a54f0c" },
-  { name: "robots.txt disallow", className: "robots", color: "#b5365a" },
-  { name: "Rate limiting", className: "limit", color: "#6b5ca5" },
-  { name: "JS / challenge", className: "challenge", color: "#287095" },
-];
-
-const SVG_NS = "http://www.w3.org/2000/svg";
-let selectedSignal = "value";
-const LIVE_STATE = {
-  mode: "illustrative",
-  data: null,
-};
-
-function isLive() {
-  return LIVE_STATE.mode === "live" && LIVE_STATE.data;
-}
-
-function formatTimestamp(value) {
-  if (!value) return "unknown";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "unknown";
-  return date.toLocaleString(undefined, {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
-
-function formatChartDate(value) {
-  if (!value) return "unknown";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "unknown";
-  return date.toLocaleDateString(undefined, {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
-
-function formatCompactNumber(value) {
-  if (value == null || !Number.isFinite(Number(value))) return "—";
-  return new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 }).format(Number(value));
-}
-
-function showDataNotice(message, tone) {
-  const notice = document.querySelector("#data-notice");
-  notice.textContent = message;
-  notice.dataset.tone = tone || "info";
-  notice.hidden = !message;
-}
-
-function renderEmptyState(target, message) {
-  target.replaceChildren();
-  const empty = document.createElement("div");
-  empty.className = "empty-state";
-  empty.textContent = message;
-  target.append(empty);
-}
-
-function liveActivityChange() {
-  const values = LIVE_STATE.data.activity.values;
-  if (!values || values.length < 2 || values[0] === 0) return null;
-  return (values.at(-1) - values[0]) / Math.abs(values[0]) * 100;
-}
-
-function liveReadinessCoverage() {
-  const successful = Number(LIVE_STATE.data.readiness.successfulDomains);
-  const total = Number(LIVE_STATE.data.readiness.totalDomains);
-  if (Number.isFinite(successful) && Number.isFinite(total) && total > 0) {
-    return successful / total * 100;
-  }
-  return null;
-}
-
-function setLiveAgentFilter(live) {
-  const select = document.querySelector("#agent-filter");
-  if (live) {
-    select.replaceChildren(new Option("All identified AI bots", "all"));
-    select.disabled = true;
-    return;
-  }
-  if (select.options.length === 1) {
-    select.replaceChildren(
-      new Option("All identified AI agents", "all"),
-      new Option("AI crawlers", "crawler"),
-      new Option("AI assistants", "assistant")
-    );
-  }
-  select.disabled = false;
-}
-
-function svgElement(name, attributes, value) {
-  const element = document.createElementNS(SVG_NS, name);
-  Object.entries(attributes || {}).forEach(function setAttribute(entry) {
-    element.setAttribute(entry[0], entry[1]);
-  });
-  if (value != null) element.textContent = value;
-  return element;
-}
-
-function currentSlice() {
-  const regionKey = document.querySelector("#region-filter").value;
-  const agentKey = document.querySelector("#agent-filter").value;
-  return {
-    regionKey,
-    agentKey,
-    region: REGION_PROFILES[regionKey],
-    agent: AGENT_PROFILES[agentKey],
-    period: Number(document.querySelector("#period-filter").value),
-    live: isLive() ? LIVE_STATE.data : null,
+  const SIGNALS = ["demand", "purpose", "access", "operators", "geography", "readiness"];
+  const LEGACY_SIGNAL_MAP = { value: "demand", friction: "access" };
+  const REGION_LABELS = {
+    global: "Global comparison",
+    europe: "Europe",
+    asia: "Asia",
+    anglosphere: "United Kingdom + United States",
   };
-}
+  const AGENT_LABELS = {
+    all: "All identified AI agents",
+    crawler: "AI crawlers",
+    assistant: "AI assistants",
+    search: "AI search",
+  };
+  const COLORS = {
+    current: "#a54f0c",
+    control: "#8f8881",
+    Training: "#a54f0c",
+    "Mixed Purpose": "#6b5ca5",
+    Search: "#287095",
+    "User Action": "#1f766b",
+    Undeclared: "#a89d94",
+    "2xx": "#1f766b",
+    "3xx": "#287095",
+    "4xx": "#b86b2d",
+    "5xx": "#b5365a",
+    "1xx": "#a89d94",
+  };
 
-function round(value, digits) {
-  return Number(value.toFixed(digits == null ? 1 : digits));
-}
+  const state = {
+    data: null,
+    selectedSignal: "demand",
+    view: "observatory",
+    loading: false,
+    cacheStatus: null,
+  };
 
-function signed(value, suffix) {
-  return (value >= 0 ? "+" : "") + round(value, 1) + (suffix || "");
-}
-
-function scaleFromBaseline(values, factor) {
-  return values.map(function scale(value) {
-    return 100 + (value - 100) * factor;
-  });
-}
-
-function normalizeVisible(values, period) {
-  const visible = values.slice(-period);
-  const start = visible[0] || 100;
-  return visible.map(function normalize(value) {
-    return round(value / start * 100, 1);
-  });
-}
-
-function linePath(values, bounds, minValue, maxValue) {
-  const range = Math.max(maxValue - minValue, 1);
-  return values.map(function point(value, index) {
-    const x = bounds.left + index / Math.max(values.length - 1, 1) * bounds.width;
-    const y = bounds.top + (maxValue - value) / range * bounds.height;
-    return (index === 0 ? "M " : " L ") + x.toFixed(2) + " " + y.toFixed(2);
-  }).join("");
-}
-
-function renderLineChart(target, series, labels, options) {
-  target.replaceChildren();
-  const config = options || {};
-  const width = config.width || 900;
-  const height = config.height || 360;
-  const bounds = { left: 45, top: 20, width: width - 62, height: height - 54 };
-  const values = series.flatMap(function flatten(item) { return item.values; });
-  const minValue = config.minValue == null ? Math.floor(Math.min(...values) / 20) * 20 : config.minValue;
-  const maxValue = config.maxValue == null ? Math.ceil(Math.max(...values) / 20) * 20 : config.maxValue;
-  const svg = svgElement("svg", { viewBox: "0 0 " + width + " " + height, "aria-hidden": "true" });
-
-  for (let tick = 0; tick <= 4; tick += 1) {
-    const value = minValue + (maxValue - minValue) * (4 - tick) / 4;
-    const y = bounds.top + bounds.height * tick / 4;
-    svg.append(svgElement("line", { x1: bounds.left, y1: y, x2: bounds.left + bounds.width, y2: y, class: "grid-line" }));
-    svg.append(svgElement("text", { x: bounds.left - 8, y: y + 3, "text-anchor": "end" }, Math.round(value)));
+  function $(selector) {
+    return document.querySelector(selector);
   }
 
-  labels.forEach(function renderLabel(label, index) {
-    if (index % Math.max(1, Math.floor(labels.length / 6)) !== 0 && index !== labels.length - 1) return;
-    const x = bounds.left + index / Math.max(labels.length - 1, 1) * bounds.width;
-    svg.append(svgElement("text", { x, y: height - 12, "text-anchor": "middle" }, label));
-  });
-
-  if (config.candidateIndex != null && config.candidateIndex < labels.length) {
-    const x = bounds.left + config.candidateIndex / Math.max(labels.length - 1, 1) * bounds.width;
-    svg.append(svgElement("line", { x1: x, y1: bounds.top, x2: x, y2: bounds.top + bounds.height, class: "candidate-line" }));
-    svg.append(svgElement("text", { x: x + 5, y: bounds.top + 11, class: "candidate-label" }, "Candidate inflection"));
+  function $$(selector) {
+    return Array.from(document.querySelectorAll(selector));
   }
 
-  series.forEach(function renderSeries(item) {
-    svg.append(svgElement("path", { d: linePath(item.values, bounds, minValue, maxValue), class: "series-line", stroke: item.color }));
-    if (config.points) {
-      item.values.forEach(function renderPoint(value, index) {
-        const x = bounds.left + index / Math.max(item.values.length - 1, 1) * bounds.width;
-        const y = bounds.top + (maxValue - value) / Math.max(maxValue - minValue, 1) * bounds.height;
-        svg.append(svgElement("circle", { cx: x, cy: y, r: 2.4, class: "series-point", stroke: item.color }));
-      });
-    }
-  });
-  target.append(svg);
-}
+  function finite(value) {
+    return Number.isFinite(Number(value)) ? Number(value) : null;
+  }
 
-function renderLegend(target, series) {
-  target.replaceChildren();
-  series.forEach(function legendItem(item) {
-    const wrapper = document.createElement("span");
-    wrapper.className = "legend-item" + (item.unavailable ? " is-unavailable" : "");
-    const swatch = document.createElement("i");
-    swatch.className = "legend-swatch";
-    swatch.style.setProperty("--swatch", item.color);
-    wrapper.append(swatch, document.createTextNode(item.name));
-    target.append(wrapper);
-  });
-}
+  function round(value, digits) {
+    const numeric = finite(value);
+    return numeric == null ? null : Number(numeric.toFixed(digits == null ? 1 : digits));
+  }
 
-function appendChartBoundary(target, message) {
-  const boundary = document.createElement("p");
-  boundary.className = "chart-data-boundary";
-  boundary.textContent = message;
-  target.append(boundary);
-}
+  function signed(value, suffix) {
+    const numeric = round(value, 1);
+    if (numeric == null) return "—";
+    return `${numeric > 0 ? "+" : ""}${numeric}${suffix || ""}`;
+  }
 
-function geographySeries(slice) {
-  const all = Object.values(SIGNAL_DATA.geographies);
-  const filtered = slice.regionKey === "global"
-    ? all
-    : all.filter(function matchesRegion(series) {
-      if (slice.region.geographyNames) return slice.region.geographyNames.includes(series.name);
-      return slice.region.regions.includes(series.region);
+  function percent(value, digits) {
+    const numeric = round(value, digits == null ? 1 : digits);
+    return numeric == null ? "—" : `${numeric}%`;
+  }
+
+  function compact(value) {
+    const numeric = finite(value);
+    if (numeric == null) return "—";
+    return new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 }).format(numeric);
+  }
+
+  function formatDate(value) {
+    if (!value) return "—";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return String(value);
+    return date.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+  }
+
+  function formatTimestamp(value) {
+    if (!value) return "—";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return String(value);
+    return date.toLocaleString(undefined, {
+      day: "numeric",
+      month: "short",
+      hour: "2-digit",
+      minute: "2-digit",
     });
-  return filtered.map(function transform(series) {
-    const scaled = scaleFromBaseline(series.values, slice.agent.trendFactor);
-    return { ...series, values: normalizeVisible(scaled, slice.period) };
-  });
-}
-
-function valueSeries(slice) {
-  const crawlFactor = slice.region.crawlFactor * slice.agent.crawlFactor;
-  const referralFactor = slice.region.referralFactor * slice.agent.referralFactor;
-  return [
-    {
-      ...SIGNAL_DATA.value.crawl,
-      values: normalizeVisible(scaleFromBaseline(SIGNAL_DATA.value.crawl.values, crawlFactor), slice.period),
-    },
-    {
-      ...SIGNAL_DATA.value.referral,
-      values: normalizeVisible(scaleFromBaseline(SIGNAL_DATA.value.referral.values, referralFactor), slice.period),
-    },
-  ];
-}
-
-function readinessValues(slice) {
-  return slice.region.standards.map(function applyAgentOffset(value) {
-    return Math.max(0, round(value + slice.agent.readinessOffset, 1));
-  });
-}
-
-function frictionValues(slice) {
-  return slice.region.friction.map(function applyAgentFactor(value) {
-    return round(value * slice.agent.frictionFactor, 1);
-  });
-}
-
-function createBarRow(label, value, maxValue) {
-  const row = document.createElement("div");
-  const name = document.createElement("span");
-  const bar = document.createElement("i");
-  const number = document.createElement("strong");
-  name.textContent = label;
-  bar.style.setProperty("--value", Math.min(100, value / maxValue * 100) + "%");
-  number.textContent = value.toFixed(1) + "%";
-  row.append(name, bar, number);
-  return row;
-}
-
-function renderLiveSummary(slice) {
-  const live = slice.live;
-  const activity = liveActivityChange();
-  const access = live.access.successfulShare;
-  const readiness = liveReadinessCoverage();
-  const ratio = live.markdown.reductionRatio;
-  const lastUpdated = live.activity.meta.lastUpdated || live.fetchedAt;
-
-  document.querySelector("#signals-workspace-context").textContent = "Live Radar · " + slice.region.name + " · All identified AI bots · " + slice.period + " weeks · updated " + formatTimestamp(lastUpdated);
-  document.querySelector("#metric-activity").textContent = activity == null ? "—" : signed(activity, "%");
-  document.querySelector("#metric-activity-note").textContent = "first to latest weekly observation";
-  document.querySelector("#metric-access").textContent = access == null ? "—" : access.toFixed(1) + "%";
-  document.querySelector("#metric-access-note").textContent = "successful response share";
-  document.querySelector("#metric-readiness").textContent = readiness == null ? "—" : readiness.toFixed(1) + "%";
-  document.querySelector("#metric-readiness-note").textContent = "domains completing the latest scan";
-  document.querySelector("#metric-markdown").textContent = ratio == null ? "—" : ratio.toFixed(2) + "×";
-  document.querySelector("#metric-markdown-note").textContent = "Radar median reduction ratio";
-  document.querySelector("#thesis-slice").textContent = slice.region.name + " · All identified AI bots · " + slice.period + " weeks";
-  document.querySelector("#dock-readiness").textContent = readiness == null ? "Not reported" : readiness.toFixed(1) + "% scanned";
-  document.querySelector("#thesis-data-status").textContent = "Live Radar context";
-  document.querySelector("#thesis-data-detail").textContent = "Referral value not available";
-  document.querySelector("#examples-context").textContent = "Explore the latest available Radar measurements.";
-}
-
-function renderSummary(slice) {
-  if (slice.live) {
-    renderLiveSummary(slice);
-    return;
   }
-  const readiness = round(slice.region.readiness + slice.agent.readinessOffset, 1);
-  const readinessChange = round(slice.region.readinessChange + slice.agent.readinessOffset * .25, 1);
-  const activity = slice.agent.activity + slice.region.activityOffset;
-  const access = round(slice.agent.access + slice.region.accessOffset, 1);
-  const accessChange = round(slice.agent.accessChange + slice.region.accessOffset * .15, 1);
 
-  document.querySelector("#signals-workspace-context").textContent = "Illustrative model · " + slice.region.name + " · " + slice.agent.name + " · " + slice.period + " weeks";
-  document.querySelector("#metric-activity").textContent = signed(activity, "%");
-  document.querySelector("#metric-activity-note").textContent = slice.period + "-week illustrative trend";
-  document.querySelector("#metric-access").textContent = access.toFixed(1) + "%";
-  document.querySelector("#metric-access-note").textContent = signed(accessChange, " pp");
-  document.querySelector("#metric-readiness").textContent = readiness.toFixed(1) + "%";
-  document.querySelector("#metric-readiness-note").textContent = signed(readinessChange, " pp");
-  document.querySelector("#metric-markdown").textContent = slice.agent.markdown.toFixed(2) + " PB";
-  document.querySelector("#metric-markdown-note").textContent = "illustrative estimate";
-  document.querySelector("#thesis-slice").textContent = slice.region.name + " · " + slice.agent.name + " · " + slice.period + " weeks";
-  document.querySelector("#dock-readiness").textContent = readiness.toFixed(1) + "% · " + signed(readinessChange, " pp");
-  document.querySelector("#thesis-data-status").textContent = "Illustrative model";
-  document.querySelector("#thesis-data-detail").textContent = "Not live data";
-  document.querySelector("#examples-context").textContent = "Explore the illustrative Radar-connected model.";
-}
+  function firstDateRange(meta) {
+    const range = meta && meta.dateRange;
+    if (Array.isArray(range)) return range[0] || null;
+    return range || null;
+  }
 
-function renderValue(slice) {
-  if (slice.live) {
-    const reason = slice.live.value.reason;
-    const values = slice.live.activity.values;
-    const timestamps = slice.live.activity.timestamps;
-    const activityChange = liveActivityChange();
-    const demandSeries = values.length
-      ? [{
-        name: "AI-bot request activity · Radar",
-        color: "#a54f0c",
-        values: normalizeVisible(values, values.length),
-      }]
-      : [];
-    const legend = demandSeries.concat([{
-      name: "Referral value · source required",
-      color: "#9b948d",
-      unavailable: true,
-    }]);
-    const labels = timestamps.slice(-values.length).map(function activityLabel(value) {
-      return new Date(value).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+  function formatRange(meta) {
+    const range = firstDateRange(meta);
+    if (!range) return "Selected period";
+    return `${formatDate(range.startTime)} – ${formatDate(range.endTime)}`;
+  }
+
+  function sourceUpdated(section) {
+    return section && section.meta && section.meta.lastUpdated
+      || state.data && state.data.fetchedAt
+      || null;
+  }
+
+  function currentScope(includeReadinessBoundary) {
+    const period = $("#period-filter").value;
+    const region = $("#region-filter").value;
+    const agent = $("#agent-filter").value;
+    if (includeReadinessBoundary) return "Global weekly domain scan · traffic filters do not apply";
+    return `${REGION_LABELS[region]} · ${AGENT_LABELS[agent]} · ${period} weeks`;
+  }
+
+  function showNotice(message, tone) {
+    const notice = $("#data-notice");
+    notice.hidden = !message;
+    notice.textContent = message || "";
+    notice.dataset.tone = tone || "info";
+  }
+
+  function unavailableSection(reason) {
+    return { available: false, reason: reason || "This Radar section is unavailable." };
+  }
+
+  function friendlyLabel(value) {
+    return String(value)
+      .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+      .replace(/[_-]+/g, " ")
+      .replace(/\b\w/g, (character) => character.toUpperCase())
+      .replace(/\bAi\b/g, "AI")
+      .replace(/\bOauth\b/g, "OAuth")
+      .replace(/\bApi\b/g, "API")
+      .replace(/^Robots Txt$/, "robots.txt")
+      .replace(/^Robots Txt AI Rules$/, "robots.txt AI rules");
+  }
+
+  function accessFromCategories(items) {
+    const map = new Map((items || []).map((item) => [String(item.key).toLowerCase(), finite(item.value) || 0]));
+    return [
+      { key: "served", label: "Served (2xx)", value: map.get("2xx") || 0 },
+      { key: "redirected", label: "Redirected (3xx)", value: map.get("3xx") || 0 },
+      { key: "client", label: "Client errors (4xx)", value: map.get("4xx") || 0 },
+      { key: "server", label: "Server failure (5xx)", value: map.get("5xx") || 0 },
+    ].filter((item) => item.value > 0);
+  }
+
+  function readinessGroupsFromItems(items) {
+    const definitions = [
+      ["Policy and disclosure", ["robotsTxt", "robotsTxtAiRules", "contentSignals"]],
+      ["Discoverability and delivery", ["sitemap", "linkHeaders", "markdownNegotiation", "apiCatalog"]],
+      ["Identity and authorization", ["oauthDiscovery", "oauthProtectedResource", "webBotAuth"]],
+      ["Transaction readiness", ["ucp", "acp", "mpp", "ap2", "x402"]],
+    ];
+    const map = new Map((items || []).map((item) => [item.key, item]));
+    return definitions.map(([label, keys]) => ({
+      key: label.toLowerCase().replaceAll(" ", "-"),
+      label,
+      items: keys.map((key) => map.get(key)).filter(Boolean),
+    })).filter((group) => group.items.length);
+  }
+
+  function adaptVersionOne(payload) {
+    const accessItems = payload.access && payload.access.items || [];
+    return {
+      ...payload,
+      schemaVersion: 1,
+      demandComparison: payload.activity && payload.activity.values.length ? {
+        available: true,
+        current: { timestamps: payload.activity.timestamps, values: payload.activity.values },
+        control: { timestamps: [], values: [] },
+        periodChangePct: null,
+        meta: payload.activity.meta || {},
+        compatibilityBoundary: "The deployed Worker has not yet supplied a preceding-period comparison.",
+      } : unavailableSection("Radar returned no demand series."),
+      purposeTrend: payload.purpose && payload.purpose.items.length ? {
+        available: true,
+        items: payload.purpose.items.map((item) => ({ ...item, changePp: null, previousValue: null })),
+        trend: { timestamps: [], groups: [] },
+        meta: payload.purpose.meta || {},
+        compatibilityBoundary: "The deployed Worker has not yet supplied purpose history or period comparisons.",
+      } : unavailableSection("Radar returned no purpose distribution."),
+      accessOutcomes: payload.access && accessItems.length ? {
+        available: true,
+        outcomes: accessFromCategories(accessItems),
+        categories: accessItems,
+        constrainedShare: null,
+        successfulShare: payload.access.successfulShare,
+        trend: { timestamps: [], groups: [] },
+        meta: payload.access.meta || {},
+        compatibilityBoundary: "Exact 401, 403 and 429 shares require the version 2 Worker.",
+      } : unavailableSection("Radar returned no access distribution."),
+      operators: unavailableSection("Operator concentration requires the version 2 Worker."),
+      readiness: payload.readiness ? {
+        ...payload.readiness,
+        available: Array.isArray(payload.readiness.items) && payload.readiness.items.length > 0,
+        groups: readinessGroupsFromItems(payload.readiness.items),
+        scanCoveragePct: payload.readiness.successfulDomains && payload.readiness.totalDomains
+          ? payload.readiness.successfulDomains / payload.readiness.totalDomains * 100
+          : null,
+      } : unavailableSection("Radar returned no readiness scan."),
+      efficiency: {
+        available: payload.markdown && finite(payload.markdown.reductionRatio) != null,
+        markdownReductionRatio: payload.markdown && payload.markdown.reductionRatio,
+        meta: payload.markdown && payload.markdown.meta || {},
+      },
+      valueBoundary: {
+        available: false,
+        reason: payload.value && payload.value.reason || "Cloudflare Radar does not measure attributable publisher value.",
+      },
+    };
+  }
+
+  function validatePayload(payload) {
+    return payload
+      && payload.source === "Cloudflare Radar"
+      && (payload.schemaVersion === 1 || payload.schemaVersion === 2);
+  }
+
+  function normalizedData(payload) {
+    if (!validatePayload(payload)) throw new Error("Live source returned an unsupported data shape");
+    return payload.schemaVersion === 2 ? payload : adaptVersionOne(payload);
+  }
+
+  function svgNode(name, attributes, text) {
+    const node = document.createElementNS("http://www.w3.org/2000/svg", name);
+    Object.entries(attributes || {}).forEach(([key, value]) => node.setAttribute(key, value));
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  function renderEmpty(target, message) {
+    target.replaceChildren();
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = message;
+    target.append(empty);
+  }
+
+  function renderLegend(target, series) {
+    target.replaceChildren();
+    (series || []).forEach((item) => {
+      const label = document.createElement("span");
+      const swatch = document.createElement("i");
+      swatch.style.background = item.color;
+      label.append(swatch, document.createTextNode(item.name));
+      target.append(label);
     });
-    const latestObservation = formatChartDate(timestamps.at(-1));
-    const rollingUpdateNote = "Rolling " + slice.period + " weeks · latest plotted week " + latestObservation + ".\nDates advance when Radar publishes a new weekly observation. Data is checked when the page opens or Refresh data is pressed; responses may be cached for up to 15 minutes.";
-    const stageChart = document.querySelector("#value-stage-chart");
-    const focusChart = document.querySelector("#value-focus-chart");
-
-    renderLegend(document.querySelector("#value-stage-legend"), legend);
-    renderLegend(document.querySelector("#value-focus-legend"), legend);
-    if (demandSeries.length) {
-      const chartValues = demandSeries[0].values;
-      const minValue = Math.floor(Math.min(...chartValues) / 10) * 10;
-      const maxValue = Math.ceil(Math.max(...chartValues) / 10) * 10;
-      renderLineChart(stageChart, demandSeries, labels, {
-        width: 920,
-        height: 380,
-        minValue,
-        maxValue,
-        points: true,
-      });
-      appendChartBoundary(stageChart, rollingUpdateNote + "\nDemand is indexed to 100 at the first visible week. Referral, conversion, and revenue are not available from Radar.");
-      renderLineChart(focusChart, demandSeries, labels, {
-        width: 900,
-        height: 390,
-        minValue,
-        maxValue,
-        points: true,
-      });
-      appendChartBoundary(focusChart, rollingUpdateNote + "\nThis is a live demand signal only; a value gap cannot be calculated until attributable publisher analytics are connected.");
-    } else {
-      renderEmptyState(stageChart, "Radar returned no request-activity series for this scope.");
-      renderEmptyState(focusChart, "Radar returned no request-activity series for this scope.");
-    }
-    stageChart.setAttribute("aria-label", "Live normalized AI-bot request activity. Referral value is unavailable from Cloudflare Radar.");
-    focusChart.setAttribute("aria-label", "Live normalized AI-bot request activity. Referral value is unavailable from Cloudflare Radar.");
-    document.querySelector("#value-state").textContent = "Demand visible · value source needed";
-    document.querySelector("#value-gap").textContent = "Not measured";
-    document.querySelector("#value-reading").textContent = activityChange == null
-      ? reason
-      : "Identified AI-bot request activity changed " + signed(activityChange, "%") + " across the selected period. " + reason;
-    document.querySelector("#value-boundary").textContent = "Live demand shown · Radar does not measure reciprocal publisher value.";
-    document.querySelector("#dock-value").textContent = activityChange == null
-      ? "Value source needed"
-      : "Demand " + signed(activityChange, "%") + " · value unavailable";
-    const latestDemandIndex = demandSeries.length ? demandSeries[0].values.at(-1) : null;
-    const demandMetric = document.querySelector("#thesis-demand-metric");
-    const referralMetric = document.querySelector("#thesis-referral-metric");
-    const gapMetric = document.querySelector("#thesis-gap-metric");
-    demandMetric.textContent = latestDemandIndex == null ? "Unavailable" : Math.round(latestDemandIndex);
-    referralMetric.textContent = "Unavailable";
-    gapMetric.textContent = "Not calculated";
-    demandMetric.classList.toggle("is-status", latestDemandIndex == null);
-    referralMetric.classList.add("is-status");
-    gapMetric.classList.add("is-status");
-    document.querySelector("#thesis-demand-label").textContent = "AI-bot activity index";
-    document.querySelector("#thesis-current-state").textContent = "Demand tracked · value gap unavailable";
-    document.querySelector("#thesis-current-state").classList.add("is-boundary");
-    document.querySelector("#thesis-signal-context").textContent = "Identified AI-bot request activity, indexed to 100 at the start of the selected period";
-    document.querySelector("#thesis-chart-reading").textContent = "The orange line is the demand signal available from Radar. Referral value is not plotted because Radar does not provide attributable referral, conversion, or revenue data. No value gap is inferred.";
-    document.querySelector("#thesis-observed-data-note").textContent = "The demand series is live Radar data; the reciprocal-value side still requires publisher analytics.";
-    document.querySelector("#thesis-lead").textContent = "Radar can measure agent demand, but not the value returned to publishers.";
-    document.querySelector("#thesis-lead-detail").textContent = "The live traffic series can test whether demand is changing. Referral, conversion, revenue, or paid-access evidence is still required before the value-versus-extraction gap can be calculated.";
-    document.querySelector("#thesis-observed-copy").textContent = "Cloudflare Radar reports identified AI-bot request activity for the selected period. It does not report attributable publisher referral or commercial outcomes.";
-    document.querySelector("#thesis-meaning-copy").textContent = "Traffic growth may strengthen the demand side of the thesis, but it cannot establish extraction, reciprocity, or economic harm on its own.";
-    return;
   }
-  const series = valueSeries(slice);
-  const labels = SIGNAL_DATA.weeks.slice(-slice.period);
-  const finalCrawl = series[0].values.at(-1);
-  const finalReferral = series[1].values.at(-1);
-  const gap = round(finalCrawl - finalReferral, 0);
-  const state = gap > 60 ? "Extraction gap widening" : gap > 25 ? "Value gap emerging" : "Closer to reciprocity";
 
-  renderLegend(document.querySelector("#value-stage-legend"), series);
-  renderLineChart(document.querySelector("#value-stage-chart"), series, labels, {
-    width: 920,
-    height: 380,
-    minValue: Math.max(20, Math.floor(Math.min(...series.flatMap(function values(item) { return item.values; })) / 20) * 20),
-    maxValue: Math.ceil(Math.max(...series.flatMap(function values(item) { return item.values; })) / 20) * 20,
-    points: true,
-    candidateIndex: Math.max(1, Math.floor(labels.length / 3)),
-  });
-  renderLegend(document.querySelector("#value-focus-legend"), series);
-  renderLineChart(document.querySelector("#value-focus-chart"), series, labels, {
-    width: 900,
-    height: 390,
-    minValue: 20,
-    maxValue: Math.max(180, Math.ceil(finalCrawl / 20) * 20),
-    points: true,
-    candidateIndex: Math.max(1, Math.floor(labels.length / 3)),
-  });
+  function linePath(values, bounds, min, max) {
+    const range = Math.max(max - min, 0.0001);
+    return values.map((value, index) => {
+      const x = bounds.left + index / Math.max(values.length - 1, 1) * bounds.width;
+      const y = bounds.top + (max - value) / range * bounds.height;
+      return `${index ? "L" : "M"}${x.toFixed(2)},${y.toFixed(2)}`;
+    }).join(" ");
+  }
 
-  document.querySelector("#value-state").textContent = state;
-  document.querySelector("#value-gap").textContent = gap + " index points";
-  document.querySelector("#value-reading").textContent = slice.agentKey === "assistant"
-    ? "Assistant traffic returns more referral value than crawler traffic, but the selected scenario remains below reciprocity."
-    : "Demand has outpaced returned referral value across the selected " + slice.period + "-week view.";
-  document.querySelector("#dock-value").textContent = "Gap +" + gap;
-  document.querySelector("#thesis-demand-metric").textContent = Math.round(finalCrawl);
-  document.querySelector("#thesis-referral-metric").textContent = Math.round(finalReferral);
-  document.querySelector("#thesis-gap-metric").textContent = Math.round(gap);
-  document.querySelector("#thesis-demand-metric").classList.remove("is-status");
-  document.querySelector("#thesis-referral-metric").classList.remove("is-status");
-  document.querySelector("#thesis-gap-metric").classList.remove("is-status");
-  document.querySelector("#thesis-demand-label").textContent = "Crawl demand";
-  document.querySelector("#thesis-current-state").textContent = state;
-  document.querySelector("#thesis-current-state").classList.remove("is-boundary");
-  document.querySelector("#thesis-signal-context").textContent = "Crawl demand and referral value, indexed to 100 at the start of the selected period";
-  document.querySelector("#thesis-chart-reading").textContent = "The orange line represents demand placed on publishers. The green line represents attributable referral value returned. A wider distance is a warning signal, not proof of economic loss.";
-  document.querySelector("#thesis-observed-data-note").textContent = "The values remain illustrative until connected to dated Radar snapshots.";
-  document.querySelector("#thesis-lead").textContent = gap > 60
-    ? "Agent demand is rising faster than the referral value returned."
-    : gap > 25
-      ? "Agent demand and returned value are beginning to separate."
-      : "Agent demand and returned value remain comparatively close.";
-  document.querySelector("#thesis-lead-detail").textContent = "Across " + slice.region.name.toLowerCase() + " and " + slice.agent.name.toLowerCase() + ", the selected " + slice.period + "-week scenario ends with a " + gap + "-point gap. This is a warning signal, not proof of economic harm.";
-  document.querySelector("#thesis-observed-copy").textContent = "Crawl demand ends at index " + Math.round(finalCrawl) + " while attributable referral value ends at " + Math.round(finalReferral) + ", creating a " + gap + "-point divergence.";
-  document.querySelector("#thesis-meaning-copy").textContent = gap > 60
-    ? "The selected scenario suggests the web is becoming easier for agents to consume faster than the value exchange becomes reciprocal."
-    : "The selected scenario shows an emerging imbalance that needs more periods and commercial evidence before the thesis changes.";
-  document.querySelector("#value-boundary").textContent = "Illustrative scenario · a sustained inflection remains a candidate until verified across periods and sources.";
-}
+  function chartLabels(length, labels) {
+    if (labels && labels.length === length) return labels;
+    return Array.from({ length }, (_, index) => `W${index + 1}`);
+  }
 
-function renderGeography(slice) {
-  if (slice.live) {
-    const series = slice.live.geography.series
-      .filter(function hasValues(item) { return item.values.length > 0; })
-      .map(function normalize(item) {
-        return { name: item.name, color: item.color, values: normalizeVisible(item.values, item.values.length) };
-      });
-    if (!series.length) {
-      document.querySelector("#geography-legend").replaceChildren();
-      renderEmptyState(document.querySelector("#geography-chart"), "Radar returned no geography series for this scope.");
-      document.querySelector("#dock-geography").textContent = "No series";
+  function renderLineChart(target, series, labels, options) {
+    const available = (series || []).filter((item) => Array.isArray(item.values) && item.values.length);
+    if (!available.length) {
+      renderEmpty(target, options && options.empty || "No comparable series available for this scope.");
       return;
     }
-    const source = slice.live.geography.series.find(function hasTimestamps(item) { return item.timestamps.length; });
-    const labels = source
-      ? source.timestamps.map(function label(value) {
-        return new Date(value).toLocaleDateString(undefined, { day: "numeric", month: "short" });
-      })
-      : series[0].values.map(function label(_, index) { return "W" + (index + 1); });
-    renderLegend(document.querySelector("#geography-legend"), series);
-    renderLineChart(document.querySelector("#geography-chart"), series, labels, {
-      width: 980,
-      height: 390,
-      minValue: Math.floor(Math.min(...series.flatMap(function values(item) { return item.values; })) / 10) * 10,
-      maxValue: Math.ceil(Math.max(...series.flatMap(function values(item) { return item.values; })) / 10) * 10,
-      points: true,
-    });
-    document.querySelector("#dock-geography").textContent = series.length + (series.length === 1 ? " live location" : " live locations");
-    return;
-  }
-  const series = geographySeries(slice);
-  renderLegend(document.querySelector("#geography-legend"), series);
-  renderLineChart(document.querySelector("#geography-chart"), series, SIGNAL_DATA.weeks.slice(-slice.period), {
-    width: 980,
-    height: 390,
-    minValue: 40,
-    maxValue: Math.max(180, Math.ceil(Math.max(...series.flatMap(function values(item) { return item.values; })) / 20) * 20),
-    points: true,
-  });
-  document.querySelector("#dock-geography").textContent = series.length + (series.length === 1 ? " location" : " locations");
-}
-
-function renderReadiness(slice) {
-  if (slice.live) {
-    const target = document.querySelector("#readiness-list");
-    target.replaceChildren();
-    const items = slice.live.readiness.items;
-    if (!items.length) {
-      renderEmptyState(target, "Radar returned no readiness checks for the latest bulk scan.");
-    } else {
-      items.forEach(function renderCheck(item) {
-        target.append(createBarRow(item.label, item.value, 100));
-      });
+    const values = available.flatMap((item) => item.values);
+    const config = options || {};
+    const min = config.min == null ? Math.min(0, ...values) : config.min;
+    const max = config.max == null ? Math.max(...values, min + 1) : config.max;
+    const bounds = { left: 54, top: 18, width: 716, height: 220 };
+    const svg = svgNode("svg", { viewBox: "0 0 800 276", "aria-hidden": "true" });
+    for (let tick = 0; tick < 5; tick += 1) {
+      const value = min + (max - min) * (4 - tick) / 4;
+      const y = bounds.top + tick / 4 * bounds.height;
+      svg.append(svgNode("line", { x1: bounds.left, x2: bounds.left + bounds.width, y1: y, y2: y, class: "chart-grid" }));
+      svg.append(svgNode("text", { x: bounds.left - 9, y: y + 4, "text-anchor": "end", class: "axis-label" }, config.tick ? config.tick(value) : round(value, 0)));
     }
-    const domains = formatCompactNumber(slice.live.readiness.successfulDomains);
-    document.querySelector("#readiness-context").textContent = "Weekly Radar bulk scan · " + domains + " successfully scanned domains";
-    document.querySelector("#readiness-state-label").textContent = "Scan date";
-    document.querySelector("#readiness-change").textContent = slice.live.readiness.scanDate || "Latest";
-    return;
+    const longest = Math.max(...available.map((item) => item.values.length));
+    const xLabels = chartLabels(longest, labels);
+    xLabels.forEach((label, index) => {
+      if (index !== 0 && index !== xLabels.length - 1 && index % Math.max(1, Math.ceil(xLabels.length / 6)) !== 0) return;
+      const x = bounds.left + index / Math.max(xLabels.length - 1, 1) * bounds.width;
+      svg.append(svgNode("text", { x, y: 262, "text-anchor": index === 0 ? "start" : index === xLabels.length - 1 ? "end" : "middle", class: "axis-label" }, label));
+    });
+    available.forEach((item) => {
+      svg.append(svgNode("path", {
+        d: linePath(item.values, bounds, min, max),
+        class: item.dashed ? "series-line dashed" : "series-line",
+        stroke: item.color,
+      }));
+      if (config.points) {
+        item.values.forEach((value, index) => {
+          const x = bounds.left + index / Math.max(item.values.length - 1, 1) * bounds.width;
+          const y = bounds.top + (max - value) / Math.max(max - min, 0.0001) * bounds.height;
+          svg.append(svgNode("circle", { cx: x, cy: y, r: 2.5, fill: "#fff", stroke: item.color, "stroke-width": 1.5 }));
+        });
+      }
+    });
+    target.replaceChildren(svg);
   }
-  const values = readinessValues(slice);
-  const target = document.querySelector("#readiness-list");
-  target.replaceChildren();
-  values.forEach(function renderStandard(value, index) {
-    target.append(createBarRow(SIGNAL_DATA.standards[index], value, 70));
-  });
-  const readinessChange = round(slice.region.readinessChange + slice.agent.readinessOffset * .25, 1);
-  document.querySelector("#readiness-context").textContent = slice.region.name + " · " + slice.agent.name + " · share of successfully scanned domains";
-  document.querySelector("#readiness-state-label").textContent = "Adoption change";
-  document.querySelector("#readiness-change").textContent = signed(readinessChange, " pp");
-}
 
-function renderFriction(slice) {
-  if (slice.live) {
-    const items = slice.live.access.items;
-    const success = slice.live.access.successfulShare;
-    const total = success == null ? null : Math.max(0, 100 - success);
-    const target = document.querySelector("#friction-list");
-    const gauge = document.querySelector("#friction-gauge");
-    const colors = ["#1f766b", "#b5365a", "#6b5ca5", "#287095", "#a54f0c"];
-    let cursor = 0;
-    const segments = [];
+  function renderStackedChart(target, groups, timestamps) {
+    const available = (groups || []).filter((group) => group.values && group.values.length);
+    if (!available.length) {
+      renderEmpty(target, "Weekly composition requires the version 2 Radar payload.");
+      return;
+    }
+    const length = Math.min(...available.map((group) => group.values.length));
+    const bounds = { left: 54, top: 18, width: 716, height: 220 };
+    const svg = svgNode("svg", { viewBox: "0 0 800 276", "aria-hidden": "true" });
+    [0, 25, 50, 75, 100].forEach((value) => {
+      const y = bounds.top + (100 - value) / 100 * bounds.height;
+      svg.append(svgNode("line", { x1: bounds.left, x2: bounds.left + bounds.width, y1: y, y2: y, class: "chart-grid" }));
+      svg.append(svgNode("text", { x: bounds.left - 9, y: y + 4, "text-anchor": "end", class: "axis-label" }, `${value}%`));
+    });
+    let lower = Array(length).fill(0);
+    available.forEach((group) => {
+      const upper = lower.map((value, index) => value + (group.values[index] || 0));
+      const topPoints = upper.map((value, index) => {
+        const x = bounds.left + index / Math.max(length - 1, 1) * bounds.width;
+        const y = bounds.top + (100 - value) / 100 * bounds.height;
+        return `${x.toFixed(2)},${y.toFixed(2)}`;
+      });
+      const bottomPoints = lower.map((value, index) => {
+        const reverse = length - index - 1;
+        const x = bounds.left + reverse / Math.max(length - 1, 1) * bounds.width;
+        const y = bounds.top + (100 - value) / 100 * bounds.height;
+        return `${x.toFixed(2)},${y.toFixed(2)}`;
+      });
+      svg.append(svgNode("polygon", {
+        points: [...topPoints, ...bottomPoints].join(" "),
+        fill: COLORS[group.key] || "#8f8881",
+        class: "stacked-area",
+      }));
+      lower = upper;
+    });
+    const labels = (timestamps || []).slice(-length).map((value, index) => value ? formatDate(value).replace(/ \d{4}$/, "") : `W${index + 1}`);
+    chartLabels(length, labels).forEach((label, index) => {
+      if (index !== 0 && index !== length - 1 && index % Math.max(1, Math.ceil(length / 5)) !== 0) return;
+      const x = bounds.left + index / Math.max(length - 1, 1) * bounds.width;
+      svg.append(svgNode("text", { x, y: 262, "text-anchor": index === 0 ? "start" : index === length - 1 ? "end" : "middle", class: "axis-label" }, label));
+    });
+    target.replaceChildren(svg);
+  }
+
+  function createBar(item, max, options) {
+    const row = document.createElement("div");
+    row.className = "bar-row";
+    const heading = document.createElement("div");
+    const label = document.createElement("span");
+    label.textContent = item.label;
+    const number = document.createElement("strong");
+    number.textContent = percent(item.value, options && options.digits);
+    heading.append(label, number);
+    const track = document.createElement("div");
+    track.className = "bar-track";
+    const fill = document.createElement("i");
+    fill.style.width = `${Math.max(0, Math.min(100, item.value / Math.max(max, 0.0001) * 100))}%`;
+    track.append(fill);
+    row.append(heading, track);
+    if (item.changePp != null) {
+      const note = document.createElement("small");
+      note.textContent = `${signed(item.changePp, " pp")} vs previous scan`;
+      row.append(note);
+    }
+    return row;
+  }
+
+  function itemByKey(items, key) {
+    return (items || []).find((item) => String(item.key).toLowerCase() === String(key).toLowerCase());
+  }
+
+  function renderSummary() {
+    const data = state.data;
+    if (!data) return;
+    const demand = data.demandComparison || {};
+    const purpose = data.purposeTrend || {};
+    const access = data.accessOutcomes || {};
+    const readiness = data.readiness || {};
+    const training = itemByKey(purpose.items, "Training");
+    const aiRules = itemByKey(readiness.items, "robotsTxtAiRules");
+
+    $("#metric-demand").textContent = demand.periodChangePct == null ? "—" : signed(demand.periodChangePct, "%");
+    $("#metric-demand-note").textContent = demand.periodChangePct == null ? "Preceding-period comparison unavailable" : "mean relative request volume";
+    $("#metric-purpose").textContent = training ? percent(training.value) : "—";
+    $("#metric-purpose-note").textContent = training && training.changePp != null
+      ? `${signed(training.changePp, " pp")} vs preceding period`
+      : purpose.incompatible
+        ? "All-agents scope only"
+        : "Mixed Purpose remains separate";
+    $("#metric-access").textContent = access.constrainedShare == null ? "—" : percent(access.constrainedShare);
+    $("#metric-access-note").textContent = access.constrainedShare == null
+      ? access.incompatible ? "All-agents scope only" : "Exact status codes unavailable"
+      : "401 + 403 + 429 proxy";
+    $("#metric-readiness").textContent = aiRules ? percent(aiRules.value) : "—";
+    $("#metric-readiness-note").textContent = readiness.scanDate ? `scan ${formatDate(readiness.scanDate)}` : "Global weekly scan";
+  }
+
+  function renderDemand() {
+    const data = state.data;
+    const demand = data.demandComparison;
+    const purpose = data.purposeTrend;
+    if (!demand || !demand.available) {
+      renderEmpty($("#demand-chart"), demand && demand.reason || "Comparable demand data is unavailable.");
+      $("#demand-state").textContent = "Demand comparison unavailable";
+      return;
+    }
+    const currentValues = demand.current.values || [];
+    const controlValues = demand.control.values || [];
+    const chartSeries = [
+      { name: "Current period", color: COLORS.current, values: currentValues.map((value) => value * 100) },
+      { name: "Preceding period", color: COLORS.control, values: controlValues.map((value) => value * 100), dashed: true },
+    ].filter((series) => series.values.length);
+    renderLegend($("#demand-legend"), chartSeries);
+    renderLineChart($("#demand-chart"), chartSeries, chartLabels(Math.max(currentValues.length, controlValues.length)), {
+      min: 0,
+      tick: (value) => round(value, 0),
+      points: true,
+      empty: "The deployed Worker has not yet supplied a comparable preceding period.",
+    });
+    const training = itemByKey(purpose && purpose.items, "Training");
+    const mixed = itemByKey(purpose && purpose.items, "Mixed Purpose");
+    $("#demand-context").textContent = `${formatRange(demand.meta)} · shared ${demand.meta && demand.meta.normalization || "Radar"} scale`;
+    $("#demand-state").textContent = demand.periodChangePct == null
+      ? "Demand visible · comparison pending"
+      : `${signed(demand.periodChangePct, "%")} vs preceding period`;
+    $("#demand-evidence").textContent = demand.periodChangePct == null ? "Measured · no control series" : signed(demand.periodChangePct, "%");
+    $("#training-evidence").textContent = training ? `${percent(training.value)}${training.changePp == null ? "" : ` · ${signed(training.changePp, " pp")}`}` : "—";
+    $("#mixed-evidence").textContent = mixed ? percent(mixed.value) : "—";
+    $("#demand-reading").textContent = training
+      ? `${training.label}-oriented requests are the largest identified purpose at ${percent(training.value)}, while attributable publisher value remains unmeasured.`
+      : "Radar can measure demand and classified intent, but not reciprocal publisher value.";
+    $("#demand-boundary").textContent = demand.compatibilityBoundary
+      || "Current and preceding periods share one Cloudflare normalization scale. Relative request volume is not absolute global usage.";
+    $("#dock-demand").textContent = demand.periodChangePct == null ? "Comparison pending" : `${signed(demand.periodChangePct, "%")} vs prior`;
+  }
+
+  function renderPurpose() {
+    const purpose = state.data.purposeTrend;
+    if (!purpose || !purpose.available) {
+      $("#purpose-legend").replaceChildren();
+      renderEmpty($("#purpose-chart"), purpose && purpose.reason || "Purpose data is unavailable.");
+      $("#purpose-list").replaceChildren();
+      $("#purpose-state").textContent = "Unavailable";
+      $("#purpose-context").textContent = purpose && purpose.incompatible ? "Not compatible with the selected native agent category" : "Live Radar section unavailable";
+      $("#dock-purpose").textContent = purpose && purpose.incompatible ? "All agents only" : "Unavailable";
+      return;
+    }
+    const groups = purpose.trend && purpose.trend.groups || [];
+    const legend = groups.length ? groups.map((group) => ({
+      name: group.label,
+      color: COLORS[group.key] || "#8f8881",
+    })) : purpose.items.map((item) => ({ name: item.label, color: COLORS[item.key] || "#8f8881" }));
+    renderLegend($("#purpose-legend"), legend);
+    renderStackedChart($("#purpose-chart"), groups, purpose.trend && purpose.trend.timestamps);
+    const list = $("#purpose-list");
+    list.replaceChildren();
+    purpose.items.forEach((item) => {
+      const row = document.createElement("div");
+      const label = document.createElement("span");
+      label.textContent = item.label;
+      const value = document.createElement("strong");
+      value.textContent = percent(item.value);
+      const delta = document.createElement("small");
+      delta.textContent = item.changePp == null ? "Prior-period comparison unavailable" : `${signed(item.changePp, " pp")} vs preceding period`;
+      row.append(label, value, delta);
+      list.append(row);
+    });
+    const top = purpose.items[0];
+    $("#purpose-state").textContent = top ? `${top.label} ${percent(top.value)}` : "Unavailable";
+    $("#purpose-context").textContent = `${formatRange(purpose.meta)} · classified request share`;
+    $("#dock-purpose").textContent = top ? `${top.label} ${percent(top.value)}` : "Unavailable";
+  }
+
+  function renderAccess() {
+    const access = state.data.accessOutcomes;
+    if (!access || !access.available) {
+      $("#access-legend").replaceChildren();
+      renderEmpty($("#access-chart"), access && access.reason || "Access outcomes are unavailable.");
+      $("#access-list").replaceChildren();
+      $("#access-state").textContent = "Unavailable";
+      $("#access-context").textContent = access && access.incompatible ? "Not compatible with the selected native agent category" : "Live Radar section unavailable";
+      $("#dock-access").textContent = access && access.incompatible ? "All agents only" : "Unavailable";
+      return;
+    }
+    const groups = access.trend && access.trend.groups || [];
+    renderLegend($("#access-legend"), groups.map((group) => ({ name: group.label, color: COLORS[group.key] || "#8f8881" })));
+    renderStackedChart($("#access-chart"), groups, access.trend && access.trend.timestamps);
+    const list = $("#access-list");
+    list.replaceChildren();
+    (access.outcomes || []).forEach((item) => {
+      const block = document.createElement("div");
+      const label = document.createElement("span");
+      label.textContent = item.label;
+      const value = document.createElement("strong");
+      value.textContent = percent(item.value);
+      const codes = document.createElement("small");
+      codes.textContent = item.codes ? item.codes.join(" · ") : "";
+      block.append(label, value, codes);
+      list.append(block);
+    });
+    $("#access-state").textContent = access.constrainedShare == null ? "Exact codes pending" : percent(access.constrainedShare);
+    $("#access-context").textContent = `${formatRange(access.meta)} · exact status codes and categories`;
+    $("#dock-access").textContent = access.constrainedShare == null ? `${percent(access.successfulShare)} served` : `${percent(access.constrainedShare)} constrained`;
+  }
+
+  function renderOperators() {
+    const operators = state.data.operators;
+    const target = $("#operators-list");
     target.replaceChildren();
-    items.forEach(function renderStatus(item, index) {
-      const start = cursor;
-      cursor = round(cursor + item.value, 2);
-      segments.push(colors[index % colors.length] + " " + start + "% " + cursor + "%");
-      const row = document.createElement("li");
-      const key = document.createElement("span");
-      const number = document.createElement("strong");
-      key.className = "key";
-      key.style.background = colors[index % colors.length];
-      number.textContent = item.value.toFixed(1) + "%";
-      row.append(key, document.createTextNode(item.label), number);
+    if (!operators || !operators.available) {
+      renderEmpty(target, operators && operators.reason || "Operator concentration is unavailable.");
+      $("#operators-state").textContent = "Unavailable";
+      $("#dock-operators").textContent = "Unavailable";
+      return;
+    }
+    if (operators.segments && operators.segments.length) {
+      operators.segments.forEach((segment) => {
+        const section = document.createElement("section");
+        section.className = "operator-segment";
+        const heading = document.createElement("div");
+        heading.className = "operator-segment-heading";
+        const title = document.createElement("strong");
+        title.textContent = segment.label;
+        const concentration = document.createElement("span");
+        concentration.textContent = `Top three ${percent(segment.topThreeShare)}`;
+        heading.append(title, concentration);
+        section.append(heading);
+        const bars = document.createElement("div");
+        bars.className = "bar-list";
+        const max = Math.max(...segment.items.slice(0, 6).map((item) => item.value), 1);
+        segment.items.slice(0, 6).forEach((item) => bars.append(createBar(item, max)));
+        section.append(bars);
+        target.append(section);
+      });
+      $("#operators-state").textContent = "By AI category";
+      $("#operators-context").textContent = `${formatRange(operators.meta)} · independently normalized category shares`;
+      $("#dock-operators").textContent = `${operators.segments.length} AI categories`;
+      return;
+    }
+    const max = Math.max(...operators.items.slice(0, 10).map((item) => item.value), 1);
+    operators.items.slice(0, 10).forEach((item) => target.append(createBar(item, max)));
+    $("#operators-state").textContent = percent(operators.topThreeShare);
+    $("#operators-context").textContent = `${formatRange(operators.meta)} · selected traffic scope`;
+    $("#dock-operators").textContent = `Top three ${percent(operators.topThreeShare)}`;
+  }
+
+  function renderGeography() {
+    const geography = state.data.geography;
+    if (!geography || !geography.available) {
+      renderEmpty($("#geography-chart"), geography && geography.reason || "Geographic comparison is unavailable.");
+      $("#dock-geography").textContent = "Unavailable";
+      return;
+    }
+    const series = geography.series.filter((item) => item.values && item.values.length).map((item) => ({
+      name: item.name,
+      color: item.color,
+      values: item.values.map((value) => value * 100),
+    }));
+    renderLegend($("#geography-legend"), series);
+    const timestamps = geography.series.find((item) => item.timestamps && item.timestamps.length)?.timestamps || [];
+    renderLineChart($("#geography-chart"), series, timestamps.map((value) => formatDate(value).replace(/ \d{4}$/, "")), {
+      min: 0,
+      tick: (value) => round(value, 0),
+    });
+    $("#geography-context").textContent = `${formatRange(geography.meta)} · ${geography.meta && geography.meta.normalization || "Radar"} shared scale`;
+    $("#dock-geography").textContent = `${series.length} comparable locations`;
+  }
+
+  function renderReadiness() {
+    const readiness = state.data.readiness;
+    const target = $("#readiness-groups");
+    target.replaceChildren();
+    if (!readiness || !readiness.available) {
+      renderEmpty(target, readiness && readiness.reason || "Readiness data is unavailable.");
+      $("#readiness-state").textContent = "Unavailable";
+      $("#dock-readiness").textContent = "Unavailable";
+      return;
+    }
+    (readiness.groups || []).forEach((group) => {
+      const section = document.createElement("section");
+      const heading = document.createElement("h3");
+      heading.textContent = group.label;
+      section.append(heading);
+      group.items.forEach((item) => section.append(createBar(item, 100, { digits: item.value < 0.1 ? 3 : 1 })));
+      target.append(section);
+    });
+    $("#readiness-state").textContent = formatDate(readiness.scanDate);
+    $("#readiness-successful").textContent = compact(readiness.successfulDomains);
+    $("#readiness-total").textContent = compact(readiness.totalDomains);
+    $("#readiness-coverage").textContent = percent(readiness.scanCoveragePct);
+    const efficiency = state.data.efficiency;
+    $("#efficiency-ratio").textContent = efficiency && efficiency.available ? `${round(efficiency.markdownReductionRatio, 1)}×` : "—";
+    const rules = itemByKey(readiness.items, "robotsTxtAiRules");
+    $("#dock-readiness").textContent = rules ? `AI rules ${percent(rules.value)}` : `${compact(readiness.successfulDomains)} scans`;
+  }
+
+  function renderThesis() {
+    const data = state.data;
+    const demand = data.demandComparison || {};
+    const purpose = data.purposeTrend || {};
+    const access = data.accessOutcomes || {};
+    const operators = data.operators || {};
+    const readiness = data.readiness || {};
+    const training = itemByKey(purpose.items, "Training");
+    const webBotAuth = itemByKey(readiness.items, "webBotAuth");
+    $("#thesis-slice").textContent = currentScope(false);
+    $("#thesis-demand-metric").textContent = demand.periodChangePct == null ? "—" : signed(demand.periodChangePct, "%");
+    $("#thesis-purpose-metric").textContent = training ? percent(training.value) : "—";
+    $("#thesis-lead").textContent = training
+      ? `${training.label} is the largest classified request purpose; returned publisher value remains unmeasured.`
+      : "Radar can test agent demand, intent and access—but not publisher value.";
+    $("#ladder-demand").textContent = demand.periodChangePct == null
+      ? "A comparable preceding-period series is not available yet."
+      : `Mean relative request volume is ${signed(demand.periodChangePct, "%")} versus the preceding period.`;
+    $("#ladder-purpose").textContent = training
+      ? `${training.label} accounts for ${percent(training.value)} of classified requests${training.changePp == null ? "." : `, ${signed(training.changePp, " pp")} versus the preceding period.`}`
+      : purpose.incompatible ? "Purpose classification is available for the complete all-agents scope only." : "Purpose classification is unavailable.";
+    $("#ladder-access").textContent = access.constrainedShare == null
+      ? access.incompatible ? "Exact access outcomes are available for the complete all-agents scope only." : "Exact constrained-status evidence is unavailable."
+      : `${percent(access.constrainedShare)} received 401, 403 or 429 responses; this is a proxy, not proven policy intent.`;
+    $("#ladder-operators").textContent = operators.segments && operators.segments.length
+      ? "Operator shares are reported separately for crawler, assistant and search categories and are not added together."
+      : operators.topThreeShare == null
+        ? "Operator concentration is unavailable."
+        : `The top three identified operators account for ${percent(operators.topThreeShare)} of requests in scope.`;
+    $("#ladder-readiness").textContent = webBotAuth
+      ? `Web Bot Auth is exposed by ${percent(webBotAuth.value, webBotAuth.value < 0.1 ? 3 : 1)} of successfully scanned domains.`
+      : "Identity and transaction readiness is reported by the global weekly scan.";
+  }
+
+  function renderRegimeLog() {
+    const data = state.data;
+    const target = $("#regime-log-body");
+    target.replaceChildren();
+    const observedAt = data.fetchedAt;
+    const rows = [];
+    if (data.demandComparison && data.demandComparison.available) {
+      rows.push([
+        formatDate(observedAt),
+        "Comparable agent demand",
+        data.demandComparison.periodChangePct == null ? "—" : signed(data.demandComparison.periodChangePct, "%"),
+        "Observation",
+        "Needs four comparable weeks plus breadth or a second source",
+      ]);
+    }
+    const training = itemByKey(data.purposeTrend && data.purposeTrend.items, "Training");
+    if (training) {
+      rows.push([
+        formatDate(observedAt),
+        "Training-purpose share",
+        training.changePp == null ? percent(training.value) : signed(training.changePp, " pp"),
+        "Observation",
+        "Confirm persistence and counterevidence",
+      ]);
+    }
+    if (data.accessOutcomes && data.accessOutcomes.constrainedShare != null) {
+      rows.push([
+        formatDate(observedAt),
+        "Access-constrained proxy",
+        percent(data.accessOutcomes.constrainedShare),
+        "Observation",
+        "Separate policy from authentication and request errors",
+      ]);
+    }
+    if (!rows.length) rows.push(["—", "No live observation", "—", "Unavailable", "Refresh the Radar source"]);
+    rows.forEach((values) => {
+      const row = document.createElement("tr");
+      values.forEach((value) => {
+        const cell = document.createElement("td");
+        cell.textContent = value;
+        row.append(cell);
+      });
       target.append(row);
     });
-    gauge.style.background = segments.length ? "conic-gradient(" + segments.join(", ") + ")" : "#e2ddd7";
-    gauge.setAttribute("aria-label", total == null ? "Access friction unavailable" : total.toFixed(1) + " percent non-success responses");
-    document.querySelector("#friction-total").textContent = total == null ? "—" : total.toFixed(1) + "%";
-    document.querySelector("#friction-context").textContent = "Radar HTTP response-status distribution · " + slice.period + " weeks";
-    document.querySelector("#friction-boundary").textContent = "Live boundary · response status shows access outcome, but does not identify WAF policy, robots.txt intent, or commercial cause.";
-    document.querySelector("#dock-friction").textContent = total == null ? "Not reported" : total.toFixed(1) + "% non-success";
-    return;
+    $("#regime-log-summary").textContent = `${rows.length} observations · 0 candidates · 0 promoted`;
   }
-  const values = frictionValues(slice);
-  const total = round(values.reduce(function add(sum, value) { return sum + value; }, 0), 1);
-  const target = document.querySelector("#friction-list");
-  const gauge = document.querySelector("#friction-gauge");
-  let cursor = 0;
-  const segments = [];
-  target.replaceChildren();
 
-  values.forEach(function renderCause(value, index) {
-    const meta = FRICTION_META[index];
-    const start = cursor;
-    cursor = round(cursor + value, 1);
-    segments.push(meta.color + " " + start + "% " + cursor + "%");
-    const item = document.createElement("li");
-    const key = document.createElement("span");
-    const label = document.createTextNode(meta.name);
-    const number = document.createElement("strong");
-    key.className = "key " + meta.className;
-    number.textContent = value.toFixed(1) + "%";
-    item.append(key, label, number);
-    target.append(item);
-  });
-  segments.push("#e2ddd7 " + cursor + "% 100%");
-  gauge.style.background = "conic-gradient(" + segments.join(", ") + ")";
-  gauge.setAttribute("aria-label", total.toFixed(1) + " percent blocked or challenged");
-  document.querySelector("#friction-total").textContent = total.toFixed(1) + "%";
-  document.querySelector("#friction-context").textContent = slice.region.name + " · " + slice.agent.name + " · blocked or challenged requests";
-  document.querySelector("#friction-boundary").textContent = "Friction can represent deliberate publisher policy, not only technical failure.";
-  document.querySelector("#dock-friction").textContent = total.toFixed(1) + "%";
-}
+  function interpretationCopy(signal) {
+    const data = state.data;
+    const demand = data.demandComparison || {};
+    const purpose = data.purposeTrend || {};
+    const access = data.accessOutcomes || {};
+    const operators = data.operators || {};
+    const geography = data.geography || {};
+    const readiness = data.readiness || {};
+    const training = itemByKey(purpose.items, "Training");
+    const common = {
+      evidence: "Live Cloudflare Radar",
+      scope: currentScope(signal === "readiness"),
+    };
+    return {
+      demand: {
+        ...common,
+        title: "Demand pressure",
+        observed: demand.periodChangePct == null ? "Current activity is visible, but a comparable preceding-period series is unavailable." : `Mean relative request volume changed ${signed(demand.periodChangePct, "%")} versus the preceding period.`,
+        method: demand.meta && demand.meta.normalization || "Comparable Radar series",
+        connection: "Demand growth tests whether agent-originated traffic is becoming large enough to require dedicated access, attribution and pricing infrastructure.",
+        inference: "Growth strengthens the demand side of the thesis. It does not establish extraction, publisher harm or returned value.",
+        boundaryTitle: "Relative request volume.",
+        boundary: "Current and preceding periods must share one normalization request. Values are not absolute global request counts.",
+        updated: sourceUpdated(demand),
+      },
+      purpose: {
+        ...common,
+        title: "Purpose",
+        observed: training
+          ? `${training.label} is the largest classified purpose at ${percent(training.value)}.`
+          : purpose.incompatible
+            ? purpose.reason
+            : "Purpose classification is unavailable.",
+        method: purpose.meta && purpose.meta.normalization || "Request distribution",
+        connection: "Purpose separates training, mixed, search and user-action demand before relating it to the value-versus-extraction thesis.",
+        inference: "Training-oriented activity can indicate consumption pressure, but purpose classification alone does not establish extraction or economic harm.",
+        boundaryTitle: "Intent is not outcome.",
+        boundary: "Mixed Purpose remains separate. User Action is not attributable referral, conversion or publisher value.",
+        updated: sourceUpdated(purpose),
+      },
+      access: {
+        ...common,
+        title: "Access outcomes",
+        observed: access.constrainedShare == null
+          ? access.incompatible
+            ? access.reason
+            : "Exact constrained-status evidence is unavailable."
+          : `${percent(access.constrainedShare)} of requests received 401, 403 or 429 responses.`,
+        method: access.meta && access.meta.normalization || "HTTP status distribution",
+        connection: "HTTP outcomes show how identified agent requests are served, redirected, constrained or failed.",
+        inference: "More constrained responses may indicate stronger access control, but status codes do not reveal robots.txt, WAF or commercial intent.",
+        boundaryTitle: "Constrained is a proxy.",
+        boundary: "Redirects, 404s and server errors are not counted as access-constrained. Even 401, 403 and 429 require cause evidence.",
+        updated: sourceUpdated(access),
+      },
+      operators: {
+        ...common,
+        title: "Operators",
+        observed: operators.segments && operators.segments.length
+          ? `Operator request shares are available separately for ${operators.segments.map((segment) => segment.key).join(", ")} categories.`
+          : operators.topThreeShare == null
+            ? "Operator concentration is unavailable."
+            : `The top three identified operators account for ${percent(operators.topThreeShare)} of requests in scope.`,
+        method: operators.meta && operators.meta.normalization || "Operator request share",
+        connection: "Identifiable operators create counterparties for access policy, attribution and potential commercial agreements.",
+        inference: "Concentration can make negotiation more addressable, but does not establish revenue, adoption or willingness to pay.",
+        boundaryTitle: "Identity is not monetization.",
+        boundary: operators.segments && operators.segments.length
+          ? "Category shares are independently normalized and must not be added together. Operator request share is not customer share, revenue share or market share."
+          : "Operator request share is not customer share, revenue share or market share.",
+        updated: sourceUpdated(operators),
+      },
+      geography: {
+        ...common,
+        title: "Geography",
+        observed: geography.available ? `${geography.series.filter((item) => item.values && item.values.length).length} locations share one Cloudflare normalization scale.` : "Geographic comparison is unavailable.",
+        method: geography.meta && geography.meta.normalization || "Multi-series comparison",
+        connection: "Geographic divergence can show where agent-traffic changes appear first and whether movement is broad.",
+        inference: "Broad movement is more durable than a single-market spike, but coverage and classification still shape the signal.",
+        boundaryTitle: "Not absolute market size.",
+        boundary: "Locations are comparable only because they are requested together. The values do not estimate total agent usage by country.",
+        updated: sourceUpdated(geography),
+      },
+      readiness: {
+        ...common,
+        title: "Readiness",
+        observed: readiness.available ? `${compact(readiness.successfulDomains)} domains completed the ${formatDate(readiness.scanDate)} scan.` : "Readiness data is unavailable.",
+        method: "Weekly global bulk scan",
+        connection: "Policy, discovery, identity and transaction checks indicate whether the web exposes infrastructure agents can use.",
+        inference: "Policy can be widespread while identity and transaction standards remain scarce, leaving the commercial layer immature.",
+        boundaryTitle: "Capability exposure, not adoption.",
+        boundary: "This global scan is not affected by traffic geography or agent-category filters. Denominators are successful scans.",
+        updated: sourceUpdated(readiness),
+      },
+    }[signal];
+  }
 
-function renderPurpose(slice) {
-  if (slice.live) {
-    const target = document.querySelector("#purpose-list");
-    const items = slice.live.purpose.items;
-    target.replaceChildren();
-    if (!items.length) {
-      renderEmptyState(target, "Radar returned no crawl-purpose distribution for this scope.");
-      document.querySelector("#dock-purpose").textContent = "No distribution";
-    } else {
-      const maxValue = Math.max(...items.map(function value(item) { return item.value; }));
-      items.forEach(function renderPurposeRow(item) {
-        target.append(createBarRow(item.label, item.value, maxValue));
-      });
-      document.querySelector("#dock-purpose").textContent = items[0].label + " " + items[0].value.toFixed(1) + "%";
+  function renderInspector() {
+    if (!state.data) return;
+    const copy = interpretationCopy(state.view === "thesis" ? "demand" : state.selectedSignal);
+    $("#inspector-position").textContent = copy.title;
+    $("#interpretation-title").textContent = copy.title;
+    $("#interpretation-observed").textContent = copy.observed;
+    $("#interpretation-method").textContent = copy.method;
+    $("#interpretation-evidence").textContent = copy.evidence;
+    $("#interpretation-scope").textContent = copy.scope;
+    $("#interpretation-updated").textContent = formatTimestamp(copy.updated);
+    $("#interpretation-connection").textContent = copy.connection;
+    $("#interpretation-inference").textContent = copy.inference;
+    $("#interpretation-boundary-title").textContent = copy.boundaryTitle;
+    $("#interpretation-boundary").textContent = copy.boundary;
+  }
+
+  function renderAll() {
+    if (!state.data) return;
+    const schemaLabel = state.data.schemaVersion === 2 ? "Live Radar" : "Live Radar · compatibility mode";
+    $("#signals-workspace-context").textContent = state.selectedSignal === "readiness"
+      ? `${schemaLabel} · Global weekly readiness scan; traffic filters apply to other signals`
+      : `${schemaLabel} · ${currentScope(false)}`;
+    $("#thesis-data-status").textContent = state.data.schemaVersion === 2 ? "Live Cloudflare Radar" : "Live Radar · version 1";
+    $("#thesis-data-detail").textContent = "Demand-side evidence · publisher value not measured";
+    renderSummary();
+    renderDemand();
+    renderPurpose();
+    renderAccess();
+    renderOperators();
+    renderGeography();
+    renderReadiness();
+    renderThesis();
+    renderRegimeLog();
+    renderInspector();
+  }
+
+  function selectSignal(signal, options) {
+    const resolved = LEGACY_SIGNAL_MAP[signal] || signal;
+    if (!SIGNALS.includes(resolved)) return;
+    state.selectedSignal = resolved;
+    $$("[data-signal-panel]").forEach((panel) => {
+      panel.hidden = panel.dataset.signalPanel !== resolved;
+    });
+    $$("[data-signal-select]").forEach((control) => {
+      if (control.dataset.signalSelect === resolved) control.setAttribute("aria-current", "true");
+      else control.removeAttribute("aria-current");
+    });
+    if (state.data) {
+      renderInspector();
+      $("#signals-workspace-context").textContent = resolved === "readiness"
+        ? "Live Radar · Global weekly readiness scan; traffic filters apply to other signals"
+        : `Live Radar · ${currentScope(false)}`;
     }
-    document.querySelector("#purpose-context").textContent = "All identified AI bots · Radar request share";
-    return;
-  }
-  const target = document.querySelector("#purpose-list");
-  target.replaceChildren();
-  const maxValue = Math.max(...slice.agent.purposes);
-  slice.agent.purposes.forEach(function renderPurposeRow(value, index) {
-    target.append(createBarRow(SIGNAL_DATA.purposes[index], value, maxValue));
-  });
-  document.querySelector("#purpose-context").textContent = slice.agent.name + " · share of identified requests";
-  document.querySelector("#dock-purpose").textContent = "Training " + slice.agent.purposes[0].toFixed(1) + "%";
-}
-
-function updateInterpretation(signal, slice) {
-  if (slice.live) {
-    updateLiveInterpretation(signal, slice);
-    return;
-  }
-  const geographyCount = geographySeries(slice).length;
-  const readiness = round(slice.region.readiness + slice.agent.readinessOffset, 1);
-  const friction = round(frictionValues(slice).reduce(function add(sum, value) { return sum + value; }, 0), 1);
-  const topPurpose = slice.agent.purposes[0];
-  const value = valueSeries(slice);
-  const valueGap = round(value[0].values.at(-1) - value[1].values.at(-1), 0);
-  const copy = {
-    value: {
-      title: "Value vs extraction",
-      observed: "For " + slice.region.name.toLowerCase() + " and " + slice.agent.name.toLowerCase() + ", crawl demand and returned referral value diverge by " + valueGap + " index points in this illustrative scenario.",
-      connection: "The gap tests the thesis that agent-originated traffic is becoming economically addressable, rather than merely observable.",
-      inference: "Demand is growing faster than reciprocal value. Persistence, attributable conversion, or paid access would determine whether this becomes a durable regime change.",
-    },
-    geography: {
-      title: "Traffic geography",
-      observed: geographyCount + " location trends are shown for " + slice.agent.name.toLowerCase() + " over " + slice.period + " weeks, normalized to the first visible week.",
-      connection: "Regional divergence can reveal where agent-readable infrastructure, operator mix, or access policy is changing first.",
-      inference: "A regional rise is directional evidence only; it needs consistent classification and breadth before it can support a market-level conclusion.",
-    },
-    readiness: {
-      title: "Readiness",
-      observed: slice.region.name + " readiness is " + readiness.toFixed(1) + "% for the selected standards and agent class.",
-      connection: "Capability exposure links web standards and discovery mechanisms to the infrastructure agents can actually use.",
-      inference: "Higher readiness expands technical possibility, but does not establish adoption, usage, conversion, or willingness to pay.",
-    },
-    friction: {
-      title: "Access friction",
-      observed: friction.toFixed(1) + "% of the selected illustrative traffic is blocked or challenged, with each cause shown separately.",
-      connection: "Access controls connect agent identification and publisher policy to the emerging trust and compensation layer.",
-      inference: "More friction can signal deliberate control as well as failure; cause and operator intent matter more than the aggregate alone.",
-    },
-    purpose: {
-      title: "Purpose mix",
-      observed: "Training and retrieval represents " + topPurpose.toFixed(1) + "% of requests for " + slice.agent.name.toLowerCase() + " in this illustrative mix.",
-      connection: "Purpose classification helps separate extraction, discovery, rendering, monitoring, and potentially value-generating agent activity.",
-      inference: "The mix indicates likely intent, not business outcome. Referral, conversion, revenue, and user benefit still need direct evidence.",
-    },
-  }[signal];
-
-  document.querySelector("#interpretation-title").textContent = copy.title;
-  document.querySelector("#inspector-position").textContent = copy.title;
-  document.querySelector("#interpretation-observed").textContent = copy.observed;
-  document.querySelector("#interpretation-connection").textContent = copy.connection;
-  document.querySelector("#interpretation-inference").textContent = copy.inference;
-  document.querySelector("#interpretation-method").textContent = "Normalized trend";
-  document.querySelector("#interpretation-evidence").textContent = "Illustrative model";
-}
-
-function updateLiveInterpretation(signal, slice) {
-  const data = slice.live;
-  const activityChange = liveActivityChange();
-  const readinessCoverage = liveReadinessCoverage();
-  const nonSuccess = data.access.successfulShare == null ? null : 100 - data.access.successfulShare;
-  const topPurpose = data.purpose.items[0];
-  const copy = {
-    value: {
-      title: "Value vs extraction",
-      observed: "Radar measures identified AI-bot request activity, but does not report attributable publisher referral, conversion, revenue, or licensing value.",
-      connection: "The demand side can now be observed from Radar. A publisher analytics source is still required to test whether that demand creates reciprocal value.",
-      inference: "No extraction gap should be calculated from Radar alone. More agent traffic is not evidence of economic harm or publisher value.",
-      method: "Cross-source thesis",
-    },
-    geography: {
-      title: "Traffic geography",
-      observed: data.geography.series.length + " Radar location series are normalized to their first visible weekly observation. The overall activity series changed " + (activityChange == null ? "by an unavailable amount" : signed(activityChange, "%")) + ".",
-      connection: "Geographic divergence can reveal where identified AI-bot request activity is changing first.",
-      inference: "This is a normalized traffic trend, not an absolute estimate of global agent usage. Classification and Cloudflare coverage shape the result.",
-      method: data.geography.meta.normalization || "Radar normalization",
-    },
-    readiness: {
-      title: "Readiness",
-      observed: (readinessCoverage == null ? "Scan completion is unavailable" : readinessCoverage.toFixed(1) + "% of sampled domains completed the latest readiness scan") + " dated " + (data.readiness.scanDate || "latest") + ". Individual bars show the share of successfully scanned domains exposing each check.",
-      connection: "Readiness checks show which capabilities scanned domains expose to agents.",
-      inference: "Capability exposure does not prove agent adoption, usage, conversion, or willingness to pay.",
-      method: "Weekly bulk scan",
-    },
-    friction: {
-      title: "Access outcomes",
-      observed: nonSuccess == null ? "Radar did not return a successful-response share." : nonSuccess.toFixed(1) + "% of identified AI-bot requests received a non-success HTTP response in this scope.",
-      connection: "Response outcomes connect agent identification to the practical accessibility of publisher content.",
-      inference: "A non-success response cannot by itself be attributed to WAF policy, robots.txt, rate limiting, or commercial intent.",
-      method: data.access.meta.normalization || "Response distribution",
-    },
-    purpose: {
-      title: "Purpose mix",
-      observed: topPurpose ? topPurpose.label + " is the largest reported crawl-purpose category at " + topPurpose.value.toFixed(1) + "%." : "Radar returned no crawl-purpose distribution.",
-      connection: "Purpose classification helps separate training, search, rendering, monitoring, and other identified bot activity.",
-      inference: "Purpose indicates likely request intent, not business outcome. Referral, conversion, revenue, and user benefit still need direct evidence.",
-      method: data.purpose.meta.normalization || "Request distribution",
-    },
-  }[signal];
-
-  document.querySelector("#interpretation-title").textContent = copy.title;
-  document.querySelector("#inspector-position").textContent = copy.title;
-  document.querySelector("#interpretation-observed").textContent = copy.observed;
-  document.querySelector("#interpretation-connection").textContent = copy.connection;
-  document.querySelector("#interpretation-inference").textContent = copy.inference;
-  document.querySelector("#interpretation-method").textContent = copy.method;
-  document.querySelector("#interpretation-evidence").textContent = "Live Cloudflare Radar";
-}
-
-function createRegimeRow(values, changeClass) {
-  const row = document.createElement("tr");
-  values.forEach(function addCell(value, index) {
-    const cell = document.createElement("td");
-    cell.textContent = value;
-    if (index === 2 && changeClass) cell.className = changeClass;
-    row.append(cell);
-  });
-  return row;
-}
-
-function renderRegimeLog(slice) {
-  const target = document.querySelector("#regime-log-body");
-  target.replaceChildren();
-  if (slice.live) {
-    const observedAt = slice.live.activity.meta.lastUpdated || slice.live.fetchedAt;
-    const observedDate = new Date(observedAt);
-    const label = Number.isNaN(observedDate.getTime())
-      ? "Latest snapshot"
-      : observedDate.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
-    target.append(createRegimeRow([
-      label,
-      "Cloudflare Radar snapshot",
-      "—",
-      "Observed",
-      "Needs sustained movement and corroborating evidence before promotion",
-    ]));
-    document.querySelector("#regime-log-summary").textContent = "0 candidates · 0 promoted";
-    return;
-  }
-  target.append(
-    createRegimeRow(["Week 12", "Training / retrieval share", "+3.4 pp", "Monitoring", "Needs four-week persistence"], "positive"),
-    createRegimeRow(["Week 11", "Readiness adoption", "+4.2 pp", "Monitoring", "Check scan methodology and breadth"], "positive"),
-    createRegimeRow(["Week 10", "Access friction", "+2.1 pp", "Watching", "Confirm across multiple geographies"], "negative")
-  );
-  document.querySelector("#regime-log-summary").textContent = "3 candidates · 0 promoted";
-}
-
-function renderAll() {
-  const slice = currentSlice();
-  renderSummary(slice);
-  renderValue(slice);
-  renderGeography(slice);
-  renderReadiness(slice);
-  renderFriction(slice);
-  renderPurpose(slice);
-  renderRegimeLog(slice);
-  updateInterpretation(selectedSignal, slice);
-}
-
-function selectSignal(signal, shouldScroll, updateLocation) {
-  if (document.querySelector("#observatory-view").hidden) {
-    setView("observatory", { scroll: false, updateLocation: false });
-  }
-  selectedSignal = signal;
-  document.querySelectorAll("[data-signal-panel]").forEach(function updatePanel(panel) {
-    panel.hidden = panel.dataset.signalPanel !== signal;
-  });
-  document.querySelectorAll("[data-signal-select]").forEach(function updateControl(control) {
-    if (control.dataset.signalSelect === signal) control.setAttribute("aria-current", "true");
-    else control.removeAttribute("aria-current");
-  });
-  updateInterpretation(signal, currentSlice());
-  if (updateLocation !== false) window.history.replaceState(null, "", "#signal-" + signal);
-  if (shouldScroll) document.querySelector(".focus-stage").scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-function setView(view, options) {
-  const config = options || {};
-  const thesis = view === "thesis";
-  document.body.classList.toggle("thesis-mode", thesis);
-  document.querySelector("#observatory-view").hidden = thesis;
-  document.querySelector("#thesis-view").hidden = !thesis;
-  document.querySelectorAll("[data-show-view]").forEach(function updateViewControl(control) {
-    const selected = control.dataset.showView === view;
-    if (selected) control.setAttribute("aria-current", "page");
-    else control.removeAttribute("aria-current");
-  });
-  updateInterpretation(thesis ? "value" : selectedSignal, currentSlice());
-  if (config.updateLocation !== false) {
-    const targetUrl = thesis ? "#value-versus-extraction" : "#signal-" + selectedSignal;
-    window.history.replaceState(null, "", targetUrl);
-  }
-  document.querySelector("#signals-main").focus({ preventScroll: true });
-  if (config.scroll !== false) window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function setRailOpen(open) {
-  const compact = window.matchMedia("(max-width: 980px)").matches;
-  const shell = document.querySelector(".signals-shell");
-  const rail = document.querySelector("#interpretation-rail");
-  const openButton = document.querySelector("#open-rail");
-  const toggleButton = document.querySelector("#toggle-interpretation");
-  shell.classList.toggle("rail-collapsed", !open && !compact);
-  rail.classList.toggle("closed", !open);
-  toggleButton.setAttribute("aria-pressed", String(open));
-  openButton.hidden = open || !compact;
-}
-
-function syncRailForViewport() {
-  const compact = window.matchMedia("(max-width: 980px)").matches;
-  if (compact) {
-    setRailOpen(false);
-  } else {
-    setRailOpen(true);
-  }
-}
-
-function validateLivePayload(payload) {
-  return payload
-    && payload.schemaVersion === 1
-    && payload.source === "Cloudflare Radar"
-    && payload.activity
-    && Array.isArray(payload.activity.values)
-    && payload.geography
-    && Array.isArray(payload.geography.series)
-    && payload.purpose
-    && Array.isArray(payload.purpose.items)
-    && payload.access
-    && Array.isArray(payload.access.items)
-    && payload.readiness
-    && Array.isArray(payload.readiness.items);
-}
-
-async function refreshLiveData(options) {
-  const config = options || {};
-  const endpoint = String(window.SIGNALS_CONFIG && window.SIGNALS_CONFIG.radarEndpoint || "").trim();
-  const button = document.querySelector("#refresh-data");
-  const sourceStatus = document.querySelector("#source-status");
-  const sourceDetail = document.querySelector("#source-status-detail");
-  if (!endpoint) {
-    showDataNotice("Live Radar is ready in the interface, but its secure proxy URL is not configured. The illustrative fallback remains visible.", "error");
-    sourceStatus.textContent = "Illustrative fallback";
-    sourceDetail.textContent = "Secure Radar proxy not configured";
-    return;
+    if (!options || options.updateLocation !== false) window.history.replaceState(null, "", `#signal-${resolved}`);
+    if (options && options.scroll) $(".focus-stage").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  button.disabled = true;
-  button.textContent = "Refreshing…";
-  sourceStatus.textContent = "Refreshing Radar";
-  sourceDetail.textContent = "Keeping the last good dataset visible";
-  if (!config.silent) showDataNotice("Requesting the latest available Cloudflare Radar measurements…", "info");
-
-  try {
-    const url = new URL(endpoint, window.location.href);
-    url.searchParams.set("period", document.querySelector("#period-filter").value);
-    url.searchParams.set("region", document.querySelector("#region-filter").value);
-    const response = await fetch(url, { cache: "no-store", headers: { Accept: "application/json" } });
-    const payload = await response.json();
-    if (!response.ok) throw new Error(payload.detail || payload.error || "Live source returned HTTP " + response.status);
-    if (!validateLivePayload(payload)) throw new Error("Live source returned an unsupported data shape");
-
-    LIVE_STATE.mode = "live";
-    LIVE_STATE.data = payload;
-    setLiveAgentFilter(true);
-    renderAll();
-    const lastUpdated = payload.activity.meta.lastUpdated || payload.fetchedAt;
-    sourceStatus.textContent = "Live Cloudflare Radar";
-    sourceDetail.textContent = "Updated " + formatTimestamp(lastUpdated);
-    showDataNotice("Live Radar loaded. Thesis fields that Radar does not measure are marked unavailable.", "success");
-  } catch (error) {
-    sourceStatus.textContent = isLive() ? "Live Radar · last good result" : "Illustrative fallback";
-    sourceDetail.textContent = isLive() ? "Refresh failed; prior data preserved" : "Live refresh unavailable";
-    showDataNotice("Could not refresh Radar: " + (error instanceof Error ? error.message : "unknown error") + ". " + (isLive() ? "The last good live dataset remains visible." : "The illustrative fallback remains visible."), "error");
-  } finally {
-    button.disabled = false;
-    button.textContent = "Refresh data";
-  }
-}
-
-function bindControls() {
-  document.querySelectorAll("[data-show-view]").forEach(function bindView(button) {
-    button.addEventListener("click", function showView() {
-      setView(button.dataset.showView);
+  function setView(view, options) {
+    state.view = view;
+    const thesis = view === "thesis";
+    document.body.classList.toggle("thesis-mode", thesis);
+    $("#observatory-view").hidden = thesis;
+    $("#thesis-view").hidden = !thesis;
+    $$("[data-show-view]").forEach((control) => {
+      if (control.dataset.showView === view) control.setAttribute("aria-current", "page");
+      else control.removeAttribute("aria-current");
     });
-  });
-  document.querySelectorAll("[data-signal-select]").forEach(function bindSignal(button) {
-    button.addEventListener("click", function showSignal() {
-      selectSignal(button.dataset.signalSelect, true, true);
-    });
-  });
-  ["#period-filter", "#region-filter", "#agent-filter"].forEach(function bindFilter(selector) {
-    document.querySelector(selector).addEventListener("change", function updateScope() {
-      if (isLive() && selector !== "#agent-filter") refreshLiveData();
-      else renderAll();
-    });
-  });
-  document.querySelector("#refresh-data").addEventListener("click", function refreshData() {
-    refreshLiveData();
-  });
-  document.querySelector("a[href='#regime-log']").addEventListener("click", function showRegimeLog() {
-    setView("observatory", { scroll: false, updateLocation: false });
-  });
-  document.querySelector("[data-explain='geography']").addEventListener("click", function openMethod() {
-    setRailOpen(true);
-    document.querySelector(".method-note").scrollIntoView({ behavior: "smooth", block: "center" });
-  });
-  document.querySelector("#close-rail").addEventListener("click", function closeRail() {
-    setRailOpen(false);
-  });
-  document.querySelector("#open-rail").addEventListener("click", function openRail() {
-    setRailOpen(true);
-  });
-  document.querySelector("#toggle-interpretation").addEventListener("click", function toggleRail() {
-    setRailOpen(document.querySelector("#toggle-interpretation").getAttribute("aria-pressed") !== "true");
-  });
-  window.addEventListener("hashchange", function syncHash() {
-    if (window.location.hash === "#value-versus-extraction") {
-      setView("thesis", { scroll: false, updateLocation: false });
+    if (!options || options.updateLocation !== false) {
+      window.history.replaceState(null, "", thesis ? "#value-versus-extraction" : `#signal-${state.selectedSignal}`);
+    }
+    if (!options || options.scroll !== false) window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function setRailOpen(open) {
+    const compactViewport = window.matchMedia("(max-width: 980px)").matches;
+    $(".signals-shell").classList.toggle("rail-collapsed", !open && !compactViewport);
+    $("#interpretation-rail").classList.toggle("closed", !open);
+    $("#toggle-interpretation").setAttribute("aria-pressed", String(open));
+    $("#open-rail").hidden = open || !compactViewport;
+  }
+
+  function syncRail() {
+    setRailOpen(!window.matchMedia("(max-width: 980px)").matches);
+  }
+
+  async function refreshLiveData(options) {
+    const endpoint = String(window.SIGNALS_CONFIG && window.SIGNALS_CONFIG.radarEndpoint || "").trim();
+    const button = $("#refresh-data");
+    if (!endpoint) {
+      showNotice("The secure Radar proxy URL is not configured. No illustrative data has been substituted.", "error");
+      $("#source-status").textContent = "Radar unavailable";
+      $("#source-status-detail").textContent = "Proxy URL not configured";
       return;
     }
-    setView("observatory", { scroll: false, updateLocation: false });
-    const signalMatch = window.location.hash.match(/^#signal-(value|geography|readiness|friction|purpose)$/);
-    if (signalMatch) selectSignal(signalMatch[1], false, false);
-  });
-  window.addEventListener("resize", syncRailForViewport);
-}
+    if (state.loading) return;
+    state.loading = true;
+    button.disabled = true;
+    button.textContent = "Refreshing…";
+    $("#source-status").textContent = "Refreshing Radar";
+    $("#source-status-detail").textContent = state.data ? "Keeping the last valid result visible" : "Requesting live evidence";
+    if (!options || !options.silent) showNotice("Requesting the latest available Cloudflare Radar measurements…", "info");
 
-function initialize() {
-  renderAll();
-  bindControls();
-  syncRailForViewport();
-  const signalMatch = window.location.hash.match(/^#signal-(value|geography|readiness|friction|purpose)$/);
-  if (signalMatch) selectedSignal = signalMatch[1];
-  selectSignal(selectedSignal, false, false);
-  setView(window.location.hash === "#value-versus-extraction" ? "thesis" : "observatory", { scroll: false, updateLocation: false });
-  if (window.SIGNALS_CONFIG && window.SIGNALS_CONFIG.radarEndpoint) {
+    try {
+      const url = new URL(endpoint, window.location.href);
+      url.searchParams.set("period", $("#period-filter").value);
+      url.searchParams.set("region", $("#region-filter").value);
+      url.searchParams.set("agent", $("#agent-filter").value);
+      const response = await fetch(url, { cache: "no-store", headers: { Accept: "application/json" } });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.detail || payload.error || `Live source returned HTTP ${response.status}`);
+      state.data = normalizedData(payload);
+      state.cacheStatus = response.headers.get("X-Signals-Cache");
+      renderAll();
+      const updated = state.data.fetchedAt;
+      $("#source-status").textContent = "Live Cloudflare Radar";
+      $("#source-status-detail").textContent = `${state.cacheStatus === "HIT" ? "Cached" : "Fetched"} ${formatTimestamp(updated)}`;
+      if (state.data.schemaVersion === 1) {
+        showNotice("Live Radar loaded from the current Worker. New comparison, operator, exact-status and category-filter fields will appear after the version 2 Worker is deployed.", "info");
+      } else {
+        const unavailable = ["demandComparison", "purposeTrend", "accessOutcomes", "operators", "geography", "readiness"]
+          .filter((key) => !state.data[key] || !state.data[key].available);
+        showNotice(
+          unavailable.length
+            ? `Live Radar loaded. Unavailable sections: ${unavailable.map(friendlyLabel).join(", ")}.`
+            : "Live Radar loaded. Publisher-value fields remain explicitly source-required.",
+          unavailable.length ? "info" : "success"
+        );
+      }
+    } catch (error) {
+      $("#source-status").textContent = state.data ? "Live Radar · last valid result" : "Radar unavailable";
+      $("#source-status-detail").textContent = state.data ? "Refresh failed; prior data preserved" : "No substitute data shown";
+      showNotice(`Could not refresh Radar: ${error instanceof Error ? error.message : "unknown error"}. ${state.data ? "The last valid dataset remains visible." : "No illustrative values were substituted."}`, "error");
+    } finally {
+      state.loading = false;
+      button.disabled = false;
+      button.textContent = "Refresh latest";
+    }
+  }
+
+  function syncHash() {
+    if (window.location.hash === "#value-versus-extraction") {
+      setView("thesis", { updateLocation: false, scroll: false });
+      return;
+    }
+    setView("observatory", { updateLocation: false, scroll: false });
+    const match = window.location.hash.match(/^#signal-(demand|purpose|access|operators|geography|readiness|value|friction)$/);
+    if (match) selectSignal(match[1], { updateLocation: false });
+  }
+
+  function bindControls() {
+    $$("[data-show-view]").forEach((control) => control.addEventListener("click", () => setView(control.dataset.showView)));
+    $$("[data-signal-select]").forEach((control) => control.addEventListener("click", () => selectSignal(control.dataset.signalSelect, { scroll: true })));
+    ["#period-filter", "#region-filter", "#agent-filter"].forEach((selector) => {
+      $(selector).addEventListener("change", () => refreshLiveData());
+    });
+    $("#refresh-data").addEventListener("click", () => refreshLiveData());
+    $("a[href='#regime-log']").addEventListener("click", () => setView("observatory", { updateLocation: false, scroll: false }));
+    $("[data-explain='geography']").addEventListener("click", () => {
+      setRailOpen(true);
+      $(".method-note").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    $("#close-rail").addEventListener("click", () => setRailOpen(false));
+    $("#open-rail").addEventListener("click", () => setRailOpen(true));
+    $("#toggle-interpretation").addEventListener("click", () => setRailOpen($("#toggle-interpretation").getAttribute("aria-pressed") !== "true"));
+    window.addEventListener("hashchange", syncHash);
+    window.addEventListener("resize", syncRail);
+  }
+
+  function initialize() {
+    bindControls();
+    syncRail();
+    syncHash();
     refreshLiveData({ silent: true });
   }
-}
 
-initialize();
+  initialize();
+}());
