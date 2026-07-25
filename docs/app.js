@@ -79,8 +79,13 @@ const state = {
   layoutTargets: new Map(),
   draggingId: null,
   layoutRun: 0,
+  sidebarOpen: true,
+  detailOpen: true,
 };
 
+const appShell = document.querySelector(".app-shell");
+const sidebar = document.querySelector("#graph-controls");
+const detailPanel = document.querySelector("#detail-panel");
 const svg = document.querySelector("#graph");
 const viewport = document.querySelector("#viewport");
 const guideLayer = document.querySelector("#layout-guides");
@@ -93,7 +98,54 @@ const focusControls = document.querySelector("#focus-controls");
 const focusStatus = document.querySelector("#focus-status");
 const viewStatus = document.querySelector("#view-status");
 const graphKey = document.querySelector("#graph-key");
+const workspaceContext = document.querySelector("#workspace-context");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function setPanelVisibility(panel, open) {
+  if (panel === "sidebar") {
+    state.sidebarOpen = open;
+    appShell.classList.toggle("sidebar-collapsed", !open);
+    sidebar.setAttribute("aria-hidden", open ? "false" : "true");
+    document.querySelector("#toggle-sidebar").setAttribute("aria-pressed", open ? "true" : "false");
+  } else {
+    state.detailOpen = open;
+    appShell.classList.toggle("detail-collapsed", !open);
+    detailPanel.setAttribute("aria-hidden", open ? "false" : "true");
+    document.querySelector("#toggle-detail").setAttribute("aria-pressed", open ? "true" : "false");
+  }
+  if (state.graph) requestAnimationFrame(function refitAfterPanelChange() {
+    applyCurrentLayout(true);
+  });
+}
+
+function visibleNodeSequence() {
+  if (!state.graph) return [];
+  return visibleNodes();
+}
+
+function updateInspectorNavigation() {
+  const nodes = visibleNodeSequence();
+  const index = nodes.findIndex(function selectedNodeIndex(node) {
+    return node.id === state.selectedId;
+  });
+  const up = document.querySelector("#node-up");
+  const down = document.querySelector("#node-down");
+  const clear = document.querySelector("#clear-selection");
+  const position = document.querySelector("#inspector-position");
+  up.disabled = index <= 0;
+  down.disabled = index < 0 || index >= nodes.length - 1;
+  clear.disabled = !state.selectedId;
+  position.textContent = index >= 0 ? (index + 1) + " of " + nodes.length : "No selection";
+}
+
+function syncNavigationUrl() {
+  if (!state.graph) return;
+  const url = new URL(window.location.href);
+  url.searchParams.set("view", state.viewMode);
+  if (state.selectedId) url.searchParams.set("node", state.selectedId);
+  else url.searchParams.delete("node");
+  window.history.replaceState(null, "", url);
+}
 
 function escapeHtml(value) {
   return String(value == null ? "" : value).replace(/[&<>'"]/g, function replaceCharacter(char) {
@@ -581,6 +633,8 @@ function updateVisibility() {
       : "No nodes match the current filters.";
   }
   updateRovingTabIndex();
+  updateWorkspaceContext();
+  updateInspectorNavigation();
 }
 
 function updateHighlights() {
@@ -674,6 +728,16 @@ function prepareNodeSelection(node) {
   const checkbox = document.querySelector('.filter-list input[value="' + node.type + '"]');
   if (checkbox) checkbox.checked = true;
   renderDetails(node);
+  if (!state.detailOpen) setPanelVisibility("detail", true);
+  if (window.innerWidth <= 800) {
+    requestAnimationFrame(function revealMobileInspector() {
+      detailPanel.scrollIntoView({
+        behavior: reducedMotion.matches ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+  }
+  syncNavigationUrl();
 }
 
 function selectNode(nodeId, center) {
@@ -746,12 +810,43 @@ function renderDetails(node) {
       activateNode(button.dataset.nodeId);
     });
   });
+  updateInspectorNavigation();
 }
 
 function clearDetails() {
   detailContent.hidden = true;
   detailContent.replaceChildren();
   detailEmpty.hidden = false;
+  updateInspectorNavigation();
+}
+
+function navigateVisibleNodes(offset) {
+  const nodes = visibleNodeSequence();
+  const currentIndex = nodes.findIndex(function currentNodeIndex(node) {
+    return node.id === state.selectedId;
+  });
+  const next = nodes[currentIndex + offset];
+  if (!next) return;
+  activateNode(next.id);
+  focusNodeElement(next.id);
+}
+
+function clearCurrentSelection() {
+  state.selectedId = null;
+  state.keyboardNodeId = null;
+  if (state.viewMode === "focus") {
+    state.focusId = null;
+    state.focusHistory = [];
+    state.viewMode = "overview";
+    applyCurrentLayout(true);
+  } else {
+    updateVisibility();
+    updateHighlights();
+    clearDetails();
+    simulate(90);
+  }
+  syncNavigationUrl();
+  updateWorkspaceContext();
 }
 
 function renderTimeline() {
@@ -805,6 +900,16 @@ function renderCounts() {
     .map(function titleOption(node) {
       return '<option value="' + escapeHtml(node.title) + '"></option>';
     }).join("");
+  updateWorkspaceContext();
+}
+
+function updateWorkspaceContext() {
+  if (!state.graph) return;
+  const visible = state.graph.nodes.filter(isVisible).length;
+  const selected = state.selectedId ? state.nodeById.get(state.selectedId) : null;
+  workspaceContext.textContent = selected
+    ? selected.title + " · " + VIEW_COPY[state.viewMode]
+    : visible + " visible nodes · " + VIEW_COPY[state.viewMode];
 }
 
 function performSearch(query) {
@@ -1025,14 +1130,10 @@ function installPanAndZoom() {
   svg.addEventListener("click", function clearSelection(event) {
     if (state.viewMode === "focus") return;
     if (event.target === svg || event.target.closest?.("#viewport") === viewport) {
-      state.selectedId = null;
-      updateVisibility();
-      updateHighlights();
-      clearDetails();
+      clearCurrentSelection();
       if (state.viewMode === "layers") {
         graphKey.textContent = "Drag to rearrange · hover nodes for names · select a node to label its relations";
       }
-      simulate(90);
     }
   });
 }
@@ -1121,9 +1222,6 @@ function installNodeInteractions() {
     const node = state.nodeById.get(element.dataset.id);
     if (!node || !isVisible(node)) return;
     event.stopPropagation();
-    prepareNodeSelection(node);
-    updateVisibility();
-    updateHighlights();
     drag = {
       node: node,
       pointerId: event.pointerId,
@@ -1162,8 +1260,14 @@ function installNodeInteractions() {
     }
     state.draggingId = null;
     drag = null;
-    if (moved) simulate(100);
-    else activateNode(node.id);
+    if (moved) {
+      prepareNodeSelection(node);
+      updateVisibility();
+      updateHighlights();
+      simulate(100);
+    } else {
+      activateNode(node.id);
+    }
   });
   window.addEventListener("pointercancel", function cancelDrag(event) {
     if (!drag || event.pointerId !== drag.pointerId) return;
@@ -1195,7 +1299,7 @@ function renderClusterGuides(result) {
       state.communityByNode.set(node.id, community.id);
     });
   });
-  result.groups.forEach(function clusterGuide(group) {
+  result.groups.forEach(function clusterGuide(group, groupIndex) {
     state.communityCenters.set(group.id, { x: group.x, y: group.y, radius: group.radius });
     const guide = document.createElementNS("http://www.w3.org/2000/svg", "g");
     const boundary = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -1207,10 +1311,11 @@ function renderClusterGuides(result) {
     const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
     label.classList.add("cluster-label");
     label.setAttribute("x", group.x);
-    const labelAbove = group.y <= state.height / 2;
+    const lowerHalf = group.y > state.height / 2;
+    const labelAbove = !lowerHalf || groupIndex % 2 === 1;
     label.setAttribute("y", labelAbove ? group.y - group.radius - 18 : group.y + group.radius + 18);
     const title = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-    const clusterLead = group.label.length > 30 ? group.label.slice(0, 28) + "…" : group.label;
+    const clusterLead = group.label.length > 26 ? group.label.slice(0, 24) + "…" : group.label;
     title.textContent = clusterLead;
     title.setAttribute("x", group.x);
     label.append(title);
@@ -1412,6 +1517,8 @@ function setViewMode(mode) {
     }
   }
   applyCurrentLayout(true);
+  syncNavigationUrl();
+  updateWorkspaceContext();
 }
 
 function handleTypeFilterChange(input) {
@@ -1428,6 +1535,25 @@ function handleTypeFilterChange(input) {
 }
 
 function bindControls() {
+  document.querySelector("#toggle-sidebar").addEventListener("click", function toggleSidebar() {
+    setPanelVisibility("sidebar", !state.sidebarOpen);
+  });
+  document.querySelector("#toggle-detail").addEventListener("click", function toggleInspector() {
+    setPanelVisibility("detail", !state.detailOpen);
+  });
+  document.querySelector("#collapse-detail").addEventListener("click", function hideInspector() {
+    setPanelVisibility("detail", false);
+    if (window.innerWidth <= 800) document.querySelector("#graph-panel").scrollIntoView({ block: "start" });
+  });
+  document.querySelector("#node-up").addEventListener("click", function previousVisibleNode() {
+    navigateVisibleNodes(-1);
+  });
+  document.querySelector("#node-down").addEventListener("click", function nextVisibleNode() {
+    navigateVisibleNodes(1);
+  });
+  document.querySelector("#clear-selection").addEventListener("click", function clearSelection() {
+    clearCurrentSelection();
+  });
   document.querySelector("#search").addEventListener("input", function searchInput(event) {
     performSearch(event.target.value);
   });
@@ -1475,6 +1601,12 @@ function bindControls() {
   document.querySelector("#zoom-in").addEventListener("click", function zoomIn() { changeZoom(1.18); });
   document.querySelector("#zoom-out").addEventListener("click", function zoomOut() { changeZoom(0.84); });
   document.querySelector("#zoom-reset").addEventListener("click", fitVisibleNodes);
+  document.querySelector("#timeline-latest").addEventListener("click", function showLatestEvidence() {
+    const timeline = document.querySelector("#timeline-items");
+    const latest = timeline.querySelector(".timeline-item:last-child");
+    if (latest) latest.focus({ preventScroll: true });
+    timeline.scrollLeft = timeline.scrollWidth - timeline.clientWidth;
+  });
   document.querySelector("#reset-view").addEventListener("click", function resetView() {
     state.pathNodes.clear();
     state.pathEdges.clear();
@@ -1490,6 +1622,30 @@ function bindControls() {
     clearDetails();
     setViewMode("overview");
     updateHighlights();
+    updateInspectorNavigation();
+  });
+
+  window.addEventListener("keydown", function globalNavigationKeys(event) {
+    const target = event.target;
+    const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement ||
+      target instanceof HTMLSelectElement || target?.isContentEditable;
+    const isControl = target instanceof HTMLButtonElement || target instanceof HTMLAnchorElement;
+    if (event.key === "/" && !isTyping && !isControl) {
+      event.preventDefault();
+      if (!state.sidebarOpen && window.innerWidth > 800) setPanelVisibility("sidebar", true);
+      document.querySelector("#search").focus();
+      return;
+    }
+    if (event.key === "Escape" && !isTyping && !isControl && state.selectedId) {
+      event.preventDefault();
+      clearCurrentSelection();
+      return;
+    }
+    if (!isTyping && !isControl && ["1", "2", "3", "4"].includes(event.key)) {
+      const mode = ["overview", "focus", "clusters", "layers"][Number(event.key) - 1];
+      event.preventDefault();
+      setViewMode(mode);
+    }
   });
 }
 
@@ -1513,6 +1669,13 @@ function installResizeHandling() {
 
 async function initialize() {
   try {
+    const navigationParams = new URLSearchParams(window.location.search);
+    const requestedNode = navigationParams.get("node");
+    const requestedView = navigationParams.get("view");
+    if (window.innerWidth <= 800) {
+      setPanelVisibility("sidebar", false);
+      setPanelVisibility("detail", false);
+    }
     const response = await fetch("graph.json", { cache: "no-store" });
     if (!response.ok) throw new Error("HTTP " + response.status);
     state.graph = await response.json();
@@ -1533,16 +1696,19 @@ async function initialize() {
     bindControls();
     installResizeHandling();
     setViewMode("overview");
-    const requestedNode = new URLSearchParams(window.location.search).get("node");
     if (requestedNode) {
       const linkedNode = state.nodeById.get(requestedNode) || state.graph.nodes.find(function matchLinkedNode(node) {
         return node.title.toLowerCase() === requestedNode.toLowerCase();
       });
       if (linkedNode && isTypeVisible(linkedNode)) {
-        setViewMode("focus");
-        activateNode(linkedNode.id);
+        selectNode(linkedNode.id, false);
       }
     }
+    if (requestedView && VIEW_COPY[requestedView] && requestedView !== "overview") {
+      setViewMode(requestedView);
+    }
+    updateInspectorNavigation();
+    syncNavigationUrl();
   } catch (error) {
     document.querySelector("#graph-stats").textContent = "Graph unavailable";
     document.querySelector("#empty-state").hidden = false;
