@@ -96,6 +96,7 @@ button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
   display: flex;
   gap: 10px;
   align-items: center;
+  height: 62px;
   min-height: 62px;
   padding: 13px 16px;
   border-bottom: 1px solid var(--line);
@@ -154,14 +155,6 @@ button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
   background: var(--primary);
   content: "";
 }
-.site-nav span {
-  display: block;
-  margin-top: 2px;
-  color: var(--thesis);
-  font-size: 8px;
-  font-weight: 700;
-}
-
 .control-block {
   padding: 14px 16px;
   border: 0;
@@ -705,7 +698,7 @@ h1 {
   .app-shell { display: block; height: auto; }
   .sidebar { border-right: 0; }
   .brand { position: sticky; top: 0; z-index: 5; background: var(--surface); }
-  .site-nav { position: sticky; top: 71px; z-index: 5; background: var(--surface); }
+  .site-nav { position: sticky; top: 62px; z-index: 5; background: var(--surface); }
   .control-block { display: block; }
   .filter-list {
     display: grid;

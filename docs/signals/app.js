@@ -12,17 +12,155 @@ const SIGNAL_DATA = {
     crawl: { name: "Crawl demand", color: "#a54f0c", values: [100, 115, 126, 142, 151, 164, 178, 187, 191, 199, 202, 210] },
     referral: { name: "Referral value", color: "#1f766b", values: [100, 99, 99, 98, 94, 89, 87, 82, 77, 73, 70, 58] },
   },
+  standards: ["Markdown negotiation", "robots.txt AI rules", "Agent discovery metadata", "Structured data", "Commerce protocols"],
+  purposes: ["AI training / retrieval", "Search / discovery", "Monitoring / uptime", "Content rendering", "SEO / analytics", "Other / unknown"],
 };
 
-const SVG_NS = "http://www.w3.org/2000/svg";
+const REGION_PROFILES = {
+  global: {
+    name: "Global comparison",
+    regions: ["anglosphere", "europe", "asia"],
+    activityOffset: 0,
+    accessOffset: 0,
+    readiness: 37.6,
+    readinessChange: 6.4,
+    standards: [46.8, 38.9, 34.1, 28.2, 16.7],
+    friction: [18.4, 10.2, 6.7, 2.4],
+    crawlFactor: 1,
+    referralFactor: 1,
+  },
+  europe: {
+    name: "Europe",
+    regions: ["europe", "anglosphere"],
+    geographyNames: ["United Kingdom", "Germany", "France"],
+    activityOffset: -2,
+    accessOffset: 3.7,
+    readiness: 42.8,
+    readinessChange: 5.1,
+    standards: [53.4, 45.7, 39.2, 31.6, 18.9],
+    friction: [15.1, 12.4, 5.3, 1.2],
+    crawlFactor: .92,
+    referralFactor: 1.08,
+  },
+  asia: {
+    name: "Asia",
+    regions: ["asia"],
+    activityOffset: 4,
+    accessOffset: -4.6,
+    readiness: 31.2,
+    readinessChange: 7.8,
+    standards: [39.5, 31.4, 28.7, 24.9, 14.2],
+    friction: [22.6, 8.1, 8.8, 3.1],
+    crawlFactor: 1.12,
+    referralFactor: .85,
+  },
+  anglosphere: {
+    name: "United Kingdom + United States",
+    regions: ["anglosphere"],
+    activityOffset: 7,
+    accessOffset: 5.9,
+    readiness: 48.9,
+    readinessChange: 8.2,
+    standards: [61.2, 50.1, 44.5, 35.8, 22.9],
+    friction: [13.2, 9.6, 4.1, 1.5],
+    crawlFactor: 1.18,
+    referralFactor: .78,
+  },
+};
 
-function svgElement(name, attributes, text) {
+const AGENT_PROFILES = {
+  all: {
+    name: "All identified AI agents",
+    activity: 18,
+    access: 62.3,
+    accessChange: 3.1,
+    readinessOffset: 0,
+    markdown: 1.28,
+    trendFactor: 1,
+    crawlFactor: 1,
+    referralFactor: 1,
+    frictionFactor: 1,
+    purposes: [38.7, 24.5, 11.6, 9.4, 6.1, 9.7],
+  },
+  crawler: {
+    name: "AI crawlers",
+    activity: 24,
+    access: 54.8,
+    accessChange: 1.7,
+    readinessOffset: -1.4,
+    markdown: 1.46,
+    trendFactor: 1.12,
+    crawlFactor: 1.08,
+    referralFactor: .84,
+    frictionFactor: 1.18,
+    purposes: [49.6, 26.4, 8.2, 5.1, 4.4, 6.3],
+  },
+  assistant: {
+    name: "AI assistants",
+    activity: 11,
+    access: 74.6,
+    accessChange: 5.2,
+    readinessOffset: 3.2,
+    markdown: .82,
+    trendFactor: .76,
+    crawlFactor: .72,
+    referralFactor: 1.24,
+    frictionFactor: .72,
+    purposes: [18.2, 31.8, 8.4, 19.6, 7.1, 14.9],
+  },
+};
+
+const FRICTION_META = [
+  { name: "WAF / firewall", className: "firewall", color: "#a54f0c" },
+  { name: "robots.txt disallow", className: "robots", color: "#b5365a" },
+  { name: "Rate limiting", className: "limit", color: "#6b5ca5" },
+  { name: "JS / challenge", className: "challenge", color: "#287095" },
+];
+
+const SVG_NS = "http://www.w3.org/2000/svg";
+let selectedSignal = "value";
+
+function svgElement(name, attributes, value) {
   const element = document.createElementNS(SVG_NS, name);
   Object.entries(attributes || {}).forEach(function setAttribute(entry) {
     element.setAttribute(entry[0], entry[1]);
   });
-  if (text != null) element.textContent = text;
+  if (value != null) element.textContent = value;
   return element;
+}
+
+function currentSlice() {
+  const regionKey = document.querySelector("#region-filter").value;
+  const agentKey = document.querySelector("#agent-filter").value;
+  return {
+    regionKey,
+    agentKey,
+    region: REGION_PROFILES[regionKey],
+    agent: AGENT_PROFILES[agentKey],
+    period: Number(document.querySelector("#period-filter").value),
+  };
+}
+
+function round(value, digits) {
+  return Number(value.toFixed(digits == null ? 1 : digits));
+}
+
+function signed(value, suffix) {
+  return (value >= 0 ? "+" : "") + round(value, 1) + (suffix || "");
+}
+
+function scaleFromBaseline(values, factor) {
+  return values.map(function scale(value) {
+    return 100 + (value - 100) * factor;
+  });
+}
+
+function normalizeVisible(values, period) {
+  const visible = values.slice(-period);
+  const start = visible[0] || 100;
+  return visible.map(function normalize(value) {
+    return round(value / start * 100, 1);
+  });
 }
 
 function linePath(values, bounds, minValue, maxValue) {
@@ -34,35 +172,20 @@ function linePath(values, bounds, minValue, maxValue) {
   }).join("");
 }
 
-function visibleGeographies() {
-  const region = document.querySelector("#region-filter").value;
-  const period = Number(document.querySelector("#period-filter").value);
-  const all = Object.values(SIGNAL_DATA.geographies);
-  const filtered = region === "global"
-    ? all
-    : all.filter(function matchesRegion(series) {
-      return series.region === region || (region === "europe" && series.name === "United Kingdom");
-    });
-  return filtered.map(function trimSeries(series) {
-    return { ...series, values: series.values.slice(-period) };
-  });
-}
-
 function renderLineChart(target, series, labels, options) {
   target.replaceChildren();
   const config = options || {};
-  const width = config.width || 760;
-  const height = config.height || 270;
-  const bounds = { left: 42, top: 18, width: width - 58, height: height - 50 };
+  const width = config.width || 900;
+  const height = config.height || 360;
+  const bounds = { left: 45, top: 20, width: width - 62, height: height - 54 };
   const values = series.flatMap(function flatten(item) { return item.values; });
   const minValue = config.minValue == null ? Math.floor(Math.min(...values) / 20) * 20 : config.minValue;
   const maxValue = config.maxValue == null ? Math.ceil(Math.max(...values) / 20) * 20 : config.maxValue;
   const svg = svgElement("svg", { viewBox: "0 0 " + width + " " + height, "aria-hidden": "true" });
 
-  const tickCount = 4;
-  for (let tick = 0; tick <= tickCount; tick += 1) {
-    const value = minValue + (maxValue - minValue) * (tickCount - tick) / tickCount;
-    const y = bounds.top + bounds.height * tick / tickCount;
+  for (let tick = 0; tick <= 4; tick += 1) {
+    const value = minValue + (maxValue - minValue) * (4 - tick) / 4;
+    const y = bounds.top + bounds.height * tick / 4;
     svg.append(svgElement("line", { x1: bounds.left, y1: y, x2: bounds.left + bounds.width, y2: y, class: "grid-line" }));
     svg.append(svgElement("text", { x: bounds.left - 8, y: y + 3, "text-anchor": "end" }, Math.round(value)));
   }
@@ -76,15 +199,11 @@ function renderLineChart(target, series, labels, options) {
   if (config.candidateIndex != null && config.candidateIndex < labels.length) {
     const x = bounds.left + config.candidateIndex / Math.max(labels.length - 1, 1) * bounds.width;
     svg.append(svgElement("line", { x1: x, y1: bounds.top, x2: x, y2: bounds.top + bounds.height, class: "candidate-line" }));
-    svg.append(svgElement("text", { x: x + 5, y: bounds.top + 10, class: "candidate-label" }, "Candidate inflection"));
+    svg.append(svgElement("text", { x: x + 5, y: bounds.top + 11, class: "candidate-label" }, "Candidate inflection"));
   }
 
   series.forEach(function renderSeries(item) {
-    svg.append(svgElement("path", {
-      d: linePath(item.values, bounds, minValue, maxValue),
-      class: "series-line",
-      stroke: item.color,
-    }));
+    svg.append(svgElement("path", { d: linePath(item.values, bounds, minValue, maxValue), class: "series-line", stroke: item.color }));
     if (config.points) {
       item.values.forEach(function renderPoint(value, index) {
         const x = bounds.left + index / Math.max(item.values.length - 1, 1) * bounds.width;
@@ -93,7 +212,6 @@ function renderLineChart(target, series, labels, options) {
       });
     }
   });
-
   target.append(svg);
 }
 
@@ -110,48 +228,273 @@ function renderLegend(target, series) {
   });
 }
 
-function renderGeography() {
-  const period = Number(document.querySelector("#period-filter").value);
-  const series = visibleGeographies();
-  const labels = SIGNAL_DATA.weeks.slice(-period);
-  renderLegend(document.querySelector("#geography-legend"), series);
-  renderLineChart(document.querySelector("#geography-chart"), series, labels, {
-    width: 820,
-    height: 265,
-    minValue: 40,
-    maxValue: 220,
+function geographySeries(slice) {
+  const all = Object.values(SIGNAL_DATA.geographies);
+  const filtered = slice.regionKey === "global"
+    ? all
+    : all.filter(function matchesRegion(series) {
+      if (slice.region.geographyNames) return slice.region.geographyNames.includes(series.name);
+      return slice.region.regions.includes(series.region);
+    });
+  return filtered.map(function transform(series) {
+    const scaled = scaleFromBaseline(series.values, slice.agent.trendFactor);
+    return { ...series, values: normalizeVisible(scaled, slice.period) };
   });
 }
 
-function valueSeries(period) {
-  return Object.values(SIGNAL_DATA.value).map(function trimValueSeries(series) {
-    return { ...series, values: series.values.slice(-period) };
+function valueSeries(slice) {
+  const crawlFactor = slice.region.crawlFactor * slice.agent.crawlFactor;
+  const referralFactor = slice.region.referralFactor * slice.agent.referralFactor;
+  return [
+    {
+      ...SIGNAL_DATA.value.crawl,
+      values: normalizeVisible(scaleFromBaseline(SIGNAL_DATA.value.crawl.values, crawlFactor), slice.period),
+    },
+    {
+      ...SIGNAL_DATA.value.referral,
+      values: normalizeVisible(scaleFromBaseline(SIGNAL_DATA.value.referral.values, referralFactor), slice.period),
+    },
+  ];
+}
+
+function readinessValues(slice) {
+  return slice.region.standards.map(function applyAgentOffset(value) {
+    return Math.max(0, round(value + slice.agent.readinessOffset, 1));
   });
 }
 
-function renderValueCharts() {
-  const period = Number(document.querySelector("#period-filter").value);
-  const labels = SIGNAL_DATA.weeks.slice(-period);
-  const series = valueSeries(period);
-  renderLineChart(document.querySelector("#value-mini-chart"), series, labels, {
-    width: 460,
-    height: 145,
-    minValue: 40,
-    maxValue: 220,
+function frictionValues(slice) {
+  return slice.region.friction.map(function applyAgentFactor(value) {
+    return round(value * slice.agent.frictionFactor, 1);
   });
-  renderLegend(document.querySelector("#value-focus-legend"), Object.values(SIGNAL_DATA.value));
-  renderLineChart(document.querySelector("#value-focus-chart"), Object.values(SIGNAL_DATA.value), SIGNAL_DATA.weeks, {
+}
+
+function createBarRow(label, value, maxValue) {
+  const row = document.createElement("div");
+  const name = document.createElement("span");
+  const bar = document.createElement("i");
+  const number = document.createElement("strong");
+  name.textContent = label;
+  bar.style.setProperty("--value", Math.min(100, value / maxValue * 100) + "%");
+  number.textContent = value.toFixed(1) + "%";
+  row.append(name, bar, number);
+  return row;
+}
+
+function renderSummary(slice) {
+  const readiness = round(slice.region.readiness + slice.agent.readinessOffset, 1);
+  const readinessChange = round(slice.region.readinessChange + slice.agent.readinessOffset * .25, 1);
+  const activity = slice.agent.activity + slice.region.activityOffset;
+  const access = round(slice.agent.access + slice.region.accessOffset, 1);
+  const accessChange = round(slice.agent.accessChange + slice.region.accessOffset * .15, 1);
+
+  document.querySelector("#signals-workspace-context").textContent = "Illustrative model · " + slice.region.name + " · " + slice.agent.name + " · " + slice.period + " weeks";
+  document.querySelector("#metric-activity").textContent = signed(activity, "%");
+  document.querySelector("#metric-activity-note").textContent = slice.period + "-week illustrative trend";
+  document.querySelector("#metric-access").textContent = access.toFixed(1) + "%";
+  document.querySelector("#metric-access-note").textContent = signed(accessChange, " pp");
+  document.querySelector("#metric-readiness").textContent = readiness.toFixed(1) + "%";
+  document.querySelector("#metric-readiness-note").textContent = signed(readinessChange, " pp");
+  document.querySelector("#metric-markdown").textContent = slice.agent.markdown.toFixed(2) + " PB";
+  document.querySelector("#thesis-slice").textContent = slice.region.name + " · " + slice.agent.name + " · " + slice.period + " weeks";
+  document.querySelector("#dock-readiness").textContent = readiness.toFixed(1) + "% · " + signed(readinessChange, " pp");
+}
+
+function renderValue(slice) {
+  const series = valueSeries(slice);
+  const labels = SIGNAL_DATA.weeks.slice(-slice.period);
+  const finalCrawl = series[0].values.at(-1);
+  const finalReferral = series[1].values.at(-1);
+  const gap = round(finalCrawl - finalReferral, 0);
+  const state = gap > 60 ? "Extraction gap widening" : gap > 25 ? "Value gap emerging" : "Closer to reciprocity";
+
+  renderLegend(document.querySelector("#value-stage-legend"), series);
+  renderLineChart(document.querySelector("#value-stage-chart"), series, labels, {
+    width: 920,
+    height: 380,
+    minValue: Math.max(20, Math.floor(Math.min(...series.flatMap(function values(item) { return item.values; })) / 20) * 20),
+    maxValue: Math.ceil(Math.max(...series.flatMap(function values(item) { return item.values; })) / 20) * 20,
+    points: true,
+    candidateIndex: Math.max(1, Math.floor(labels.length / 3)),
+  });
+  renderLegend(document.querySelector("#value-focus-legend"), series);
+  renderLineChart(document.querySelector("#value-focus-chart"), series, labels, {
     width: 900,
     height: 390,
-    minValue: 40,
-    maxValue: 220,
+    minValue: 20,
+    maxValue: Math.max(180, Math.ceil(finalCrawl / 20) * 20),
     points: true,
-    candidateIndex: 3,
+    candidateIndex: Math.max(1, Math.floor(labels.length / 3)),
   });
+
+  document.querySelector("#value-state").textContent = state;
+  document.querySelector("#value-gap").textContent = gap + " index points";
+  document.querySelector("#value-reading").textContent = slice.agentKey === "assistant"
+    ? "Assistant traffic returns more referral value than crawler traffic, but the selected scenario remains below reciprocity."
+    : "Demand has outpaced returned referral value across the selected " + slice.period + "-week view.";
+  document.querySelector("#dock-value").textContent = "Gap +" + gap;
+  document.querySelector("#thesis-demand-metric").textContent = Math.round(finalCrawl);
+  document.querySelector("#thesis-referral-metric").textContent = Math.round(finalReferral);
+  document.querySelector("#thesis-gap-metric").textContent = Math.round(gap);
+  document.querySelector("#thesis-current-state").textContent = state;
+  document.querySelector("#thesis-lead").textContent = gap > 60
+    ? "Agent demand is rising faster than the referral value returned."
+    : gap > 25
+      ? "Agent demand and returned value are beginning to separate."
+      : "Agent demand and returned value remain comparatively close.";
+  document.querySelector("#thesis-lead-detail").textContent = "Across " + slice.region.name.toLowerCase() + " and " + slice.agent.name.toLowerCase() + ", the selected " + slice.period + "-week scenario ends with a " + gap + "-point gap. This is a warning signal, not proof of economic harm.";
+  document.querySelector("#thesis-observed-copy").textContent = "Crawl demand ends at index " + Math.round(finalCrawl) + " while attributable referral value ends at " + Math.round(finalReferral) + ", creating a " + gap + "-point divergence.";
+  document.querySelector("#thesis-meaning-copy").textContent = gap > 60
+    ? "The selected scenario suggests the web is becoming easier for agents to consume faster than the value exchange becomes reciprocal."
+    : "The selected scenario shows an emerging imbalance that needs more periods and commercial evidence before the thesis changes.";
 }
 
-function setView(view) {
+function renderGeography(slice) {
+  const series = geographySeries(slice);
+  renderLegend(document.querySelector("#geography-legend"), series);
+  renderLineChart(document.querySelector("#geography-chart"), series, SIGNAL_DATA.weeks.slice(-slice.period), {
+    width: 980,
+    height: 390,
+    minValue: 40,
+    maxValue: Math.max(180, Math.ceil(Math.max(...series.flatMap(function values(item) { return item.values; })) / 20) * 20),
+    points: true,
+  });
+  document.querySelector("#dock-geography").textContent = series.length + (series.length === 1 ? " location" : " locations");
+}
+
+function renderReadiness(slice) {
+  const values = readinessValues(slice);
+  const target = document.querySelector("#readiness-list");
+  target.replaceChildren();
+  values.forEach(function renderStandard(value, index) {
+    target.append(createBarRow(SIGNAL_DATA.standards[index], value, 70));
+  });
+  const readinessChange = round(slice.region.readinessChange + slice.agent.readinessOffset * .25, 1);
+  document.querySelector("#readiness-context").textContent = slice.region.name + " · " + slice.agent.name + " · share of successfully scanned domains";
+  document.querySelector("#readiness-change").textContent = signed(readinessChange, " pp");
+}
+
+function renderFriction(slice) {
+  const values = frictionValues(slice);
+  const total = round(values.reduce(function add(sum, value) { return sum + value; }, 0), 1);
+  const target = document.querySelector("#friction-list");
+  const gauge = document.querySelector("#friction-gauge");
+  let cursor = 0;
+  const segments = [];
+  target.replaceChildren();
+
+  values.forEach(function renderCause(value, index) {
+    const meta = FRICTION_META[index];
+    const start = cursor;
+    cursor = round(cursor + value, 1);
+    segments.push(meta.color + " " + start + "% " + cursor + "%");
+    const item = document.createElement("li");
+    const key = document.createElement("span");
+    const label = document.createTextNode(meta.name);
+    const number = document.createElement("strong");
+    key.className = "key " + meta.className;
+    number.textContent = value.toFixed(1) + "%";
+    item.append(key, label, number);
+    target.append(item);
+  });
+  segments.push("#e2ddd7 " + cursor + "% 100%");
+  gauge.style.background = "conic-gradient(" + segments.join(", ") + ")";
+  gauge.setAttribute("aria-label", total.toFixed(1) + " percent blocked or challenged");
+  document.querySelector("#friction-total").textContent = total.toFixed(1) + "%";
+  document.querySelector("#friction-context").textContent = slice.region.name + " · " + slice.agent.name + " · blocked or challenged requests";
+  document.querySelector("#dock-friction").textContent = total.toFixed(1) + "%";
+}
+
+function renderPurpose(slice) {
+  const target = document.querySelector("#purpose-list");
+  target.replaceChildren();
+  const maxValue = Math.max(...slice.agent.purposes);
+  slice.agent.purposes.forEach(function renderPurposeRow(value, index) {
+    target.append(createBarRow(SIGNAL_DATA.purposes[index], value, maxValue));
+  });
+  document.querySelector("#purpose-context").textContent = slice.agent.name + " · share of identified requests";
+  document.querySelector("#dock-purpose").textContent = "Training " + slice.agent.purposes[0].toFixed(1) + "%";
+}
+
+function updateInterpretation(signal, slice) {
+  const geographyCount = geographySeries(slice).length;
+  const readiness = round(slice.region.readiness + slice.agent.readinessOffset, 1);
+  const friction = round(frictionValues(slice).reduce(function add(sum, value) { return sum + value; }, 0), 1);
+  const topPurpose = slice.agent.purposes[0];
+  const value = valueSeries(slice);
+  const valueGap = round(value[0].values.at(-1) - value[1].values.at(-1), 0);
+  const copy = {
+    value: {
+      title: "Value vs extraction",
+      observed: "For " + slice.region.name.toLowerCase() + " and " + slice.agent.name.toLowerCase() + ", crawl demand and returned referral value diverge by " + valueGap + " index points in this illustrative scenario.",
+      connection: "The gap tests the thesis that agent-originated traffic is becoming economically addressable, rather than merely observable.",
+      inference: "Demand is growing faster than reciprocal value. Persistence, attributable conversion, or paid access would determine whether this becomes a durable regime change.",
+    },
+    geography: {
+      title: "Traffic geography",
+      observed: geographyCount + " location trends are shown for " + slice.agent.name.toLowerCase() + " over " + slice.period + " weeks, normalized to the first visible week.",
+      connection: "Regional divergence can reveal where agent-readable infrastructure, operator mix, or access policy is changing first.",
+      inference: "A regional rise is directional evidence only; it needs consistent classification and breadth before it can support a market-level conclusion.",
+    },
+    readiness: {
+      title: "Readiness",
+      observed: slice.region.name + " readiness is " + readiness.toFixed(1) + "% for the selected standards and agent class.",
+      connection: "Capability exposure links web standards and discovery mechanisms to the infrastructure agents can actually use.",
+      inference: "Higher readiness expands technical possibility, but does not establish adoption, usage, conversion, or willingness to pay.",
+    },
+    friction: {
+      title: "Access friction",
+      observed: friction.toFixed(1) + "% of the selected illustrative traffic is blocked or challenged, with each cause shown separately.",
+      connection: "Access controls connect agent identification and publisher policy to the emerging trust and compensation layer.",
+      inference: "More friction can signal deliberate control as well as failure; cause and operator intent matter more than the aggregate alone.",
+    },
+    purpose: {
+      title: "Purpose mix",
+      observed: "Training and retrieval represents " + topPurpose.toFixed(1) + "% of requests for " + slice.agent.name.toLowerCase() + " in this illustrative mix.",
+      connection: "Purpose classification helps separate extraction, discovery, rendering, monitoring, and potentially value-generating agent activity.",
+      inference: "The mix indicates likely intent, not business outcome. Referral, conversion, revenue, and user benefit still need direct evidence.",
+    },
+  }[signal];
+
+  document.querySelector("#interpretation-title").textContent = copy.title;
+  document.querySelector("#inspector-position").textContent = copy.title;
+  document.querySelector("#interpretation-observed").textContent = copy.observed;
+  document.querySelector("#interpretation-connection").textContent = copy.connection;
+  document.querySelector("#interpretation-inference").textContent = copy.inference;
+}
+
+function renderAll() {
+  const slice = currentSlice();
+  renderSummary(slice);
+  renderValue(slice);
+  renderGeography(slice);
+  renderReadiness(slice);
+  renderFriction(slice);
+  renderPurpose(slice);
+  updateInterpretation(selectedSignal, slice);
+}
+
+function selectSignal(signal, shouldScroll, updateLocation) {
+  if (document.querySelector("#observatory-view").hidden) {
+    setView("observatory", { scroll: false, updateLocation: false });
+  }
+  selectedSignal = signal;
+  document.querySelectorAll("[data-signal-panel]").forEach(function updatePanel(panel) {
+    panel.hidden = panel.dataset.signalPanel !== signal;
+  });
+  document.querySelectorAll("[data-signal-select]").forEach(function updateControl(control) {
+    if (control.dataset.signalSelect === signal) control.setAttribute("aria-current", "true");
+    else control.removeAttribute("aria-current");
+  });
+  updateInterpretation(signal, currentSlice());
+  if (updateLocation !== false) window.history.replaceState(null, "", "#signal-" + signal);
+  if (shouldScroll) document.querySelector(".focus-stage").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function setView(view, options) {
+  const config = options || {};
   const thesis = view === "thesis";
+  document.body.classList.toggle("thesis-mode", thesis);
   document.querySelector("#observatory-view").hidden = thesis;
   document.querySelector("#thesis-view").hidden = !thesis;
   document.querySelectorAll("[data-show-view]").forEach(function updateViewControl(control) {
@@ -159,10 +502,34 @@ function setView(view) {
     if (selected) control.setAttribute("aria-current", "page");
     else control.removeAttribute("aria-current");
   });
-  if (thesis) window.history.replaceState(null, "", "#value-versus-extraction");
-  else window.history.replaceState(null, "", window.location.pathname);
+  updateInterpretation(thesis ? "value" : selectedSignal, currentSlice());
+  if (config.updateLocation !== false) {
+    const targetUrl = thesis ? "#value-versus-extraction" : "#signal-" + selectedSignal;
+    window.history.replaceState(null, "", targetUrl);
+  }
   document.querySelector("#signals-main").focus({ preventScroll: true });
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (config.scroll !== false) window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function setRailOpen(open) {
+  const compact = window.matchMedia("(max-width: 980px)").matches;
+  const shell = document.querySelector(".signals-shell");
+  const rail = document.querySelector("#interpretation-rail");
+  const openButton = document.querySelector("#open-rail");
+  const toggleButton = document.querySelector("#toggle-interpretation");
+  shell.classList.toggle("rail-collapsed", !open && !compact);
+  rail.classList.toggle("closed", !open);
+  toggleButton.setAttribute("aria-pressed", String(open));
+  openButton.hidden = open || !compact;
+}
+
+function syncRailForViewport() {
+  const compact = window.matchMedia("(max-width: 980px)").matches;
+  if (compact) {
+    setRailOpen(false);
+  } else {
+    setRailOpen(true);
+  }
 }
 
 function bindControls() {
@@ -171,38 +538,50 @@ function bindControls() {
       setView(button.dataset.showView);
     });
   });
-  document.querySelector("#period-filter").addEventListener("change", function updatePeriod() {
-    renderGeography();
-    renderValueCharts();
+  document.querySelectorAll("[data-signal-select]").forEach(function bindSignal(button) {
+    button.addEventListener("click", function showSignal() {
+      selectSignal(button.dataset.signalSelect, true, true);
+    });
   });
-  document.querySelector("#region-filter").addEventListener("change", renderGeography);
-  document.querySelector("#agent-filter").addEventListener("change", function explainPrototypeFilter(event) {
-    const status = document.querySelector(".prototype-status");
-    status.lastChild.textContent = " Illustrative " + event.target.options[event.target.selectedIndex].text.toLowerCase();
+  ["#period-filter", "#region-filter", "#agent-filter"].forEach(function bindFilter(selector) {
+    document.querySelector(selector).addEventListener("change", renderAll);
+  });
+  document.querySelector("a[href='#regime-log']").addEventListener("click", function showRegimeLog() {
+    setView("observatory", { scroll: false, updateLocation: false });
   });
   document.querySelector("[data-explain='geography']").addEventListener("click", function openMethod() {
-    document.querySelector("#interpretation-rail").classList.remove("closed");
-    document.querySelector("#open-rail").hidden = true;
+    setRailOpen(true);
     document.querySelector(".method-note").scrollIntoView({ behavior: "smooth", block: "center" });
   });
   document.querySelector("#close-rail").addEventListener("click", function closeRail() {
-    document.querySelector("#interpretation-rail").classList.add("closed");
-    document.querySelector("#open-rail").hidden = false;
+    setRailOpen(false);
   });
   document.querySelector("#open-rail").addEventListener("click", function openRail() {
-    document.querySelector("#interpretation-rail").classList.remove("closed");
-    document.querySelector("#open-rail").hidden = true;
+    setRailOpen(true);
+  });
+  document.querySelector("#toggle-interpretation").addEventListener("click", function toggleRail() {
+    setRailOpen(document.querySelector("#toggle-interpretation").getAttribute("aria-pressed") !== "true");
   });
   window.addEventListener("hashchange", function syncHash() {
-    setView(window.location.hash === "#value-versus-extraction" ? "thesis" : "observatory");
+    if (window.location.hash === "#value-versus-extraction") {
+      setView("thesis", { scroll: false, updateLocation: false });
+      return;
+    }
+    setView("observatory", { scroll: false, updateLocation: false });
+    const signalMatch = window.location.hash.match(/^#signal-(value|geography|readiness|friction|purpose)$/);
+    if (signalMatch) selectSignal(signalMatch[1], false, false);
   });
+  window.addEventListener("resize", syncRailForViewport);
 }
 
 function initialize() {
-  renderGeography();
-  renderValueCharts();
+  renderAll();
   bindControls();
-  setView(window.location.hash === "#value-versus-extraction" ? "thesis" : "observatory");
+  syncRailForViewport();
+  const signalMatch = window.location.hash.match(/^#signal-(value|geography|readiness|friction|purpose)$/);
+  if (signalMatch) selectedSignal = signalMatch[1];
+  selectSignal(selectedSignal, false, false);
+  setView(window.location.hash === "#value-versus-extraction" ? "thesis" : "observatory", { scroll: false, updateLocation: false });
 }
 
 initialize();
