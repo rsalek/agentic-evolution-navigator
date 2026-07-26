@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-25",
-  "nodeCount": 95,
-  "edgeCount": 459,
+  "generatedAt": "2026-07-26",
+  "nodeCount": 100,
+  "edgeCount": 482,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -29,7 +29,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-23"
+        "updated": "2026-07-26"
       },
       "evidence": []
     },
@@ -68,7 +68,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-22"
+        "updated": "2026-07-26"
       },
       "evidence": []
     },
@@ -159,7 +159,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-22"
+        "updated": "2026-07-26"
       },
       "evidence": []
     },
@@ -372,6 +372,19 @@
       "evidence": []
     },
     {
+      "id": "entity-lianlian",
+      "title": "LianLian",
+      "type": "entity",
+      "path": "wiki/entities/LianLian.md",
+      "summary": "An AI-native cross-border financial-infrastructure provider whose LoopXPay agent is reported to have completed a live B2B procurement and payment workflow with Visa.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-26"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-lufthansa-group",
       "title": "Lufthansa Group",
       "type": "entity",
@@ -515,6 +528,19 @@
       "evidence": []
     },
     {
+      "id": "entity-salesforce",
+      "title": "Salesforce",
+      "type": "entity",
+      "path": "wiki/entities/Salesforce.md",
+      "summary": "An enterprise CRM, data, collaboration, and workflow platform distributing Agentforce and Missionforce capabilities through regulated customer environments.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-26"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-servicenow",
       "title": "ServiceNow",
       "type": "entity",
@@ -602,6 +628,19 @@
         "status": "active",
         "confidence": "medium",
         "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-us-department-veterans-affairs",
+      "title": "US Department of Veterans Affairs",
+      "type": "entity",
+      "path": "wiki/entities/US Department of Veterans Affairs.md",
+      "summary": "The US federal department responsible for veteran health care, benefits, and related services; it is the named buyer in Salesforce's Missionforce agreement.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-26"
       },
       "evidence": []
     },
@@ -1356,6 +1395,50 @@
       ]
     },
     {
+      "id": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "title": "VA awards Salesforce Missionforce agreement",
+      "type": "event",
+      "path": "wiki/events/2026-07-24 VA awards Salesforce Missionforce agreement.md",
+      "summary": "Salesforce said the US Department of Veterans Affairs awarded an Agentic Enterprise License Agreement with a $1.6 billion total ceiling: one year plus two optional one-year renewals. The agreement expands the department's existing Salesforce foundation with Missionforce, integrated data, collaboration tooling, and FedRAMP High-authorized, HIPAA-ready AI-agent capabilities.",
+      "metadata": {
+        "date": "2026-07-24",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "healthcare",
+        "layer": "enterprise-workflow",
+        "updated": "2026-07-26"
+      },
+      "evidence": [
+        {
+          "label": "VA Awards Salesforce $1.6B Contract to Transform Veteran Care and Services",
+          "url": "https://www.salesforce.com/news/press-releases/2026/07/24/missionforce-transforms-veteran-care/"
+        }
+      ]
+    },
+    {
+      "id": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
+      "title": "Visa and LianLian complete B2B agentic payment",
+      "type": "event",
+      "path": "wiki/events/2026-07-24 Visa and LianLian complete B2B agentic payment.md",
+      "summary": "Electronic Payments International reports that LianLian completed Greater China's first live B2B agentic transaction using its LoopXPay agent, with Visa's Agentic Directory supporting trusted agent interactions. In the described workflow, the agent identified a product-sample requirement, recommended and compared suppliers, placed the order, and executed payment while operating under predefined spending controls and approval parameters.",
+      "metadata": {
+        "date": "2026-07-24",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "payments",
+        "layer": "transaction-rail",
+        "updated": "2026-07-26"
+      },
+      "evidence": [
+        {
+          "label": "Visa and Lianlian complete Greater China's first live agentic B2B payment",
+          "url": "https://www.electronicpaymentsinternational.com/news/visa-lianlian-greater-china-first-live-agentic-b2b-payment/"
+        }
+      ]
+    },
+    {
       "id": "event-x402-institutional-backing-2026-07-17",
       "title": "x402 Foundation expands institutional backing",
       "type": "event",
@@ -1512,7 +1595,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-22",
+        "updated": "2026-07-26",
         "review_after": "2026-08-31"
       },
       "evidence": []
@@ -1554,7 +1637,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-25",
+        "updated": "2026-07-26",
         "review_after": "2026-09-30"
       },
       "evidence": []
@@ -1915,6 +1998,16 @@
       "type": "applies-to"
     },
     {
+      "source": "entity-lianlian",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-lianlian",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
       "source": "entity-lufthansa-group",
       "target": "concept-agentic-service-operations",
       "type": "applies-to"
@@ -2030,6 +2123,21 @@
       "type": "partners-with"
     },
     {
+      "source": "entity-salesforce",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-salesforce",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "entity-salesforce",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
       "source": "entity-servicenow",
       "target": "concept-agentic-marketing-automation",
       "type": "enables"
@@ -2103,6 +2211,16 @@
       "source": "entity-tenon",
       "target": "entity-servicenow",
       "type": "partners-with"
+    },
+    {
+      "source": "entity-us-department-veterans-affairs",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-us-department-veterans-affairs",
+      "target": "concept-agentic-service-operations",
+      "type": "applies-to"
     },
     {
       "source": "entity-visa",
@@ -2965,6 +3083,66 @@
       "type": "supports"
     },
     {
+      "source": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "target": "concept-agentic-service-operations",
+      "type": "applies-to"
+    },
+    {
+      "source": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "target": "entity-salesforce",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "target": "entity-us-department-veterans-affairs",
+      "type": "involves"
+    },
+    {
+      "source": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
+      "target": "entity-lianlian",
+      "type": "involves"
+    },
+    {
+      "source": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
+      "target": "entity-visa",
+      "type": "involves"
+    },
+    {
+      "source": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
       "source": "event-x402-institutional-backing-2026-07-17",
       "target": "concept-protocol-standardization",
       "type": "demonstrates"
@@ -3227,6 +3405,16 @@
     {
       "source": "index-home",
       "target": "event-tenon-servicenow-expansion-2026-07-15",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-va-salesforce-missionforce-agreement-2026-07-24",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
+      "target": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
       "type": "references"
     },
     {
@@ -3601,6 +3789,11 @@
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
       "target": "event-x402-institutional-backing-2026-07-17",
       "type": "references"
     },
@@ -3752,6 +3945,11 @@
     {
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-tenon-servicenow-expansion-2026-07-15",
+      "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-va-salesforce-missionforce-agreement-2026-07-24",
       "type": "references"
     },
     {

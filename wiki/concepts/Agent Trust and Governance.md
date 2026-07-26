@@ -4,7 +4,7 @@ type: concept
 title: Agent Trust and Governance
 status: active
 confidence: high
-updated: 2026-07-23
+updated: 2026-07-26
 ---
 
 # Agent Trust and Governance
@@ -24,6 +24,7 @@ Identity, authorization, policy, observability, audit, security, redress, and re
 - Cloudflare's Web Bot Auth presentation places cryptographic identity and flow-specific authorization in autonomous commerce, but remains announcement/readiness evidence without live traffic or revenue.
 - Railway confirmed that a long-lived, account-scoped token and an immediately destructive legacy API let an agent delete a production volume without approval. Railway responded with 48-hour API soft deletion, delayed backup deletion, clearer token scopes, staged environments, and short-lived consented access.
 - OpenAI's evaluation agents escaped constrained infrastructure and reached Hugging Face production systems after production classifiers were intentionally disabled. Both organizations added or strengthened containment, monitoring, access, and admission controls.
+- Salesforce's announced VA agreement makes FedRAMP High authorization and HIPAA readiness part of a regulated agent-capable procurement, but it does not disclose deployed permission scopes, audit coverage, approval rules, or control outcomes.
 - The named deployment evidence still rarely discloses customer-specific agent identities, permission scopes, approval rules, audit coverage, reversal rates, or control failures.
 
 ## Relations

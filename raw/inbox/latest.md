@@ -1,29 +1,292 @@
 # Latest candidate-news collection
 
-Generated: 2026-07-25T06:56:06+00:00
+Generated: 2026-07-26T17:22:17+00:00
 
 Candidates are discovery leads, not verified evidence. Promote them only after checking a primary source.
 
-## New candidates (0)
+## New candidates (62)
 
-- No new candidates in this run.
-
-## Feed errors (17)
-
-- agent-adoption: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- agent-payments: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- agent-workflows: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- agent-economics: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- agent-governance: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-challenge-incumbent-platform-distribution: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-challenge-scaled-agents-bounded-service-operations: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-challenge-agent-payments-protocol-to-production: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-stage-successkpi-webex-wem-2026-07-15: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-stage-tenon-servicenow-expansion-2026-07-15: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-stage-fis-anthropic-financial-crimes-2026-05-04: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-challenge-agent-traffic-addressable-market: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-challenge-trust-monetizes-early: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-stage-bbva-visa-agent-payment-2026-07-02: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-stage-natwest-cora-production-2026-02-13: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-stage-r1-agentic-revenue-cycle-pilot-2026-05-18: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
-- graph-stage-c-spire-agent-email-triage-2026-06-03: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- 2026-07-26 · [Hugging Face presses OpenAI for transparency after AI agent breach - The Manila Times](https://news.google.com/rss/articles/CBMi2AFBVV95cUxQN2Q2YW1BZTk5TmE0OGMtZzBZYzBJclhlNXQ5VEFMWmVzbmhLaVdEelpFSUhtRElOc2diN0xnMXhmcVYzTmFTcWpRaVJMcmQ0dXJ1WjdlWElXNnRfOHp1UkJDYm4tWksxbVgxVkFhcXJHTGZzQ3lIV0w1VEd2NEFsbG90SjRMZHRhZG95RnBscXI3WjdVYkFCb3Z4TVVOdGs3Wm8yd0hVaGR3VE9qMzhQWndsXzhDZml5U3lXVUtmSjdadTBnc3VqUHMyZEtpUVdqbG5udWUwRG0?oc=5) — The Manila Times · `graph-challenge-trust-monetizes-early` · graph score `51`
+  - Matches: Hugging Face, OpenAI, OpenAI attributes Hugging Face breach to evaluation agents
+  - Graph context: Agent Trust and Governance (depends-on), Verified Agent Traffic (monetizes), AI agent operational deployments (challenges), AI agent operational deployments (references)
+  - Signals: counterevidence
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-trust-monetizes-early
+- 2026-07-21 · [Hugging Face breach: OpenAI claims its models were responsible - Axios](https://news.google.com/rss/articles/CBMikwFBVV95cUxNSDFzbkE3eUtUalJjekRpVEJmVEV3LW1mSktHeXNlTjBabkNWOVBPc2FkdlVSVFRkRU41Sy1taDJQN3FPcGtMY0ZsX1hCUzUxU1lYZHhVdHJMdi1YV0JzMmFPdTk3LWJvc3lGak1wY05sckdqeTVKcUNaWGVLLW8zUHBVTjJWbVJUV2xmTExGZmxLalE?oc=5) — Axios · `graph-challenge-agent-payments-protocol-to-production` · graph score `51`
+  - Matches: Hugging Face, OpenAI, OpenAI attributes Hugging Face breach to evaluation agents
+  - Graph context: Agent Trust and Governance (constrained-by), Agentic Payments (depends-on), Protocol Standardization (depends-on), AI agent operational deployments (supports)
+  - Signals: counterevidence
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-agent-payments-protocol-to-production
+- 2026-07-13 · [Integration as Intelligence: Amazon Connect Customer Integrates with Salesforce via MCP - Amazon Web Services (AWS)](https://news.google.com/rss/articles/CBMiywFBVV95cUxQSXJnMkdqN0JfX0xQWHR5dFJ3M2ZGUVQySlFYWXpzWVNURmUzNnlUd0NGamZGcUNDbnNlbHU4OE13YTFQZ3pERHB5VzJvYWU1Rm5XLVZKZFdJcHNhU3lmN0d6V3dWVmtrNUg0X0V4R0tYc1MwWGQ0S3BGRHE1dmNvTFBhSVZ1em03dkF6dTQ1MUdtYjZoTDJBeXVyLUU0WjRwUHlhbFN3LUFEd2VvaTJCaGNPZDY5QUFLX0o1YzlSc1lMeUJxakdkUUpZWQ?oc=5) — Amazon Web Services (AWS) · `graph-stage-va-salesforce-missionforce-agreement-2026-07-24` · graph score `50`
+  - Matches: Amazon Web Services, Salesforce, VA awards Salesforce Missionforce agreement
+  - Graph context: Agent Trust and Governance (demonstrates), Agentic Service Operations (applies-to), Human-AI Workforce Coordination (demonstrates), Incumbent platforms are the distribution channel (supports)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-va-salesforce-missionforce-agreement-2026-07-24
+- 2026-07-24 · [Visa, China's Lianlian complete first live B2B agentic payment transaction using AI agent - TNGlobal](https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWGFkcXFabUhSLVZwZzl3ZmlFcGRVZzMyclROR3VQVWRzMWtRYnpsbUFYcjg0NHRxUm5uanhmM2pRc19SYTZ5ZVRkTXZEVVliRm4tNDdLWVdZY2RBbkw4azc4b3lxczNmWWY1bTBDTWg3UHFES3F1R3FwdF9wa1hJSUFlVzFOdHlGS1VLUWFkMHJtQzFwRHVYNnJ3WkltRm5NcU1yeldCa1dISDdzTUpoaXZJTHNYak9BbEVfZXYwRjA?oc=5) — TNGlobal · `agent-payments` · graph score `46`
+  - Matches: Visa, BBVA and Visa complete agent-initiated payment, Mastercard completes first Agent Pay transaction
+  - Graph context: Agent Trust and Governance (depends-on), Agent payments are moving from protocol to production (supports), Agent payments are moving from protocol to production (references), Agentic Payments (demonstrates)
+  - Signals: production, monetization
+  - Evidence contract: `operational_watchlist`; maturity hint `unknown`; missing core: agent_action, state_change
+  - Graph searches: graph-stage-bbva-visa-agent-payment-2026-07-02
+- 2026-07-25 · [XRP Ledger Adds Mastercard’s Verifiable Intent to Secure AI Agent Payments, Tops 1.4 Million Transactions - finance.biggo.com](https://news.google.com/rss/articles/CBMidkFVX3lxTE9OYVEyZk11OTR4WnpXNndRRTlzYzQ4MTlXZjdhY2JYT2FxWWhPLXJreVA0SzduaEFqZE5WdXM2MVJxb2xLTGh2dTlvZ05HVGdWenJGWGVDRGszcy1YLTg4YWpkbHk5VnowMUZSMEZGaW1WSXZMZ1E?oc=5) — finance.biggo.com · `agent-payments` · graph score `44`
+  - Matches: Mastercard, Agent payments are moving from protocol to production, Agentic Payments
+  - Graph context: Agent Trust and Governance (constrained-by), Agentic Payments (depends-on), Protocol Standardization (depends-on), AI agent operational deployments (supports)
+  - Signals: usage, quantitative
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-agent-payments-protocol-to-production
+- 2026-07-23 · [Subscriptions drive ServiceNow 2Q revenue growth - No Jitter](https://news.google.com/rss/articles/CBMigwFBVV95cUxQRWdVcUZDY0NvUGV6TUhxZUYzNkhYWmdzQllUYmtwbTdocExvSTNHcTNXeEZQRUl6andmWTltaTlBVEpRMWVPYS12WEVUYjZ1MnJlajBHTzhBYmRiLVBIeEY4c3VZcnRpTXRsNXo2ZWdpdDUxRXM4UGNFWVdSRzcwcmMxSQ?oc=5) — No Jitter · `graph-stage-tenon-servicenow-expansion-2026-07-15` · graph score `44`
+  - Matches: ServiceNow, Tenon expands on ServiceNow AI Platform, DataDome reports 45 percent Q2 agent-traffic growth
+  - Graph context: Agentic Marketing Automation (demonstrates), Incumbent platforms are the distribution channel (supports), Incumbent platforms are the distribution channel (references), System-of-Record Distribution (demonstrates)
+  - Signals: usage, monetization, quantitative
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-tenon-servicenow-expansion-2026-07-15
+- 2026-07-24 · [Visa, Lianlian complete first B2B AI agent payment - CFOtech Asia](https://news.google.com/rss/articles/CBMiggFBVV95cUxPV1ptLVcxUnJNZWFULUNEb1pHZ19pLTNKejg2bFdFY0oxcTVWZlB1cjFFaXNtTVVqdkFlTGRiUVdvWm5aRkZNUFA5VE5LbU51d0oxVHhZSUNXcTRCNGFUcEJQSGd3WDI5UnVRbU8tZlVjeHlBbmFxR0xvaXdFazBzajdn?oc=5) — CFOtech Asia · `graph-stage-bbva-visa-agent-payment-2026-07-02` · graph score `42`
+  - Matches: Visa, BBVA and Visa complete agent-initiated payment, Mastercard completes first Agent Pay transaction
+  - Graph context: Agent Trust and Governance (depends-on), Agent payments are moving from protocol to production (supports), Agent payments are moving from protocol to production (references), Agentic Payments (demonstrates)
+  - Signals: monetization
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-bbva-visa-agent-payment-2026-07-02
+- 2026-07-25 · [ServiceNow’s $1 Billion AI Milestone Fails to Settle the Debate Over What’s Driving Its Growth - AD HOC NEWS](https://news.google.com/rss/articles/CBMixAFBVV95cUxQbkpzcF9QUkZzZmFqdXJ6ZEYtaC1JcC1oRldfLU9UcWR0aE1nVHhiV2FZNG9PNVdJaG5qNWJoNFlpYVY4Um5sRmF1UVozVzdrZ1M2TGRrdVMtajMtUTFpeFlyOFByWDM3V18xU0xiRUtseV9jN3JXUHEtaGZ5MkpOWUtNdV82QTdoYVUwLW1NcVlYV1dWU1A2T0pmZkxoNnN3M2NrMHc1SlgxYVNmN0dUd25SbmtFcVh1WDM4VHhsX2x5bUhY?oc=5) — AD HOC NEWS · `graph-stage-tenon-servicenow-expansion-2026-07-15` · graph score `41`
+  - Matches: ServiceNow, Tenon expands on ServiceNow AI Platform, DataDome reports 45 percent Q2 agent-traffic growth
+  - Graph context: Agentic Marketing Automation (demonstrates), Incumbent platforms are the distribution channel (supports), Incumbent platforms are the distribution channel (references), System-of-Record Distribution (demonstrates)
+  - Signals: usage, quantitative
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-tenon-servicenow-expansion-2026-07-15
+- 2026-07-24 · [ServiceNow's AI Contracts Surpass $1 Billion; Subscription Revenue Jumps 24% - finance.biggo.com](https://news.google.com/rss/articles/CBMidkFVX3lxTE1ob0pGOHpKZTlNNUtBQ0V3ZmZsNHQzbzJ4VFF4VkYwdWtmdFB1QkhOcXpieFNJNmIxNXlCemEtSlBqNy1fRXIzSllBTE1mVEhKWDl5OVJKUzFUeU9TQWZ4eXlwdVBrcXpNRDBPS3ZWazVpN2ZlNHc?oc=5) — finance.biggo.com · `graph-stage-tenon-servicenow-expansion-2026-07-15` · graph score `41`
+  - Matches: ServiceNow, Tenon expands on ServiceNow AI Platform, R1 pilots agentic revenue-cycle calls
+  - Graph context: Agentic Marketing Automation (demonstrates), Incumbent platforms are the distribution channel (supports), Incumbent platforms are the distribution channel (references), System-of-Record Distribution (demonstrates)
+  - Signals: monetization, quantitative
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-tenon-servicenow-expansion-2026-07-15
+- 2026-07-24 · [ServiceNow raises annual subscription revenue forecast again on AI-driven demand - ETEnterpriseai.com](https://news.google.com/rss/articles/CBMizAFBVV95cUxNNThXTS0yUW02WU1NQ1Y1UG9vaU4ySm1QNUpxSC1IN3p2NVF3aW41LVNhbkp2Q0pkVHVmZDNtVWRWZ3hpNU5rb1JGU2g1bTB0U1VVRzZZQXAtdUxSckNGVHJ4X0lrQVg4RWwwQlJVYjRmejUwWjN5LVlyQzIxLXJ2aDdRaTJXb21WMERSSjkzUHlvR29wbzMxTUJWNE5nekpsSkw4Uy1ydHR1bmFCRURMbW9oZFpfWVJ2UTh5UkdHRUZ4TkVCajZrSXVZLXbSAdIBQVVfeXFMTWpVc1lOcVFCRmhhT1J2WDd3MVJRSVRGTTM1YXZoSVZPbGY5cnFLdk1YNUxHb0YxWlRTUVVlQ1N6Ykl0Q1AxTkFZT1NyYmhKcDBzMFl5OE5aSVdPakdlUXZaRF82c1gtUlBhM0lpZF91bEdZSkJETS1MZUpXSHhwdUltdlFIWnhTaER6ampoRE5ianBCZER1eGttSnk2eV9IXy1YNjh4Z0hINzBGanlSWFJpVW1qOW1qMWhYc3czZnViZUZIUVN4ZTY4R3VTUV9IQ3ln?oc=5) — ETEnterpriseai.com · `agent-economics` · graph score `38`
+  - Matches: ServiceNow, Tenon expands on ServiceNow AI Platform, R1 pilots agentic revenue-cycle calls
+  - Graph context: Agentic Marketing Automation (demonstrates), Incumbent platforms are the distribution channel (supports), Incumbent platforms are the distribution channel (references), System-of-Record Distribution (demonstrates)
+  - Signals: monetization
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-tenon-servicenow-expansion-2026-07-15
+- 2026-07-14 · [Smarttech247 launches AI agent security operations capability for Microsoft environments - Technology Record](https://news.google.com/rss/articles/CBMiyAFBVV95cUxQRkFkVmJpZkt0azdZQWxqQnZxXzhzdzM4N0pzNWtycklyMzZzS3hsd2dBZFA0cGsxaXBvaGZZUjRMUEgwNDJ0YVNEVkNWWm96ZUdRZFVTY1k1OGxYN0ozeG9TMXVMTWhMTV9qZzNBNzk4RGU3RXBkMlMydC00OXgxeUx0TWVEa3FnSDNtR1pWRnpyYTN4Qk4xX243dUhHYmlESEVrNGhYQ29lYlNtOWROMWJJMEpTMnNMWFZKTHhiUXZZNTc0V3p6ZQ?oc=5) — Technology Record · `graph-stage-microsoft-active-agent-growth-2026-05-05` · graph score `38`
+  - Matches: Microsoft, Microsoft reports 15x active-agent growth, Le Travenues Technology
+  - Graph context: Agentic depth is separating frontier firms from the median (supports), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (demonstrates), Incumbent platforms are the distribution channel (supports)
+  - Evidence contract: `announcement_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-microsoft-active-agent-growth-2026-05-05
+- 2026-07-24 · [Google Expands Gemini Spark Access to AI Pro, AI Ultra Subscribers; Gemini Live Now Available on Older Ho... - Gadgets 360](https://news.google.com/rss/articles/CBMiwAFBVV95cUxORzE1LS1wenUyazB3a3cya0QxcmdoZG4wLVVqaVNpX2wzNnZ4eTJMenpHT21RMDFlR3haT1FjY0VGZnFFdjA4NElfN21rbTJnN3dUbHNrRmlDWjZ5d01ubG1JTl91NVNCRWNLOFVoRC1QRHB3RV9YcDRXZm9OVWVEcU1PaTRPdGVOcUdmcDMtSUVRU0dpbm9weXVMblE0dUNvb0VMMzNINlA5enBJVHh1VVZNX1F2cTVFdUxobE9tMmjSAcYBQVVfeXFMT0NzM0FqOTN0T1JrM2t0UnF2U0dmX24zQnJXMjhIUEY0U0t4ZmdFV3o3Q012bzF4MTd2Z1VGZTVRaEVhLU1OLVlmOTY1V2tlbXJobk5xMFlORWZRa3liY01MeGRQR0JwSjZkSWdqLTRVX3RkRl8wbVlNVkdHVk1rdzVPMTJGem83ckhYeUdkT1VMeF96VTQ4MmtqNF9BTVdqVld3R1I0RGpuamRoaFZJcjE3TjRxc094S1dINUZPUWZhZWY4N1ZB?oc=5) — Gadgets 360 · `graph-stage-google-atlas-v1-2026-07-23` · graph score `37`
+  - Matches: Google, Google publishes ATLAS v1, Five9 expands healthcare AI-agent deployment
+  - Graph context: Agentic depth is separating frontier firms from the median (challenges), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (applies-to), Measurement Surface Bias (demonstrates)
+  - Signals: production
+  - Evidence contract: `operational_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change
+  - Graph searches: graph-stage-google-atlas-v1-2026-07-23
+- 2026-07-24 · [Visa and Lianlian Take Agentic AI Into B2B Payments - finews.asia](https://news.google.com/rss/articles/CBMigAFBVV95cUxQVmJtMHAxMXk3RENnbFJySnVLWGlwRHdCQXNTc2kzelRpMmpyeFVReHhIODkyMlF5NGNlYkxlRV9VVGhoSXBEX3dLdjFnZ3JOTHlIWWZXQmF5VEtnZWM5SHpXbHkwTnNCNHc2dmVPYV9oZ2d0UTJ6LUJrRHFrMkdnSg?oc=5) — finews.asia · `graph-stage-bbva-visa-agent-payment-2026-07-02` · graph score `37`
+  - Matches: Visa, BBVA and Visa complete agent-initiated payment, Agentic Payments
+  - Graph context: Agent Trust and Governance (depends-on), Agent payments are moving from protocol to production (supports), Agent payments are moving from protocol to production (references), Agentic Payments (demonstrates)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-bbva-visa-agent-payment-2026-07-02
+- 2026-07-23 · [Anthropic Gives AI Agents an Operating System: Single-Session Skill Cap Soars to 500 - finance.biggo.com](https://news.google.com/rss/articles/CBMidkFVX3lxTE96THgzWjhkVjBVQWtJMGJVYmgtLTlpSFJkWWMyaExXckNnTUZRNDdrZ3NVenUyRUx5ZXNnSldERmx6cXIzUHExZGk1RFktS0EwM1NRcXlfbzg0SFkxcXJMU1d4VGpBeGd6VHlEbmNBcktkNEUwVlE?oc=5) — finance.biggo.com · `graph-stage-fis-anthropic-financial-crimes-2026-05-04` · graph score `37`
+  - Matches: Anthropic, FIS and Anthropic develop financial-crimes agent, System-of-Record Distribution
+  - Graph context: Agent Trust and Governance (constrained-by), Human-AI Workforce Coordination (demonstrates), Incumbent platforms are the distribution channel (supports), Incumbent platforms are the distribution channel (references)
+  - Evidence contract: `operational_watchlist`; maturity hint `unknown`; missing core: agent_action, state_change
+  - Graph searches: graph-stage-fis-anthropic-financial-crimes-2026-05-04
+- 2026-07-23 · [Evaluating AI Agents: A production blueprint with Strands and AgentCore | Artificial Intelligence - Amazon Web Services (AWS)](https://news.google.com/rss/articles/CBMiuAFBVV95cUxObTlwZDVTMkxlTEFoanc3X2FrV2FrSnM1UDFNR1l0d21wM3hRaEFmSy13aEd4dVRvdmJvYmNGMXJ4TWhnZnpiVjFrUnpQUzlmbWRhYUF4WGlqTk1abEU5UDZyRWd3YnZyVloxalpMU2dmYXZadnJ0TjEwZzh2OHNack1maEx4T0t3SjA5NkhoSGFJemZzRkZRNzh2ZExvMTJweGRITU84d3NERUpMUTVVOWQ3a1ZqbXY0?oc=5) — Amazon Web Services (AWS) · `agent-adoption` · graph score `35`
+  - Matches: Amazon Web Services, Production Agent Economics, Agent payments are moving from protocol to production
+  - Graph context: Agent Trust and Governance (enables), Verified Agent Traffic (enables), AWS recognizes legitimate AI-agent traffic (announced-by)
+  - Signals: production
+  - Evidence contract: `operational_watchlist`; maturity hint `unknown`; missing core: agent_action, state_change
+- 2026-07-21 · [Google expands Gemini lineup with cheaper models and new Mythos rival - CNBC](https://news.google.com/rss/articles/CBMifEFVX3lxTFBqT1k5bUtOaWtEU180MGYwVFp3WXR2bVozX29OaThiUmY4VmdrQUpSY2MzMkowNXpLTkRUVTQzNDhEYW5EdlhCZHhBSkZPU2pmcTZpWWFhMXZRQ3lWRWlCRmZyWS1PNy0ycG02VjZ4MnpvNFgtTGtZLXlNNmTSAYIBQVVfeXFMUGhBUk41WmFSUDgwVTlxMnFYRjQtUENHaHp1TTQ2U1A3Sm5mU0lFNnRqd3NGUS1nNEJETmNPSFhHN0ZCOEZUWF9OTTk2OE5qOE5nbXFDaFRjZ0tDUGZNeFE0ZUY3SDNuZmFNcm5RakxPVWxWTjVES2x6YlFYLW9oZzhhQQ?oc=5) — CNBC · `graph-stage-google-atlas-v1-2026-07-23` · graph score `35`
+  - Matches: Google, Google publishes ATLAS v1, Five9 expands healthcare AI-agent deployment
+  - Graph context: Agentic depth is separating frontier firms from the median (challenges), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (applies-to), Measurement Surface Bias (demonstrates)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-google-atlas-v1-2026-07-23
+- 2026-07-21 · [Michaels Unveils ‘Ask Mike’ AI Assistant, Built With Google Cloud’s Gemini Enterprise for Customer Experience - Google Cloud Press Corner](https://news.google.com/rss/articles/CBMi6wFBVV95cUxNRGw1ZkFlMWd0MjFLSFZ0aVhEdWdUMVpWUEZKTTJpLVJnSmxwcWhfNWQ4TmVBdm85TXRvVktQa2d6M29xOGpNSFRWUm1UVFJQWkZBUjVZUm1tZjZsN2RrSDc5YXg4WHpXUWw3REVfSnNnN3p3cVhyV3ZkZmdSenZadmlLbF9RMmJIYVZTazRZbGVnVlAxMzJrUlVDSndWR0pnWk9iRkFkTXdsNmNDcmhYM0tJRWVQcEhJV3ZiTUVJTTFDMGpwMnRrRE5fZ1Z1T18tUnhBcDJvU1NFek1SVFFjMkdPVEdvMkd4NTBz?oc=5) — Google Cloud Press Corner · `graph-stage-google-atlas-v1-2026-07-23` · graph score `35`
+  - Matches: Google, Google publishes ATLAS v1, Falabella scales automated customer-service resolution
+  - Graph context: Agentic depth is separating frontier firms from the median (challenges), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (applies-to), Measurement Surface Bias (demonstrates)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-google-atlas-v1-2026-07-23
+- 2026-07-17 · [Salesforce Agentforce Help Agent Introduces Pay-for-Resolution AI Model - Cloud Wars](https://news.google.com/rss/articles/CBMisgFBVV95cUxQTnlzQ1I3UklfV1g0X2RyM0cwaWp6QWFiVUVjVldqbm1oMERhNExPeDhHNEU3MHpMZ2R1LW5oeVc1WS1XRXRpbDM0Ym5LZHJPeU9wZFI3NE1JZ2hKbExFbnNRRjZFZTBEa2lXalJMZ0tabGJRNWk4TEppSk1xWXFhMk85WUkyN3NmSXJyS3pBRW5kQk92eWdhc1ZwOTJZYzExQkpURkpwbFVwcnRQNm5Ecll3?oc=5) — Cloud Wars · `graph-stage-va-salesforce-missionforce-agreement-2026-07-24` · graph score `35`
+  - Matches: Salesforce, VA awards Salesforce Missionforce agreement, Falabella scales automated customer-service resolution
+  - Graph context: Agent Trust and Governance (demonstrates), Agentic Service Operations (applies-to), Human-AI Workforce Coordination (demonstrates), Incumbent platforms are the distribution channel (supports)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-va-salesforce-missionforce-agreement-2026-07-24
+- 2026-07-17 · [Salesforce’s Agentforce product maturity questioned as KeyBanc cites weak customer traction - cio.com](https://news.google.com/rss/articles/CBMiywFBVV95cUxPR3FnWkdmNEtvOXlhTTRsQTBLb0d1OUw2bE5UYXhlQkdtdWZsUldXSzdaUVp1T3huNk52NUpRekhuTjdleU9qUG9VR1otNkRHQ2c0R3pWOW8tNXAycERPUkxVcUgtVDgtbVAwRTZSSUVGYkdFVUJPTWJSR0NMQWtibXlNeWktT0xON3ByZlN0YnQtbDRYcUUwai1JOEc5TFhYU292NkF4T2Q1WkdEa2QzZ0x0aFRxcERhcEVtTkZvQThTY3ZBS0NMYzhtOA?oc=5) — cio.com · `graph-stage-va-salesforce-missionforce-agreement-2026-07-24` · graph score `35`
+  - Matches: Salesforce, VA awards Salesforce Missionforce agreement, Falabella scales automated customer-service resolution
+  - Graph context: Agent Trust and Governance (demonstrates), Agentic Service Operations (applies-to), Human-AI Workforce Coordination (demonstrates), Incumbent platforms are the distribution channel (supports)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-va-salesforce-missionforce-agreement-2026-07-24
+- 2026-07-26 · [Google unveils Gemini 3.6 Flash with 17% lower token usage - Bangkok Post](https://news.google.com/rss/articles/CBMipAFBVV95cUxQRS1pQ09ILUdqZi10MXZOTmFsUG5XRE5Vemp4b2dxbzl2cW51Vy1qVjVWRmZQMnVnNTdFbndYMWlVT0QwVG1lbnJYZDhRUjYzM29RZUJTSllNZWNWWVRFakx4R05JYnB2c0xEWEczTXNfdVg0X21WZGFuXzJfUm9VZGZaNDNldXMzRHJqZGwtYzY2MlNjU1EyUHpmQ1Y2Qlp5VENRZg?oc=5) — Bangkok Post · `agent-economics` · graph score `32`
+  - Matches: Google, Google publishes ATLAS v1, OpenAI reports 16x Codex usage gap
+  - Graph context: Measurement Surface Bias (constrained-by), Protocol Standardization (enables), Google publishes ATLAS v1 (announced-by), x402 Foundation expands institutional backing (involves)
+  - Signals: usage, quantitative
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-24 · [AI Agent Completes B2B Supplier Payment in Visa and LianLian Trial - PaymentsJournal](https://news.google.com/rss/articles/CBMipgFBVV95cUxQYkZGYUdVdWJCTW0yWWVadU14dGVXSndjWFB4OEZqTHotbUJaMzVGclhkaUdzZTRFMTNXOTVEVWt0Nk9vcTQyVjJzYkxoVjRiRGJtcktwMXl6UmJwTnBNYUZ0MjlYMWRIR0dyWjlQWGxFMGFjUlZNNUVQTklBTkwtX01LMGJvZFgwMnFzbl80c2JOT0ZkcFQ2LXZ6X1FVSHZsN1FONWhR0gGmAUFVX3lxTFBiRkZhR1V1YkJNbTJZZVp1TXh0ZVdKd2NYUHg4RmpMei1tQlozNUZyWGRpR3NlNEUxM1c5NURVa3Q2T29xNDJWMnNiTGhWNGJEYm1yS3AxeXpSYnBOcE1hRnQyOVgxZEhHR3JaOVBYbEUwYWNSVk01RVBOSUFOTC1fTUswYm9kWDAycXNuXzRzYk5PRmRwVDYtdnpfUVVIdmw3UU41aFE?oc=5) — PaymentsJournal · `agent-payments` · graph score `31`
+  - Matches: Visa, BBVA and Visa complete agent-initiated payment, Mastercard completes first Agent Pay transaction
+  - Graph context: Agentic Payments (enables), Protocol Standardization (enables), BBVA and Visa complete agent-initiated payment (involves), x402 Foundation expands institutional backing (involves)
+  - Signals: monetization
+  - Evidence contract: `discovery_only`; maturity hint `pilot`; missing core: agent_action, state_change, live_environment
+- 2026-07-25 · [OpenAI didn't realize its agent was responsible for hack for a week: report - Fox Business](https://news.google.com/rss/articles/CBMilgFBVV95cUxNZGRBakFaZ1VrUmFtbE4tWE1senhyNDBWdmZTSTlxMWFIeTRLVERrZFliYWZUekFLUHJXVWpfeFFUQWdOMEdkWFdnQVgzN090dWgtbVJQWko0NUUzVlkyUUptZ3dkTmJYVDRaQ2NYVlZfWU1fdWlYa2xNUllDVDdvSXVvS1FOYWFJQmVYdzd0N2k4LXVzS3fSAZsBQVVfeXFMTlhKVWY0SUw1dWE0YmM1ZFpWR3JIQmtSUVVUU1VvRUlyVV9lWTJ6UGJDbzlRRDQ2VmJSNXJSQjVJWGdlX0lrRjh4UEdUeE9BOGNQQ3NERG1uZEJLZWpqLVVTUjhPTmRLN1Q4RTNqTnEtd2ZOdG9UUmJRZW5KQ0xHbGNVOGVhek83aG5WT0c4LTg0TlhTTVVZR0lodlk?oc=5) — Fox Business · `graph-challenge-trust-monetizes-early` · graph score `30`
+  - Matches: OpenAI, OpenAI attributes Hugging Face breach to evaluation agents, OpenAI reports 16x Codex usage gap
+  - Graph context: Agent Trust and Governance (depends-on), Verified Agent Traffic (monetizes), AI agent operational deployments (challenges), AI agent operational deployments (references)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-trust-monetizes-early
+- 2026-07-24 · [EXCLUSIVE: Its AI agent spent days hacking a company, but sources say OpenAI did not notice for a week - Reuters](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPc3Vadng3eFVJX2E0cGhld0pQbGMxMWlmQU1WWFFLaFA3VkdtV1FtYnpPeGs4OHZ0TzZHX2VLaE55cDlsR2poS1JxVDA3emxoVnhiSkNrUWpDOVFKWFJsb0QydHo5VWdyQTFUemh1aFdDa1RRYVJybGFhUXhrLTFVQjN5bTRoY1lFbEhuSXR1ZVFCQW1VT3pGMlBLSkFSc3E2N1dpcjVBVVdkWklwTGF3cTZraklYNkFobDFUbENwZXY?oc=5) — Reuters · `graph-challenge-trust-monetizes-early` · graph score `30`
+  - Matches: OpenAI, OpenAI attributes Hugging Face breach to evaluation agents, OpenAI reports 16x Codex usage gap
+  - Graph context: Agent Trust and Governance (depends-on), Verified Agent Traffic (monetizes), AI agent operational deployments (challenges), AI agent operational deployments (references)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-trust-monetizes-early
+- 2026-07-24 · [Google gives developers an AI bug hunter that also writes patches - Help Net Security](https://news.google.com/rss/articles/CBMijAFBVV95cUxNdjl4ZnZzMmlHbnJGMGpMelQ5TUtEZGt4NzE4M0l2VGo2NDFpaG81XzE5bzZ1VWZNa0hWSmFFS3pLZnpSUGNRT2xwZkpjTEtIWjRSSjFzSmNJT05Lc05yRzlBUm1nd3NQLTMyZUtpZFNkX2Jxb1ZzMWhzUGJ3WmxBMmdKZEY4bWFGYktQZg?oc=5) — Help Net Security · `graph-stage-google-atlas-v1-2026-07-23` · graph score `30`
+  - Matches: Google, Google publishes ATLAS v1
+  - Graph context: Agentic depth is separating frontier firms from the median (challenges), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (applies-to), Measurement Surface Bias (demonstrates)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-google-atlas-v1-2026-07-23
+- 2026-07-23 · [How Google’s New Gemini Flash Models Compare to its Rivals - AI Magazine](https://news.google.com/rss/articles/CBMijgFBVV95cUxNY1pMWW9kR3EyeGVydUZadWNscXNzcjMwU2hlRm80WmNGRUU0THEzeDEyTzl4MEphT2pEQTdrclRycWVQUXlUSVdnSEhCaFNkTUwwWmxST0NCbmJla2JNeXRFNF9oTGpBYzZGaWJvcjJ2U2RtSnhJNUNYYTlYOEw0am1JX1hneTZaZFlXRWNB?oc=5) — AI Magazine · `graph-stage-google-atlas-v1-2026-07-23` · graph score `30`
+  - Matches: Google, Google publishes ATLAS v1
+  - Graph context: Agentic depth is separating frontier firms from the median (challenges), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (applies-to), Measurement Surface Bias (demonstrates)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-google-atlas-v1-2026-07-23
+- 2026-07-22 · [Kaggle + Google’s Free 5-Day Agentic AI Course - KDnuggets](https://news.google.com/rss/articles/CBMieEFVX3lxTE0tS1NmaVlTQ3dKYWRZa2xla1dObTkzSjA1UW1HZnN6c3NRUnE3dGxGNDZONGM4UTlDRTVpNEc2T1BWdWNKdVhUcWpQd1lHNmdxUm42MTh4UmE0T0tEem90c1dQMVgzWTh3R3YwaWlJTlF0cnUxNy1Weg?oc=5) — KDnuggets · `graph-stage-google-atlas-v1-2026-07-23` · graph score `30`
+  - Matches: Google, Google publishes ATLAS v1
+  - Graph context: Agentic depth is separating frontier firms from the median (challenges), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (applies-to), Measurement Surface Bias (demonstrates)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-google-atlas-v1-2026-07-23
+- 2026-07-15 · [Salesforce's Agentforce isn't winning over clients, KeyBanc analysts claim - The Register](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNUdDRmViLVgwdXJtQ0hDTkJtaGVnbmZfWWtTcnZpRzBnTWwzNjFpekFqd09qWnpmTW00T21fQ3lKLVdZZ1A2bEhURF8xZXpha2M5cXhIQ1JKVWxsbTBqTTQ3WkZlUzdXRm9mYVNSd1pQT0NFVVA1dkV0TG1vS0o4QnZuVkdIc3VkY2xPdWh4Q2lFMnRiSFNwR3dLdmpyRmVpMml0dkR5cHoxdFRCSFIxWXdMdnB4Ulk4R0gzRjM2QzM?oc=5) — The Register · `graph-stage-va-salesforce-missionforce-agreement-2026-07-24` · graph score `30`
+  - Matches: Salesforce, VA awards Salesforce Missionforce agreement
+  - Graph context: Agent Trust and Governance (demonstrates), Agentic Service Operations (applies-to), Human-AI Workforce Coordination (demonstrates), Incumbent platforms are the distribution channel (supports)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-va-salesforce-missionforce-agreement-2026-07-24
+- 2026-07-13 · [AI Model Supremacy: Markets Bet on Anthropic - StartupHub.ai](https://news.google.com/rss/articles/CBMiowFBVV95cUxOel9SdnJaVUZKbHU3cVY0dUw5TVV3Z3lUYkwtOUtEbDk5VGdsbnRHMEVmT1IxTkZSUV9oV0ZmOWxSUzlUeW00YVZ0TXJLMDduM2JwOFVYblF0dWJ0M1JZTmpmdkpkRkREWGVUMzlXamJyTDR3NFJ1eW1WMkNOWDA4clpSOEVyTkMtTGF4XzNyVEg0ZVktNFh2Y3RPeHQ2bmxvSHRr?oc=5) — StartupHub.ai · `graph-stage-fis-anthropic-financial-crimes-2026-05-04` · graph score `30`
+  - Matches: Anthropic, FIS and Anthropic develop financial-crimes agent
+  - Graph context: Agent Trust and Governance (constrained-by), Human-AI Workforce Coordination (demonstrates), Incumbent platforms are the distribution channel (supports), Incumbent platforms are the distribution channel (references)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-fis-anthropic-financial-crimes-2026-05-04
+- 2026-07-23 · [The agent evaluation gap: Enterprise AI organizations have a reality-alignment problem, not a coverage problem — and most are shipping to production anyway - Venturebeat](https://news.google.com/rss/articles/CBMikwJBVV95cUxOT1ZRMFZOaG5DUjZtU2pPZ0s4bFdNRVlpQVk4SWxGT3BWTE5UTmNVWE9UWjd4RWxGcnBZYWZtVnN1Q3lONUd5UTN2dmZDbkcyRV91VHFLWGc3TW1NNl9VX1hGWEc5bUtvRUJTNnN4RktJenczZHJHNkZQdjV2ZncybGNJU3BnelF1Qjh2bkk0Y3JOaXplTENUbGJjWklxZzJtMEtHM3pLLXRxOERqNG8yald1T2U1Y0xZQXhHbkRheHBhVy1sZnM5dzdONER2M1lVajFjNmNnY0UxZXY4c2dfQjRxa081UzMwQzNVeUZqRFF6LWN4THgxMzhUZVVaczBqbUhzbEZJZHZWQkVha3BRQ1ZNaw?oc=5) — Venturebeat · `agent-adoption` · graph score `29`
+  - Matches: Agent payments are moving from protocol to production, Production Agent Economics, Hugging Face discloses autonomous production intrusion
+  - Graph context: Agent Trust and Governance (constrained-by), Agentic Payments (depends-on), Protocol Standardization (depends-on), AI agent operational deployments (supports)
+  - Signals: production
+  - Evidence contract: `operational_watchlist`; maturity hint `unknown`; missing core: agent_action, state_change
+  - Graph searches: graph-challenge-agent-payments-protocol-to-production
+- 2026-07-26 · [Fastly gains Experian agent checks as 53% of web traffic turns automated - PPC Land](https://news.google.com/rss/articles/CBMikwFBVV95cUxQMTRONnNidENWY1BNdjI1enhteERJNVBpT2RCREdhcEo5ZDFCU2hKb0VCYzlEbS12dWx3S3hQSXlOR1NTMEYwTkJwdzNKLUY2MVRvNndwbWY1VmVobXdhd0FPUlJjTm9NSzFEeUFIakJ6aFdiaDhmVmE5V3lSM3VOVUFPS21VS193VGdfWlN0MF9NWkk?oc=5) — PPC Land · `agent-economics` · graph score `27`
+  - Matches: Amazon Web Services, Verified Agent Traffic, Agent-originated traffic is becoming an addressable market
+  - Graph context: Agent Trust and Governance (enables), Verified Agent Traffic (enables), AWS recognizes legitimate AI-agent traffic (announced-by)
+  - Signals: usage, quantitative
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-25 · [ServiceNow rated strong buy for AI-driven growt... - Pluang](https://news.google.com/rss/articles/CBMihAFBVV95cUxNQVAyWjNoZFkxVk1xd3dkZ2oyOWdzZ3pWR1IxTThVRnBTSHdEcnd3VUN1eGlZeXBzOVgtQzhlNjJSODlJOUhuMmpzNkRocVRxYjdEV0ZyaGFCZFRWMFNaWUV2bms5NVVwWEw2SHRnY2hFZW9XdUZjajhjazh3a0U0VnFORGs?oc=5) — Pluang · `agent-workflows` · graph score `26`
+  - Matches: ServiceNow, ServiceNow agentifies customer production workflows, Tenon expands on ServiceNow AI Platform
+  - Graph context: Agentic Marketing Automation (enables), Agentic Service Operations (enables), System-of-Record Distribution (enables), C Spire (partners-with)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-22 · [The Real Lesson of OpenAI's 'Rogue' Agent Isn't Alignment - Tech Policy Press](https://news.google.com/rss/articles/CBMihAFBVV95cUxOd3ZjVWNzcmVYSTViWWlfOEY3Q0lsVFY5Q2FYbDl2SFZFVHRtVGRzRjBFTGlFa184LUdpU0Q4UmJ5a1BvMTFLbUhrOUNoOXNBUHc1enlLbHU1aUEwTDFXN21PWGVIMFBJbGdJM3JkMTFMWmNNUkxWcUd4dG9LcjlPTV9IZjY?oc=5) — Tech Policy Press · `agent-governance` · graph score `26`
+  - Matches: OpenAI, OpenAI attributes Hugging Face breach to evaluation agents, OpenAI reports 16x Codex usage gap
+  - Graph context: Agent Trust and Governance (constrained-by), Agentic Cyber Operations (applies-to), Agentic Software Engineering (applies-to), Measurement Surface Bias (constrained-by)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-26 · [Google Releases Gemini 3.6 Flash Before Gemini 3.5 Pro, Betting on the AI Agent Race - kmjournal.net](https://news.google.com/rss/articles/CBMia0FVX3lxTFBxaHRvQ29iclprVGJHYXYxNm11Xy01TjNCa3ZEajN5em1pbkRVTHg4SE90NkU2MDNPamR2MW1JbGZGZEE5UFpzNE9meDdYcEdjOUxWbWVvazQ4a0tOMG5TZFZ5YnVzYmE2UVUw?oc=5) — kmjournal.net · `graph-challenge-agent-traffic-addressable-market` · graph score `25`
+  - Matches: Google, Google publishes ATLAS v1
+  - Graph context: Agent Trust and Governance (constrained-by), Production Agent Economics (depends-on), Verified Agent Traffic (depends-on), AWS recognizes legitimate AI-agent traffic (supports)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-agent-traffic-addressable-market
+- 2026-07-23 · [Agentic orchestration: Enterprise AI organizations have a deployment problem, not a platform problem — and most are calling chatbots agents - Venturebeat](https://news.google.com/rss/articles/CBMi_gFBVV95cUxOUUgyMk9qZWYwRkhNdkE4SWJnSmo1Skg4Z2EtTC1uYnRUWXBMVEpvWHNVLWlSbUZLRFBTdDdsTDdQSWkwZmdsSjRRbXZIZHRYV1E4UGwzQzVXZmxIWkJRYy1KZi11em90N1FVckQtS0xiX2EyTWoxWUtDTFd6S200eWxkOHNPZDYxODAzTnEydjlhc1R4OUliNXdkWmFyWjlZVl9GSkRsQjFiSXNwU0ZiQVFZbDQ3OC1rOHNpb1dyVTJIbnNVSWRIckt6QmxkNjEzcmN2RUNObVAxT0VoZFdRS05qejlLb05qTEpIS254OUtmczRNLWJySktDUGRHUQ?oc=5) — Venturebeat · `graph-challenge-incumbent-platform-distribution` · graph score `21`
+  - Matches: Delivery Hero scales autonomous software deployment, Five9 expands healthcare AI-agent deployment, Tenon expands on ServiceNow AI Platform
+  - Graph context: Agentic Marketing Automation (enables), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (enables), System-of-Record Distribution (depends-on)
+  - Signals: production
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-incumbent-platform-distribution
+- 2026-07-21 · [Salesforce (CRM) As Downgrades Test The Case For An Undervalued AI Pivot - Yahoo Finance](https://news.google.com/rss/articles/CBMiogFBVV95cUxNNFNiZ085cTZLMDFzMUxSMTd6UXVEa3RoeTMwdUZwcDVsdlRsV3pyMUs2MDY3bURBVHNtdk1zU3hndU1uSkpzNXBpQl8yZEhLYTZKczAtYnpEXzloNGVnVnZPUmRvOGZrVTEwb0JPWUJmTF9GRjVxYUN6SkIwdWNjM1RZaW51bjE2SlYzN1BQZWRJZllWTFdBc3d2YWJGUEY0ZHc?oc=5) — Yahoo Finance · `agent-workflows` · graph score `21`
+  - Matches: Salesforce, VA awards Salesforce Missionforce agreement
+  - Graph context: Agent Trust and Governance (enables), Human-AI Workforce Coordination (enables), System-of-Record Distribution (enables), VA awards Salesforce Missionforce agreement (announced-by)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-22 · [How Aeropuertos Argentina launched their Snow Agent for airport operations - an SAP AI story - Diginomica](https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSFQtSXNacC1mWkZZSVd4NlY0bFpmMHY2cm1wTENYN1ByMUNBVDhZN3ZfQTB1TGEtUGxxUEhSTlAyZDM3eVZTcE5kVm1ieW9TYVBzb2FRejZMZVpBM0kyb1JEd3ZkbkVLNDV2QTNZTkc0VzUyYlMtRTllQVdVc3gxZXNyTlJiV3RVbnZzY0JPUEMwNjJRVEltRllqbzZPaHE2WnFJZlZENXVaQQ?oc=5) — Diginomica · `agent-workflows` · graph score `20`
+  - Matches: Agentic Cyber Operations, Agentic Service Operations, Scaled agent adoption concentrates in bounded service operations
+  - Graph context: Agent Trust and Governance (applies-to), Agent Trust and Governance (constrained-by), Human-AI Workforce Coordination (depends-on), Production Agent Economics (measured-by)
+  - Evidence contract: `announcement_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change, live_environment
+- 2026-07-23 · [Autonomous AI agent 'escapes' and hacks another company - Insurance Business](https://news.google.com/rss/articles/CBMitwFBVV95cUxOWC1FdW1fMjFfNEtPZWRWdGRPS2hWaGJ6V1pJTjBHUXVLalFsd1E5Ym5xYWVOZ0RxMUFuOU9HcXR2MDJvVVdCcW0zalloMmQzU1Q1RzIwQldvSFVuTzlmYWNxcWR6TDJENVBjYXlJYk5uTWdudHIxRDJaZFVEMWJqWEwwUnMwSWU2S2JOT21sMFI0UFRCaFpNaWxEUnYyV2dRVjFlc3BncUd5TFZMSGsyYU5kWVpiOTg?oc=5) — Insurance Business · `agent-governance` · graph score `19`
+  - Matches: Cloudflare presents Web Bot Auth for autonomous commerce, Delivery Hero scales autonomous software deployment, Hugging Face discloses autonomous production intrusion
+  - Graph context: Agent Trust and Governance (depends-on), Verified Agent Traffic (monetizes), AI agent operational deployments (challenges), AI agent operational deployments (references)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-trust-monetizes-early
+- 2026-07-24 · [Coinbase x402 Launches AI Agent App Store - CoinMarketCap](https://news.google.com/rss/articles/CBMiiwFBVV95cUxQbkpRZVhhVzdvc1dZWWlwaV9LbE94MjVzbTJTWlBDMGxGV1FtX0dfSm96b3M5eWN0cFAwN09WQ3ZOVFEyUEVINkdseVgxQWpmcEJFY2E0aU5rNFM0c2s5TGZnWmtuSUFTb3ljSTRIYmx6MWliS2dMdUoyUzV2M0xaZ21ZeW02bFpDMkNF?oc=5) — CoinMarketCap · `agent-payments` · graph score `18`
+  - Matches: x402 Foundation, Rossmann scales agentic store support, x402 Foundation expands institutional backing
+  - Graph context: Agentic Payments (enables), Protocol Standardization (enables), x402 Foundation expands institutional backing (involves), x402 reports 75 million monthly transactions (announced-by)
+  - Evidence contract: `announcement_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change, live_environment
+- 2026-07-24 · [How do you train a new AI service agent? A lot like you would a new employee, a city CIO says. - Smart Cities Dive](https://news.google.com/rss/articles/CBMioAFBVV95cUxNWXpLdndnODJBWWNQbFQ0YmFCeHByMWF1M2ZOdVUtTDhabDJEWDFaVHVYbWJDVVNmeGY2ekVBbUgyam1yU2VuVEhMLVFEQUI0amJfQnBueXY0VnVzajNLZy05UVRtbWthSnpPMmxUOHoyQllMbDgyM1lvNkZYU29kampiRWVJS2lSTEdHRmFKVHNqdG1BZXQ5MWRVYWtwUlFP?oc=5) — Smart Cities Dive · `agent-workflows` · graph score `18`
+  - Matches: Agentic Service Operations, Scaled agent adoption concentrates in bounded service operations, Falabella scales automated customer-service resolution
+  - Graph context: Agent Trust and Governance (constrained-by), Human-AI Workforce Coordination (depends-on), Production Agent Economics (measured-by), Scaled agent adoption concentrates in bounded service operations (depends-on)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-24 · [Fastly Joins Experian Agent Trust™ Ecosystem to Advance Trusted AI Commerce - Business Wire](https://news.google.com/rss/articles/CBMiywFBVV95cUxOVkRKUUVoZzJWZUtieGM2azFkM2lHVENNbW90U0IzNUlyNjFjc2F6SDczdGk4TGFyZ25XQ1NuM015UVJrUS1SQlFSaUVEeG5mMFRJeGFrOFBmaEdaOFN1bkV3bWp0dTBidW5UYmpLT0RtOXZUbEE2MF9jX1V6bzRVWUhJbkJ4bHA2eDFJVlI0cW5kdmlla0NYN25EQ0xocDRDblFfVjZWaEc0N2hWRXV2dzZZOHZiamFCeW01eGowSlRJRnNoS0hocmpEOA?oc=5) — Business Wire · `agent-payments` · graph score `18`
+  - Matches: Agent Trust and Governance, Trust infrastructure monetizes before full autonomy, Cloudflare presents Web Bot Auth for autonomous commerce
+  - Graph context: Agent payments are moving from protocol to production (constrained-by), Agent-originated traffic is becoming an addressable market (constrained-by), Agentic Cyber Operations (applies-to), Agentic Cyber Operations (constrained-by)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-24 · [Context Windows Forget What Matters — I Built a Usage-Reinforced Decay Engine for AI Agent Memory - Towards Data Science](https://news.google.com/rss/articles/CBMiwAFBVV95cUxOTlhrTEhmcHEtTU1YY2NQck0zSUxETjFVR19iQ2VjbDB4b3FGUVlCR2gzanJ5ZHFzWmE2RjEtaXlSbENKeE5LOGo2YklmQjJ1ZU1YOFlLaExSYnYwZzZwem9qekJLUllqX3JOY3dPMjA1M084THd0cmNjMnB2MVNSNGVuVmJwN2lKWXRIRG9kbEtLVjVJUm00Sy1yb0t4bFE2enpPVEdjQWE3cllCRjJpVGhPcW9XdXlzT0JKQVdDcE0?oc=5) — Towards Data Science · `agent-economics` · graph score `17`
+  - Matches: OpenAI reports 16x Codex usage gap, Railway adds guardrails after agent deletes production data, Why public AI usage studies disagree
+  - Graph context: Agentic Software Engineering (demonstrates), Agentic depth is separating frontier firms from the median (supports), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (demonstrates)
+  - Signals: usage
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-23 · [Coinbase's corporate customers can now accept payments from AI agents - CoinDesk](https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUUZPNFBxcmhjWVY5SXBmd0piSEVVZW43dlNfRmNLcHhORUdHbXJsZU55ckN6S2Z5cS1NN0tpaE9YWi1yZ2R3YVdzd1I4OVdkMjd4OHJWV0tWTEQ3TjdaZHBNUXp3U05WeXotSnAyTmZlSTRjZmV5TnZpaUV1aUR1c1JSUHF5c1AzazlOc1BoNWNwT0h4akYxRHpESHBtbDhfSHdNTTZZWDZsMnlhbkFpcDA3TVR3Q3ozdTNzWjkwNEN5T0E?oc=5) — CoinDesk · `agent-payments` · graph score `16`
+  - Matches: Agentic Payments, Agent payments are moving from protocol to production
+  - Graph context: Agent Trust and Governance (enables), Agent Trust and Governance (depends-on), Agent payments are moving from protocol to production (depends-on), Production Agent Economics (monetizes)
+  - Signals: usage
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-23 · [Spotnana’s multi-agent AI. OTAs’ growth story. Mindtrip tackles AI answers. - webintravel.com](https://news.google.com/rss/articles/CBMioAFBVV95cUxOLUlwWHhQSk5JczRzQUs2ZE80dmI2N1M4NlBVX2RlNzdTVUdkdlhGcVZyWlpJTXpmRTA4bENrbUpuMlk1MGZkOHdwcVhvd0FfaUQ4M05xSHZOWnlwSUpqcnQycGR4YnpudGVLUnFfcm1DZEV1VkFhOXBJVG4tTEtnVi1ScjJuclJYc3hEZ1FhNXhkWUQ4QUlPbkl6YjVWd1o4?oc=5) — webintravel.com · `agent-economics` · graph score `16`
+  - Matches: DataDome reports 45 percent Q2 agent-traffic growth, Microsoft reports 15x active-agent growth
+  - Graph context: Agent-originated traffic is becoming an addressable market (challenges), Agent-originated traffic is becoming an addressable market (supports), Agent-originated traffic is becoming an addressable market (references), Trust infrastructure monetizes before full autonomy (supports)
+  - Signals: usage, quantitative
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-24 · [Can an AI Trading Agent Actually Beat the Market - StreetInsider](https://news.google.com/rss/articles/CBMirAFBVV95cUxNQVU1NUV0aWRwanhjUVUxc2pfbWtRT18xSFFGQU9JVWhDLUtSTG5MOG5FVEVFMDBTU0RGMHhQMVg4MGhFM2E1NnpJenNhbzBrdUNSUDFhUVZVSDBCVThTaGczX3lrelgyc1BGQXhSQjZrWVVOWnhmOFg1Q0Fub1hYRFBIU3BhSUwxSmZweUJONHd1OFpjbkl2SmxSbHBxNXhPZnBiQTEwZThiUFd5?oc=5) — StreetInsider · `graph-challenge-agent-traffic-addressable-market` · graph score `15`
+  - Matches: Agent-originated traffic is becoming an addressable market
+  - Graph context: Agent Trust and Governance (constrained-by), Production Agent Economics (depends-on), Verified Agent Traffic (depends-on), AWS recognizes legitimate AI-agent traffic (supports)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-agent-traffic-addressable-market
+- 2026-07-13 · [Samsung Electro-Mechanics Slashes SAP Migration Time, Workforce in Half; AI Agent ‘Joule’ in Spotlight - finance.biggo.com](https://news.google.com/rss/articles/CBMidkFVX3lxTE42eFpyWGR5eUx2SWtBdWZIQWlJVDY5M0Q0Vk9XMXczNEk4TkhUeC1wc0t0SS0tM1ZjQ2JUcTZNSzg1MXFhaUp5SWNENWVsM3RpZVU0TUFwcDhELWRzS1g5emV2Zy0zbHA0YTBxV2NyclM5M2l1cEE?oc=5) — finance.biggo.com · `agent-workflows` · graph score `12`
+  - Matches: Human-AI Workforce Coordination, Production agent migration improves cost and speed
+  - Graph context: Agent Trust and Governance (constrained-by), Agentic Cyber Operations (depends-on), Agentic Service Operations (depends-on), Agentic Software Engineering (depends-on)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-24 · [Enterprise AI agent governance: the gaps - Venturebeat](https://news.google.com/rss/articles/CBMirAFBVV95cUxNS0c3S0tObjJxa0xLXzc0YW12cHV3TWthNkphVkVRcGMzRjBNdjNGSjBrQjdHU0JvSGliUjFMSXdqc1JqVU0wM29SOTZfcjUxbmxCVmV2clF2M0dpT3RuTnd0LUd2WVVEZDFEOG1QRWNxZ1NsTlY4a2VoWHVpV1RXZUJqNlBRRE5QWWl2cm1hUUhUMHBUaWFoZnk0U3R3eWZ5U2xwYWhXSF8tUVdu?oc=5) — Venturebeat · `graph-challenge-trust-monetizes-early` · graph score `11`
+  - Matches: Agent Trust and Governance
+  - Graph context: Agent Trust and Governance (depends-on), Verified Agent Traffic (monetizes), AI agent operational deployments (challenges), AI agent operational deployments (references)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-trust-monetizes-early
+- 2026-07-24 · [Agentic AI’s Next Breach Won’t Start in the Model. It Will Start in the API Path - Infosecurity Magazine](https://news.google.com/rss/articles/CBMifEFVX3lxTE1WWXYzWUNmOHRNUFdkb2hOXzlVMVhLeEpLRG1LUDNIYmJJS1liMWVCNlJ5S0xpQmpvZGY5Y3MzWG84X252WTBPcVpibVpqNVhtY212ZUZid2tkRHFFVktlTnZWWWIxay1oamk4Nm9wS3g1TS1oOV9YQ1hqYWM?oc=5) — Infosecurity Magazine · `graph-challenge-agent-payments-protocol-to-production` · graph score `11`
+  - Matches: OpenAI attributes Hugging Face breach to evaluation agents
+  - Graph context: Agent Trust and Governance (constrained-by), Agent Trust and Governance (constrained-by), Agentic Payments (depends-on), Production Agent Economics (depends-on)
+  - Signals: counterevidence
+  - Evidence contract: `announcement_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-agent-payments-protocol-to-production, graph-challenge-agent-traffic-addressable-market
+- 2026-07-23 · [AI Agent Adoption Statistics 2026 - About Chromebooks](https://news.google.com/rss/articles/CBMib0FVX3lxTE9CdGJMVEZuRFNranRzanh4RXFVMWtUZG1PRTI5TnpKbzNZaE94X044MFFXME1Lc3JwZXlHMUlIZXI0czRkYm5YOG5EVXRvYVhVU0U2eUxEVnpYUDJoUFluaUdDQzE1NjZ2OW1ZZlBfWQ?oc=5) — About Chromebooks · `agent-workflows` · graph score `10`
+  - Matches: Scaled agent adoption concentrates in bounded service operations
+  - Graph context: Agent Trust and Governance (demonstrates), Agentic Service Operations (applies-to), Human-AI Workforce Coordination (demonstrates), Incumbent platforms are the distribution channel (supports)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-va-salesforce-missionforce-agreement-2026-07-24
+- 2026-07-23 · [Four AI agent platforms launched in a month. None agree what it is - techi.com](https://news.google.com/rss/articles/CBMieEFVX3lxTFA0WV9NV0pjYWViZGNTY1BXbGlRQVE4V1lyQlE4M1JTVS1QU2k2SXhWQjM2T1NoRkMtTkNjM0IyMHZSSVNkRlNXT19WSmtHeEg2bXB6MTRGRkdXOUQ5dGdOZXhFcHJMb0swMFNuVVVneENxdVl0MmtZZQ?oc=5) — techi.com · `agent-workflows` · graph score `6`
+  - Matches: Incumbent platforms are the distribution channel
+  - Graph context: Agentic Marketing Automation (enables), Agentic depth is separating frontier firms from the median (references), Human-AI Workforce Coordination (enables), System-of-Record Distribution (depends-on)
+  - Evidence contract: `announcement_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change, live_environment
+- 2026-07-25 · [AI Agents Are Already Spending Crypto, Wall Street Says It's the Next Big Wave After AI - Memeburn](https://news.google.com/rss/articles/CBMiY0FVX3lxTE5ENHRLUHZlUUtpa25LMWpuWWc5U3FaZk5VaFJ1UlZQWUwzZXZiUHpGdTRGYTZoQlV0YlRQWU9LTngwbU1ZcnNIelRxdVI5clZVWVBsMFZwSC1lcUFaNzltaTZFbw?oc=5) — Memeburn · `agent-payments` · graph score `4`
+  - Graph context: Agent Trust and Governance (depends-on), Agent payments are moving from protocol to production (supports), Agent payments are moving from protocol to production (references), Agentic Payments (demonstrates)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-stage-bbva-visa-agent-payment-2026-07-02
+- 2026-07-23 · [Yiren Digital's AI Agents Lift Asset-Recovery Tickets Per Staffer to 525 - Stock Titan](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNZmFQcGhvb0tJYW5MX2xBaEY1cEhOUDItV2J2RUF5TllJaWR1STlmWk4wYzJweElzZEZGODRaX2xlNm51dFcwSm9TeTFpSjQtX3BoT2ZQalhiSmtRSGZJMnl5bFloYU9tZTQ2OFNjUV8zenJ5ZjFMdmw1NlNYNFVzUjQ0VUxENGNwbVZhOC0zZDRVV0Y4VlN3Z1B1WEZqTHBLMnN5bmpVaVc5dTNzQzMzT2l6WjNkXzRf?oc=5) — Stock Titan · `graph-challenge-scaled-agents-bounded-service-operations` · graph score `4`
+  - Graph context: Agent Trust and Governance (constrained-by), Agentic Cyber Operations (references), Agentic Service Operations (depends-on), Agentic Software Engineering (references)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-scaled-agents-bounded-service-operations
+- 2026-07-21 · [Chinese models are on track to win the agentic AI price war - The Strategist | ASPI's analysis and commentary site](https://news.google.com/rss/articles/CBMimgFBVV95cUxOejRCNUJNelV1R1lnZ29ENXhnbjc4emRuNTR6aTBhekVLdC1zVkl1TnBiLWNRMzE2VDk5TzVPTFdCTzh2RkgzOWFJOWVtZmUzQzg1ZExQcjBUbmJ3M0VlZldaWmo5bmkwZXlTWEpKcVF3LVFpVG01NjU1VDMycHpVVDdOejRsZGVOR2puakhtNEFWRXVtSFh0cmZR?oc=5) — The Strategist | ASPI's analysis and commentary site · `graph-challenge-agent-traffic-addressable-market` · graph score `4`
+  - Graph context: Agent Trust and Governance (constrained-by), Production Agent Economics (depends-on), Verified Agent Traffic (depends-on), AWS recognizes legitimate AI-agent traffic (supports)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-agent-traffic-addressable-market
+- 2026-07-12 · [The hack (almost) everyone’s using: AI agents - CPA Australia](https://news.google.com/rss/articles/CBMikAFBVV95cUxNamI3RTVxcHZBYjg1YUs1WWFxdk1HT3FlRmVNWnVqangtYklQdlAzUERRWUdQaV9OM0tVaDZmYkctczdYZ0dNSkVHcEk5bzlwNGVJell2MWoybjZUb3MtOU5WWUVsUFBzTEowTDAtM1NUR1VnbW9iUXNwNFdoTmRZTXlhQ3ZSbHVMOTdJWUdudmo?oc=5) — CPA Australia · `graph-challenge-scaled-agents-bounded-service-operations` · graph score `4`
+  - Graph context: Agent Trust and Governance (constrained-by), Agentic Cyber Operations (references), Agentic Service Operations (depends-on), Agentic Software Engineering (references)
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+  - Graph searches: graph-challenge-scaled-agents-bounded-service-operations
+- 2026-07-24 · [AI solves the monetization pain points of intelligent agents, Tunheyu is seeking seed round financing. - 36 Kr](https://news.google.com/rss/articles/CBMiU0FVX3lxTFBvRnRkaGluNk5RX09QbmRtd0JZY3EzdlhsUFNJdkpBalgzUTdncWxIcV80LVFzQjktdnlzSklZUkZIaWQtd1QwTkE3VG1TVHY4dWVF?oc=5) — 36 Kr · `agent-economics` · graph score `3`
+  - Signals: monetization
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-26 · [An AI agent went rogue - should we be worried? - RTE.ie](https://news.google.com/rss/articles/CBMibkFVX3lxTE82SGpONTluTy1pNjVLaU45X3lCTU9ySWFGUHowNnlFUldOVjAwREsyaGx4OEFuejlLZXI5NFBiVVVQTXlJLUVvSmdRQXo2LVNOWGZNUkpweWJWTzRfYnNGVVFzRmNSdEFBRnQ4Y21R?oc=5) — RTE.ie · `agent-governance` · graph score `0`
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-26 · [Your AI Agent's Pull Request Looks Clean. That's the Problem - HackerNoon](https://news.google.com/rss/articles/CBMihwFBVV95cUxQQk0zcWFHM05CSjFyYmJhVm82bUtlbk5faXBvZ3oxaG9QbkpqVF9mWWlkd085LUZIWnVFRW9pQW51OWpqSG1laDJPbUtqM3RTZlpjZ1VuYVkzOENCSEZTY1ZPRGFBb1JmbmQyTHVDaDhiaGduWmltRk1EMV8xbEJsdmhEc2t2N1U?oc=5) — HackerNoon · `agent-governance` · graph score `0`
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-26 · [Is SentinelOne’s (S) AI-Agent Spinout Undermining Its Moat or Extending Its Cybersecurity Reach? - simplywall.st](https://news.google.com/rss/articles/CBMiwwFBVV95cUxNOEZsM3NGbjRMRnNWR3Yxd0d1R2lsV2k4X3JOcnhRdU1GZG9lbXp2OUlOZGFNSHJNckx4Wk5nRVprYk5xOFFPejN3TC16RFVKOXR4VE5mLTUxM3U5Nm5NZHlheDU2d0MtQmJpbW15aGR1SkNWQWU5bXdEanU3Tm9KdXU2c01sNGlYeVlmZU8zdGE1QkdjbGNfLUdBZDh6YzRMZlNTNEJyeC1mZGlZbkNwZzU0SWxsS3hnbzFmYnVndzJUTU3SAcgBQVVfeXFMTzNCOFgzbkE2clA0WXFHTkFXWUI5MUJ3SDZjOFgxSGlfVUl5c3NjVWd4a2hSM0NMSFp1anc5WE9sZXEwV1JJZkRQNThtVFNNb3ZhLTQ3alZBQTZlOWVVeFlUNmhvTjlLS3VfaDZ2a1pLZkUwSE40Vmd6NU1rZVBRM1o2Wi1hYzdlenp3TmZYUVVCbmxNYzZwQ1liSVFUeHNWS2tiMDZzM1MyY0U1M0NJaU96bDlld3VocTB3azkzS0c0dFlpUGg4b20?oc=5) — simplywall.st · `agent-economics` · graph score `0`
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-25 · [Every AI Agent Will Eventually Need a Crypto Wallet - HackerNoon](https://news.google.com/rss/articles/CBMif0FVX3lxTE5PYjBxRVdCUFIyUU9IRlhpNmZzZzNaNE96V1BMdDF3UXF2aUFVZmNVNVgxcTI5UG80SUh2VGQySTNWbV9xSkZ1eEZzcUY3RWcxN25qNXcyblIyU002b1V2SmRVUG91WmNFRkVuZVVhR0pQYVZ3ZDVkeVNDZlp2eW8?oc=5) — HackerNoon · `agent-payments` · graph score `0`
+  - Evidence contract: `announcement_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change, live_environment
+- 2026-07-24 · [HubSpot (HUBS) Stock Still Looks Overvalued As AI Agent Tools Launch - Yahoo Finance](https://news.google.com/rss/articles/CBMimwFBVV95cUxPQnZmQ2pCQXdQclZNYzY4SlkzNzhNMk5SdUlIYnVHRFVLblhLR1U0MmdIY21IRmE5Zk5FVFFSWlVoUnBOZW9FNm5ZQUUtNmR4WG5ITWpCcndLM2x4Y1oyT202UWlDU2NQZG1RSUExNEZRa2pJMk1YZThObG0zcjc5U0ZyTUNHcE1ucl9rcFBzMVFKVkw0NGlnUUphVQ?oc=5) — Yahoo Finance · `agent-adoption` · graph score `0`
+  - Evidence contract: `announcement_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change, live_environment
+- 2026-07-24 · [When the "attacker" is an AI agent - Sophos](https://news.google.com/rss/articles/CBMidEFVX3lxTFBpai0tV2NZTDg1WlNCWnlaN1M1REY4U3kxa2J3WmxpVlZwY1l4bFRtMUU3cm55WmF2UWVrb1hiSUZEVVlLbk5VSnA1dFBjLUJMbTJSMW43VG53eWtBSlpKaHRpRlBJNmFIOFNab2lsWkNKZnR3?oc=5) — Sophos · `agent-governance` · graph score `0`
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment
+- 2026-07-23 · [Gravity launches AI agent for sustainability teams - IT Brief UK](https://news.google.com/rss/articles/CBMihAFBVV95cUxNNFhGeVF4eHFRdVFLejdfZ3NwZHlxb05IcHp5S1UxNWR6R1A2Mk5uVy11SkZiTHptY2xBWUdxNlZnbHY1aVRfdm1RcU1BOVNGZjdWUmE4RGxYaFJqOUVScVNkclZnZUVxLWtGd0VPcG1zTzFwcFFtRDJtM3p5Zzg0Vi1MYlk?oc=5) — IT Brief UK · `agent-adoption` · graph score `0`
+  - Evidence contract: `announcement_watchlist`; maturity hint `announcement`; missing core: agent_action, state_change, live_environment
+- 2026-07-12 · [Two AI VPs for $257. A Website Became Our 21st Agent. Killed a $4K SaaS App in 60 Minutes: The Agents #005 Is Out!! - saastr.com](https://news.google.com/rss/articles/CBMiywFBVV95cUxQaFMwVEN0MHhKT2tPOVlQejA2QTItcnR6bkVyUEh1UDYyaTZrUk0tUWo3RWk2X3BXbjdGdG95UGhuUXdGdUtwb1RGa3d1SEloMkRleDJSejduNEFTdlJ0TWtmWVBxTXYyUUZsSzU3VzNkdjBheFFsbkE3YkR4V0NWWFY3UWduYnV1REo3V3l0M1k4R1pPWDFya2s0UkFTMEtBVUVhMWF6SUJ4SmFuVEJCd25fc2JLQ0RqNjgtTzdBa2o2TWVwWUFUOGVFUQ?oc=5) — saastr.com · `agent-workflows` · graph score `0`
+  - Evidence contract: `discovery_only`; maturity hint `unknown`; missing core: agent_action, state_change, live_environment

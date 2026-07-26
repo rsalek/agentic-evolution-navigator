@@ -88,3 +88,11 @@ Added Measurement Surface Bias and extended evidence-ontology version 2 to captu
 Corrected the public explorer's node-type filter label from `Theses` to `Thesis`.
 
 Rebuilt and validated the graph at 95 nodes and 459 edges with zero warnings. All 17 collector and evidence-contract tests and the graph-layout test passed; JSON and JSONL validation passed.
+
+## [2026-07-26] intake | VA Salesforce Missionforce agreement
+
+Verified a user-supplied Salesforce primary release announcing VA's Agentic Enterprise License Agreement: one year plus two optional renewals, with a $1.6 billion total ceiling. Added Salesforce and VA as entities and linked the announcement to system-of-record distribution, human-AI coordination, agent trust, service operations, and the incumbent-platform thesis. Classified it as high-confidence `announcement` evidence: the release describes planned agent-capable workflows and broader existing VA platform activity, but does not establish live agent use, autonomous-resolution outcomes, controls in operation, or agent-specific economics.
+
+## [2026-07-26] automation | Collector recovered; Visa-LianLian payment added
+
+Ran the repaired collector with public-network access: all 17 feeds completed successfully and appended 62 candidates. Reviewed the new queue by graph score, signals, source quality, workflow detail, and existing graph links. Promoted one material finding: independent coverage reports that LianLian's LoopXPay completed a live B2B procurement and payment with Visa, including supplier comparison, ordering, predefined spending controls, approval parameters, and payment. Added LianLian and linked the reported medium-confidence production event to Agentic Payments, Agent Trust and Governance, Visa, and the payments thesis. The event remains explicitly unscaled and awaits a primary release, repeat volume, merchant breadth, value, dispute, approval, and recovery evidence. Other high-ranked leads were duplicate coverage of the already-logged OpenAI/Hugging Face incident, generic announcements, secondary financial narratives, or lacked a material observable state change.

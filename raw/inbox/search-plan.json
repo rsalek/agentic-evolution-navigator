@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-25T06:56:06+00:00",
+  "generated_at": "2026-07-26T17:22:17+00:00",
   "graph": {
-    "nodes": 88,
-    "edges": 406
+    "nodes": 98,
+    "edges": 473
   },
   "query_count": 12,
   "queries": [
@@ -15,7 +15,7 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 12,
+        "supporting_edges": 14,
         "challenging_edges": 1,
         "research_goals": [
           "counterevidence",
@@ -57,6 +57,39 @@
           "counterevidence",
           "alternative_explanation",
           "failure_or_restriction"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-google-atlas-v1-2026-07-23",
+      "label": "Graph gap: Google publishes ATLAS v1 (announcement -> evidence)",
+      "query": "(\"Google\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR correction OR outcomes OR volume)",
+      "target_ids": [
+        "event-google-atlas-v1-2026-07-23"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "How do the results change when workplace, enterprise, and agentic product surfaces are included",
+          "What absolute work-task volume, repeated use, accepted outcomes, and human-correction measures sit behind the occupational shares",
+          "Can provider telemetry and worker surveys be reconciled under a common task taxonomy and denominator"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "correction",
+          "outcomes",
+          "volume"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
         ]
       }
     },
@@ -156,6 +189,39 @@
       }
     },
     {
+      "id": "graph-stage-va-salesforce-missionforce-agreement-2026-07-24",
+      "label": "Graph gap: VA awards Salesforce Missionforce agreement (announcement -> evidence)",
+      "query": "(\"Salesforce\" OR \"US Department of Veterans Affairs\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR approval OR correction)",
+      "target_ids": [
+        "event-va-salesforce-missionforce-agreement-2026-07-24"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "Which Agentforce or Missionforce workflows are live, and which remain planned or employee-assistive",
+          "What share of triage, routing, benefits verification, scheduling, and care-coordination work completes autonomously, with what escalation, correction, and reversal rates",
+          "What portion of the $1.6 billion ceiling is exercised and attributable to AI agents, controls, data integration, collaboration, or pre-existing software",
+          "How do FedRAMP, HIPAA, permissions, audit, and human-approval boundaries operate in the deployed workflows"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "approval",
+          "correction"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
+        ]
+      }
+    },
+    {
       "id": "graph-challenge-agent-traffic-addressable-market",
       "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
       "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
@@ -223,19 +289,19 @@
       }
     },
     {
-      "id": "graph-stage-natwest-cora-production-2026-02-13",
-      "label": "Graph gap: NatWest reports higher autonomous Cora resolution (production -> evidence)",
-      "query": "(\"NatWest Group\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers OR correction OR cost)",
+      "id": "graph-stage-microsoft-active-agent-growth-2026-05-05",
+      "label": "Graph gap: Microsoft reports 15x active-agent growth (production -> evidence)",
+      "query": "(\"Microsoft\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers OR active OR correction OR growth)",
       "target_ids": [
-        "event-natwest-cora-production-2026-02-13"
+        "event-microsoft-active-agent-growth-2026-05-05"
       ],
       "reason": {
         "kind": "maturity-and-metric-gap",
         "current_stage": "production",
         "open_questions": [
-          "What absolute query volume and query mix underlie the 20-percentage-point improvement",
-          "How much of the improvement comes from the GenAI system rather than journey redesign or routing",
-          "What are correction, escalation, customer-outcome, control, and unit-cost measures"
+          "What are the absolute numbers of active agents, autonomous runs, users, and firms",
+          "How many agents remain active across repeated 28-day periods",
+          "What task, outcome, correction, control, and economic measures accompany the growth"
         ],
         "desired_signals": [
           "scaled",
@@ -243,79 +309,15 @@
           "transactions",
           "revenue",
           "customers",
+          "active",
           "correction",
-          "cost"
+          "growth"
         ],
         "research_goals": [
           "task_volume",
           "economic_effect",
           "quality_metric",
           "human_handoff"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-r1-agentic-revenue-cycle-pilot-2026-05-18",
-      "label": "Graph gap: R1 pilots agentic revenue-cycle calls (pilot -> evidence)",
-      "query": "(\"R1 RCM\" OR \"Sierra AI\") \"AI agent\" (production OR rollout OR usage OR volume OR customer OR approval OR correction)",
-      "target_ids": [
-        "event-r1-agentic-revenue-cycle-pilot-2026-05-18"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "pilot",
-        "open_questions": [
-          "How many calls now complete autonomously, including payment or plan setup",
-          "What are the human-escalation, correction, reversal, privacy-incident, and patient-outcome rates",
-          "Which actions require approval and how are agent identities and permissions audited across connected systems"
-        ],
-        "desired_signals": [
-          "production",
-          "rollout",
-          "usage",
-          "volume",
-          "customer",
-          "approval",
-          "correction"
-        ],
-        "research_goals": [
-          "live_environment",
-          "task_volume",
-          "outcome_metric",
-          "control_boundary"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-c-spire-agent-email-triage-2026-06-03",
-      "label": "Graph gap: C Spire scales agent email triage (scaled -> evidence)",
-      "query": "(\"C Spire\" OR \"ServiceNow\") \"AI agent\" (growth OR revenue OR retention OR margin OR regulation OR approval OR correction OR error)",
-      "target_ids": [
-        "event-c-spire-agent-email-triage-2026-06-03"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "scaled",
-        "open_questions": [
-          "What share of cases is fully resolved rather than classified or routed",
-          "What are the error, correction, escalation, and later-rework rates",
-          "How were permissions, incident thresholds, and human approval rules configured"
-        ],
-        "desired_signals": [
-          "growth",
-          "revenue",
-          "retention",
-          "margin",
-          "regulation",
-          "approval",
-          "correction",
-          "error"
-        ],
-        "research_goals": [
-          "multi_period_evidence",
-          "unit_economics",
-          "failure_rate",
-          "counterevidence"
         ]
       }
     }

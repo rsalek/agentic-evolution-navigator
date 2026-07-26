@@ -4,7 +4,7 @@ type: concept
 title: System-of-Record Distribution
 status: active
 confidence: medium
-updated: 2026-07-22
+updated: 2026-07-26
 ---
 
 # System-of-Record Distribution
@@ -23,6 +23,7 @@ Adoption through incumbent platforms that already control enterprise data, permi
 - Five9 connects healthcare expansion to Epic integration, and its first-party Epic Toolbox release corroborates native workflow integration; the academic health-system customer remains unnamed.
 - ServiceNow's C Spire and Rossmann stories add named scaled workflows with agent-attributed routing, time, closure, accuracy, and labour metrics inside established service operations.
 - R1's pilot connects the Sierra agent layer across electronic medical records, scheduling systems, and account databases; Singtel similarly distributes Shirley through an existing customer-service channel.
+- VA's awarded Salesforce agreement is a large public-sector procurement signal for agent-capable workflows inside existing data, scheduling, contact-centre, and collaboration systems. The release does not show which agents are live or isolate AI-specific spend.
 - The remaining gap is action-level evidence showing which system writes are autonomous, which are deterministic, which require approval, and how permission failures are handled.
 
 ## Relations

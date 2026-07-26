@@ -36,6 +36,8 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 
 ## Recent event chain
 
+- [[wiki/events/2026-07-24 Visa and LianLian complete B2B agentic payment]]
+- [[wiki/events/2026-07-24 VA awards Salesforce Missionforce agreement]]
 - [[wiki/events/2026-07-23 Google publishes ATLAS v1]]
 - [[wiki/events/2026-05-06 OpenAI reports 16x Codex usage gap]]
 - [[wiki/events/2026-05-05 Microsoft reports 15x active-agent growth]]

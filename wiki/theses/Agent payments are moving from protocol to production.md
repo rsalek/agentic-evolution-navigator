@@ -4,7 +4,7 @@ type: thesis
 title: Agent payments are moving from protocol to production
 status: active
 confidence: medium
-updated: 2026-07-22
+updated: 2026-07-26
 review_after: 2026-08-31
 ---
 
@@ -16,6 +16,7 @@ Open standards and institutional backing are being joined by early live transact
 
 - [[wiki/events/2026-07-22 x402 reports 75 million monthly transactions]] adds 75.41 million transactions and USD 24.24 million of 30-day protocol volume.
 - [[wiki/events/2026-07-02 BBVA and Visa complete agent-initiated payment]] is direct production evidence.
+- [[wiki/events/2026-07-24 Visa and LianLian complete B2B agentic payment]] adds a reported live, multi-step procurement-to-payment workflow, but needs a primary release and repeat-use evidence.
 - [[wiki/events/2026-07-17 x402 Foundation expands institutional backing]] broadens the protocol ecosystem.
 - [[wiki/events/2025-10-30 Mastercard completes first Agent Pay transaction]] adds a named live network transaction with issuer and merchant participation.
 - [[wiki/events/2026-03-10 Mastercard enables tokenized agent transactions]] adds broad card enablement and delegated-authorization controls, while leaving agent volume unquantified.
@@ -24,6 +25,7 @@ Open standards and institutional backing are being joined by early live transact
 
 - x402's counters do not disclose what share is agent-initiated, how many active agents or merchants participate, how concentrated the activity is, or whether an independent dataset reproduces the figures.
 - No event yet demonstrates scaled, repeated agent-payment activity with independently verified agent attribution and economics.
+- The LianLian account describes a single first transaction via secondary coverage, so it cannot establish continued production operation or the stated control boundary's effectiveness.
 
 ## What would change the thesis
 
