@@ -8,7 +8,7 @@ confidence: high
 stage: announcement
 industry: healthcare
 layer: enterprise-workflow
-updated: 2026-07-26
+updated: 2026-07-28
 ---
 
 # VA awards Salesforce Missionforce agreement
@@ -20,6 +20,18 @@ The announced target workflows are virtual-contact-centre support, patient triag
 ## Why it matters
 
 This is a large, named public-sector procurement signal for agent-capable workflow infrastructure inside a highly regulated service system. It strengthens the distribution thesis through incumbent data, permissions, workflows, and budget ownership, while remaining announcement-stage evidence for Agentforce/Missionforce deployment and economics.
+
+## Commercial evidence gate
+
+This qualifies as a monetization green shoot for contracted revenue, not recognized revenue or scaled agent economics.
+
+- Payer: US Department of Veterans Affairs.
+- Toll-gate mechanism: a three-year maximum Agentic Enterprise License Agreement for Missionforce and related Salesforce capabilities, with one year plus two optional one-year renewals.
+- Revenue bridge: Salesforce states a $1.6 billion total contract ceiling awarded through its distribution network; the exercised amount and revenue-recognition schedule are not disclosed.
+- Measured period: the maximum contract term is three years; no usage period or renewal period has yet been observed.
+- Repeatability: renewal options exist, but no renewal, deployment-volume, or recurring agent-usage evidence is public.
+- Attribution quality: medium-low because the agreement explicitly covers agentic capabilities but also bundles data integration, collaboration, and broader platform infrastructure.
+- Still unproven: exercised value, agent-attributed share, live workflow volume, autonomous completion, margin, retention, and customer outcomes.
 
 ## Evidence
 

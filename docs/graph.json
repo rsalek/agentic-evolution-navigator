@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-26",
-  "nodeCount": 100,
-  "edgeCount": 482,
+  "generatedAt": "2026-07-28",
+  "nodeCount": 110,
+  "edgeCount": 517,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -29,7 +29,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-26"
+        "updated": "2026-07-28"
       },
       "evidence": []
     },
@@ -81,7 +81,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-23"
+        "updated": "2026-07-28"
       },
       "evidence": []
     },
@@ -107,7 +107,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-25"
+        "updated": "2026-07-28"
       },
       "evidence": []
     },
@@ -133,7 +133,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-25"
+        "updated": "2026-07-28"
       },
       "evidence": []
     },
@@ -159,7 +159,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-26"
+        "updated": "2026-07-28"
       },
       "evidence": []
     },
@@ -320,6 +320,19 @@
       "evidence": []
     },
     {
+      "id": "entity-fortinet",
+      "title": "Fortinet",
+      "type": "entity",
+      "path": "wiki/entities/Fortinet.md",
+      "summary": "A cybersecurity provider combining FortiGate network enforcement with cloud-delivered FortiSASE and FortiAI security services for hybrid and AI-driven environments.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-07-28"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-french-competition-authority",
       "title": "French Competition Authority",
       "type": "entity",
@@ -463,6 +476,19 @@
       "evidence": []
     },
     {
+      "id": "entity-nvidia",
+      "title": "NVIDIA",
+      "type": "entity",
+      "path": "wiki/entities/NVIDIA.md",
+      "summary": "An accelerated-computing and AI platform company contributing open models, agent-harness research, and security tooling to the Open Secure AI Alliance.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-28"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-openai",
       "title": "OpenAI",
       "type": "entity",
@@ -541,6 +567,19 @@
       "evidence": []
     },
     {
+      "id": "entity-schwarz-digits",
+      "title": "Schwarz Digits",
+      "type": "entity",
+      "path": "wiki/entities/Schwarz Digits.md",
+      "summary": "The IT and digital division of Schwarz Group operating the STACKIT sovereign cloud infrastructure used in the Zscaler European security partnership.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-28"
+      },
+      "evidence": []
+    },
+    {
       "id": "entity-servicenow",
       "title": "ServiceNow",
       "type": "entity",
@@ -576,6 +615,19 @@
         "status": "active",
         "confidence": "high",
         "updated": "2026-07-22"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-snowflake",
+      "title": "Snowflake",
+      "type": "entity",
+      "path": "wiki/entities/Snowflake.md",
+      "summary": "An AI Data Cloud provider positioning Cortex AI Gateway as a control plane for governed first-party and third-party agents.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-28"
       },
       "evidence": []
     },
@@ -667,6 +719,19 @@
         "status": "active",
         "confidence": "medium",
         "updated": "2026-07-20"
+      },
+      "evidence": []
+    },
+    {
+      "id": "entity-zscaler",
+      "title": "Zscaler",
+      "type": "entity",
+      "path": "wiki/entities/Zscaler.md",
+      "summary": "A zero-trust security platform provider extending its SASE control plane through sovereign-cloud infrastructure and identity verification.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-07-28"
       },
       "evidence": []
     },
@@ -895,6 +960,28 @@
       ]
     },
     {
+      "id": "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
+      "title": "Fortinet expands FortiGate and FortiSASE for AI-driven traffic",
+      "type": "event",
+      "path": "wiki/events/2026-07-28 Fortinet expands FortiGate and FortiSASE for AI-driven traffic.md",
+      "summary": "Fortinet announced the FortiGate 1200G series with FortiSASE Outpost, combining local network enforcement with cloud-delivered SASE services under shared FortiOS policy, threat intelligence, security context, monitoring, and zero-trust decisions. The company positions the product for hybrid environments, AI infrastructure, encrypted traffic, sovereignty, and compliance requirements. It says agents, applications, and connected devices are generating growing east-west traffic that can be inspected locally to reduce latency and keep sensitive processing within defined boundaries.",
+      "metadata": {
+        "date": "2026-07-28",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "announcement",
+        "industry": "cybersecurity",
+        "layer": "trust-and-security",
+        "updated": "2026-07-28"
+      },
+      "evidence": [
+        {
+          "label": "Fortinet release capture",
+          "url": "https://web.quartr.com/"
+        }
+      ]
+    },
+    {
       "id": "event-french-competition-agent-opinion-2026-07-17",
       "title": "French competition authority issues AI-agent opinion",
       "type": "event",
@@ -1079,6 +1166,28 @@
       ]
     },
     {
+      "id": "event-microsoft-service-agent-throughput-savings-2025-09-10",
+      "title": "Microsoft reports service-agent throughput and AI-deflection savings",
+      "type": "event",
+      "path": "wiki/events/2025-09-10 Microsoft reports service-agent throughput and AI-deflection savings.md",
+      "summary": "In a Goldman Sachs Communicopia + Technology Conference transcript, Microsoft Chief Marketing Officer Jared Spataro said Microsoft had improved the throughput of its customer-service agents by about 12%. He also described a redesigned support process that uses AI to deflect requests before they reach a human agent and said roughly half of the savings Microsoft had realized came from that deflection work.",
+      "metadata": {
+        "date": "2025-09-10",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "enterprise-software",
+        "layer": "service-operations",
+        "updated": "2026-07-28"
+      },
+      "evidence": [
+        {
+          "label": "Goldman Sachs Communicopia + Technology Conference 2025 transcript",
+          "url": "https://web.quartr.com/"
+        }
+      ]
+    },
+    {
       "id": "event-moneyhero-service-resolution-scaled-2026-04-30",
       "title": "MoneyHero measures autonomous service resolution",
       "type": "event",
@@ -1119,6 +1228,28 @@
         {
           "label": "NatWest Group 2025 annual report",
           "url": "https://web.quartr.com/companies/11022?documentId=2861181&documentType=%5B%22report%22%5D&eventId=392474&companyId=11022&rp=431"
+        }
+      ]
+    },
+    {
+      "id": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "title": "NVIDIA launches Open Secure AI Alliance",
+      "type": "event",
+      "path": "wiki/events/2026-07-27 NVIDIA launches Open Secure AI Alliance.md",
+      "summary": "NVIDIA announced the Open Secure AI Alliance with a broad group of technology, cybersecurity, cloud, enterprise-software, open-source, and AI-research participants. The stated goal is to build and share open tools for responsible AI use and agent security. The announcement describes contributions across identity, isolation, model scanning, secure coding, logs, evaluation, agent harnesses, and defensive AI operations.",
+      "metadata": {
+        "date": "2026-07-27",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "cybersecurity",
+        "layer": "trust-and-security",
+        "updated": "2026-07-28"
+      },
+      "evidence": [
+        {
+          "label": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
+          "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/"
         }
       ]
     },
@@ -1307,6 +1438,28 @@
       ]
     },
     {
+      "id": "event-snowflake-cortex-ai-gateway-2026-07-28",
+      "title": "Snowflake introduces Cortex AI Gateway for trusted agent interoperability",
+      "type": "event",
+      "path": "wiki/events/2026-07-28 Snowflake introduces Cortex AI Gateway.md",
+      "summary": "Snowflake announced Cortex AI Gateway and related AI-security capabilities as a foundation for trusted agent interoperability. The company positions the gateway as a connective layer for first-party agents such as Snowflake CoWork and CoCo and third-party agents such as Claude Code and Cursor. It is intended to govern how agents access models, tools, MCP servers, and enterprise systems, route requests, and provide centralized visibility and control over AI-consumption costs.",
+      "metadata": {
+        "date": "2026-07-28",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "enterprise-software",
+        "layer": "trust-and-security",
+        "updated": "2026-07-28"
+      },
+      "evidence": [
+        {
+          "label": "Snowflake Advances the Trusted Agentic Enterprise Era with Unified Monitoring and Cost Management",
+          "url": "https://www.snowflake.com/en/news/press-releases/snowflake-advances-the-trusted-agentic-enterprise-era-with-unified-monitoring-and-cost-management/"
+        }
+      ]
+    },
+    {
       "id": "event-successkpi-webex-wem-2026-07-15",
       "title": "SuccessKPI brings WEM to Webex Contact Center",
       "type": "event",
@@ -1407,7 +1560,7 @@
         "stage": "announcement",
         "industry": "healthcare",
         "layer": "enterprise-workflow",
-        "updated": "2026-07-26"
+        "updated": "2026-07-28"
       },
       "evidence": [
         {
@@ -1479,6 +1632,28 @@
         {
           "label": "x402",
           "url": "https://x402.org/"
+        }
+      ]
+    },
+    {
+      "id": "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
+      "title": "Zscaler and Schwarz Digits launch sovereign cloud security platform",
+      "type": "event",
+      "path": "wiki/events/2026-07-28 Zscaler and Schwarz Digits launch sovereign cloud security platform.md",
+      "summary": "Zscaler and Schwarz Digits announced a partnership operating the Zscaler Zero Trust Exchange on Schwarz Digits' STACKIT cloud infrastructure in Germany. The joint sovereign Zero Trust SASE offering is described as available to customers across Europe, hosted in German data centres, and operated by STACKIT. It is aimed especially at public administration, defence, financial services, and healthcare, with identity verification, EU data residency, deployment, management, operation, and support included in the offering.",
+      "metadata": {
+        "date": "2026-07-28",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "cybersecurity",
+        "layer": "trust-and-security",
+        "updated": "2026-07-28"
+      },
+      "evidence": [
+        {
+          "label": "Zscaler and Schwarz Digits Partner to Deliver Sovereign Cloud Security Platform for Europe",
+          "url": "https://www.zscaler.com/press/zscaler-and-schwarz-digits-partner-deliver-sovereign-cloud-security-platform-europe"
         }
       ]
     },
@@ -1665,7 +1840,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-22",
+        "updated": "2026-07-28",
         "review_after": "2026-09-30"
       },
       "evidence": []
@@ -1691,6 +1866,26 @@
       "source": "concept-agent-trust-governance",
       "target": "entity-french-competition-authority",
       "type": "constrained-by"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-snowflake-cortex-ai-gateway-2026-07-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
+      "type": "references"
     },
     {
       "source": "concept-agentic-cyber-operations",
@@ -1751,6 +1946,11 @@
       "source": "concept-agentic-service-operations",
       "target": "concept-system-of-record-distribution",
       "type": "depends-on"
+    },
+    {
+      "source": "concept-agentic-service-operations",
+      "target": "event-microsoft-service-agent-throughput-savings-2025-09-10",
+      "type": "references"
     },
     {
       "source": "concept-agentic-software-engineering",
@@ -1821,6 +2021,11 @@
       "source": "concept-production-agent-economics",
       "target": "concept-verified-agent-traffic",
       "type": "measured-by"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-microsoft-service-agent-throughput-savings-2025-09-10",
+      "type": "references"
     },
     {
       "source": "concept-protocol-standardization",
@@ -1968,6 +2173,11 @@
       "type": "enables"
     },
     {
+      "source": "entity-fortinet",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
       "source": "entity-french-competition-authority",
       "target": "concept-agent-trust-governance",
       "type": "applies-to"
@@ -2068,6 +2278,16 @@
       "type": "partners-with"
     },
     {
+      "source": "entity-nvidia",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-nvidia",
+      "target": "concept-agentic-cyber-operations",
+      "type": "enables"
+    },
+    {
       "source": "entity-openai",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -2138,6 +2358,16 @@
       "type": "enables"
     },
     {
+      "source": "entity-schwarz-digits",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-schwarz-digits",
+      "target": "entity-zscaler",
+      "type": "partners-with"
+    },
+    {
       "source": "entity-servicenow",
       "target": "concept-agentic-marketing-automation",
       "type": "enables"
@@ -2176,6 +2406,16 @@
       "source": "entity-singtel",
       "target": "entity-sierra-ai",
       "type": "partners-with"
+    },
+    {
+      "source": "entity-snowflake",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-snowflake",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
     },
     {
       "source": "entity-stripe",
@@ -2241,6 +2481,16 @@
       "source": "entity-x402-foundation",
       "target": "concept-protocol-standardization",
       "type": "enables"
+    },
+    {
+      "source": "entity-zscaler",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-zscaler",
+      "target": "entity-schwarz-digits",
+      "type": "partners-with"
     },
     {
       "source": "event-aws-legitimate-agent-traffic-2026-07-14",
@@ -2498,6 +2748,16 @@
       "type": "supports"
     },
     {
+      "source": "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
+      "target": "entity-fortinet",
+      "type": "announced-by"
+    },
+    {
       "source": "event-french-competition-agent-opinion-2026-07-17",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -2703,6 +2963,26 @@
       "type": "supports"
     },
     {
+      "source": "event-microsoft-service-agent-throughput-savings-2025-09-10",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-microsoft-service-agent-throughput-savings-2025-09-10",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-microsoft-service-agent-throughput-savings-2025-09-10",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-microsoft-service-agent-throughput-savings-2025-09-10",
+      "target": "entity-microsoft",
+      "type": "announced-by"
+    },
+    {
       "source": "event-moneyhero-service-resolution-scaled-2026-04-30",
       "target": "concept-agentic-service-operations",
       "type": "demonstrates"
@@ -2751,6 +3031,46 @@
       "source": "event-natwest-cora-production-2026-02-13",
       "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
+    },
+    {
+      "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "target": "concept-agentic-cyber-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "target": "entity-cloudflare",
+      "type": "involves"
+    },
+    {
+      "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "target": "entity-hugging-face",
+      "type": "involves"
+    },
+    {
+      "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "target": "entity-microsoft",
+      "type": "involves"
+    },
+    {
+      "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "target": "entity-nvidia",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "target": "entity-salesforce",
+      "type": "involves"
+    },
+    {
+      "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
+      "target": "event-openai-attributes-hugging-face-breach-2026-07-21",
+      "type": "updates"
     },
     {
       "source": "event-openai-attributes-hugging-face-breach-2026-07-21",
@@ -2993,6 +3313,21 @@
       "type": "supports"
     },
     {
+      "source": "event-snowflake-cortex-ai-gateway-2026-07-28",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-snowflake-cortex-ai-gateway-2026-07-28",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-snowflake-cortex-ai-gateway-2026-07-28",
+      "target": "entity-snowflake",
+      "type": "announced-by"
+    },
+    {
       "source": "event-successkpi-webex-wem-2026-07-15",
       "target": "concept-human-ai-workforce-coordination",
       "type": "demonstrates"
@@ -3211,6 +3546,21 @@
       "source": "event-x402-monthly-activity-2026-07-22",
       "target": "thesis-agent-payments-protocol-to-production",
       "type": "supports"
+    },
+    {
+      "source": "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
+      "target": "entity-schwarz-digits",
+      "type": "involves"
+    },
+    {
+      "source": "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
+      "target": "entity-zscaler",
+      "type": "announced-by"
     },
     {
       "source": "index-home",

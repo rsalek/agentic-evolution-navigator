@@ -4,7 +4,7 @@ type: concept
 title: Human-AI Workforce Coordination
 status: active
 confidence: medium
-updated: 2026-07-25
+updated: 2026-07-28
 ---
 
 # Human-AI Workforce Coordination
@@ -27,6 +27,7 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 - Delivery Hero's Herogen shifts implementation work toward objective-setting and review, but the public disclosure omits review effort, failed-deployment, and rollback rates.
 - Hugging Face reports AI-assisted detection and analysis over more than 17,000 incident events, compressing forensic reconstruction from days to hours while human responders contained and remediated the breach.
 - Google ATLAS suggests collaboration dominates on the observed mainstream work surfaces, while OpenAI and Microsoft report much deeper agent use at the enterprise frontier. The different measurement surfaces prevent a direct automation-rate comparison.
+- Microsoft's service-operations transcript distinguishes two human-AI paths: increasing human-agent throughput by about 12% and deflecting selected requests before human handoff. It reports realized savings but no comparable escalation, correction, quality, or workforce-coverage denominator.
 - These examples support a bounded allocation pattern, but the public sources do not disclose comparable escalation, correction, rework, or supervisor-effort rates.
 
 ## Relations

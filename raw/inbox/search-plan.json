@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-26T17:22:17+00:00",
+  "generated_at": "2026-07-28T06:33:58+00:00",
   "graph": {
-    "nodes": 98,
-    "edges": 473
+    "nodes": 100,
+    "edges": 482
   },
   "query_count": 12,
   "queries": [
@@ -51,7 +51,7 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 6,
+        "supporting_edges": 7,
         "challenging_edges": 1,
         "research_goals": [
           "counterevidence",

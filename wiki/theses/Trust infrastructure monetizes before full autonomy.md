@@ -4,7 +4,7 @@ type: thesis
 title: Trust infrastructure monetizes before full autonomy
 status: active
 confidence: medium
-updated: 2026-07-22
+updated: 2026-07-28
 review_after: 2026-09-30
 ---
 
@@ -26,6 +26,8 @@ Identity, traffic classification, policy, observability, security, and regulator
 - The seed graph does not yet contain audited revenue or retention evidence for agent-trust products.
 - [[wiki/queries/AI agent operational deployments|AI agent operational deployments]] adds strong control and adoption evidence from Cloudflare, Mastercard, and Talkspace but no revenue, retention, or pricing disclosure tied to those controls.
 - Railway's remediation strengthens the need for controls but not the monetization claim; the protections were bundled into the platform, which may challenge an independent trust-infrastructure tollbooth.
+- NVIDIA's Open Secure AI Alliance points toward an open, shared defense stack for agent identity, isolation, scanning, and evaluation; it is an early counter-pressure against scarcity-based trust tollbooths, not yet evidence of commoditized controls or lost revenue.
+- Snowflake's Cortex AI Gateway announcement adds a credible enterprise control-plane candidate but discloses no pricing, paid deployment, agent-specific revenue, usage, or retention; it remains readiness evidence rather than support for the monetization thesis.
 
 ## What would change the thesis
 
