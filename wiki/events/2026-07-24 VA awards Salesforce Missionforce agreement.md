@@ -8,6 +8,8 @@ confidence: high
 stage: announcement
 industry: healthcare
 layer: enterprise-workflow
+commercial_proof: emerging
+commercial_signals: contracted-revenue
 updated: 2026-07-28
 ---
 

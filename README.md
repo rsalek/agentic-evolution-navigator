@@ -4,7 +4,7 @@ An Obsidian-compatible, GitHub-ready research navigator for tracking how AI agen
 
 Hosted explorer: [rsalek.github.io/agentic-evolution-navigator](https://rsalek.github.io/agentic-evolution-navigator/)
 
-Markdown is the canonical knowledge graph. Obsidian provides local editing and its native graph view. `scripts/graph.py` compiles the same notes into `docs/graph.json` for a static GitHub Pages explorer.
+Markdown is the canonical knowledge graph. Obsidian provides local editing and its native graph view. `scripts/graph.py` compiles the same notes into `docs/graph.json` and `docs/graph-data.js` for a static GitHub Pages explorer that also opens directly from `file://` URLs in Safari.
 
 ## Start here
 
@@ -43,11 +43,13 @@ python3 -m http.server 8000 --directory docs
 
 Then open `http://127.0.0.1:8000`.
 
+You can also open `docs/index.html` directly in Safari after running the graph build. The generated `graph-data.js` avoids Safari's restriction on fetching a neighbouring JSON file from a `file://` page.
+
 ## Publishing
 
 The repository can be hosted on GitHub and deployed through the included GitHub Pages workflow. A public repository makes all committed notes and source metadata public. Keep private or licensed source material under `raw/private/`, which is ignored by Git.
 
-GitHub stores and versions the Obsidian vault; GitHub Pages serves the generated browser interface. Obsidian's own Graph View remains a local desktop feature, while `docs/` provides its public counterpart with filters, evidence details, a timeline, multi-hop path tracing, and switchable Overview, Focus, Clusters, and Layers views.
+GitHub stores and versions the Obsidian vault; GitHub Pages serves the generated browser interface. Obsidian's own Graph View remains a local desktop feature, while `docs/` provides its public counterpart with an Idea Map, Themes, Explore connections, Evidence Flow, filters, evidence details, a contextual timeline, and multi-hop path tracing.
 
 After creating a GitHub repository, push the `main` branch and select **GitHub Actions** as the Pages source in the repository settings. The included workflow rebuilds and validates the graph before every deployment.
 

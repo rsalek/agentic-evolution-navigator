@@ -42,6 +42,52 @@ ALLOWED_RELATIONS = {
     "references",
 }
 
+THEME_RELATION_WEIGHTS = {
+    "demonstrates": 6.0,
+    "applies-to": 6.0,
+    "supports": 6.0,
+    "challenges": 6.0,
+    "monetizes": 6.0,
+    "measured-by": 6.0,
+    "enables": 4.0,
+    "depends-on": 4.0,
+    "constrained-by": 4.0,
+    "updates": 3.0,
+    "precedes": 3.0,
+    "competes-with": 2.0,
+    "involves": 2.0,
+    "announced-by": 2.0,
+    "partners-with": 2.0,
+}
+THEME_SEMANTIC_RELATIONS = {
+    "demonstrates",
+    "applies-to",
+    "supports",
+    "challenges",
+    "monetizes",
+    "measured-by",
+}
+COMMERCIAL_PROOF_VALUES = {"unproven", "emerging", "measured"}
+COMMERCIAL_PROOF_ORDER = {"unproven": 0, "emerging": 1, "measured": 2}
+COMMERCIAL_SIGNAL_VALUES = {
+    "paying-customers",
+    "customer-growth",
+    "market-share",
+    "agent-revenue",
+    "contracted-revenue",
+    "arr-acv-backlog",
+    "pricing-attach-renewal",
+    "take-rate-fees",
+    "repeat-transactions",
+    "paid-identity-security-monitoring",
+    "unit-economics",
+    "margin",
+    "retention",
+    "demand",
+}
+STAGE_ORDER = {"announcement": 0, "pilot": 1, "production": 2, "scaled": 3}
+CONFIDENCE_ORDER = {"low": 0, "medium": 1, "high": 2}
+
 
 @dataclass
 class Note:
@@ -155,6 +201,362 @@ def resolve_target(target: str, lookup: dict[str, str]) -> str | None:
     return None
 
 
+def load_theme_taxonomy(root: Path) -> tuple[dict, list[str]]:
+    path = root / "config" / "theme-taxonomy.json"
+    if not path.exists():
+        return {"version": 1, "themes": [], "overrides": {}}, [f"{path.relative_to(root)}: missing"]
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        return {"version": 1, "themes": [], "overrides": {}}, [
+            f"{path.relative_to(root)}: invalid JSON: {error}"
+        ]
+    return payload, []
+
+
+def theme_adjacency(nodes: list[dict], edges: list[dict]) -> dict[str, list[tuple[str, str]]]:
+    adjacency: dict[str, list[tuple[str, str]]] = {node["id"]: [] for node in nodes}
+    for edge in edges:
+        if edge["type"] == "references" or edge["type"] not in THEME_RELATION_WEIGHTS:
+            continue
+        if edge["source"] not in adjacency or edge["target"] not in adjacency:
+            continue
+        adjacency[edge["source"]].append((edge["target"], edge["type"]))
+        adjacency[edge["target"]].append((edge["source"], edge["type"]))
+    return adjacency
+
+
+def nearest_seed_theme(
+    start: str,
+    adjacency: dict[str, list[tuple[str, str]]],
+    seed_themes: dict[str, str],
+    theme_order: dict[str, int],
+) -> tuple[str | None, int]:
+    seen = {start}
+    frontier = [start]
+    for depth in range(1, 6):
+        next_frontier: set[str] = set()
+        matches: list[tuple[int, str]] = []
+        for current in sorted(frontier):
+            for neighbor, _ in sorted(adjacency.get(current, [])):
+                if neighbor in seen:
+                    continue
+                next_frontier.add(neighbor)
+                if neighbor in seed_themes:
+                    theme_id = seed_themes[neighbor]
+                    matches.append((theme_order[theme_id], theme_id))
+        seen.update(next_frontier)
+        if matches:
+            _, best_theme = min(matches)
+            return best_theme, depth
+        frontier = sorted(next_frontier)
+        if not frontier:
+            break
+    return None, 0
+
+
+def assign_themes(
+    graph_nodes: list[dict],
+    graph_edges: list[dict],
+    taxonomy: dict,
+) -> tuple[list[dict], list[str], list[str]]:
+    errors: list[str] = []
+    warnings: list[str] = []
+    nodes_by_id = {node["id"]: node for node in graph_nodes}
+    raw_themes = taxonomy.get("themes")
+    if not isinstance(raw_themes, list) or not raw_themes:
+        return [], ["config/theme-taxonomy.json: themes must be a non-empty list"], warnings
+
+    themes: list[dict] = []
+    theme_ids: set[str] = set()
+    seed_themes: dict[str, str] = {}
+    for index, raw_theme in enumerate(raw_themes):
+        if not isinstance(raw_theme, dict):
+            errors.append(f"config/theme-taxonomy.json: theme {index + 1} must be an object")
+            continue
+        theme_id = raw_theme.get("id")
+        title = raw_theme.get("title")
+        definition = raw_theme.get("definition")
+        seeds = raw_theme.get("seeds", [])
+        position = raw_theme.get("position", {})
+        if not theme_id or not title or not definition:
+            errors.append(f"config/theme-taxonomy.json: theme {index + 1} missing id, title, or definition")
+            continue
+        if theme_id in theme_ids:
+            errors.append(f"config/theme-taxonomy.json: duplicate theme id {theme_id}")
+            continue
+        if not isinstance(seeds, list) or not seeds:
+            errors.append(f"config/theme-taxonomy.json: theme {theme_id} must define seeds")
+        if (
+            not isinstance(position, dict)
+            or not isinstance(position.get("x"), (int, float))
+            or not isinstance(position.get("y"), (int, float))
+        ):
+            errors.append(f"config/theme-taxonomy.json: theme {theme_id} has invalid position")
+        theme_ids.add(theme_id)
+        themes.append(
+            {
+                "id": theme_id,
+                "title": title,
+                "shortTitle": raw_theme.get("shortTitle", title),
+                "definition": definition,
+                "position": position,
+                "seeds": seeds,
+                "keywords": raw_theme.get("keywords", []),
+                "order": index,
+            }
+        )
+        for seed in seeds:
+            if seed not in nodes_by_id:
+                errors.append(f"config/theme-taxonomy.json: unknown seed node {seed}")
+                continue
+            if seed in seed_themes:
+                errors.append(f"config/theme-taxonomy.json: seed {seed} belongs to multiple themes")
+                continue
+            seed_themes[seed] = theme_id
+
+    theme_order = {theme["id"]: theme["order"] for theme in themes}
+    overrides = taxonomy.get("overrides", {})
+    if not isinstance(overrides, dict):
+        errors.append("config/theme-taxonomy.json: overrides must be an object")
+        overrides = {}
+    for node_id, theme_id in overrides.items():
+        if node_id not in nodes_by_id:
+            errors.append(f"config/theme-taxonomy.json: override references unknown node {node_id}")
+        if theme_id not in theme_ids:
+            errors.append(f"config/theme-taxonomy.json: override references unknown theme {theme_id}")
+
+    adjacency = theme_adjacency(graph_nodes, graph_edges)
+    seed_ids_by_theme = {
+        theme["id"]: set(theme["seeds"])
+        for theme in themes
+    }
+
+    for node in graph_nodes:
+        if node["type"] == "system":
+            continue
+        scores = {theme["id"]: 0.0 for theme in themes}
+        reasons: dict[str, list[dict]] = {theme["id"]: [] for theme in themes}
+        direct_semantic_themes: set[str] = set()
+
+        if node["id"] in seed_themes:
+            theme_id = seed_themes[node["id"]]
+            scores[theme_id] = 100.0
+            reasons[theme_id].append({"kind": "seed", "node": node["id"], "score": 100.0})
+
+        for neighbor, relation in adjacency.get(node["id"], []):
+            relation_weight = THEME_RELATION_WEIGHTS[relation]
+            for theme in themes:
+                if neighbor in seed_ids_by_theme[theme["id"]]:
+                    scores[theme["id"]] += relation_weight
+                    reasons[theme["id"]].append(
+                        {
+                            "kind": "relation",
+                            "node": neighbor,
+                            "relation": relation,
+                            "score": round(relation_weight, 3),
+                        }
+                    )
+                    if relation in THEME_SEMANTIC_RELATIONS:
+                        direct_semantic_themes.add(theme["id"])
+            for second_neighbor, second_relation in adjacency.get(neighbor, []):
+                if second_neighbor == node["id"]:
+                    continue
+                for theme in themes:
+                    if second_neighbor not in seed_ids_by_theme[theme["id"]]:
+                        continue
+                    second_score = min(
+                        relation_weight,
+                        THEME_RELATION_WEIGHTS[second_relation],
+                    ) * 0.35
+                    scores[theme["id"]] += second_score
+                    reasons[theme["id"]].append(
+                        {
+                            "kind": "two-hop",
+                            "node": second_neighbor,
+                            "via": neighbor,
+                            "relation": second_relation,
+                            "score": round(second_score, 3),
+                        }
+                    )
+
+        if max(scores.values(), default=0) == 0:
+            haystack = " ".join(
+                [
+                    node.get("title", ""),
+                    node.get("summary", ""),
+                    " ".join(node.get("metadata", {}).values()),
+                ]
+            ).casefold()
+            for theme in themes:
+                keyword_score = sum(
+                    1.0
+                    for keyword in theme.get("keywords", [])
+                    if str(keyword).casefold() in haystack
+                )
+                if keyword_score:
+                    scores[theme["id"]] = keyword_score
+                    reasons[theme["id"]].append(
+                        {"kind": "keyword-fallback", "score": keyword_score}
+                    )
+
+        if max(scores.values(), default=0) == 0:
+            nearest_theme, depth = nearest_seed_theme(
+                node["id"],
+                adjacency,
+                seed_themes,
+                theme_order,
+            )
+            if nearest_theme:
+                scores[nearest_theme] = max(0.1, 1 / depth)
+                reasons[nearest_theme].append(
+                    {"kind": "nearest-seed-fallback", "hops": depth, "score": round(1 / depth, 3)}
+                )
+
+        normalized_scores = {
+            theme_id: round(score, 6)
+            for theme_id, score in scores.items()
+        }
+        ordered_scores = sorted(
+            normalized_scores.items(),
+            key=lambda item: (-item[1], theme_order[item[0]]),
+        )
+        primary = overrides.get(node["id"])
+        if primary:
+            reasons[primary].insert(0, {"kind": "override", "score": 100.0})
+        elif ordered_scores and ordered_scores[0][1] > 0:
+            primary = ordered_scores[0][0]
+        else:
+            primary = None
+
+        if not primary:
+            warnings.append(f"{node['path']}: node has no semantic theme assignment")
+            node["theme"] = {"primary": None, "secondary": [], "basis": []}
+            continue
+
+        primary_score = normalized_scores.get(primary, 0.0)
+        if primary_score <= 0:
+            primary_score = ordered_scores[0][1] if ordered_scores else 1.0
+        secondary = [
+            theme_id
+            for theme_id, score in ordered_scores
+            if theme_id != primary
+            and score > 0
+            and score >= primary_score * 0.6
+            and theme_id in direct_semantic_themes
+        ][:2]
+        basis = sorted(
+            reasons.get(primary, []),
+            key=lambda item: (-float(item.get("score", 0)), str(item.get("node", ""))),
+        )[:3]
+        node["theme"] = {
+            "primary": primary,
+            "secondary": secondary,
+            "basis": basis,
+        }
+
+    for node in graph_nodes:
+        if node["type"] != "event":
+            continue
+        metadata = node.setdefault("metadata", {})
+        proof = metadata.get("commercial_proof", "unproven")
+        if proof not in COMMERCIAL_PROOF_VALUES:
+            errors.append(
+                f"{node['path']}: invalid commercial_proof {proof}; "
+                f"expected {', '.join(sorted(COMMERCIAL_PROOF_VALUES))}"
+            )
+            proof = "unproven"
+        metadata["commercial_proof"] = proof
+        raw_signals = metadata.get("commercial_signals", "")
+        signals = [signal.strip() for signal in raw_signals.split(",") if signal.strip()]
+        invalid_signals = sorted(set(signals) - COMMERCIAL_SIGNAL_VALUES)
+        if invalid_signals:
+            errors.append(
+                f"{node['path']}: invalid commercial_signals {', '.join(invalid_signals)}"
+            )
+        metadata["commercial_signals"] = ", ".join(signals)
+
+    nodes_by_theme: dict[str, list[dict]] = {
+        theme["id"]: [
+            node
+            for node in graph_nodes
+            if node.get("theme", {}).get("primary") == theme["id"]
+        ]
+        for theme in themes
+    }
+    for theme in themes:
+        members = nodes_by_theme[theme["id"]]
+        events = [node for node in members if node["type"] == "event"]
+        stage_counts = {
+            stage: sum(1 for node in events if node["metadata"].get("stage") == stage)
+            for stage in STAGE_ORDER
+        }
+        credible_events = [
+            node
+            for node in events
+            if node["metadata"].get("confidence") in {"medium", "high"}
+        ]
+        maturity = max(
+            (node["metadata"].get("stage", "announcement") for node in credible_events),
+            key=lambda stage: STAGE_ORDER.get(stage, -1),
+            default="announcement",
+        )
+        commercial_proof = max(
+            (node["metadata"].get("commercial_proof", "unproven") for node in events),
+            key=lambda proof: COMMERCIAL_PROOF_ORDER.get(proof, -1),
+            default="unproven",
+        )
+        latest_date = max(
+            (node["metadata"].get("date", "") for node in events),
+            default="",
+        )
+        anchor = next(
+            (
+                nodes_by_id[seed]
+                for seed in theme["seeds"]
+                if seed in nodes_by_id and nodes_by_id[seed]["type"] == "concept"
+            ),
+            None,
+        )
+        strongest_event = max(
+            events,
+            key=lambda node: (
+                COMMERCIAL_PROOF_ORDER.get(node["metadata"].get("commercial_proof", "unproven"), 0),
+                STAGE_ORDER.get(node["metadata"].get("stage", "announcement"), 0),
+                CONFIDENCE_ORDER.get(node["metadata"].get("confidence", "low"), 0),
+                node["metadata"].get("date", ""),
+                node["title"],
+            ),
+            default=None,
+        )
+        synthesis = next(
+            (
+                nodes_by_id[seed]
+                for seed in theme["seeds"]
+                if seed in nodes_by_id and nodes_by_id[seed]["type"] in {"thesis", "query"}
+            ),
+            None,
+        )
+        representative_ids: list[str] = []
+        for representative in (anchor, strongest_event, synthesis):
+            if representative and representative["id"] not in representative_ids:
+                representative_ids.append(representative["id"])
+        theme["summary"] = {
+            "memberCount": len(members),
+            "eventCount": len(events),
+            "stageCounts": stage_counts,
+            "evidenceMaturity": maturity,
+            "commercialProof": commercial_proof,
+            "latestEventDate": latest_date or None,
+            "anchorConceptId": anchor["id"] if anchor else None,
+            "strongestEventId": strongest_event["id"] if strongest_event else None,
+            "synthesisId": synthesis["id"] if synthesis else None,
+            "representativeNodeIds": representative_ids[:3],
+        }
+
+    return themes, errors, warnings
+
+
 def compile_graph(root: Path) -> tuple[dict, list[str], list[str]]:
     notes, errors = load_notes(root)
     warnings: list[str] = []
@@ -238,11 +640,18 @@ def compile_graph(root: Path) -> tuple[dict, list[str], list[str]]:
 
     nodes.sort(key=lambda node: (node["type"], node["title"].casefold()))
     edges.sort(key=lambda edge: (edge["source"], edge["target"], edge["type"]))
+    taxonomy, taxonomy_errors = load_theme_taxonomy(root)
+    errors.extend(taxonomy_errors)
+    themes, theme_errors, theme_warnings = assign_themes(nodes, edges, taxonomy)
+    errors.extend(theme_errors)
+    warnings.extend(theme_warnings)
     graph = {
         "generatedAt": date.today().isoformat(),
         "nodeCount": len(nodes),
         "edgeCount": len(edges),
         "relationTypes": sorted({edge["type"] for edge in edges}),
+        "themeVersion": taxonomy.get("version", 1),
+        "themes": themes,
         "nodes": nodes,
         "edges": edges,
     }
@@ -306,9 +715,24 @@ def command_build(args: argparse.Namespace) -> int:
     root = Path(args.root).resolve()
     graph, errors, warnings = compile_graph(root)
     output = (root / args.output).resolve()
+    script_output = (
+        (root / args.script_output).resolve()
+        if args.script_output
+        else output.with_name(f"{output.stem}-data.js")
+    )
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(graph, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Built {graph['nodeCount']} nodes and {graph['edgeCount']} edges -> {output}")
+    script_output.parent.mkdir(parents=True, exist_ok=True)
+    graph_json = json.dumps(graph, indent=2, ensure_ascii=False)
+    output.write_text(graph_json + "\n", encoding="utf-8")
+    script_json = graph_json.replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+    script_output.write_text(
+        "window.AGENTIC_EVOLUTION_GRAPH = " + script_json + ";\n",
+        encoding="utf-8",
+    )
+    print(
+        f"Built {graph['nodeCount']} nodes and {graph['edgeCount']} edges -> "
+        f"{output} + {script_output}"
+    )
     for warning in warnings:
         print(f"WARN: {warning}", file=sys.stderr)
     for error in errors:
@@ -417,6 +841,10 @@ def parser() -> argparse.ArgumentParser:
 
     build = subcommands.add_parser("build", help="compile Markdown to graph JSON")
     build.add_argument("--output", default="docs/graph.json")
+    build.add_argument(
+        "--script-output",
+        help="JavaScript graph-data output (defaults beside --output)",
+    )
     build.set_defaults(func=command_build)
 
     validate = subcommands.add_parser("validate", help="check graph integrity")

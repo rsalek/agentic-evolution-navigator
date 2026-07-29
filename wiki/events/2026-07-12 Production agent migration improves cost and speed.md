@@ -8,6 +8,8 @@ confidence: medium
 stage: production
 industry: software
 layer: agent-runtime
+commercial_proof: emerging
+commercial_signals: unit-economics
 updated: 2026-07-20
 ---
 

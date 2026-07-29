@@ -4,7 +4,7 @@ type: thesis
 title: Agent payments are moving from protocol to production
 status: active
 confidence: medium
-updated: 2026-07-26
+updated: 2026-07-29
 review_after: 2026-08-31
 ---
 
@@ -26,6 +26,7 @@ Open standards and institutional backing are being joined by early live transact
 - x402's counters do not disclose what share is agent-initiated, how many active agents or merchants participate, how concentrated the activity is, or whether an independent dataset reproduces the figures.
 - No event yet demonstrates scaled, repeated agent-payment activity with independently verified agent attribution and economics.
 - The LianLian account describes a single first transaction via secondary coverage, so it cannot establish continued production operation or the stated control boundary's effectiveness.
+- Corpay's Agent Card announcement adds payment-capability readiness but no live transaction, repeat volume, merchant breadth, or economic bridge, keeping the protocol-to-production transition qualified.
 
 ## What would change the thesis
 

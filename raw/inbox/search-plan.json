@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-28T06:33:58+00:00",
+  "generated_at": "2026-07-29T06:36:24+00:00",
   "graph": {
-    "nodes": 100,
-    "edges": 482
+    "nodes": 110,
+    "edges": 517
   },
   "query_count": 12,
   "queries": [
@@ -84,6 +84,40 @@
           "correction",
           "outcomes",
           "volume"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-snowflake-cortex-ai-gateway-2026-07-28",
+      "label": "Graph gap: Snowflake introduces Cortex AI Gateway for trusted agent interoperability (announcement -> evidence)",
+      "query": "(\"Snowflake\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR cost OR customers OR retention)",
+      "target_ids": [
+        "event-snowflake-cortex-ai-gateway-2026-07-28"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "When do the gateway and each identity/security integration become generally available, and which named customers deploy them in production",
+          "What agent, tool, MCP, model-routing, cost, policy, incident, and audit metrics does Snowflake expose over a measured period",
+          "Is the gateway sold as a separately priced control plane, bundled into Snowflake consumption, or monetized through security and governance attach",
+          "Do the integrations produce repeatable paid usage, lower customer unit cost, higher retention, or measurable risk reduction attributable to Snowflake"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "cost",
+          "customers",
+          "retention"
         ],
         "research_goals": [
           "named_operator",
@@ -189,6 +223,37 @@
       }
     },
     {
+      "id": "graph-stage-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
+      "label": "Graph gap: Fortinet expands FortiGate and FortiSASE for AI-driven traffic (announcement -> evidence)",
+      "query": "(\"Fortinet\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR customers OR traffic)",
+      "target_ids": [
+        "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "Which customers deploy FortiGate 1200G or FortiSASE Outpost for agent or AI-driven east-west traffic in production",
+          "Are the benchmark gains reproduced under customer workloads with inspection, logging, policy, and recovery overhead included"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "customers",
+          "traffic"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
+        ]
+      }
+    },
+    {
       "id": "graph-stage-va-salesforce-missionforce-agreement-2026-07-24",
       "label": "Graph gap: VA awards Salesforce Missionforce agreement (announcement -> evidence)",
       "query": "(\"Salesforce\" OR \"US Department of Veterans Affairs\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR approval OR correction)",
@@ -222,6 +287,37 @@
       }
     },
     {
+      "id": "graph-stage-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
+      "label": "Graph gap: Zscaler and Schwarz Digits launch sovereign cloud security platform (announcement -> evidence)",
+      "query": "(\"Schwarz Digits\" OR \"Zscaler\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR customers OR retention)",
+      "target_ids": [
+        "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "Which European customers actually deploy the service, at what scale, and with what identity, policy, and audit coverage",
+          "Does sovereign deployment create paid security attach, higher retention, or measurable threat-reduction economics for either partner"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "customers",
+          "retention"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
+        ]
+      }
+    },
+    {
       "id": "graph-challenge-agent-traffic-addressable-market",
       "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
       "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
@@ -236,88 +332,6 @@
           "counterevidence",
           "alternative_explanation",
           "failure_or_restriction"
-        ]
-      }
-    },
-    {
-      "id": "graph-challenge-trust-monetizes-early",
-      "label": "Graph stress test: Trust infrastructure monetizes before full autonomy",
-      "query": "\"AI agent\" (autonomy OR infrastructure OR monetizes OR trust) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
-      "target_ids": [
-        "thesis-trust-monetizes-early"
-      ],
-      "reason": {
-        "kind": "thesis-stress-test",
-        "supporting_edges": 3,
-        "challenging_edges": 1,
-        "research_goals": [
-          "counterevidence",
-          "alternative_explanation",
-          "failure_or_restriction"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-bbva-visa-agent-payment-2026-07-02",
-      "label": "Graph gap: BBVA and Visa complete agent-initiated payment (production -> evidence)",
-      "query": "(\"BBVA\" OR \"Visa\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers OR active OR merchants)",
-      "target_ids": [
-        "event-bbva-visa-agent-payment-2026-07-02"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "production",
-        "open_questions": [
-          "How many transactions followed, across how many active agents and merchants",
-          "What authorization, dispute, and exception mechanisms were used"
-        ],
-        "desired_signals": [
-          "scaled",
-          "volume",
-          "transactions",
-          "revenue",
-          "customers",
-          "active",
-          "merchants"
-        ],
-        "research_goals": [
-          "task_volume",
-          "economic_effect",
-          "quality_metric",
-          "human_handoff"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-microsoft-active-agent-growth-2026-05-05",
-      "label": "Graph gap: Microsoft reports 15x active-agent growth (production -> evidence)",
-      "query": "(\"Microsoft\") \"AI agent\" (scaled OR volume OR transactions OR revenue OR customers OR active OR correction OR growth)",
-      "target_ids": [
-        "event-microsoft-active-agent-growth-2026-05-05"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "production",
-        "open_questions": [
-          "What are the absolute numbers of active agents, autonomous runs, users, and firms",
-          "How many agents remain active across repeated 28-day periods",
-          "What task, outcome, correction, control, and economic measures accompany the growth"
-        ],
-        "desired_signals": [
-          "scaled",
-          "volume",
-          "transactions",
-          "revenue",
-          "customers",
-          "active",
-          "correction",
-          "growth"
-        ],
-        "research_goals": [
-          "task_volume",
-          "economic_effect",
-          "quality_metric",
-          "human_handoff"
         ]
       }
     }

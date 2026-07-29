@@ -1,4 +1,4 @@
-{
+window.AGENTIC_EVOLUTION_GRAPH = {
   "generatedAt": "2026-07-29",
   "nodeCount": 112,
   "edgeCount": 524,
@@ -7585,4 +7585,4 @@
       "type": "references"
     }
   ]
-}
+};

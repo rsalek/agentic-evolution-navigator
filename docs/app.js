@@ -9,16 +9,23 @@ const TYPE_COLORS = {
 };
 
 const VIEW_COPY = {
-  overview: "All visible nodes in one network.",
-  focus: "Explore one node and its nearest connections.",
-  clusters: "Group nodes by the connections they share.",
-  layers: "Read the evidence flow from entities to events, concepts, and theses.",
+  map: "Seven ideas organize the evidence before deeper exploration.",
+  themes: "Choose an idea area, then inspect its complete membership.",
+  focus: "Explore one item and its nearest evidence relationships.",
+  evidence: "Follow a theme from actors and events to concepts and theses.",
+};
+
+const VIEW_TITLES = {
+  map: "Agent Economy Landscape",
+  themes: "Themes",
+  focus: "Explore connections",
+  evidence: "Evidence flow",
 };
 
 const HIDDEN_PUBLIC_NODE_IDS = new Set(["index-home"]);
 
 const VIEW_EXAMPLES = {
-  overview: {
+  map: {
     label: "Evidence paths",
     items: [
       { title: "Production → bounded adoption", description: "Connect a scaled deployment to the bounded-service thesis", action: "path", from: "C Spire scales agent email triage", to: "Scaled agent adoption concentrates in bounded service operations" },
@@ -30,24 +37,24 @@ const VIEW_EXAMPLES = {
     label: "Connected hubs",
     items: [
       { title: "ServiceNow ecosystem", description: "Explore the most cross-connected enterprise platform", action: "focus", node: "ServiceNow" },
-      { title: "Trust and governance", description: "Open the graph's broadest control mechanism", action: "focus", node: "Agent Trust and Governance" },
+      { title: "Trust and governance", description: "Explore the broadest control mechanism", action: "focus", node: "Agent Trust and Governance" },
       { title: "Mastercard network", description: "Follow the payment network and its production events", action: "focus", node: "Mastercard" },
     ],
   },
-  clusters: {
-    label: "Community anchors",
+  themes: {
+    label: "Idea themes",
     items: [
-      { title: "ServiceNow", description: "Highlight its enterprise-workflow community", action: "select", node: "ServiceNow" },
-      { title: "Agent trust", description: "Highlight the security and governance community", action: "select", node: "Agent Trust and Governance" },
-      { title: "Agent payments", description: "Highlight the payments and protocol community", action: "select", node: "Agentic Payments" },
+      { title: "Transaction rails", description: "Payments, procurement, settlement, and machine commerce", action: "theme", theme: "transactions-commerce" },
+      { title: "Cybersecurity", description: "Agent-driven threats, controls, detection, and response", action: "theme", theme: "cybersecurity-agent-safety" },
+      { title: "Adoption and economics", description: "Usage, market development, and attributable value", action: "theme", theme: "adoption-economics-monetization" },
     ],
   },
-  layers: {
+  evidence: {
     label: "Evidence chains",
     items: [
-      { title: "Platform distribution", description: "Read ServiceNow across entity, event, concept, and thesis", action: "path", from: "ServiceNow", to: "Incumbent platforms are the distribution channel" },
-      { title: "Payments production", description: "Read Mastercard across the payment evidence chain", action: "path", from: "Mastercard", to: "Agent payments are moving from protocol to production" },
-      { title: "Traffic economics", description: "Read DataDome across measurement and monetization", action: "path", from: "DataDome", to: "Agent-originated traffic is becoming an addressable market" },
+      { title: "Platform distribution", description: "Actors, events, concepts, and theses in enterprise distribution", action: "theme-evidence", theme: "platform-distribution-records" },
+      { title: "Payments production", description: "Follow the machine-commerce evidence chain", action: "theme-evidence", theme: "transactions-commerce" },
+      { title: "Trust infrastructure", description: "Read identity, authorization, and traffic evidence", action: "theme-evidence", theme: "trust-identity-authorization" },
     ],
   },
 };
@@ -66,21 +73,28 @@ const state = {
   transform: { x: 0, y: 0, scale: 1 },
   width: 0,
   height: 0,
-  viewMode: "overview",
+  viewMode: "map",
   viewNodeIds: null,
   focusId: null,
   focusHops: 2,
   focusHistory: [],
   focusLevels: new Map(),
   focusTreePairs: new Set(),
-  communityByNode: new Map(),
-  communityCenters: new Map(),
+  themeById: new Map(),
+  activeThemeId: null,
+  themePrimaryNodeIds: new Set(),
+  themeSecondaryNodeIds: new Set(),
   labelNodeIds: null,
   layoutTargets: new Map(),
+  layoutBounds: null,
+  evidenceOrientation: "horizontal",
+  evidenceCanvasWidth: 0,
   draggingId: null,
   layoutRun: 0,
   sidebarOpen: true,
-  detailOpen: true,
+  detailOpen: false,
+  navigationReady: false,
+  timelineSignature: "",
 };
 
 const appShell = document.querySelector(".app-shell");
@@ -96,9 +110,13 @@ const detailEmpty = document.querySelector("#detail-empty");
 const detailContent = document.querySelector("#detail-content");
 const focusControls = document.querySelector("#focus-controls");
 const focusStatus = document.querySelector("#focus-status");
+const themeControls = document.querySelector("#theme-controls");
+const themeStatus = document.querySelector("#theme-status");
 const viewStatus = document.querySelector("#view-status");
 const graphKey = document.querySelector("#graph-key");
 const workspaceContext = document.querySelector("#workspace-context");
+const workspaceTitle = document.querySelector("#workspace-title");
+const canvasWrap = document.querySelector("#canvas-wrap");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function setPanelVisibility(panel, open) {
@@ -106,12 +124,12 @@ function setPanelVisibility(panel, open) {
     state.sidebarOpen = open;
     appShell.classList.toggle("sidebar-collapsed", !open);
     sidebar.setAttribute("aria-hidden", open ? "false" : "true");
-    document.querySelector("#toggle-sidebar").setAttribute("aria-pressed", open ? "true" : "false");
+    document.querySelector("#toggle-sidebar").setAttribute("aria-expanded", open ? "true" : "false");
   } else {
     state.detailOpen = open;
     appShell.classList.toggle("detail-collapsed", !open);
     detailPanel.setAttribute("aria-hidden", open ? "false" : "true");
-    document.querySelector("#toggle-detail").setAttribute("aria-pressed", open ? "true" : "false");
+    document.querySelector("#toggle-detail").setAttribute("aria-expanded", open ? "true" : "false");
   }
   if (state.graph) requestAnimationFrame(function refitAfterPanelChange() {
     applyCurrentLayout(true);
@@ -138,12 +156,28 @@ function updateInspectorNavigation() {
   position.textContent = index >= 0 ? (index + 1) + " of " + nodes.length : "No selection";
 }
 
-function syncNavigationUrl() {
-  if (!state.graph) return;
+function navigationUrl() {
   const url = new URL(window.location.href);
   url.searchParams.set("view", state.viewMode);
   if (state.selectedId) url.searchParams.set("node", state.selectedId);
   else url.searchParams.delete("node");
+  if (state.activeThemeId && ["themes", "evidence"].includes(state.viewMode)) {
+    url.searchParams.set("theme", state.activeThemeId);
+  } else {
+    url.searchParams.delete("theme");
+  }
+  return url;
+}
+
+function syncNavigationUrl(historyMode, previousUrl) {
+  if (!state.graph) return;
+  const url = navigationUrl();
+  if (historyMode === "none") return;
+  if (historyMode === "push" && previousUrl && previousUrl !== url.href) {
+    window.history.replaceState(null, "", previousUrl);
+    window.history.pushState(null, "", url);
+    return;
+  }
   window.history.replaceState(null, "", url);
 }
 
@@ -157,6 +191,19 @@ function escapeHtml(value) {
       '"': "&quot;",
     }[char];
   });
+}
+
+function countLabel(count, singular, plural) {
+  return count + " " + (count === 1 ? singular : (plural || singular + "s"));
+}
+
+function humanizeLabel(value) {
+  return String(value || "")
+    .replaceAll("_", " ")
+    .replaceAll("-", " ")
+    .replace(/\b\w/g, function capitalize(character) {
+      return character.toUpperCase();
+    });
 }
 
 function edgeKey(edge) {
@@ -229,6 +276,9 @@ function buildIndexes() {
     })).size;
     node.radius = 6 + Math.min(12, Math.sqrt(Math.max(node.uniqueTypedNeighbors, 1)) * 2.35);
   });
+  state.themeById = new Map((state.graph.themes || []).map(function indexTheme(theme) {
+    return [theme.id, theme];
+  }));
 }
 
 function nodeRadius(node) {
@@ -285,23 +335,54 @@ function createGraphElements() {
     const degree = typedRelationshipCount(node.id);
     const uniqueNeighbors = uniqueTypedNeighborCount(node.id);
     const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    group.classList.add("node");
+    group.classList.add("node", "node-" + node.type);
+    if (node.type === "event") {
+      group.classList.add(
+        "stage-" + (node.metadata.stage || "announcement"),
+        "proof-" + (node.metadata.commercial_proof || "unproven")
+      );
+    }
     group.dataset.id = node.id;
     group.setAttribute("role", "button");
     group.setAttribute("tabindex", "-1");
     group.setAttribute(
       "aria-label",
-      node.title + ", " + node.type + ", " + uniqueNeighbors + " connected nodes, " + degree + " typed relationships"
+      node.title + ", " + humanizeLabel(node.type) + ", " +
+      countLabel(uniqueNeighbors, "connected item") + ", " + countLabel(degree, "typed link")
     );
 
     const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-    title.textContent = node.title + " · " + degree + " typed relationships";
+    title.textContent = node.title + " · " + countLabel(degree, "typed link");
     group.append(title);
 
-    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    circle.setAttribute("r", nodeRadius(node));
-    circle.setAttribute("fill", TYPE_COLORS[node.type] || TYPE_COLORS.system);
-    group.append(circle);
+    const radius = nodeRadius(node);
+    let shape;
+    if (node.type === "event" || node.type === "query" || node.type === "index") {
+      shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      const side = radius * (node.type === "event" ? 1.55 : 1.45);
+      shape.setAttribute("x", -side / 2);
+      shape.setAttribute("y", -side / 2);
+      shape.setAttribute("width", side);
+      shape.setAttribute("height", side);
+      shape.setAttribute("rx", node.type === "event" ? "3" : "1.5");
+    } else if (node.type === "concept") {
+      shape = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+      shape.setAttribute("points", "0," + -radius + " " + radius + ",0 0," + radius + " " + -radius + ",0");
+    } else if (node.type === "thesis") {
+      const half = radius * 0.87;
+      shape = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+      shape.setAttribute(
+        "points",
+        -half + "," + -radius / 2 + " 0," + -radius + " " + half + "," + -radius / 2 +
+        " " + half + "," + radius / 2 + " 0," + radius + " " + -half + "," + radius / 2
+      );
+    } else {
+      shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      shape.setAttribute("r", radius);
+    }
+    shape.classList.add("node-shape");
+    shape.setAttribute("fill", TYPE_COLORS[node.type] || TYPE_COLORS.system);
+    group.append(shape);
 
     const count = document.createElementNS("http://www.w3.org/2000/svg", "text");
     count.classList.add("node-count");
@@ -317,6 +398,17 @@ function createGraphElements() {
     const shortTitle = node.title.length > 30 ? node.title.slice(0, 28) + "…" : node.title;
     label.textContent = shortTitle;
     group.append(label);
+    if (node.type === "event") {
+      const evidenceBadge = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      evidenceBadge.classList.add("node-evidence-badge");
+      evidenceBadge.setAttribute("x", nodeRadius(node) + 5);
+      evidenceBadge.setAttribute("y", "16");
+      evidenceBadge.textContent = (node.metadata.stage || "announcement") + " · " +
+        (node.metadata.confidence || "low") + " confidence · " +
+        (node.metadata.commercial_proof || "unproven") + " commercial proof";
+      group.append(evidenceBadge);
+      node.evidenceBadgeElement = evidenceBadge;
+    }
 
     group.addEventListener("click", function handleNodeClick(event) {
       event.stopPropagation();
@@ -352,9 +444,10 @@ function createGraphElements() {
       }
     });
     node.element = group;
-    node.circle = circle;
+    node.shape = shape;
     node.labelElement = label;
     node.displayTitle = shortTitle;
+    node.defaultDisplayTitle = shortTitle;
     nodeLayer.append(group);
   });
 }
@@ -409,8 +502,8 @@ function simulate(iterations, fitAfter) {
         }
         const distance2 = Math.max(dx * dx + dy * dy, 30);
         const distance = Math.sqrt(distance2);
-        const minimumDistance = nodeRadius(a) + nodeRadius(b) + (mode === "overview" ? 10 : 24);
-        const repulsion = (mode === "overview" ? 390 : 260) / distance2 * alpha;
+        const minimumDistance = nodeRadius(a) + nodeRadius(b) + (mode === "map" ? 10 : 24);
+        const repulsion = (mode === "map" ? 390 : 260) / distance2 * alpha;
         const collision = distance < minimumDistance ? (minimumDistance - distance) * 0.026 * alpha : 0;
         const force = repulsion + collision;
         const unitX = dx / distance;
@@ -420,7 +513,7 @@ function simulate(iterations, fitAfter) {
         b.vx += unitX * force;
         b.vy += unitY * force;
 
-        if (mode !== "overview" && nodeHasPersistentLabel(a) && nodeHasPersistentLabel(b) &&
+        if (mode !== "map" && nodeHasPersistentLabel(a) && nodeHasPersistentLabel(b) &&
             labelsOverlap(nodeLabelBounds(a), nodeLabelBounds(b))) {
           const direction = a.y <= b.y ? -1 : 1;
           const labelForce = 0.85 * alpha;
@@ -441,11 +534,11 @@ function simulate(iterations, fitAfter) {
       if (mode === "focus") {
         desired = state.focusTreePairs.has(edgePair(edge)) ? 112 : 148;
         strength = state.focusTreePairs.has(edgePair(edge)) ? 0.0034 : 0.00055;
-      } else if (mode === "clusters") {
-        const sameCommunity = state.communityByNode.get(a.id) === state.communityByNode.get(b.id);
-        desired = sameCommunity ? 78 : 190;
-        strength = sameCommunity ? 0.003 : 0.00025;
-      } else if (mode === "layers") {
+      } else if (mode === "themes") {
+        const sameTheme = a.theme?.primary === b.theme?.primary;
+        desired = sameTheme ? 96 : 190;
+        strength = sameTheme ? 0.0022 : 0.0002;
+      } else if (mode === "evidence") {
         desired = 170;
         strength = 0.0007;
       }
@@ -458,22 +551,19 @@ function simulate(iterations, fitAfter) {
 
     nodes.forEach(function moveNode(node) {
       const target = state.layoutTargets.get(node.id);
-      if (target && mode !== "overview" && node.id !== state.draggingId) {
-        const xStrength = mode === "layers" ? 0.045 : (mode === "focus" ? 0.0075 : 0.009);
-        const yStrength = mode === "layers" ? 0.012 : (mode === "focus" ? 0.0075 : 0.009);
+      if (target && node.id !== state.draggingId) {
+        const xStrength = mode === "evidence" || mode === "map" ? 0.055 : (mode === "focus" ? 0.0075 : 0.018);
+        const yStrength = mode === "evidence" || mode === "map" ? 0.04 : (mode === "focus" ? 0.0075 : 0.018);
         node.vx += (target.x - node.x) * xStrength * alpha;
         node.vy += (target.y - node.y) * yStrength * alpha;
-      } else if (mode === "overview") {
-        node.vx += (cx - node.x) * 0.00055 * alpha;
-        node.vy += (cy - node.y) * 0.00055 * alpha;
       }
       if (node.id === state.draggingId) {
         node.vx = 0;
         node.vy = 0;
         return;
       }
-      node.vx *= mode === "overview" ? 0.88 : 0.84;
-      node.vy *= mode === "overview" ? 0.88 : 0.84;
+      node.vx *= mode === "map" ? 0.78 : 0.84;
+      node.vy *= mode === "map" ? 0.78 : 0.84;
       node.x += node.vx;
       node.y += node.vy;
       constrainStructuredPosition(node, mode);
@@ -497,7 +587,7 @@ function edgeGeometry(edge, source, target) {
   const normalY = dx / length;
   const offset = (edge.parallelIndex - (edge.parallelCount - 1) / 2) * 8;
 
-  if (state.viewMode === "layers") {
+  if (state.viewMode === "evidence") {
     const controlOne = {
       x: source.x + dx * 0.42 + normalX * offset,
       y: source.y + normalY * offset,
@@ -537,7 +627,7 @@ function renderPositions() {
     if (edge.labelElement) {
       let labelX = geometry.labelX;
       let labelY = geometry.labelY;
-      if (state.viewMode === "layers" && state.selectedId &&
+      if (state.viewMode === "evidence" && state.selectedId &&
           (edge.source === state.selectedId || edge.target === state.selectedId)) {
         const selected = edge.source === state.selectedId ? source : target;
         const other = edge.source === state.selectedId ? target : source;
@@ -555,14 +645,18 @@ function renderPositions() {
     if (state.viewMode === "focus" && state.focusId) {
       const hub = state.nodeById.get(state.focusId);
       labelOnLeft = Boolean(hub && node.id !== hub.id && node.x < hub.x);
-    } else if (state.viewMode === "layers") {
-      labelOnLeft = false;
+    } else if (state.viewMode === "evidence") {
+      labelOnLeft = node.x > state.evidenceCanvasWidth * (state.evidenceOrientation === "vertical" ? 0.7 : 0.82);
     } else {
       labelOnLeft = node.x > state.width * 0.68;
     }
     node.labelOnLeft = labelOnLeft;
     node.labelElement.setAttribute("x", (labelOnLeft ? -1 : 1) * (nodeRadius(node) + 5 / scale));
     node.labelElement.setAttribute("text-anchor", labelOnLeft ? "end" : "start");
+    if (node.evidenceBadgeElement) {
+      node.evidenceBadgeElement.setAttribute("x", (labelOnLeft ? -1 : 1) * (nodeRadius(node) + 5 / scale));
+      node.evidenceBadgeElement.setAttribute("text-anchor", labelOnLeft ? "end" : "start");
+    }
     node.element.setAttribute("transform", "translate(" + node.x + " " + node.y + ")");
   });
 }
@@ -571,7 +665,9 @@ function edgeIsVisible(edge) {
   const source = state.nodeById.get(edge.source);
   const target = state.nodeById.get(edge.target);
   if (!source || !target || !isVisible(source) || !isVisible(target)) return false;
-  if ((state.viewMode === "focus" || state.viewMode === "layers") && edge.type === "references") return false;
+  if (state.viewMode === "map") return false;
+  if (state.viewMode === "themes" && !state.activeThemeId) return false;
+  if (["focus", "map", "themes", "evidence"].includes(state.viewMode) && edge.type === "references") return false;
   return true;
 }
 
@@ -600,8 +696,8 @@ function updateVisibility() {
     edge.element.classList.toggle("hidden", !visible);
     edge.element.classList.toggle("focus-edge", visible && focusTreeEdge);
     edge.element.classList.toggle("focus-context-edge", visible && state.viewMode === "focus" && !focusTreeEdge);
-    edge.element.classList.toggle("layer-edge", visible && state.viewMode === "layers");
-    const selectedLayerEdge = state.viewMode === "layers" && state.selectedId &&
+    edge.element.classList.toggle("layer-edge", visible && state.viewMode === "evidence");
+    const selectedLayerEdge = state.viewMode === "evidence" && state.selectedId &&
       (edge.source === state.selectedId || edge.target === state.selectedId);
     const contextLabelCandidate = selectedLayerEdge || labelledFocusEdge;
     const showContextLabel = contextLabelCandidate && !labelledRelationTypes.has(edge.type);
@@ -609,7 +705,7 @@ function updateVisibility() {
     edge.element.classList.toggle("layer-selected-edge", Boolean(visible && selectedLayerEdge));
     edge.element.classList.toggle(
       "layer-context-edge",
-      Boolean(visible && state.viewMode === "layers" && state.selectedId && !selectedLayerEdge)
+      Boolean(visible && state.viewMode === "evidence" && state.selectedId && !selectedLayerEdge)
     );
     if (edge.labelElement) {
       edge.labelElement.classList.toggle(
@@ -617,20 +713,22 @@ function updateVisibility() {
         visible && showContextLabel
       );
     }
-    if (state.viewMode === "clusters" && visible) {
-      const sourceCommunity = state.communityByNode.get(edge.source);
-      const targetCommunity = state.communityByNode.get(edge.target);
-      edge.element.style.opacity = sourceCommunity && targetCommunity && sourceCommunity !== targetCommunity ? "0.13" : "";
+    if (state.viewMode === "themes" && visible) {
+      const secondaryEdge = state.themeSecondaryNodeIds.has(edge.source) ||
+        state.themeSecondaryNodeIds.has(edge.target);
+      edge.element.style.opacity = secondaryEdge ? "0.12" : "";
     } else {
       edge.element.style.opacity = "";
     }
   });
   const empty = document.querySelector("#empty-state");
-  empty.hidden = visibleCount !== 0;
-  if (!visibleCount) {
+  const summaryWithoutNodes = state.viewMode === "map" ||
+    (state.viewMode === "themes" && !state.activeThemeId);
+  empty.hidden = visibleCount !== 0 || summaryWithoutNodes;
+  if (!visibleCount && !summaryWithoutNodes) {
     empty.textContent = state.viewMode === "focus"
-      ? "No nodes remain in this focus after filtering."
-      : "No nodes match the current filters.";
+      ? "No items remain in this view after filtering."
+      : "No items match the current filters.";
   }
   updateRovingTabIndex();
   updateWorkspaceContext();
@@ -714,6 +812,16 @@ function moveNodeFocus(currentId, key) {
 }
 
 function activateNode(nodeId) {
+  const target = state.nodeById.get(nodeId);
+  const hiddenByCurrentView = state.viewMode !== "focus" &&
+    state.viewNodeIds &&
+    !state.viewNodeIds.has(nodeId);
+  if (target && hiddenByCurrentView) {
+    state.focusId = nodeId;
+    state.selectedId = nodeId;
+    setViewMode("focus");
+    return;
+  }
   if (state.viewMode === "focus" && nodeId !== state.focusId) {
     navigateFocus(nodeId, true);
   } else {
@@ -721,7 +829,7 @@ function activateNode(nodeId) {
   }
 }
 
-function prepareNodeSelection(node) {
+function prepareNodeSelection(node, revealMobileInspector) {
   state.selectedId = node.id;
   state.keyboardNodeId = node.id;
   state.visibleTypes.add(node.type);
@@ -729,7 +837,7 @@ function prepareNodeSelection(node) {
   if (checkbox) checkbox.checked = true;
   renderDetails(node);
   if (!state.detailOpen) setPanelVisibility("detail", true);
-  if (window.innerWidth <= 800) {
+  if (window.innerWidth <= 800 && revealMobileInspector !== false) {
     requestAnimationFrame(function revealMobileInspector() {
       detailPanel.scrollIntoView({
         behavior: reducedMotion.matches ? "auto" : "smooth",
@@ -746,8 +854,8 @@ function selectNode(nodeId, center) {
   prepareNodeSelection(node);
   updateVisibility();
   updateHighlights();
-  if (state.viewMode === "layers") {
-    graphKey.textContent = "Drag to rearrange · hover nodes for names · edge labels show each relation type once";
+  if (state.viewMode === "evidence") {
+    graphKey.textContent = "Selected relationships are labelled. Drag items or scroll to adjust the view.";
   }
   if (center !== false) centerNode(node);
   simulate(110);
@@ -766,7 +874,12 @@ function renderDetails(node) {
   detailEmpty.hidden = true;
   detailContent.hidden = false;
   const metadata = Object.entries(node.metadata || {}).filter(function filterMetadata(entry) {
-    return !["updated", "status"].includes(entry[0]);
+    const hiddenKeys = node.type === "event"
+      ? ["updated", "status", "confidence", "stage", "commercial_proof"]
+      : ["updated", "status"];
+    const value = entry[1];
+    const empty = value == null || value === "" || (Array.isArray(value) && !value.length);
+    return !hiddenKeys.includes(entry[0]) && !empty;
   });
   const relations = relatedEdges(node.id, false)
     .map(function relationItem(edge) {
@@ -781,29 +894,67 @@ function renderDetails(node) {
   const evidence = node.evidence || [];
   const uniqueNeighbors = uniqueTypedNeighborCount(node.id);
 
-  let html = '<div class="type-badge"><span class="dot ' + escapeHtml(node.type) + '"></span>' + escapeHtml(node.type) + "</div>";
+  let html = '<div class="type-badge"><span class="dot ' + escapeHtml(node.type) + '"></span>' +
+    escapeHtml(humanizeLabel(node.type)) + "</div>";
   html += '<h2 class="detail-title">' + escapeHtml(node.title) + "</h2>";
-  html += '<p class="connection-summary">' + uniqueNeighbors + " connected nodes · " + relations.length + " typed relationships</p>";
+  html += '<p class="connection-summary">' + countLabel(uniqueNeighbors, "connected item") + " · " +
+    countLabel(relations.length, "typed link") + "</p>";
   html += '<p class="detail-summary">' + escapeHtml(node.summary || "No summary has been written yet.") + "</p>";
+  if (node.theme?.primary) {
+    const primary = state.themeById.get(node.theme.primary);
+    const secondary = (node.theme.secondary || []).map(function secondaryTitle(id) {
+      return state.themeById.get(id)?.title || id;
+    });
+    const basis = (node.theme.basis || []).slice(0, 3).map(function basisLabel(item) {
+      if (item.kind === "override") return "explicit taxonomy override";
+      if (item.kind === "seed") return "fixed theme seed";
+      if (item.kind === "keyword") return 'keyword match: "' + item.keyword + '"';
+      if (item.kind === "relation") return humanizeLabel(item.relation) + " link to " +
+        (state.nodeById.get(item.node)?.title || item.node);
+      if (item.kind === "two-hop") return "two-hop " + humanizeLabel(item.relation) + " path";
+      return item.kind;
+    }).join("; ");
+    html += '<section class="theme-inspector"><p><small>Primary theme</small><strong>' +
+      escapeHtml(primary?.title || node.theme.primary) + "</strong></p>";
+    if (secondary.length) {
+      html += "<p><small>Secondary themes</small><span>" + escapeHtml(secondary.join(", ")) + "</span></p>";
+    }
+    html += "<p><small>Assignment basis</small><span>" + escapeHtml(basis || "deterministic taxonomy fallback") +
+      "</span></p></section>";
+  }
+  if (node.type === "event") {
+    html += '<div class="evidence-badges"><span class="maturity-badge">Maturity · ' +
+      escapeHtml(node.metadata.stage || "announcement") + '</span><span class="confidence-badge">Confidence · ' +
+      escapeHtml(node.metadata.confidence || "low") + '</span><span class="proof-badge proof-' +
+      escapeHtml(node.metadata.commercial_proof || "unproven") + '">Commercial proof · ' +
+      escapeHtml(node.metadata.commercial_proof || "unproven") + "</span></div>";
+  }
   if (metadata.length) {
     html += '<dl class="meta-grid">' + metadata.map(function metadataItem(entry) {
-      return '<div class="meta-item"><dt>' + escapeHtml(entry[0]) + "</dt><dd>" + escapeHtml(entry[1]) + "</dd></div>";
+      const displayValue = ["industry", "layer", "commercial_signals"].includes(entry[0])
+        ? String(entry[1]).replaceAll("-", " ")
+        : entry[1];
+      return '<div class="meta-item"><dt>' + escapeHtml(humanizeLabel(entry[0])) + "</dt><dd>" +
+        escapeHtml(displayValue) + "</dd></div>";
     }).join("") + "</dl>";
   }
-  html += '<section class="detail-section"><h3>Typed relationships · ' + relations.length + "</h3>";
+  html += '<section class="detail-section"><h3>Relationships · ' + relations.length + "</h3>";
   html += '<ul class="relation-list">' + (relations.length ? relations.map(function relationButton(item) {
     const direction = item.edge.source === node.id ? "→" : "←";
-    return '<li><button class="relation-button" data-node-id="' + escapeHtml(item.node.id) + '"><small>' +
-      direction + " " + escapeHtml(item.edge.type) + "</small><br>" + escapeHtml(item.node.title) + "</button></li>";
+    return '<li><button class="relation-button" data-node-id="' + escapeHtml(item.node.id) +
+      '" aria-label="Open related item: ' + escapeHtml(item.node.title) + ', ' +
+      escapeHtml(humanizeLabel(item.edge.type)) + '"><small>' +
+      direction + " " + escapeHtml(humanizeLabel(item.edge.type)) + "</small><br>" +
+      escapeHtml(item.node.title) + "</button></li>";
   }).join("") : "<li>No typed relationships.</li>") + "</ul></section>";
   if (evidence.length) {
-    html += '<section class="detail-section"><h3>Evidence · ' + evidence.length + '</h3><ul class="evidence-list">' +
+    html += '<section class="detail-section"><h3>Sources · ' + evidence.length + '</h3><ul class="evidence-list">' +
       evidence.map(function evidenceLink(item) {
-        return '<li><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' +
-          escapeHtml(item.label) + "</a></li>";
+        return '<li><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer" ' +
+          'aria-label="Open source in a new tab: ' + escapeHtml(item.label) + '">' +
+          escapeHtml(item.label) + '<span aria-hidden="true"> ↗</span></a></li>';
       }).join("") + "</ul></section>";
   }
-  html += '<div class="note-path">Obsidian note: ' + escapeHtml(node.path) + "</div>";
   detailContent.innerHTML = html;
   detailContent.querySelectorAll("[data-node-id]").forEach(function bindRelation(button) {
     button.addEventListener("click", function activateRelation() {
@@ -837,7 +988,7 @@ function clearCurrentSelection() {
   if (state.viewMode === "focus") {
     state.focusId = null;
     state.focusHistory = [];
-    state.viewMode = "overview";
+    state.viewMode = "map";
     applyCurrentLayout(true);
   } else {
     updateVisibility();
@@ -850,19 +1001,38 @@ function clearCurrentSelection() {
 }
 
 function renderTimeline() {
-  const events = state.graph.nodes
-    .filter(function eventOnly(node) { return node.type === "event"; })
-    .sort(function byDate(a, b) {
-      return (a.metadata.date || "").localeCompare(b.metadata.date || "");
-    });
+  const themeScoped = ["themes", "evidence"].includes(state.viewMode) && state.activeThemeId;
+  const focusScoped = state.viewMode === "focus" && state.viewNodeIds;
+  const events = state.graph.nodes.filter(function eventForCurrentView(node) {
+    if (node.type !== "event") return false;
+    if (themeScoped) return node.theme?.primary === state.activeThemeId;
+    if (focusScoped) return state.viewNodeIds.has(node.id);
+    return true;
+  }).sort(function byDate(a, b) {
+    return (a.metadata.date || "").localeCompare(b.metadata.date || "");
+  });
+  const signature = [
+    state.viewMode,
+    state.activeThemeId || "",
+    state.focusId || "",
+    events.map(function eventId(node) { return node.id; }).join(","),
+  ].join("|");
+  if (signature === state.timelineSignature) return;
+  state.timelineSignature = signature;
+
   const container = document.querySelector("#timeline-items");
-  container.innerHTML = events.map(function timelineItem(node) {
-    return '<button class="timeline-item" type="button" data-id="' + escapeHtml(node.id) + '">' +
+  const title = document.querySelector("#timeline-title");
+  const latestButton = document.querySelector("#timeline-latest");
+  title.textContent = focusScoped ? "Evidence near this item" : (themeScoped ? "Theme evidence" : "Recent evidence");
+  latestButton.disabled = !events.length;
+  container.innerHTML = events.length ? events.map(function timelineItem(node) {
+    return '<button class="timeline-item' + (node.id === state.selectedId ? " selected" : "") +
+      '" type="button" data-id="' + escapeHtml(node.id) + '">' +
       '<time datetime="' + escapeHtml(node.metadata.date) + '">' + escapeHtml(formatDate(node.metadata.date)) + "</time>" +
       "<strong>" + escapeHtml(node.title) + "</strong>" +
       "<span>" + escapeHtml(node.metadata.stage || "unknown") + " · " + escapeHtml(node.metadata.industry || "general") + "</span>" +
       "</button>";
-  }).join("");
+  }).join("") : '<p class="timeline-empty">No accepted events in this view.</p>';
   container.querySelectorAll(".timeline-item").forEach(function bindTimeline(item) {
     item.addEventListener("click", function selectTimelineNode() {
       activateNode(item.dataset.id);
@@ -870,7 +1040,13 @@ function renderTimeline() {
   });
   if (events.length) {
     document.querySelector("#timeline-range").textContent =
-      formatDate(events[0].metadata.date) + " — " + formatDate(events.at(-1).metadata.date);
+      formatDate(events[0].metadata.date) + " — " + formatDate(events.at(-1).metadata.date) +
+      " · " + countLabel(events.length, "event");
+    requestAnimationFrame(function showNewestTimelineItems() {
+      container.scrollLeft = container.scrollWidth - container.clientWidth;
+    });
+  } else {
+    document.querySelector("#timeline-range").textContent = "No dated evidence";
   }
 }
 
@@ -892,7 +1068,7 @@ function renderCounts() {
   const indexFilter = document.querySelector('.filter-list input[value="index"]')?.closest("label");
   if (indexFilter) indexFilter.hidden = !counts.index;
   document.querySelector("#graph-stats").textContent =
-    state.graph.nodes.length + " nodes · " + state.graph.edges.length + " links";
+    countLabel(state.graph.nodes.length, "record") + " · " + countLabel(state.graph.edges.length, "link");
   document.querySelector("#node-titles").innerHTML = state.graph.nodes
     .filter(function selectableTitle(node) {
       return !["system"].includes(node.type);
@@ -905,11 +1081,31 @@ function renderCounts() {
 
 function updateWorkspaceContext() {
   if (!state.graph) return;
+  const activeTheme = state.activeThemeId ? state.themeById.get(state.activeThemeId) : null;
+  workspaceTitle.textContent = VIEW_TITLES[state.viewMode];
+  if (state.viewMode === "themes" && activeTheme) {
+    workspaceTitle.textContent = activeTheme.shortTitle || activeTheme.title;
+  }
+  if (state.viewMode === "evidence" && activeTheme) {
+    workspaceTitle.textContent = "Evidence flow: " + (activeTheme.shortTitle || activeTheme.title);
+  }
+  if (state.viewMode === "map") {
+    workspaceContext.textContent = VIEW_COPY.map;
+    return;
+  }
+  if (state.viewMode === "themes" && !activeTheme) {
+    workspaceContext.textContent = countLabel(state.graph.themes?.length || 0, "theme") + " · " + VIEW_COPY.themes;
+    return;
+  }
   const visible = state.graph.nodes.filter(isVisible).length;
   const selected = state.selectedId ? state.nodeById.get(state.selectedId) : null;
+  if (activeTheme && ["themes", "evidence"].includes(state.viewMode)) {
+    workspaceContext.textContent = activeTheme.definition;
+    return;
+  }
   workspaceContext.textContent = selected
     ? selected.title + " · " + VIEW_COPY[state.viewMode]
-    : visible + " visible nodes · " + VIEW_COPY[state.viewMode];
+    : countLabel(visible, "visible item") + " · " + VIEW_COPY[state.viewMode];
 }
 
 function performSearch(query) {
@@ -939,10 +1135,10 @@ function performSearch(query) {
   container.innerHTML = matches.length
     ? matches.map(function resultButton(item) {
       return '<button class="search-result" type="button" data-node-id="' + escapeHtml(item.node.id) + '">' +
-        escapeHtml(item.node.title) + "<small>" + escapeHtml(item.node.type) + " · " +
-        typedRelationshipCount(item.node.id) + " relationships</small></button>";
+        escapeHtml(item.node.title) + "<small>" + escapeHtml(humanizeLabel(item.node.type)) + " · " +
+        countLabel(typedRelationshipCount(item.node.id), "typed link") + "</small></button>";
     }).join("")
-    : '<p class="status-text">No matching nodes.</p>';
+    : '<p class="status-text">No matching items.</p>';
   container.querySelectorAll("[data-node-id]").forEach(function bindResult(button) {
     button.addEventListener("click", function activateResult() {
       activateNode(button.dataset.nodeId);
@@ -990,25 +1186,21 @@ function tracePath() {
   const end = resolveTitle(document.querySelector("#path-to").value);
   const status = document.querySelector("#path-status");
   if (!start || !end) {
-    status.textContent = "Choose two exact node titles from the suggestions.";
+    status.textContent = "Choose a start and end item from the suggestions.";
     return;
   }
   const result = findPath(start.id, end.id);
   state.pathNodes.clear();
   state.pathEdges.clear();
   if (!result) {
-    status.textContent = "No typed-relation path was found.";
+    status.textContent = "No path was found through the accepted relationship types.";
   } else {
-    if (state.viewMode === "focus" && result.nodes.some(function outsideFocus(id) {
-      return !state.viewNodeIds.has(id);
-    })) {
-      setViewMode("overview");
-      status.textContent = "Switched to Overview to show the complete path. ";
-    } else {
-      status.textContent = "";
-    }
     result.nodes.forEach(function markPathNode(id) { state.pathNodes.add(id); });
     result.edges.forEach(function markPathEdge(edge) { state.pathEdges.add(edge.key); });
+    state.focusId = start.id;
+    state.selectedId = end.id;
+    setViewMode("focus");
+    status.textContent = "Opened this path in Explore. ";
     status.textContent += result.edges.length + " hop" + (result.edges.length === 1 ? "" : "s") + ": " +
       result.nodes.map(function pathTitle(id) { return state.nodeById.get(id).title; }).join(" → ");
     selectNode(end.id, true);
@@ -1037,19 +1229,33 @@ function fitVisibleNodes() {
   const nodes = visibleNodes().filter(function positioned(node) {
     return Number.isFinite(node.x) && Number.isFinite(node.y);
   });
-  if (!nodes.length) {
+  if (!nodes.length && !state.layoutBounds) {
     resetTransform();
     return;
   }
   const rect = svg.getBoundingClientRect();
-  const horizontalLabelRoom = state.viewMode === "layers" ? 190 : 145;
-  const minX = Math.min.apply(null, nodes.map(function x(node) { return node.x - nodeRadius(node) - horizontalLabelRoom; }));
-  const maxX = Math.max.apply(null, nodes.map(function x(node) { return node.x + nodeRadius(node) + horizontalLabelRoom; }));
-  const minY = Math.min.apply(null, nodes.map(function y(node) { return node.y - nodeRadius(node) - 24; }));
-  const maxY = Math.max.apply(null, nodes.map(function y(node) { return node.y + nodeRadius(node) + 24; }));
+  const horizontalLabelRoom = state.viewMode === "evidence" ? 190 : 145;
+  let minX = nodes.length
+    ? Math.min.apply(null, nodes.map(function x(node) { return node.x - nodeRadius(node) - horizontalLabelRoom; }))
+    : state.layoutBounds.minX;
+  let maxX = nodes.length
+    ? Math.max.apply(null, nodes.map(function x(node) { return node.x + nodeRadius(node) + horizontalLabelRoom; }))
+    : state.layoutBounds.maxX;
+  let minY = nodes.length
+    ? Math.min.apply(null, nodes.map(function y(node) { return node.y - nodeRadius(node) - 24; }))
+    : state.layoutBounds.minY;
+  let maxY = nodes.length
+    ? Math.max.apply(null, nodes.map(function y(node) { return node.y + nodeRadius(node) + 24; }))
+    : state.layoutBounds.maxY;
+  if (state.layoutBounds) {
+    minX = Math.min(minX, state.layoutBounds.minX);
+    maxX = Math.max(maxX, state.layoutBounds.maxX);
+    minY = Math.min(minY, state.layoutBounds.minY);
+    maxY = Math.max(maxY, state.layoutBounds.maxY);
+  }
   const contentWidth = Math.max(maxX - minX, 1);
   const contentHeight = Math.max(maxY - minY, 1);
-  const padding = state.viewMode === "focus" ? 62 : 42;
+  const padding = state.viewMode === "focus" ? 62 : (state.viewMode === "map" ? 8 : 42);
   const scale = Math.min(
     1.22,
     Math.max(0.38, Math.min((rect.width - padding * 2) / contentWidth, (rect.height - padding * 2) / contentHeight))
@@ -1061,11 +1267,12 @@ function fitVisibleNodes() {
 }
 
 function renderViewExamples() {
-  const group = VIEW_EXAMPLES[state.viewMode] || VIEW_EXAMPLES.overview;
+  const group = VIEW_EXAMPLES[state.viewMode] || VIEW_EXAMPLES.map;
   const container = document.querySelector("#view-examples");
-  container.innerHTML = "<p>Examples to try · " + escapeHtml(group.label) + "</p>" + group.items.map(function exampleButton(item) {
+  container.innerHTML = "<p>" + escapeHtml(group.label) + "</p>" + group.items.map(function exampleButton(item) {
     return '<button type="button" data-example-action="' + escapeHtml(item.action) + '"' +
       (item.node ? ' data-example-node="' + escapeHtml(item.node) + '"' : "") +
+      (item.theme ? ' data-example-theme="' + escapeHtml(item.theme) + '"' : "") +
       (item.from ? ' data-path-from="' + escapeHtml(item.from) + '"' : "") +
       (item.to ? ' data-path-to="' + escapeHtml(item.to) + '"' : "") +
       "><strong>" + escapeHtml(item.title) + '</strong><span class="example-description">' +
@@ -1079,6 +1286,11 @@ function activateViewExample(button) {
     document.querySelector("#path-from").value = button.dataset.pathFrom;
     document.querySelector("#path-to").value = button.dataset.pathTo;
     tracePath();
+    return;
+  }
+  if (action === "theme" || action === "theme-evidence") {
+    state.activeThemeId = button.dataset.exampleTheme;
+    setViewMode(action === "theme" ? "themes" : "evidence");
     return;
   }
   const node = resolveTitle(button.dataset.exampleNode || "");
@@ -1108,7 +1320,9 @@ function changeZoom(factor, origin) {
 function installPanAndZoom() {
   let pan = null;
   svg.addEventListener("pointerdown", function startPan(event) {
-    if (event.target.closest?.(".node")) return;
+    if (event.target.closest?.(
+      ".node, .theme-anchor, .idea-map-theme-action, .idea-map-representative"
+    )) return;
     pan = { x: event.clientX, y: event.clientY, tx: state.transform.x, ty: state.transform.y };
     svg.setPointerCapture(event.pointerId);
   });
@@ -1131,8 +1345,8 @@ function installPanAndZoom() {
     if (state.viewMode === "focus") return;
     if (event.target === svg || event.target.closest?.("#viewport") === viewport) {
       clearCurrentSelection();
-      if (state.viewMode === "layers") {
-        graphKey.textContent = "Drag to rearrange · hover nodes for names · select a node to label its relations";
+      if (state.viewMode === "evidence") {
+        graphKey.textContent = "Select an item to label its relationships. Hover for full names.";
       }
     }
   });
@@ -1140,22 +1354,11 @@ function installPanAndZoom() {
 
 function constrainedDropTarget(node) {
   const original = state.layoutTargets.get(node.id) || { x: node.x, y: node.y };
-  if (state.viewMode === "layers") {
+  if (state.viewMode === "evidence") {
     return {
       x: original.x,
       y: Math.min(state.height - 34, Math.max(58, node.y)),
     };
-  }
-  if (state.viewMode === "clusters") {
-    const community = state.communityByNode.get(node.id);
-    const center = state.communityCenters.get(community);
-    if (!center) return { x: node.x, y: node.y };
-    const dx = node.x - center.x;
-    const dy = node.y - center.y;
-    const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
-    const radius = Math.max(34, center.radius - nodeRadius(node) - 12);
-    const scale = Math.min(1, radius / distance);
-    return { x: center.x + dx * scale, y: center.y + dy * scale };
   }
   if (state.viewMode === "focus" && node.id !== state.focusId) {
     const hubTarget = state.layoutTargets.get(state.focusId);
@@ -1177,24 +1380,8 @@ function constrainedDropTarget(node) {
 function constrainStructuredPosition(node, mode) {
   const target = state.layoutTargets.get(node.id);
   if (!target) return;
-  if (mode === "layers") {
+  if (mode === "evidence") {
     node.x = Math.min(target.x + 22, Math.max(target.x - 22, node.x));
-    return;
-  }
-  if (mode === "clusters") {
-    const community = state.communityByNode.get(node.id);
-    const center = state.communityCenters.get(community);
-    if (!center) return;
-    const dx = node.x - center.x;
-    const dy = node.y - center.y;
-    const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
-    const radius = Math.max(30, center.radius - nodeRadius(node) - 4);
-    if (distance > radius) {
-      node.x = center.x + dx / distance * radius;
-      node.y = center.y + dy / distance * radius;
-      node.vx *= 0.35;
-      node.vy *= 0.35;
-    }
     return;
   }
   if (mode === "focus" && node.id !== state.focusId) {
@@ -1254,7 +1441,7 @@ function installNodeInteractions() {
     const moved = drag.moved;
     if (moved) {
       event.stopPropagation();
-      if (state.viewMode !== "overview") {
+      if (state.viewMode !== "map") {
         state.layoutTargets.set(node.id, constrainedDropTarget(node));
       }
     }
@@ -1286,63 +1473,428 @@ function installNodeInteractions() {
 
 function clearLayoutGuides() {
   guideLayer.replaceChildren();
-  state.communityByNode.clear();
-  state.communityCenters.clear();
+  state.themePrimaryNodeIds.clear();
+  state.themeSecondaryNodeIds.clear();
   state.graph.nodes.forEach(function clearViewClasses(node) {
-    node.element.classList.remove("focus-hub", "focus-level-2");
+    node.element.classList.remove("focus-hub", "focus-level-2", "theme-secondary");
   });
 }
 
-function renderClusterGuides(result) {
-  result.communities.forEach(function mapCommunity(community) {
-    community.nodes.forEach(function mapMember(node) {
-      state.communityByNode.set(node.id, community.id);
-    });
+function commercialProofLabel(theme) {
+  return theme?.summary?.commercialProof || "unproven";
+}
+
+function bindSvgActivation(element, action) {
+  element.addEventListener("click", function activateSvgTarget(event) {
+    event.stopPropagation();
+    action();
   });
-  result.groups.forEach(function clusterGuide(group, groupIndex) {
-    state.communityCenters.set(group.id, { x: group.x, y: group.y, radius: group.radius });
+  element.addEventListener("keydown", function activateSvgTargetFromKeyboard(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      event.stopPropagation();
+      action();
+    }
+  });
+}
+
+function truncateMapLabel(value, limit) {
+  return value.length > limit ? value.slice(0, Math.max(1, limit - 1)) + "…" : value;
+}
+
+function openTheme(themeId) {
+  state.activeThemeId = themeId;
+  setViewMode("themes");
+}
+
+function openThemeIndex() {
+  state.activeThemeId = null;
+  state.selectedId = null;
+  state.keyboardNodeId = null;
+  clearDetails();
+  if (state.detailOpen) setPanelVisibility("detail", false);
+  setViewMode("themes");
+}
+
+function openMapRepresentative(nodeId) {
+  if (!state.nodeById.has(nodeId)) return;
+  state.focusId = nodeId;
+  state.selectedId = nodeId;
+  setViewMode("focus");
+}
+
+function ideaMapArrowGeometry(group, centerX, centerY) {
+  const dx = group.x - centerX;
+  const dy = group.y - centerY;
+  const distance = Math.hypot(dx, dy);
+  if (!distance) return null;
+
+  const unitX = dx / distance;
+  const unitY = dy / distance;
+  const hubRadius = 48;
+  const cardInset = 7;
+  const halfWidth = group.width / 2 + cardInset;
+  const halfHeight = group.height / 2 + cardInset;
+  const cardDistance = 1 / Math.max(
+    Math.abs(unitX) / halfWidth,
+    Math.abs(unitY) / halfHeight
+  );
+  const tipX = group.x - unitX * cardDistance;
+  const tipY = group.y - unitY * cardDistance;
+  const arrowLength = 10;
+  const arrowHalfWidth = 4;
+  const baseX = tipX - unitX * arrowLength;
+  const baseY = tipY - unitY * arrowLength;
+  const perpendicularX = -unitY;
+  const perpendicularY = unitX;
+
+  return {
+    startX: centerX + unitX * hubRadius,
+    startY: centerY + unitY * hubRadius,
+    lineEndX: baseX - unitX * 2,
+    lineEndY: baseY - unitY * 2,
+    tipX: tipX,
+    tipY: tipY,
+    leftX: baseX + perpendicularX * arrowHalfWidth,
+    leftY: baseY + perpendicularY * arrowHalfWidth,
+    rightX: baseX - perpendicularX * arrowHalfWidth,
+    rightY: baseY - perpendicularY * arrowHalfWidth,
+  };
+}
+
+function renderIdeaMapGuides(result) {
+  if (!result.compact) {
+    const centerX = result.canvasWidth / 2;
+    const centerY = result.canvasHeight / 2;
+
+    result.groups.forEach(function renderThemeDirection(group) {
+      const geometry = ideaMapArrowGeometry(group, centerX, centerY);
+      if (!geometry) return;
+
+      const connector = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      connector.classList.add("idea-map-direction", "theme-order-" + group.theme.order);
+      connector.setAttribute("aria-hidden", "true");
+
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.classList.add("idea-map-arrow");
+      line.setAttribute("x1", geometry.startX);
+      line.setAttribute("y1", geometry.startY);
+      line.setAttribute("x2", geometry.lineEndX);
+      line.setAttribute("y2", geometry.lineEndY);
+      connector.append(line);
+
+      const arrowhead = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+      arrowhead.classList.add("idea-map-arrowhead");
+      arrowhead.setAttribute(
+        "points",
+        [
+          geometry.tipX + "," + geometry.tipY,
+          geometry.leftX + "," + geometry.leftY,
+          geometry.rightX + "," + geometry.rightY,
+        ].join(" ")
+      );
+      connector.append(arrowhead);
+      guideLayer.append(connector);
+    });
+
+    const centerHub = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    centerHub.classList.add("economy-hub");
+    centerHub.setAttribute("aria-hidden", "true");
+
+    const centerPlate = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    centerPlate.classList.add("economy-hub-plate");
+    centerPlate.setAttribute("x", centerX - 47);
+    centerPlate.setAttribute("y", centerY - 43);
+    centerPlate.setAttribute("width", 94);
+    centerPlate.setAttribute("height", 86);
+    centerPlate.setAttribute("rx", 6);
+    centerHub.append(centerPlate);
+
+    const centerLogo = document.createElementNS("http://www.w3.org/2000/svg", "image");
+    centerLogo.classList.add("economy-hub-logo");
+    centerLogo.setAttribute("href", "assets/agentic-evolution-logo.png?v=20260725");
+    centerLogo.setAttribute("x", centerX - 24);
+    centerLogo.setAttribute("y", centerY - 34);
+    centerLogo.setAttribute("width", 48);
+    centerLogo.setAttribute("height", 48);
+    centerLogo.setAttribute("preserveAspectRatio", "xMidYMid meet");
+    centerHub.append(centerLogo);
+
+    const centerLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    centerLabel.classList.add("economy-hub-label");
+    centerLabel.setAttribute("x", centerX);
+    centerLabel.setAttribute("y", centerY + 28);
+    centerLabel.textContent = "Agent economy";
+    centerHub.append(centerLabel);
+    guideLayer.append(centerHub);
+  }
+
+  result.groups.forEach(function ideaMapCard(group) {
+    const theme = group.theme;
+    const left = group.x - group.width / 2;
+    const top = group.y - group.height / 2;
     const guide = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    const boundary = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    boundary.classList.add("cluster-boundary");
-    boundary.setAttribute("cx", group.x);
-    boundary.setAttribute("cy", group.y);
-    boundary.setAttribute("r", group.radius);
+    guide.classList.add("idea-map-card", "theme-order-" + theme.order);
+    guide.dataset.themeId = theme.id;
+
+    const boundary = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    boundary.classList.add("idea-map-boundary");
+    boundary.setAttribute("x", left);
+    boundary.setAttribute("y", top);
+    boundary.setAttribute("width", group.width);
+    boundary.setAttribute("height", group.height);
+    boundary.setAttribute("rx", "6");
     guide.append(boundary);
+
+    const themeAction = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    themeAction.classList.add("idea-map-theme-action");
+    themeAction.setAttribute("x", left);
+    themeAction.setAttribute("y", top);
+    themeAction.setAttribute("width", group.width);
+    themeAction.setAttribute("height", group.height);
+    themeAction.setAttribute("rx", "6");
+    themeAction.setAttribute("role", "button");
+    themeAction.setAttribute("tabindex", "0");
+    themeAction.setAttribute("aria-label", "Open " + theme.title + " in Themes");
+    bindSvgActivation(themeAction, function openMappedTheme() {
+      openTheme(theme.id);
+    });
+    guide.append(themeAction);
+
+    const accent = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    accent.classList.add("theme-accent");
+    accent.setAttribute("x1", left + 1);
+    accent.setAttribute("x2", left + group.width - 1);
+    accent.setAttribute("y1", top + 1);
+    accent.setAttribute("y2", top + 1);
+    guide.append(accent);
+
+    const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    title.classList.add("idea-map-title");
+    title.setAttribute("x", left + 14);
+    title.setAttribute("y", top + 22);
+    title.textContent = theme.shortTitle || theme.title;
+    guide.append(title);
+
+    const viewTheme = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    viewTheme.classList.add("idea-map-view-theme");
+    viewTheme.setAttribute("x", left + group.width - 14);
+    viewTheme.setAttribute("y", top + 39);
+    viewTheme.textContent = "Open theme →";
+    guide.append(viewTheme);
+
+    const count = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    count.classList.add("idea-map-meta");
+    count.setAttribute("x", left + 14);
+    count.setAttribute("y", top + 39);
+    count.textContent = countLabel(theme.summary.memberCount, "member") + " · " +
+      countLabel(theme.summary.eventCount, "event");
+    guide.append(count);
+
+    const maturity = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    maturity.classList.add("idea-map-maturity");
+    maturity.setAttribute("x", left + 14);
+    maturity.setAttribute("y", top + 53);
+    maturity.textContent = "Maturity: " + theme.summary.evidenceMaturity;
+    guide.append(maturity);
+
+    const proof = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    proof.classList.add("idea-map-proof", "proof-" + commercialProofLabel(theme));
+    proof.setAttribute("x", left + group.width - 14);
+    proof.setAttribute("y", top + 53);
+    proof.textContent = "Commercial proof: " + commercialProofLabel(theme);
+    guide.append(proof);
+
+    group.representativeRows.forEach(function representativeRow(row, rowIndex) {
+      const rowHeight = result.compact ? 47 : 31;
+      const rowStep = result.compact ? 49 : 35;
+      const rowTop = top + 66 + rowIndex * rowStep;
+      const rowGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      rowGroup.classList.add("idea-map-representative", "representative-" + row.role);
+      if (!row.interactive) rowGroup.classList.add("representative-missing");
+
+      const rowBoundary = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rowBoundary.setAttribute("x", left + 10);
+      rowBoundary.setAttribute("y", rowTop);
+      rowBoundary.setAttribute("width", group.width - 20);
+      rowBoundary.setAttribute("height", rowHeight);
+      rowBoundary.setAttribute("rx", "3");
+      rowGroup.append(rowBoundary);
+
+      const role = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      role.classList.add("idea-map-representative-role");
+      role.setAttribute("x", left + 17);
+      role.setAttribute("y", rowTop + (result.compact ? 15 : 11));
+      role.textContent = row.label;
+      rowGroup.append(role);
+
+      const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      label.classList.add("idea-map-representative-title");
+      label.setAttribute("x", left + 17);
+      label.setAttribute("y", rowTop + (result.compact ? 33 : 24));
+      label.textContent = truncateMapLabel(row.title, result.compact ? 48 : 34);
+      rowGroup.append(label);
+
+      if (row.interactive) {
+        rowGroup.setAttribute("role", "button");
+        rowGroup.setAttribute("tabindex", "0");
+        rowGroup.setAttribute("aria-label", "Explore " + row.label + ": " + row.title);
+        bindSvgActivation(rowGroup, function openRepresentative() {
+          openMapRepresentative(row.nodeId);
+        });
+      } else {
+        rowGroup.setAttribute("aria-disabled", "true");
+      }
+      guide.append(rowGroup);
+    });
+    guideLayer.append(guide);
+  });
+}
+
+function renderThemeGuides(result, indexMode) {
+  result.groups.forEach(function themeGuide(group) {
+    const theme = group.theme;
+    const guide = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    guide.classList.add("theme-anchor", "theme-order-" + theme.order);
+    if (indexMode) guide.classList.add("theme-index-anchor");
+    guide.dataset.themeId = theme.id;
+    guide.setAttribute("role", "button");
+    guide.setAttribute("tabindex", "0");
+    guide.setAttribute(
+      "aria-label",
+      "Open " + theme.title + ". " + countLabel(theme.summary.memberCount, "member") +
+      ", maturity " + theme.summary.evidenceMaturity +
+      ", commercial proof " + commercialProofLabel(theme)
+    );
+    const boundary = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    boundary.classList.add("theme-boundary");
+    boundary.setAttribute("x", group.x - group.width / 2);
+    boundary.setAttribute("y", group.y - group.height / 2);
+    boundary.setAttribute("width", group.width);
+    boundary.setAttribute("height", group.height);
+    boundary.setAttribute("rx", "6");
+    guide.append(boundary);
+    const accent = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    accent.classList.add("theme-accent");
+    accent.setAttribute("x1", group.x - group.width / 2 + 1);
+    accent.setAttribute("x2", group.x + group.width / 2 - 1);
+    accent.setAttribute("y1", group.y - group.height / 2 + 1);
+    accent.setAttribute("y2", group.y - group.height / 2 + 1);
+    guide.append(accent);
     const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    label.classList.add("cluster-label");
-    label.setAttribute("x", group.x);
-    const lowerHalf = group.y > state.height / 2;
-    const labelAbove = !lowerHalf || groupIndex % 2 === 1;
-    label.setAttribute("y", labelAbove ? group.y - group.radius - 18 : group.y + group.radius + 18);
+    label.classList.add("theme-label");
+    label.setAttribute("x", group.x - group.width / 2 + 16);
+    label.setAttribute("y", group.y - group.height / 2 + 25);
     const title = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-    const clusterLead = group.label.length > 26 ? group.label.slice(0, 24) + "…" : group.label;
-    title.textContent = clusterLead;
-    title.setAttribute("x", group.x);
+    title.textContent = theme.shortTitle || theme.title;
+    title.setAttribute("x", group.x - group.width / 2 + 16);
     label.append(title);
+    if (indexMode) {
+      const action = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      action.classList.add("theme-open-action");
+      action.setAttribute("x", group.x + group.width / 2 - 16);
+      action.setAttribute("y", group.y - group.height / 2 + 25);
+      action.textContent = "Open theme →";
+      guide.append(action);
+    }
     const count = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-    count.classList.add("cluster-label-count");
-    count.setAttribute("x", group.x);
-    count.setAttribute("dy", "12");
-    count.textContent = group.count + " connected nodes";
+    count.classList.add("theme-label-meta");
+    count.setAttribute("x", group.x - group.width / 2 + 16);
+    count.setAttribute("dy", "18");
+    count.textContent = countLabel(theme.summary.memberCount, "member") + " · " +
+      countLabel(theme.summary.eventCount, "event");
     label.append(count);
+    const maturity = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    maturity.classList.add("theme-label-maturity");
+    maturity.setAttribute("x", group.x - group.width / 2 + 16);
+    maturity.setAttribute("dy", "17");
+    maturity.textContent = "Maturity: " + theme.summary.evidenceMaturity;
+    label.append(maturity);
+    const proof = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    proof.classList.add("theme-label-proof", "proof-" + commercialProofLabel(theme));
+    proof.setAttribute("x", group.x - group.width / 2 + 16);
+    proof.setAttribute("dy", "16");
+    proof.textContent = "Commercial proof: " + commercialProofLabel(theme);
+    label.append(proof);
+    if (indexMode) {
+      const latest = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      const stages = theme.summary.stageCounts;
+      latest.classList.add("theme-label-definition");
+      latest.setAttribute("x", group.x - group.width / 2 + 16);
+      latest.setAttribute("dy", "16");
+      latest.textContent = "Latest evidence: " +
+        (theme.summary.latestEventDate ? formatDate(theme.summary.latestEventDate) : "No accepted event");
+      label.append(latest);
+      const stageMix = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      stageMix.classList.add("theme-label-definition");
+      stageMix.setAttribute("x", group.x - group.width / 2 + 16);
+      stageMix.setAttribute("dy", "14");
+      stageMix.textContent = "Stages: " + stages.announcement + " announced · " + stages.pilot + " pilot · " +
+        stages.production + " production · " + stages.scaled + " scaled";
+      label.append(stageMix);
+      const definition = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      definition.classList.add("theme-label-definition");
+      definition.setAttribute("x", group.x - group.width / 2 + 16);
+      definition.setAttribute("dy", "17");
+      definition.textContent = theme.definition.length > 82 ? theme.definition.slice(0, 80) + "…" : theme.definition;
+      label.append(definition);
+    }
     guide.append(label);
+    function openTheme(event) {
+      event?.stopPropagation();
+      state.activeThemeId = theme.id;
+      setViewMode("themes");
+    }
+    guide.addEventListener("click", openTheme);
+    guide.addEventListener("keydown", function themeKey(event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openTheme();
+      }
+    });
     guideLayer.append(guide);
   });
 }
 
 function renderLayerGuides(result) {
-  result.layers.forEach(function layerGuide(layer) {
+  result.layers.forEach(function layerGuide(layer, layerIndex) {
+    const band = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    band.classList.add("layer-band");
+    if (layerIndex % 2 === 1) band.classList.add("layer-band-alt");
+    if (result.orientation === "vertical") {
+      const nextLane = result.layers[layerIndex + 1];
+      band.setAttribute("x", 42);
+      band.setAttribute("y", layer.y + 8);
+      band.setAttribute("width", result.canvasWidth - 84);
+      band.setAttribute("height", Math.max(170, (nextLane ? nextLane.y : result.canvasHeight - 24) - layer.y - 18));
+    } else {
+      const bandWidth = Math.max(150, result.canvasWidth / result.layers.length - 26);
+      band.setAttribute("x", layer.x - bandWidth / 2);
+      band.setAttribute("y", 48);
+      band.setAttribute("width", bandWidth);
+      band.setAttribute("height", Math.max(200, state.height - 74));
+    }
+    band.setAttribute("rx", 5);
+    guideLayer.append(band);
     const rule = document.createElementNS("http://www.w3.org/2000/svg", "line");
     rule.classList.add("layer-rule");
-    rule.setAttribute("x1", layer.x);
-    rule.setAttribute("x2", layer.x);
-    rule.setAttribute("y1", 48);
-    rule.setAttribute("y2", state.height - 20);
+    if (result.orientation === "vertical") {
+      rule.setAttribute("x1", 42);
+      rule.setAttribute("x2", result.canvasWidth - 42);
+      rule.setAttribute("y1", layer.y);
+      rule.setAttribute("y2", layer.y);
+    } else {
+      rule.setAttribute("x1", layer.x);
+      rule.setAttribute("x2", layer.x);
+      rule.setAttribute("y1", 48);
+      rule.setAttribute("y2", state.height - 20);
+    }
     guideLayer.append(rule);
     const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
     label.classList.add("layer-label");
-    label.setAttribute("x", layer.x);
-    label.setAttribute("y", 29);
+    label.setAttribute("x", result.orientation === "vertical" ? 48 : layer.x);
+    label.setAttribute("y", result.orientation === "vertical" ? layer.y - 12 : 29);
+    if (result.orientation === "vertical") label.style.textAnchor = "start";
     label.textContent = layer.label + " · " + layer.nodes.length;
     guideLayer.append(label);
   });
@@ -1359,15 +1911,23 @@ function applyPositions(positions) {
   });
 }
 
+function setNodeDisplayTitleLimit(limit) {
+  state.graph.nodes.forEach(function setDisplayTitle(node) {
+    const title = node.title.length > limit ? node.title.slice(0, Math.max(1, limit - 1)) + "…" : node.title;
+    node.displayTitle = title;
+    if (!node.element.classList.contains("label-peek")) node.labelElement.textContent = title;
+  });
+}
+
 function updateFocusStatus() {
   if (state.viewMode !== "focus" || !state.focusId) return;
   const node = state.nodeById.get(state.focusId);
   const total = state.graph.nodes.filter(isTypeVisible).length;
   const shown = state.viewNodeIds ? state.viewNodeIds.size : total;
   const outside = Math.max(0, total - shown);
-  const message = "Focus: " + node.title + " · " + state.focusHops + " hop" +
+  const message = node.title + " · " + state.focusHops + " hop" +
     (state.focusHops === 1 ? "" : "s") + " · " + shown + " of " + total +
-    " nodes shown · " + outside + " outside this view";
+    " items shown · " + outside + " outside this view";
   focusStatus.textContent = message;
   viewStatus.textContent = message;
   const back = document.querySelector("#focus-back");
@@ -1376,7 +1936,7 @@ function updateFocusStatus() {
     "aria-label",
     state.focusHistory.length
       ? "Back to " + state.nodeById.get(state.focusHistory.at(-1)).title
-      : "Back to Overview"
+      : "Back to Idea Map"
   );
 }
 
@@ -1388,8 +1948,25 @@ function updateViewControls() {
     button.setAttribute("aria-pressed", Number(button.dataset.hops) === state.focusHops ? "true" : "false");
   });
   const focusMode = state.viewMode === "focus";
+  const mapMode = state.viewMode === "map";
   focusControls.hidden = !focusMode;
-  viewStatus.hidden = focusMode;
+  const themeDetailMode = state.viewMode === "themes" && Boolean(state.activeThemeId);
+  appShell.dataset.themeDetail = themeDetailMode ? "true" : "false";
+  themeControls.hidden = !themeDetailMode;
+  viewStatus.hidden = focusMode || themeDetailMode || mapMode ||
+    (state.viewMode === "themes" && !state.activeThemeId);
+  const themeIndexMode = state.viewMode === "themes" && !state.activeThemeId;
+  const canvasLabel = mapMode
+    ? "Agent economy idea map"
+    : (themeIndexMode
+      ? "Agent economy theme directory"
+      : "Interactive knowledge graph of AI-agent economy events and ideas");
+  canvasWrap.setAttribute("aria-label", canvasLabel);
+  svg.setAttribute("aria-label", canvasLabel);
+  document.querySelector("#zoom-reset").setAttribute(
+    "aria-label",
+    mapMode ? "Fit Idea Map" : (themeIndexMode ? "Fit theme directory" : "Fit visible graph")
+  );
   renderViewExamples();
 }
 
@@ -1397,23 +1974,41 @@ function applyCurrentLayout(shouldFit) {
   state.layoutRun += 1;
   updateCanvasSize();
   clearLayoutGuides();
+  setNodeDisplayTitleLimit(30);
+  state.layoutBounds = null;
+  viewStatus.classList.toggle(
+    "summary-status",
+    state.viewMode === "map" || (state.viewMode === "themes" && !state.activeThemeId)
+  );
 
-  if (state.viewMode === "overview") {
-    state.viewNodeIds = null;
-    state.labelNodeIds = null;
-    state.layoutTargets.clear();
+  if (state.viewMode === "map") {
+    const result = GraphLayouts.ideaMapLayout(
+      state.graph,
+      svg.getBoundingClientRect().width,
+      state.height
+    );
+    state.viewNodeIds = result.nodeIds;
+    state.labelNodeIds = new Set();
+    state.layoutTargets = new Map(result.positions);
     state.focusLevels.clear();
     state.focusTreePairs.clear();
-    initializePositions();
+    applyPositions(result.positions);
+    renderIdeaMapGuides(result);
+    state.layoutBounds = {
+      minX: Math.min.apply(null, result.groups.map(function left(group) { return group.x - group.width / 2 - 18; })),
+      maxX: Math.max.apply(null, result.groups.map(function right(group) { return group.x + group.width / 2 + 18; })),
+      minY: Math.min.apply(null, result.groups.map(function top(group) { return group.y - group.height / 2 - 18; })),
+      maxY: Math.max.apply(null, result.groups.map(function bottom(group) { return group.y + group.height / 2 + 18; })),
+    };
     updateVisibility();
+    updateHighlights();
     renderPositions();
-    resetTransform();
-    viewStatus.textContent = "Overview · " + state.graph.nodes.filter(isTypeVisible).length + " visible nodes";
-    graphKey.textContent = "Drag nodes · scroll to zoom · select for evidence";
-    simulate();
+    viewStatus.textContent = "";
+    graphKey.textContent = "Open a theme for all members, or choose a named item to explore its connections.";
+    if (shouldFit !== false) fitVisibleNodes();
   } else if (state.viewMode === "focus") {
     if (!state.focusId || !isTypeVisible(state.nodeById.get(state.focusId))) {
-      state.focusId = GraphLayouts.mostConnectedEntity(state.graph.nodes, state.graph.edges, state.visibleTypes);
+      state.focusId = GraphLayouts.mostConnectedConcept(state.graph.nodes, state.graph.edges, state.visibleTypes);
       state.focusHistory = [];
     }
     if (!state.focusId) return;
@@ -1425,6 +2020,22 @@ function applyCurrentLayout(shouldFit) {
       state.height,
       state.visibleTypes
     );
+    if (state.pathNodes.size) {
+      const pathIds = Array.from(state.pathNodes);
+      pathIds.forEach(function ensurePathNode(id, index) {
+        result.nodeIds.add(id);
+        if (!result.positions.has(id)) {
+          result.positions.set(id, {
+            x: 90 + index / Math.max(pathIds.length - 1, 1) * (Math.max(state.width, 800) - 180),
+            y: 82 + (index % 2) * 42,
+          });
+          result.levels.set(id, 2);
+        }
+      });
+      state.graph.edges.forEach(function pathTreeEdge(edge) {
+        if (state.pathEdges.has(edge.key)) result.treePairs.add(edgePair(edge));
+      });
+    }
     state.viewNodeIds = result.nodeIds;
     state.labelNodeIds = new Set(Array.from(result.nodeIds).filter(function focusLabel(id) {
       return (result.levels.get(id) || 0) <= 1 || id === state.selectedId;
@@ -1441,45 +2052,80 @@ function applyCurrentLayout(shouldFit) {
     updateHighlights();
     renderPositions();
     updateFocusStatus();
-    graphKey.textContent = "Drag to rearrange · select a neighbour to recenter · edge labels show each relation type once";
+    graphKey.textContent = "Select a neighbour to recenter. Drag items or scroll to adjust the view.";
     if (shouldFit !== false) fitVisibleNodes();
     simulate(110, true);
-  } else if (state.viewMode === "clusters") {
+  } else if (state.viewMode === "themes") {
     state.focusTreePairs.clear();
-    const result = GraphLayouts.clusterLayout(
+    const result = GraphLayouts.themeLayout(
       state.graph,
-      Math.max(state.width, 900),
-      Math.max(state.height, 560),
+      state.activeThemeId,
+      svg.getBoundingClientRect().width,
+      state.height,
       state.visibleTypes
     );
-    state.viewNodeIds = new Set(result.positions.keys());
-    state.labelNodeIds = new Set();
-    result.communities.forEach(function labelCommunityLeaders(community) {
-      const labelCount = community.nodes.length <= 4 ? community.nodes.length : (community.nodes.length >= 12 ? 4 : 3);
-      community.nodes.slice(1, labelCount + 1).forEach(function addLabel(node) {
-        state.labelNodeIds.add(node.id);
-      });
-    });
+    state.viewNodeIds = result.nodeIds;
+    state.labelNodeIds = state.activeThemeId
+      ? new Set(Array.from(result.primaryNodeIds).slice(0, result.compact ? 8 : 12))
+      : new Set();
     state.layoutTargets = new Map(result.positions);
     applyPositions(result.positions);
-    renderClusterGuides(result);
+    if (state.activeThemeId) {
+      state.themePrimaryNodeIds = result.primaryNodeIds;
+      state.themeSecondaryNodeIds = result.secondaryNodeIds;
+      result.secondaryNodeIds.forEach(function markSecondary(id) {
+        state.nodeById.get(id)?.element.classList.add("theme-secondary");
+      });
+      const theme = result.theme;
+      const summary = theme.summary;
+      themeStatus.textContent = theme.title + " · " + countLabel(summary.memberCount, "primary member") + " · " +
+        countLabel(result.secondaryNodeIds.size, "cross-theme link") + " · maturity " +
+        summary.evidenceMaturity + " · commercial proof " + summary.commercialProof;
+    } else {
+      renderThemeGuides(result, true);
+      state.layoutBounds = {
+        minX: Math.min.apply(null, result.groups.map(function left(group) { return group.x - group.width / 2 - 16; })),
+        maxX: Math.max.apply(null, result.groups.map(function right(group) { return group.x + group.width / 2 + 16; })),
+        minY: Math.min.apply(null, result.groups.map(function top(group) { return group.y - group.height / 2 - 16; })),
+        maxY: Math.max.apply(null, result.groups.map(function bottom(group) { return group.y + group.height / 2 + 16; })),
+      };
+    }
     updateVisibility();
     updateHighlights();
     renderPositions();
-    viewStatus.textContent = "Clusters · " + result.groups.length + " connectivity groups · " +
-      state.viewNodeIds.size + " nodes";
-    graphKey.textContent = "Drag to rearrange · hover any node for its label · groups reflect connectivity";
+    viewStatus.textContent = state.activeThemeId
+      ? result.theme.title + " · " + countLabel(result.primaryNodeIds.size, "primary member")
+      : "";
+    graphKey.textContent = state.activeThemeId
+      ? "Primary members are prominent; cross-theme context is subdued."
+      : "Choose a theme to open its complete membership and cross-theme context.";
     if (shouldFit !== false) fitVisibleNodes();
-    simulate(120, true);
-  } else if (state.viewMode === "layers") {
+    if (state.activeThemeId) simulate(90, true);
+  } else if (state.viewMode === "evidence") {
     state.focusTreePairs.clear();
-    const result = GraphLayouts.layerLayout(
+    if (!state.activeThemeId) {
+      state.activeThemeId = state.selectedId && state.nodeById.get(state.selectedId)?.theme?.primary ||
+        state.graph.themes?.[0]?.id || null;
+    }
+    const result = GraphLayouts.evidenceFlowLayout(
       state.graph,
-      Math.max(state.width, 1100),
+      state.activeThemeId,
+      svg.getBoundingClientRect().width,
       Math.max(state.height, 560),
       state.visibleTypes
     );
-    state.viewNodeIds = new Set(result.positions.keys());
+    state.viewNodeIds = result.nodeIds;
+    state.evidenceOrientation = result.orientation;
+    state.evidenceCanvasWidth = result.canvasWidth;
+    if (result.orientation === "vertical") setNodeDisplayTitleLimit(18);
+    state.graph.nodes.forEach(function updateEvidenceBadge(node) {
+      if (!node.evidenceBadgeElement) return;
+      node.evidenceBadgeElement.textContent = result.orientation === "vertical"
+        ? (node.metadata.stage || "announcement") + " · " + (node.metadata.confidence || "low") +
+          " · " + (node.metadata.commercial_proof || "unproven")
+        : (node.metadata.stage || "announcement") + " · " + (node.metadata.confidence || "low") +
+          " confidence · " + (node.metadata.commercial_proof || "unproven") + " commercial proof";
+    });
     state.labelNodeIds = new Set();
     result.layers.forEach(function labelLayerLeaders(layer) {
       layer.nodes.slice(0, 6).forEach(function addLayerLabel(node) {
@@ -1492,32 +2138,48 @@ function applyCurrentLayout(shouldFit) {
     updateVisibility();
     updateHighlights();
     renderPositions();
-    viewStatus.textContent = "Layers · entities → events → concepts → theses and synthesis";
+    viewStatus.textContent = result.theme.title + " · actors → events → concepts → theses";
     graphKey.textContent = state.selectedId
-      ? "Drag to rearrange · hover nodes for names · edge labels show each relation type once"
-      : "Drag to rearrange · hover nodes for names · select a node to label its relations";
+      ? "Selected relationships are labelled. Drag items or scroll to adjust the view."
+      : "Select an item to label its relationships. Hover for full names.";
     if (shouldFit !== false) fitVisibleNodes();
     simulate(110, true);
   }
+  renderTimeline();
   updateViewControls();
 }
 
-function setViewMode(mode) {
+function setViewMode(mode, historyMode) {
   if (!VIEW_COPY[mode]) return;
+  const previousUrl = window.location.href;
+  const navigationMode = historyMode || (state.navigationReady ? "push" : "replace");
   state.viewMode = mode;
+  svg.dataset.view = mode;
+  appShell.dataset.currentView = mode;
+  if (mode === "map") {
+    state.selectedId = null;
+    state.keyboardNodeId = null;
+    state.focusId = null;
+    state.focusHistory = [];
+    state.activeThemeId = null;
+    state.pathNodes.clear();
+    state.pathEdges.clear();
+    clearDetails();
+    if (state.detailOpen) setPanelVisibility("detail", false);
+  }
   if (mode === "focus") {
     const selected = state.selectedId && state.nodeById.get(state.selectedId);
-    if (selected && isTypeVisible(selected)) state.focusId = selected.id;
+    if (!state.focusId && selected && isTypeVisible(selected)) state.focusId = selected.id;
     if (!state.focusId) {
-      state.focusId = GraphLayouts.mostConnectedEntity(state.graph.nodes, state.graph.edges, state.visibleTypes);
+      state.focusId = GraphLayouts.mostConnectedConcept(state.graph.nodes, state.graph.edges, state.visibleTypes);
     }
     state.focusHistory = [];
     if (state.focusId) {
-      prepareNodeSelection(state.nodeById.get(state.focusId));
+      prepareNodeSelection(state.nodeById.get(state.focusId), false);
     }
   }
   applyCurrentLayout(true);
-  syncNavigationUrl();
+  syncNavigationUrl(navigationMode, previousUrl);
   updateWorkspaceContext();
 }
 
@@ -1525,7 +2187,7 @@ function handleTypeFilterChange(input) {
   if (input.checked) state.visibleTypes.add(input.value);
   else state.visibleTypes.delete(input.value);
   if (state.viewMode === "focus" && state.focusId && !isTypeVisible(state.nodeById.get(state.focusId))) {
-    state.focusId = GraphLayouts.mostConnectedEntity(state.graph.nodes, state.graph.edges, state.visibleTypes);
+    state.focusId = GraphLayouts.mostConnectedConcept(state.graph.nodes, state.graph.edges, state.visibleTypes);
     state.focusHistory = [];
     if (state.focusId) {
       prepareNodeSelection(state.nodeById.get(state.focusId));
@@ -1568,7 +2230,11 @@ function bindControls() {
   });
   document.querySelectorAll("[data-view]").forEach(function bindView(button) {
     button.addEventListener("click", function switchView() {
-      setViewMode(button.dataset.view);
+      if (button.dataset.view === "themes") {
+        openThemeIndex();
+      } else {
+        setViewMode(button.dataset.view);
+      }
     });
   });
   document.querySelectorAll("[data-hops]").forEach(function bindHopDepth(button) {
@@ -1583,8 +2249,11 @@ function bindControls() {
       navigateFocus(state.focusHistory.pop(), false);
       focusNodeElement(state.focusId);
     } else {
-      setViewMode("overview");
+      setViewMode("map");
     }
+  });
+  document.querySelector("#theme-back").addEventListener("click", function backToThemeIndex() {
+    openThemeIndex();
   });
   document.querySelector("#find-path").addEventListener("click", tracePath);
   document.querySelector("#view-examples").addEventListener("click", function chooseExample(event) {
@@ -1613,14 +2282,15 @@ function bindControls() {
     state.selectedId = null;
     state.focusId = null;
     state.focusHistory = [];
+    state.activeThemeId = null;
     state.searchMatches = null;
     document.querySelector("#search").value = "";
     document.querySelector("#search-results").replaceChildren();
     document.querySelector("#path-from").value = "";
     document.querySelector("#path-to").value = "";
-    document.querySelector("#path-status").textContent = "Uses typed relations, excluding generic references.";
+    document.querySelector("#path-status").textContent = "Uses typed links; generic references are excluded.";
     clearDetails();
-    setViewMode("overview");
+    setViewMode("map");
     updateHighlights();
     updateInspectorNavigation();
   });
@@ -1642,11 +2312,13 @@ function bindControls() {
       return;
     }
     if (!isTyping && !isControl && ["1", "2", "3", "4"].includes(event.key)) {
-      const mode = ["overview", "focus", "clusters", "layers"][Number(event.key) - 1];
+      const mode = ["map", "themes", "focus", "evidence"][Number(event.key) - 1];
       event.preventDefault();
-      setViewMode(mode);
+      if (mode === "themes") openThemeIndex();
+      else setViewMode(mode);
     }
   });
+  window.addEventListener("popstate", restoreNavigationFromLocation);
 }
 
 function resetTransform() {
@@ -1667,18 +2339,60 @@ function installResizeHandling() {
   observer.observe(svg);
 }
 
+function restoreNavigationFromLocation() {
+  if (!state.graph) return;
+  const params = new URLSearchParams(window.location.search);
+  const mode = GraphLayouts.normalizeViewName(params.get("view")) || "map";
+  const themeId = params.get("theme");
+  const requestedNode = params.get("node");
+  const linkedNode = requestedNode
+    ? state.nodeById.get(requestedNode) || state.graph.nodes.find(function matchNavigationNode(node) {
+      return node.title.toLowerCase() === requestedNode.toLowerCase();
+    })
+    : null;
+  state.activeThemeId = themeId && state.themeById.has(themeId) ? themeId : null;
+  state.selectedId = linkedNode ? linkedNode.id : null;
+  state.keyboardNodeId = linkedNode ? linkedNode.id : null;
+  state.focusId = mode === "focus" && linkedNode ? linkedNode.id : null;
+  if (!linkedNode && mode !== "focus") {
+    clearDetails();
+    if (state.detailOpen) setPanelVisibility("detail", false);
+  }
+  setViewMode(mode, "none");
+  if (linkedNode && !["map", "focus"].includes(mode)) {
+    if (!isVisible(linkedNode)) {
+      state.focusId = linkedNode.id;
+      state.selectedId = linkedNode.id;
+      setViewMode("focus", "none");
+    } else {
+      prepareNodeSelection(linkedNode, false);
+      updateVisibility();
+      updateHighlights();
+    }
+  }
+}
+
+async function loadGraphData() {
+  if (window.AGENTIC_EVOLUTION_GRAPH) {
+    return window.AGENTIC_EVOLUTION_GRAPH;
+  }
+  const response = await fetch("graph.json", { cache: "no-store" });
+  if (!response.ok) throw new Error("HTTP " + response.status);
+  return response.json();
+}
+
 async function initialize() {
   try {
     const navigationParams = new URLSearchParams(window.location.search);
     const requestedNode = navigationParams.get("node");
-    const requestedView = navigationParams.get("view");
+    const rawRequestedView = navigationParams.get("view");
+    const requestedView = GraphLayouts.normalizeViewName(rawRequestedView);
+    const requestedTheme = navigationParams.get("theme");
     if (window.innerWidth <= 800) {
       setPanelVisibility("sidebar", false);
       setPanelVisibility("detail", false);
     }
-    const response = await fetch("graph.json", { cache: "no-store" });
-    if (!response.ok) throw new Error("HTTP " + response.status);
-    state.graph = await response.json();
+    state.graph = await loadGraphData();
     state.graph.nodes = state.graph.nodes.filter(function publicNode(node) {
       return !HIDDEN_PUBLIC_NODE_IDS.has(node.id);
     });
@@ -1691,28 +2405,31 @@ async function initialize() {
     createGraphElements();
     installNodeInteractions();
     renderCounts();
-    renderTimeline();
     installPanAndZoom();
     bindControls();
     installResizeHandling();
-    setViewMode("overview");
+    setViewMode("map");
+    if (requestedTheme && state.themeById.has(requestedTheme)) {
+      state.activeThemeId = requestedTheme;
+    }
+    if (requestedView && VIEW_COPY[requestedView] && requestedView !== "map") {
+      setViewMode(requestedView);
+    }
     if (requestedNode) {
       const linkedNode = state.nodeById.get(requestedNode) || state.graph.nodes.find(function matchLinkedNode(node) {
         return node.title.toLowerCase() === requestedNode.toLowerCase();
       });
       if (linkedNode && isTypeVisible(linkedNode)) {
-        selectNode(linkedNode.id, false);
+        activateNode(linkedNode.id);
       }
-    }
-    if (requestedView && VIEW_COPY[requestedView] && requestedView !== "overview") {
-      setViewMode(requestedView);
     }
     updateInspectorNavigation();
     syncNavigationUrl();
+    state.navigationReady = true;
   } catch (error) {
-    document.querySelector("#graph-stats").textContent = "Graph unavailable";
+    document.querySelector("#graph-stats").textContent = "Navigator unavailable";
     document.querySelector("#empty-state").hidden = false;
-    document.querySelector("#empty-state").textContent = "Could not load graph.json: " + error.message;
+    document.querySelector("#empty-state").textContent = "Could not load the evidence map: " + error.message;
   }
 }
 

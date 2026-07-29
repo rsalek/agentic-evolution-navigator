@@ -34,6 +34,41 @@ The graph separates dated evidence from reusable mechanisms and revisable interp
 - `medium`: credible secondary source, syndicated company release, or incomplete methodology.
 - `low`: unverified social claim, vague announcement, or ambiguous entity match.
 
+## Commercial proof
+
+Events may include `commercial_proof` and `commercial_signals` in frontmatter. Missing
+commercial proof is compiled as `unproven`; announcement language alone never upgrades
+the label.
+
+- `unproven`: readiness, a pilot, a first transaction, or activity without an
+  attributable economic bridge.
+- `emerging`: a credible paid deployment, customer or share gain, repeat usage,
+  pricing, contracted economics, or attributable operating benefit with stated
+  limitations.
+- `measured`: repeated or multi-period evidence with a clear payer or denominator
+  and attributable revenue, retention, margin, market-share, or unit-economic effect.
+
+Canonical commercial-signal slugs are `paying-customers`, `customer-growth`,
+`market-share`, `agent-revenue`, `contracted-revenue`, `arr-acv-backlog`,
+`pricing-attach-renewal`, `take-rate-fees`, `repeat-transactions`,
+`paid-identity-security-monitoring`, `unit-economics`, `margin`, `retention`,
+and `demand`.
+
+## Idea themes
+
+The public graph compiles every non-system node into one primary theme and optional
+secondary themes using the ordered taxonomy in `config/theme-taxonomy.json`.
+Assignments are deterministic and relation-first: fixed seeds and explicit overrides
+take precedence, typed semantic relations are scored through two hops, generic
+`references` links are ignored, and keywords are used only when relation scoring
+returns zero. The compiled assignment includes its basis so a reader can inspect why
+the node appears in a theme.
+
+Each compiled theme summary exposes three explicit navigation roles:
+`anchorConceptId`, `strongestEventId`, and `synthesisId`. A role is `null` when the
+accepted graph has no corresponding event or synthesis. `representativeNodeIds`
+remains the ordered compatibility projection of the non-null role IDs.
+
 ## Evidence admission
 
 Before promotion, run the passage through the [[wiki/_system/Evidence Ontology|Evidence Ontology]] or assess the same dimensions manually. The resulting evidence contract is routing context, not proof.

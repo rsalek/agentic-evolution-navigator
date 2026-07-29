@@ -58,6 +58,302 @@
     return candidates.length ? candidates[0].id : null;
   }
 
+  function mostConnectedConcept(nodes, edges, visibleTypes) {
+    var degrees = degreeMap(nodes, edges);
+    var concepts = eligibleNodes(nodes, visibleTypes).filter(function conceptOnly(node) {
+      return node.type === "concept";
+    });
+    var candidates = concepts.length ? concepts : eligibleNodes(nodes, visibleTypes);
+    candidates.sort(function sortCandidates(a, b) {
+      return compareNodes(a, b, degrees);
+    });
+    return candidates.length ? candidates[0].id : null;
+  }
+
+  function primaryThemeId(node) {
+    return node && node.theme ? node.theme.primary : null;
+  }
+
+  function secondaryThemeIds(node) {
+    return node && node.theme && Array.isArray(node.theme.secondary) ? node.theme.secondary : [];
+  }
+
+  function normalizeViewName(view) {
+    if (view === "overview") return "map";
+    if (view === "clusters") return "themes";
+    if (view === "layers") return "evidence";
+    return ["map", "themes", "focus", "evidence"].indexOf(view) >= 0 ? view : null;
+  }
+
+  function representativeRows(theme, nodesById) {
+    var summary = theme.summary || {};
+    return [
+      {
+        role: "concept",
+        label: "Core idea",
+        nodeId: summary.anchorConceptId || null,
+        missingLabel: "No core concept yet",
+      },
+      {
+        role: "evidence",
+        label: "Best evidence",
+        nodeId: summary.strongestEventId || null,
+        missingLabel: "No accepted evidence yet",
+      },
+      {
+        role: "synthesis",
+        label: "Current thesis",
+        nodeId: summary.synthesisId || null,
+        missingLabel: "No accepted thesis yet",
+      },
+    ].map(function describeRepresentative(row) {
+      var node = row.nodeId ? nodesById.get(row.nodeId) : null;
+      return Object.assign({}, row, {
+        node: node || null,
+        title: node ? node.title : row.missingLabel,
+        interactive: Boolean(node),
+      });
+    });
+  }
+
+  function ideaMapLayout(graph, width, height) {
+    var nodesById = new Map(graph.nodes.map(function index(node) {
+      return [node.id, node];
+    }));
+    var compact = width < 560;
+    var canvasWidth = compact ? Math.max(width, 400) : Math.max(width, 1050);
+    var canvasHeight = compact ? Math.max(height, 1830) : Math.max(height, 800);
+    var groups = [];
+
+    (graph.themes || []).slice().sort(function byOrder(a, b) {
+      return a.order - b.order;
+    }).forEach(function placeTheme(theme, index) {
+      var x;
+      var y;
+      if (compact) {
+        x = canvasWidth / 2;
+        y = 132 + index * 244;
+      } else {
+        x = 90 + theme.position.x * (canvasWidth - 180);
+        y = 75 + theme.position.y * (canvasHeight - 150);
+      }
+      groups.push({
+        id: theme.id,
+        theme: theme,
+        x: x,
+        y: y,
+        width: compact ? Math.min(360, canvasWidth - 44) : 250,
+        height: compact ? 226 : 180,
+        representativeRows: representativeRows(theme, nodesById),
+      });
+    });
+
+    return {
+      positions: new Map(),
+      nodeIds: new Set(),
+      groups: groups,
+      compact: compact,
+      canvasWidth: canvasWidth,
+      canvasHeight: canvasHeight,
+    };
+  }
+
+  function themeIndexLayout(graph, width, height, visibleTypes) {
+    var compact = width < 560;
+    var canvasWidth = compact ? Math.max(width, 400) : Math.max(width, 780);
+    var canvasHeight = compact ? Math.max(height, 1320) : Math.max(height, 760);
+    var groups = [];
+    (graph.themes || []).slice().sort(function byOrder(a, b) {
+      return a.order - b.order;
+    }).forEach(function placeTheme(theme, index) {
+      var column = compact ? 0 : index % 2;
+      var row = compact ? index : Math.floor(index / 2);
+      var x = compact ? canvasWidth / 2 : canvasWidth * (column ? 0.73 : 0.27);
+      if (!compact && index === 6) x = canvasWidth / 2;
+      var y = compact ? 106 + row * 180 : 100 + row * 175;
+      groups.push({
+        id: theme.id,
+        theme: theme,
+        x: x,
+        y: y,
+        width: compact ? Math.min(360, canvasWidth - 44) : Math.min(420, canvasWidth / 2 - 48),
+        height: compact ? 164 : 152,
+      });
+    });
+    return {
+      positions: new Map(),
+      nodeIds: new Set(),
+      groups: groups,
+      compact: compact,
+      canvasWidth: canvasWidth,
+      canvasHeight: canvasHeight,
+    };
+  }
+
+  function themeLayout(graph, themeId, width, height, visibleTypes) {
+    if (!themeId) {
+      return themeIndexLayout(graph, width, height, visibleTypes);
+    }
+    var degrees = degreeMap(graph.nodes, graph.edges);
+    var visible = eligibleNodes(graph.nodes, visibleTypes);
+    var primary = visible.filter(function primaryMember(node) {
+      return primaryThemeId(node) === themeId;
+    }).sort(function rankPrimary(a, b) {
+      return compareNodes(a, b, degrees);
+    });
+    var secondary = visible.filter(function secondaryMember(node) {
+      return primaryThemeId(node) !== themeId && secondaryThemeIds(node).indexOf(themeId) >= 0;
+    }).sort(function rankSecondary(a, b) {
+      return compareNodes(a, b, degrees);
+    });
+    var compactDetail = width < 560;
+    var canvasWidth = compactDetail ? 600 : Math.max(width, 900);
+    var canvasHeight = compactDetail ? Math.max(height, 860) : Math.max(height, 620);
+    var positions = new Map();
+    var columns = compactDetail
+      ? 2
+      : Math.max(4, Math.ceil(Math.sqrt(Math.max(primary.length, 1) * canvasWidth / canvasHeight)));
+    var rows = Math.max(1, Math.ceil(primary.length / columns));
+    var left = compactDetail ? 110 : 150;
+    var right = canvasWidth - left;
+    var top = compactDetail ? 150 : 126;
+    var bottom = canvasHeight - (secondary.length ? 120 : 70);
+    if (!compactDetail && primary.length <= 4) {
+      var centerX = canvasWidth / 2;
+      var centerY = canvasHeight / 2;
+      primary.forEach(function placeSmallPrimary(node, index) {
+        var primaryAngle = -Math.PI / 2 + index / Math.max(primary.length, 1) * Math.PI * 2;
+        var primaryRadius = primary.length === 1 ? 0 : 92;
+        positions.set(node.id, {
+          x: centerX + Math.cos(primaryAngle) * primaryRadius,
+          y: centerY + Math.sin(primaryAngle) * primaryRadius,
+        });
+      });
+      secondary.forEach(function placeSmallSecondary(node, index) {
+        var secondaryAngle = secondary.length === 1
+          ? Math.PI / 2
+          : Math.PI + index / Math.max(secondary.length - 1, 1) * Math.PI;
+        positions.set(node.id, {
+          x: centerX + Math.cos(secondaryAngle) * 185,
+          y: centerY + Math.sin(secondaryAngle) * 145,
+        });
+      });
+    } else {
+      primary.forEach(function placePrimary(node, index) {
+        var column = index % columns;
+        var row = Math.floor(index / columns);
+        positions.set(node.id, {
+          x: columns === 1 ? canvasWidth / 2 : left + column / (columns - 1) * (right - left),
+          y: rows === 1 ? (top + bottom) / 2 : top + row / (rows - 1) * (bottom - top),
+        });
+      });
+      secondary.forEach(function placeSecondary(node, index) {
+        var span = Math.max(secondary.length - 1, 1);
+        positions.set(node.id, {
+          x: 90 + index / span * (canvasWidth - 180),
+          y: canvasHeight - 42,
+        });
+      });
+    }
+    var theme = (graph.themes || []).find(function findTheme(item) {
+      return item.id === themeId;
+    }) || null;
+    return {
+      positions: positions,
+      nodeIds: new Set(positions.keys()),
+      primaryNodeIds: new Set(primary.map(function toId(node) { return node.id; })),
+      secondaryNodeIds: new Set(secondary.map(function toId(node) { return node.id; })),
+      primary: primary,
+      secondary: secondary,
+      theme: theme,
+      groups: theme ? [{
+        id: theme.id,
+        theme: theme,
+        x: canvasWidth / 2,
+        y: 54,
+        width: canvasWidth - 120,
+        height: 72,
+        representatives: [],
+      }] : [],
+      canvasWidth: canvasWidth,
+      canvasHeight: canvasHeight,
+      compact: compactDetail,
+    };
+  }
+
+  function evidenceFlowLayout(graph, themeId, width, height, visibleTypes) {
+    var degrees = degreeMap(graph.nodes, graph.edges);
+    var definitions = [
+      { id: "entity", label: "Actors", types: ["entity"] },
+      { id: "event", label: "Events", types: ["event"] },
+      { id: "concept", label: "Concepts", types: ["concept"] },
+      { id: "thesis", label: "Theses and synthesis", types: ["thesis", "query", "index"] },
+    ];
+    var themed = eligibleNodes(graph.nodes, visibleTypes).filter(function inTheme(node) {
+      return primaryThemeId(node) === themeId;
+    });
+    var compact = width < 560;
+    var canvasWidth = compact ? Math.max(width, 400) : Math.max(width, 1050);
+    var canvasHeight = compact ? Math.max(height, 1180) : Math.max(height, 620);
+    var lanes = definitions.map(function buildLane(definition) {
+      var members = themed.filter(function inLane(node) {
+        return definition.types.indexOf(node.type) >= 0;
+      }).sort(function sortLane(a, b) {
+        return compareNodes(a, b, degrees);
+      });
+      return { id: definition.id, label: definition.label, nodes: members };
+    });
+    var positions = new Map();
+    if (compact) {
+      var laneHeights = lanes.map(function compactLaneHeight(lane) {
+        var columns = 1;
+        return Math.max(190, Math.ceil(Math.max(lane.nodes.length, 1) / columns) * 74 + 96);
+      });
+      canvasHeight = Math.max(canvasHeight, laneHeights.reduce(function total(sum, laneHeight) {
+        return sum + laneHeight;
+      }, 70));
+      var laneCursor = 72;
+      lanes.forEach(function placeCompactLane(lane, laneIndex) {
+        lane.y = laneCursor;
+        lane.x = 28;
+        var columns = 1;
+        lane.nodes.forEach(function placeCompactNode(node, index) {
+          var column = index % columns;
+          var row = Math.floor(index / columns);
+          positions.set(node.id, {
+            x: columns === 1 ? canvasWidth / 2 : 82 + column / (columns - 1) * (canvasWidth - 164),
+            y: lane.y + 58 + row * 74,
+          });
+        });
+        laneCursor += laneHeights[laneIndex];
+      });
+    } else {
+      var left = 112;
+      var right = canvasWidth - 112;
+      var top = 92;
+      var bottom = canvasHeight - 72;
+      lanes.forEach(function placeLane(lane, laneIndex) {
+        lane.x = lanes.length === 1 ? canvasWidth / 2 : left + laneIndex / (lanes.length - 1) * (right - left);
+        var rows = Math.max(lane.nodes.length, 1);
+        lane.nodes.forEach(function placeNode(node, index) {
+          positions.set(node.id, {
+            x: lane.x,
+            y: rows === 1 ? (top + bottom) / 2 : top + index / (rows - 1) * (bottom - top),
+          });
+        });
+      });
+    }
+    return {
+      positions: positions,
+      nodeIds: new Set(positions.keys()),
+      layers: lanes,
+      theme: (graph.themes || []).find(function findTheme(item) { return item.id === themeId; }) || null,
+      orientation: compact ? "vertical" : "horizontal",
+      canvasWidth: canvasWidth,
+      canvasHeight: canvasHeight,
+    };
+  }
+
   function focusLayout(graph, hubId, hops, width, height, visibleTypes) {
     var visible = eligibleNodes(graph.nodes, visibleTypes);
     var visibleById = new Map(visible.map(function index(node) {
@@ -80,6 +376,7 @@
     first.sort(function sortFirst(a, b) {
       return compareNodes(a, b, degrees);
     });
+    first = first.slice(0, 14);
 
     var levels = new Map([[hub.id, 0]]);
     var treePairs = new Set();
@@ -101,6 +398,19 @@
         });
       });
     }
+    var maxSecond = Math.max(0, 36 - 1 - first.length);
+    var retainedSecond = new Set(Array.from(branchBySecond.keys()).map(function secondNode(id) {
+      return visibleById.get(id);
+    }).filter(Boolean).sort(function sortSecond(a, b) {
+      return compareNodes(a, b, degrees);
+    }).slice(0, maxSecond).map(function toId(node) {
+      return node.id;
+    }));
+    Array.from(branchBySecond.keys()).forEach(function removeOverflowSecond(id) {
+      if (retainedSecond.has(id)) return;
+      branchBySecond.delete(id);
+      levels.delete(id);
+    });
 
     var cx = width / 2;
     var cy = height / 2;
@@ -334,8 +644,15 @@
     degreeMap: degreeMap,
     detectCommunities: detectCommunities,
     focusLayout: focusLayout,
+    ideaMapLayout: ideaMapLayout,
+    overviewLayout: ideaMapLayout,
+    themeIndexLayout: themeIndexLayout,
+    themeLayout: themeLayout,
+    evidenceFlowLayout: evidenceFlowLayout,
     layerLayout: layerLayout,
+    mostConnectedConcept: mostConnectedConcept,
     mostConnectedEntity: mostConnectedEntity,
+    normalizeViewName: normalizeViewName,
     typedEdges: typedEdges,
   };
 

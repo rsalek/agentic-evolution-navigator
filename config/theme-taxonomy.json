@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "themes": [
+    {
+      "id": "transactions-commerce",
+      "title": "Transaction rails and machine commerce",
+      "shortTitle": "Machine commerce",
+      "definition": "Agent-initiated payments, procurement, settlement, and protocols that let software exchange economic value.",
+      "position": { "x": 0.5, "y": 0.08 },
+      "seeds": [
+        "concept-agentic-payments",
+        "concept-protocol-standardization",
+        "thesis-agent-payments-protocol-to-production"
+      ],
+      "keywords": ["payment", "transaction", "commerce", "merchant", "procurement", "settlement", "card", "x402"]
+    },
+    {
+      "id": "trust-identity-authorization",
+      "title": "Trust, identity and authorization",
+      "shortTitle": "Trust and authorization",
+      "definition": "Identity, credentials, permissions, policy, traffic verification, audit, and authorization controls for consequential agent actions.",
+      "position": { "x": 0.82, "y": 0.23 },
+      "seeds": [
+        "concept-agent-trust-governance",
+        "concept-verified-agent-traffic",
+        "thesis-trust-monetizes-early",
+        "thesis-agent-traffic-addressable-market"
+      ],
+      "keywords": ["identity", "authorization", "credential", "permission", "gateway", "traffic", "governance", "audit"]
+    },
+    {
+      "id": "cybersecurity-agent-safety",
+      "title": "Cybersecurity and agent safety",
+      "shortTitle": "Cybersecurity and safety",
+      "definition": "Agents performing offensive or defensive security work, and the products used to detect, contain, and remediate agent-driven threats.",
+      "position": { "x": 0.9, "y": 0.6 },
+      "seeds": [
+        "concept-agentic-cyber-operations"
+      ],
+      "keywords": ["cyber", "security", "threat", "breach", "intrusion", "malware", "containment", "vulnerability", "sase", "zero trust"]
+    },
+    {
+      "id": "platform-distribution-records",
+      "title": "Platform distribution and systems of record",
+      "shortTitle": "Platform distribution",
+      "definition": "Incumbent enterprise platforms distributing agents through existing data, permissions, workflows, customers, and budget ownership.",
+      "position": { "x": 0.68, "y": 0.9 },
+      "seeds": [
+        "concept-system-of-record-distribution",
+        "thesis-incumbent-platform-distribution"
+      ],
+      "keywords": ["platform", "system of record", "enterprise", "workflow", "distribution", "crm", "cloud"]
+    },
+    {
+      "id": "bounded-operations-coordination",
+      "title": "Bounded operations and human coordination",
+      "shortTitle": "Human coordination",
+      "definition": "High-volume operational workflows where agents execute bounded work with measurable outcomes, supervision, and exception paths.",
+      "position": { "x": 0.32, "y": 0.9 },
+      "seeds": [
+        "concept-agentic-service-operations",
+        "concept-human-ai-workforce-coordination",
+        "concept-agentic-marketing-automation",
+        "thesis-scaled-agents-bounded-service-operations"
+      ],
+      "keywords": ["service", "support", "operations", "coordination", "handoff", "routing", "intake", "resolution", "marketing"]
+    },
+    {
+      "id": "agent-production-engineering",
+      "title": "Agent production and engineering",
+      "shortTitle": "Agent engineering",
+      "definition": "Agents building, testing, deploying, and operating software or infrastructure, including reliability and recovery.",
+      "position": { "x": 0.1, "y": 0.6 },
+      "seeds": [
+        "concept-agentic-software-engineering"
+      ],
+      "keywords": ["software", "engineering", "coding", "developer", "deployment", "infrastructure", "repository", "rollback"]
+    },
+    {
+      "id": "adoption-economics-monetization",
+      "title": "Adoption, economics and monetization",
+      "shortTitle": "Adoption and monetization",
+      "definition": "Usage, market development, production economics, measurement limits, and evidence that agent activity creates or captures economic value.",
+      "position": { "x": 0.18, "y": 0.23 },
+      "seeds": [
+        "concept-production-agent-economics",
+        "concept-measurement-surface-bias",
+        "thesis-agentic-depth-frontier-gap"
+      ],
+      "keywords": ["adoption", "usage", "economics", "revenue", "arr", "cost", "margin", "measurement", "traffic", "growth"]
+    }
+  ],
+  "overrides": {
+    "entity-visa": "transactions-commerce",
+    "entity-mastercard": "transactions-commerce",
+    "entity-cloudflare": "trust-identity-authorization",
+    "entity-servicenow": "platform-distribution-records",
+    "entity-fis": "platform-distribution-records",
+    "entity-openai": "cybersecurity-agent-safety",
+    "entity-hugging-face": "cybersecurity-agent-safety",
+    "entity-zscaler": "cybersecurity-agent-safety",
+    "entity-fortinet": "cybersecurity-agent-safety",
+    "event-hugging-face-agent-intrusion-2026-07-16": "cybersecurity-agent-safety",
+    "event-openai-attributes-hugging-face-breach-2026-07-21": "cybersecurity-agent-safety",
+    "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28": "cybersecurity-agent-safety",
+    "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28": "cybersecurity-agent-safety"
+  }
+}

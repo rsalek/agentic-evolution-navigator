@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Cloudflare Radar evidence for agent demand, intent, access, operators, geography, and readiness.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Agent traffic signals · Evolution Navigator">
+    <meta property="og:title" content="Agent traffic signals · Agent Economy Navigator">
     <meta property="og:description" content="Live demand-side evidence connected to the Value versus extraction thesis.">
     <meta property="og:url" content="https://rsalek.github.io/agentic-evolution-navigator/signals/">
     <meta property="og:image" content="https://rsalek.github.io/agentic-evolution-navigator/signals/og.png">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Signals · Evolution Navigator</title>
+    <title>Live signals · Agent Economy Navigator</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23faf8f5' stroke='%23a54f0c' stroke-width='4'/%3E%3Cpath d='M18 39 30 17h4l12 22h-7l-2-5H27l-2 5Zm12-11h5l-2.5-6Z' fill='%23743506'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css?v=20260725-signals-v2">
   </head>
@@ -20,12 +20,12 @@
       <aside class="signals-sidebar">
         <header class="brand">
           <img class="brand-logo" src="../assets/agentic-evolution-logo.png?v=20260725" alt="" aria-hidden="true">
-          <div><strong>Evolution Navigator</strong><span>Evidence Graph &amp; Signals</span></div>
+          <div><strong>Agent Economy Navigator</strong><span>Evidence map &amp; signals</span></div>
         </header>
 
         <nav class="site-nav" aria-label="Navigator views">
-          <a href="../">Graph</a>
-          <a href="./" aria-current="page">Signals</a>
+          <a href="../index.html?view=map">Evidence map</a>
+          <a href="index.html" aria-current="page">Live signals</a>
         </nav>
 
         <nav class="saved-views control-block" aria-label="Signal views">
@@ -93,7 +93,7 @@
           </form>
           <div class="toolbar-actions">
             <button id="refresh-data" class="refresh-button" type="button">Refresh latest</button>
-            <button id="toggle-interpretation" class="panel-toggle" type="button" aria-pressed="true" aria-controls="interpretation-rail">Inspector</button>
+            <button id="toggle-interpretation" class="panel-toggle" type="button" aria-pressed="true" aria-controls="interpretation-rail">Details</button>
           </div>
         </header>
         <p id="data-notice" class="data-notice" role="status" aria-live="polite" hidden></p>
@@ -196,7 +196,7 @@
           </section>
 
           <section id="regime-log" class="panel regime-panel">
-            <header class="panel-header"><div><h2>Regime-change log</h2><p>Measured observations stay in Signals. Graph promotion remains manual.</p></div><span id="regime-log-summary" class="log-rule">0 candidates · 0 promoted</span></header>
+            <header class="panel-header"><div><h2>Regime-change log</h2><p>Measured observations stay in Signals. Promotion to the evidence map remains manual.</p></div><span id="regime-log-summary" class="log-rule">0 candidates · 0 promoted</span></header>
             <div class="regime-table-wrap">
               <table>
                 <thead><tr><th>Date</th><th>Observation</th><th>Change</th><th>Status</th><th>Promotion test</th></tr></thead>
@@ -214,7 +214,7 @@
             </div>
             <div class="thesis-toolbar-actions">
               <div class="model-status"><strong id="thesis-data-status">Cloudflare Radar</strong><span id="thesis-data-detail">Demand-side evidence only</span></div>
-              <a class="graph-link" href="../?node=thesis-agent-traffic-addressable-market">Trace thesis in graph</a>
+              <a class="graph-link" href="../index.html?view=focus&amp;node=thesis-agent-traffic-addressable-market">Explore thesis in the evidence map</a>
             </div>
           </header>
 
@@ -247,15 +247,15 @@
             </section>
 
             <section class="thesis-conclusion">
-              <article><span>Promotion rule</span><h2>Keep routine movement in Signals.</h2><p>A graph event requires at least four comparable weekly observations, unchanged methodology, geographic breadth or a second source, and supporting plus challenging evidence.</p><div class="candidate-marker"><span></span><strong>Observation only</strong><small>No automatic graph promotion</small></div></article>
-              <aside><h2>Source and thesis</h2><a href="../?node=entity-cloudflare">Cloudflare source node</a><a href="../?node=thesis-agent-traffic-addressable-market">Open the thesis in the graph</a></aside>
+              <article><span>Promotion rule</span><h2>Keep routine movement in Signals.</h2><p>An evidence-map event requires at least four comparable weekly observations, unchanged methodology, geographic breadth or a second source, and supporting plus challenging evidence.</p><div class="candidate-marker"><span></span><strong>Observation only</strong><small>No automatic promotion</small></div></article>
+              <aside><h2>Related research</h2><a href="../index.html?view=focus&amp;node=entity-cloudflare">Explore Cloudflare</a><a href="../index.html?view=focus&amp;node=thesis-agent-traffic-addressable-market">Explore the addressable-market thesis</a></aside>
             </section>
           </section>
         </section>
       </main>
 
       <aside id="interpretation-rail" class="interpretation-rail" aria-label="Signal interpretation">
-        <header class="inspector-header"><strong>Inspector</strong><div class="inspector-actions"><span id="inspector-position">Demand pressure</span><button id="close-rail" class="panel-dismiss" type="button">Hide</button></div></header>
+        <header class="inspector-header"><strong>Details</strong><div class="inspector-actions"><span id="inspector-position">Demand pressure</span><button id="close-rail" class="panel-dismiss" type="button">Hide details</button></div></header>
         <article class="interpretation-content">
           <h2 id="interpretation-title" class="detail-title">Demand pressure</h2>
           <p id="interpretation-observed" class="detail-summary">Waiting for live Cloudflare Radar evidence.</p>
@@ -265,14 +265,14 @@
             <div class="meta-item"><dt>Scope</dt><dd id="interpretation-scope">Selected filters</dd></div>
             <div class="meta-item"><dt>Updated</dt><dd id="interpretation-updated">—</dd></div>
           </dl>
-          <section class="detail-section"><h3>Graph connection</h3><p id="interpretation-connection">Demand observability is one prerequisite for treating agent traffic as an addressable market.</p></section>
+          <section class="detail-section"><h3>Evidence-map connection</h3><p id="interpretation-connection">Demand observability is one prerequisite for treating agent traffic as an addressable market.</p></section>
           <section class="detail-section"><h3>Interpretation</h3><p id="interpretation-inference">No inference is available until the live source loads.</p></section>
           <section class="detail-section method-note"><h3>Evidence boundary</h3><strong id="interpretation-boundary-title">Not absolute global usage.</strong><p id="interpretation-boundary">Radar does not measure attributable publisher value.</p></section>
-          <section class="detail-section"><h3>Graph navigation</h3><p><a href="../?node=entity-cloudflare">Cloudflare source</a><br><a href="../?node=thesis-agent-traffic-addressable-market">Addressable-market thesis</a></p></section>
+          <section class="detail-section"><h3>Related research</h3><p><a href="../index.html?view=focus&amp;node=entity-cloudflare">Explore Cloudflare</a><br><a href="../index.html?view=focus&amp;node=thesis-agent-traffic-addressable-market">Explore the addressable-market thesis</a></p></section>
         </article>
       </aside>
     </div>
-    <button id="open-rail" class="open-rail" type="button" hidden>Inspector</button>
+    <button id="open-rail" class="open-rail" type="button" hidden>Details</button>
     <script src="config.js?v=20260725-signals-v2"></script>
     <script src="app.js?v=20260725-signals-v2"></script>
   </body>

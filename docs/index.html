@@ -4,38 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Explore evidence, actors, use cases, and theses shaping the AI-agent economy.">
-    <title>Evolution Navigator · Evidence Graph &amp; Signals</title>
+    <title>Agent Economy Navigator · Evidence Map &amp; Signals</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23faf8f5' stroke='%23a54f0c' stroke-width='4'/%3E%3Cpath d='M18 39 30 17h4l12 22h-7l-2-5H27l-2 5Zm12-11h5l-2.5-6Z' fill='%23743506'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css?v=20260725-brand2">
+    <link rel="stylesheet" href="styles.css?v=20260729-ui8">
   </head>
   <body>
-    <a class="skip-link" href="#graph-panel">Skip to graph</a>
-    <div class="app-shell">
-      <aside id="graph-controls" class="sidebar" aria-label="Graph controls">
+    <a class="skip-link" href="#graph-panel">Skip to navigator</a>
+    <div class="app-shell detail-collapsed" data-current-view="map" data-theme-detail="false">
+      <aside id="graph-controls" class="sidebar" aria-label="Navigator controls">
         <header class="brand">
           <img class="brand-logo" src="assets/agentic-evolution-logo.png?v=20260725" alt="" aria-hidden="true">
           <div>
-            <strong>Evolution Navigator</strong>
-            <span>Evidence Graph &amp; Signals</span>
+            <strong>Agent Economy Navigator</strong>
+            <span>Evidence map &amp; signals</span>
           </div>
         </header>
 
         <nav class="site-nav" aria-label="Navigator views">
-          <a href="./" aria-current="page">Graph</a>
-          <a href="signals/">Signals</a>
+          <a href="index.html?view=map" aria-current="page">Evidence map</a>
+          <a href="signals/index.html">Live signals</a>
         </nav>
 
         <div class="control-block">
-          <label for="search">Find a node</label>
+          <label for="search">Search the evidence map</label>
           <div class="search-row">
-            <input id="search" type="search" placeholder="payments, traffic, Visa…" autocomplete="off" title="Keyboard shortcut: /">
+            <input id="search" type="search" placeholder="Company, event, concept…" autocomplete="off" title="Keyboard shortcut: /">
             <button id="clear-search" class="icon-button" type="button" aria-label="Clear search">×</button>
           </div>
           <div id="search-results" class="search-results" aria-live="polite"></div>
         </div>
 
         <fieldset class="control-block filter-list">
-          <legend>Show node types</legend>
+          <legend>Filter graph items</legend>
           <label><input type="checkbox" value="event" checked><span class="dot event"></span>Events <em id="count-event">0</em></label>
           <label><input type="checkbox" value="entity" checked><span class="dot entity"></span>Entities <em id="count-entity">0</em></label>
           <label><input type="checkbox" value="concept" checked><span class="dot concept"></span>Concepts <em id="count-concept">0</em></label>
@@ -47,55 +47,58 @@
 
         <div class="control-block path-controls">
           <div class="label-row">
-            <span>Find an evidence path</span>
-            <button id="swap-path" class="text-button" type="button">Swap</button>
+            <span>Trace an evidence path</span>
+            <button id="swap-path" class="text-button" type="button" aria-label="Swap start and end items">Swap</button>
           </div>
-          <label class="sr-only" for="path-from">Path from</label>
-          <input id="path-from" list="node-titles" placeholder="From">
-          <label class="sr-only" for="path-to">Path to</label>
-          <input id="path-to" list="node-titles" placeholder="To">
+          <label class="sr-only" for="path-from">Start item</label>
+          <input id="path-from" list="node-titles" placeholder="Start item">
+          <label class="sr-only" for="path-to">End item</label>
+          <input id="path-to" list="node-titles" placeholder="End item">
           <datalist id="node-titles"></datalist>
-          <button id="find-path" class="primary-button" type="button">Trace connection</button>
-          <p id="path-status" class="status-text" aria-live="polite">Uses typed relations, excluding generic references.</p>
+          <button id="find-path" class="primary-button" type="button">Show path</button>
+          <p id="path-status" class="status-text" aria-live="polite">Uses typed links; generic references are excluded.</p>
 
-          <div id="view-examples" class="example-paths" aria-label="Examples for the current graph view"></div>
+          <details class="example-disclosure">
+            <summary>Quick examples</summary>
+            <div id="view-examples" class="example-paths" aria-label="Examples for the current view"></div>
+          </details>
         </div>
 
         <footer class="sidebar-footer">
           <span id="graph-stats">Loading graph…</span>
-          <button id="reset-view" class="text-button" type="button">Reset view</button>
+          <button id="reset-view" class="text-button" type="button">Reset navigator</button>
         </footer>
       </aside>
 
       <main id="graph-panel" class="graph-panel" tabindex="-1">
         <div class="graph-toolbar">
           <div class="workspace-heading">
-            <button id="toggle-sidebar" class="panel-toggle" type="button" aria-pressed="true" aria-controls="graph-controls">Controls</button>
+            <button id="toggle-sidebar" class="panel-toggle" type="button" aria-expanded="true" aria-controls="graph-controls">Tools</button>
             <div>
-              <h1>Evidence graph</h1>
+              <h1 id="workspace-title">Agent Economy Landscape</h1>
               <p id="workspace-context">Loading graph…</p>
             </div>
           </div>
           <div class="display-controls">
-            <div id="view-switcher" class="view-switcher" role="group" aria-label="Graph view">
-              <button type="button" data-view="overview" aria-pressed="true" title="Keyboard shortcut: 1">Overview</button>
-              <button type="button" data-view="focus" aria-pressed="false" title="Keyboard shortcut: 2">Focus</button>
-              <button type="button" data-view="clusters" aria-pressed="false" title="Keyboard shortcut: 3">Clusters</button>
-              <button type="button" data-view="layers" aria-pressed="false" title="Keyboard shortcut: 4">Layers</button>
+            <div id="view-switcher" class="view-switcher" role="group" aria-label="Navigator view">
+              <button type="button" data-view="map" aria-pressed="true" title="Keyboard shortcut: 1"><span aria-hidden="true">1</span> Idea Map</button>
+              <button type="button" data-view="themes" aria-pressed="false" title="Keyboard shortcut: 2"><span aria-hidden="true">2</span> Themes</button>
+              <button type="button" data-view="focus" aria-pressed="false" title="Keyboard shortcut: 3"><span aria-hidden="true">3</span> Explore</button>
+              <button type="button" data-view="evidence" aria-pressed="false" title="Keyboard shortcut: 4"><span aria-hidden="true">4</span> Evidence Flow</button>
             </div>
-            <div class="toolbar-actions" aria-label="Graph zoom controls">
+            <div class="toolbar-actions" aria-label="Canvas zoom controls">
               <button id="zoom-out" class="tool-button" type="button" aria-label="Zoom out">−</button>
               <button id="zoom-reset" class="tool-button" type="button" aria-label="Fit visible graph">Fit</button>
               <button id="zoom-in" class="tool-button" type="button" aria-label="Zoom in">+</button>
             </div>
-            <button id="toggle-detail" class="panel-toggle" type="button" aria-pressed="true" aria-controls="detail-panel">Inspector</button>
+            <button id="toggle-detail" class="panel-toggle" type="button" aria-expanded="false" aria-controls="detail-panel">Details</button>
           </div>
         </div>
 
-        <section class="canvas-wrap" aria-label="Interactive knowledge graph">
-          <svg id="graph" role="group" aria-label="Interactive knowledge graph of AI-agent economy events and ideas">
+        <section id="canvas-wrap" class="canvas-wrap" aria-label="Agent economy idea map">
+          <svg id="graph" role="group" aria-label="Agent economy idea map">
             <g id="viewport">
-              <g id="layout-guides" aria-hidden="true"></g>
+              <g id="layout-guides"></g>
               <g id="edges"></g>
               <g id="edge-labels" aria-hidden="true"></g>
               <g id="nodes"></g>
@@ -103,48 +106,53 @@
           </svg>
           <div id="focus-controls" class="focus-controls" hidden>
             <button id="focus-back" type="button" disabled>Back</button>
-            <div class="hop-switcher" role="group" aria-label="Focus depth">
+            <div class="hop-switcher" role="group" aria-label="Explore depth">
               <button type="button" data-hops="1" aria-pressed="false">1 hop</button>
               <button type="button" data-hops="2" aria-pressed="true">2 hops</button>
             </div>
             <span id="focus-status" aria-live="polite"></span>
           </div>
-          <div id="view-status" class="view-status" aria-live="polite">Overview · all visible nodes</div>
-          <div id="empty-state" class="empty-state" hidden>No nodes match the current filters.</div>
-          <div id="graph-key" class="graph-key">Drag nodes · scroll to zoom · select for evidence</div>
+          <div id="theme-controls" class="focus-controls theme-controls" hidden>
+            <button id="theme-back" type="button">All themes</button>
+            <span id="theme-status" aria-live="polite"></span>
+          </div>
+          <div id="view-status" class="view-status" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state" hidden>No items match the current filters.</div>
+          <div id="graph-key" class="graph-key">Choose a theme or named item to continue.</div>
         </section>
 
         <section class="timeline" aria-labelledby="timeline-title">
           <div class="timeline-heading">
             <div>
-              <h2 id="timeline-title">Evidence timeline</h2>
+              <h2 id="timeline-title">Recent evidence</h2>
               <span id="timeline-range"></span>
             </div>
-            <button id="timeline-latest" class="text-button" type="button">Latest evidence</button>
+            <button id="timeline-latest" class="text-button" type="button">Jump to latest</button>
           </div>
           <div id="timeline-items" class="timeline-items"></div>
         </section>
       </main>
 
-      <aside id="detail-panel" class="detail-panel" aria-label="Selected node details">
+      <aside id="detail-panel" class="detail-panel" aria-label="Selected item details" aria-hidden="true">
         <header class="inspector-header">
-          <strong>Inspector</strong>
+          <strong>Details</strong>
           <div class="inspector-actions">
             <span id="inspector-position" class="inspector-position" aria-live="polite">No selection</span>
-            <button id="node-up" class="icon-button compact" type="button" aria-label="Select previous visible node" title="Previous visible node" disabled>↑</button>
-            <button id="node-down" class="icon-button compact" type="button" aria-label="Select next visible node" title="Next visible node" disabled>↓</button>
-            <button id="clear-selection" class="text-button" type="button" disabled>Clear</button>
-            <button id="collapse-detail" class="panel-dismiss" type="button">Hide</button>
+            <button id="node-up" class="icon-button compact" type="button" aria-label="Select previous visible item" title="Previous visible item" disabled>↑</button>
+            <button id="node-down" class="icon-button compact" type="button" aria-label="Select next visible item" title="Next visible item" disabled>↓</button>
+            <button id="clear-selection" class="text-button" type="button" disabled>Deselect</button>
+            <button id="collapse-detail" class="panel-dismiss" type="button">Hide details</button>
           </div>
         </header>
         <div id="detail-empty" class="detail-empty">
-          <h2>Choose a node</h2>
-          <p>Select an event, actor, concept, or thesis to inspect its evidence and graph relationships.</p>
+          <h2>Select an item</h2>
+          <p>Choose an event, actor, concept, or thesis to review its evidence and relationships.</p>
         </div>
         <article id="detail-content" hidden></article>
       </aside>
     </div>
-    <script src="graph-layouts.js?v=20260722-refactor"></script>
-    <script src="app.js?v=20260725-logo"></script>
+    <script src="graph-data.js?v=20260729-ui8"></script>
+    <script src="graph-layouts.js?v=20260729-ui8"></script>
+    <script src="app.js?v=20260729-ui8"></script>
   </body>
 </html>

@@ -8,6 +8,8 @@ confidence: medium
 stage: production
 industry: enterprise-software
 layer: service-operations
+commercial_proof: emerging
+commercial_signals: unit-economics
 updated: 2026-07-28
 ---
 

@@ -8,6 +8,8 @@ confidence: medium
 stage: scaled
 industry: healthcare
 layer: contact-center
+commercial_proof: emerging
+commercial_signals: arr-acv-backlog, customer-growth
 updated: 2026-07-21
 ---
 
