@@ -4,7 +4,7 @@ type: thesis
 title: Trust infrastructure monetizes before full autonomy
 status: active
 confidence: medium
-updated: 2026-07-29
+updated: 2026-08-09
 review_after: 2026-09-30
 ---
 
@@ -29,6 +29,8 @@ Identity, traffic classification, policy, observability, security, and regulator
 - NVIDIA's Open Secure AI Alliance points toward an open, shared defense stack for agent identity, isolation, scanning, and evaluation; it is an early counter-pressure against scarcity-based trust tollbooths, not yet evidence of commoditized controls or lost revenue.
 - Snowflake's Cortex AI Gateway announcement adds a credible enterprise control-plane candidate but discloses no pricing, paid deployment, agent-specific revenue, usage, or retention; it remains readiness evidence rather than support for the monetization thesis.
 - Corpay's Agent Card announcement adds a card-level trust and payment-control candidate but no payer, pricing, paid deployment, repeat usage, or agent-attributed economics; it remains readiness evidence rather than thesis support.
+- Cloudflare's Wallets announcement adds a credible identity and delegated-spend control plane, but no payer, pricing, paid deployment, repeat usage, or agent-attributed economics; it remains readiness evidence rather than support for the monetization thesis.
+- Cloudflare's Precursor telemetry shows scaled trust-monitoring activity across 73,438 zones, but no payer, pricing, attach, incremental revenue, or attributable economics; even scaled monitoring remains an unproven monetization bridge.
 
 ## What would change the thesis
 
@@ -39,3 +41,4 @@ Identity, traffic classification, policy, observability, security, and regulator
 
 - `depends-on` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
 - `monetizes` [[wiki/concepts/Verified Agent Traffic|Verified Agent Traffic]]
+- `references` [[wiki/events/2026-08-07 Cloudflare reports scaled Precursor monitoring and hybrid agentic traffic|Cloudflare reports scaled Precursor monitoring and hybrid agentic traffic]]

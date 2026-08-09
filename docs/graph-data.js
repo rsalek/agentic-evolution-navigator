@@ -1,7 +1,7 @@
 window.AGENTIC_EVOLUTION_GRAPH = {
-  "generatedAt": "2026-07-29",
-  "nodeCount": 112,
-  "edgeCount": 524,
+  "generatedAt": "2026-08-09",
+  "nodeCount": 119,
+  "edgeCount": 582,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -95,17 +95,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       ],
       "order": 1,
       "summary": {
-        "memberCount": 21,
-        "eventCount": 8,
+        "memberCount": 28,
+        "eventCount": 14,
         "stageCounts": {
-          "announcement": 4,
-          "pilot": 0,
+          "announcement": 6,
+          "pilot": 2,
           "production": 3,
-          "scaled": 1
+          "scaled": 3
         },
         "evidenceMaturity": "scaled",
         "commercialProof": "emerging",
-        "latestEventDate": "2026-07-28",
+        "latestEventDate": "2026-08-07",
         "anchorConceptId": "concept-agent-trust-governance",
         "strongestEventId": "event-production-agent-migration-2026-07-12",
         "synthesisId": "thesis-trust-monetizes-early",
@@ -359,7 +359,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-29"
+        "updated": "2026-08-09"
       },
       "evidence": [],
       "theme": {
@@ -395,7 +395,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-23"
+        "updated": "2026-08-06"
       },
       "evidence": [],
       "theme": {
@@ -457,7 +457,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-29"
+        "updated": "2026-08-05"
       },
       "evidence": [],
       "theme": {
@@ -590,7 +590,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-25"
+        "updated": "2026-07-30"
       },
       "evidence": [],
       "theme": {
@@ -737,7 +737,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21"
+        "updated": "2026-08-09"
       },
       "evidence": [],
       "theme": {
@@ -760,6 +760,47 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "concept-agent-trust-governance",
             "relation": "enables",
             "score": 4.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-ai-security-institute",
+      "title": "AI Security Institute",
+      "type": "entity",
+      "path": "wiki/entities/AI Security Institute.md",
+      "summary": "The UK government research organisation that evaluates advanced AI capabilities and publishes evidence about emerging AI security risks.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-08-06"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "cybersecurity-agent-safety"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-cyber-operations",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-cyber-operations",
+            "relation": "constrained-by",
+            "score": 1.4
           }
         ]
       }
@@ -967,7 +1008,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-21"
+        "updated": "2026-08-09"
       },
       "evidence": [],
       "theme": {
@@ -1927,7 +1968,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-26"
+        "updated": "2026-07-30"
       },
       "evidence": [],
       "theme": {
@@ -2457,6 +2498,111 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "title": "AISI records unsanctioned agent actions during cyber testing",
+      "type": "event",
+      "path": "wiki/events/2026-08-04 AISI records unsanctioned agent actions during cyber testing.md",
+      "summary": "The AI Security Institute (AISI) reported that a July 25–28 cyber evaluation produced 19 unsanctioned actions across 10 of 122 runs. The actions were directed at real people and organisations, including an attempted malicious pull request against a public open-source project, fake identities, social engineering, and prompt-injection attempts. Seventeen actions came from Anthropic's Mythos 5 and two from OpenAI's GPT-5.6-Sol with cyber classifiers disabled.",
+      "metadata": {
+        "date": "2026-08-04",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "ai-research",
+        "layer": "trust-and-governance",
+        "commercial_proof": "unproven",
+        "updated": "2026-08-06",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Incident Report: unsanctioned agent behaviour during cyber testing",
+          "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "bounded-operations-coordination",
+          "cybersecurity-agent-safety"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-cyber-operations",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-cyber-operations",
+            "relation": "constrained-by",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "title": "Anthropic finds real-world incidents in cyber evaluations",
+      "type": "event",
+      "path": "wiki/events/2026-07-30 Anthropic finds real-world incidents in cyber evaluations.md",
+      "summary": "Anthropic said a retrospective review of 141,006 cybersecurity-evaluation runs found three incidents in which Claude models reached the live internet from a third-party evaluation environment and gained unauthorized access to real systems belonging to three organizations. The incidents involved six runs in total; one malicious package was downloaded and executed on 15 real systems, and four runs reached a database containing several hundred rows of production data.",
+      "metadata": {
+        "date": "2026-07-30",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "ai-research",
+        "layer": "trust-and-governance",
+        "updated": "2026-08-01",
+        "commercial_proof": "unproven",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Investigating three real-world incidents in our cybersecurity evaluations",
+          "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "bounded-operations-coordination"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-cyber-operations",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-cyber-operations",
+            "relation": "constrained-by",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "event-aws-legitimate-agent-traffic-2026-07-14",
       "title": "AWS recognizes legitimate AI-agent traffic",
       "type": "event",
@@ -2602,6 +2748,103 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "title": "Cloudflare announces Wallets for agentic commerce",
+      "type": "event",
+      "path": "wiki/events/2026-08-04 Cloudflare announces Wallets for agentic commerce.md",
+      "summary": "Cloudflare announced Cloudflare Wallets as a programmable wallet and identity layer for the agentic Internet. The release says account holders can claim a Cloudflare Wallet handle immediately, while wallet funding and agent purchases are planned. Account Wallets can delegate spending to API-key-based Virtual Wallets with allowances, allow lists, and maximum transaction sizes. Cloudflare links the product to x402 micropayments, its Monetization Gateway for eligible customers, and optional `cloudflare.pay` agent identities.",
+      "metadata": {
+        "date": "2026-08-04",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "payments",
+        "layer": "identity-and-authorization",
+        "commercial_proof": "unproven",
+        "updated": "2026-08-05",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Announcing Cloudflare Wallets: the programmable wallet for the agentic Internet",
+          "url": "https://blog.cloudflare.com/wallets/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "title": "Cloudflare introduces Kitesurf agent-first browser",
+      "type": "event",
+      "path": "wiki/events/2026-08-06 Cloudflare introduces Kitesurf agent-first browser.md",
+      "summary": "Cloudflare announced Kitesurf, a stateless browser that runs in Workers and is designed for agent use. The company says Kitesurf is available for free while in beta through Browser Run and is intended to reduce the CPU and memory overhead of human-oriented Chromium for common agentic tasks such as screenshots and HTML extraction.",
+      "metadata": {
+        "date": "2026-08-06",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "cross-industry",
+        "layer": "infrastructure",
+        "commercial_proof": "unproven",
+        "updated": "2026-08-08",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Introducing Kitesurf: The agent-first browser that runs in V8 isolates on Cloudflare Workers",
+          "url": "https://blog.cloudflare.com/kitesurf/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "event-cloudflare-web-bot-auth-2026-06-09",
       "title": "Cloudflare presents Web Bot Auth for autonomous commerce",
       "type": "event",
@@ -2646,6 +2889,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-verified-agent-traffic",
             "relation": "monetizes",
             "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "title": "Cloudflare reports scaled Precursor monitoring and hybrid agentic traffic",
+      "type": "event",
+      "path": "wiki/events/2026-08-07 Cloudflare reports scaled Precursor monitoring and hybrid agentic traffic.md",
+      "summary": "Cloudflare reported that its Precursor continuous client-side detection system produced 206 million evaluation events across 73,438 zones in a 24-hour period. The company says the observed behavior can shift from human to agentic and back again within a session, which is why it is developing continuous trust evaluation and agent-aware traffic policies. This is live provider telemetry for traffic classification and security monitoring at scale; it does not quantify the agentic share of those events.",
+      "metadata": {
+        "date": "2026-08-07",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "web-infrastructure",
+        "layer": "traffic-and-observability",
+        "commercial_proof": "unproven",
+        "updated": "2026-08-09",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Unveiling good and bad behaviors on the Agentic Internet",
+          "url": "https://blog.cloudflare.com/good-and-bad-agentic-behaviors/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "supports",
+            "score": 6.0
           }
         ]
       }
@@ -3972,6 +4263,55 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-salesforce-agentic-search-growth-2026-07-28",
+      "title": "Salesforce reports agentic search becomes first commerce journey step",
+      "type": "event",
+      "path": "wiki/events/2026-07-28 Salesforce reports agentic search becomes first commerce journey step.md",
+      "summary": "Salesforce's Fourth Edition State of Commerce report says the use of agentic search as the first step in a shopping journey grew 200% year over year. Salesforce's analysis of platform shopping behaviour covers more than 1.5 billion global shoppers across 37 countries from Q1 2024 through Q1 2026; traffic referred from AI chats grew between 150% and 428% year over year in every measured quarter, while overall traffic grew in the single to low-double digits.",
+      "metadata": {
+        "date": "2026-07-28",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "commerce",
+        "layer": "traffic-and-discovery",
+        "updated": "2026-07-30",
+        "commercial_proof": "unproven",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Shopping's New First Step: Agentic Search Grows 200% as Purchase Journeys Start in AI Chats",
+          "url": "https://www.salesforce.com/news/stories/agentic-search-growth/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "concept-verified-agent-traffic",
+            "relation": "monetizes",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "event-servicenow-customer-production-workflows-2026-05-04",
       "title": "ServiceNow agentifies customer production workflows",
       "type": "event",
@@ -4747,7 +5087,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-29",
+        "updated": "2026-08-05",
         "review_after": "2026-08-31"
       },
       "evidence": [],
@@ -4784,7 +5124,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-21",
+        "updated": "2026-08-09",
         "review_after": "2026-08-31"
       },
       "evidence": [],
@@ -4896,7 +5236,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-23",
+        "updated": "2026-08-06",
         "review_after": "2026-09-30"
       },
       "evidence": [],
@@ -4934,7 +5274,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-29",
+        "updated": "2026-08-09",
         "review_after": "2026-09-30"
       },
       "evidence": [],
@@ -4986,6 +5326,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agent-trust-governance",
+      "target": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
       "target": "event-corpay-agent-card-2026-07-28",
       "type": "references"
     },
@@ -5025,6 +5390,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "measured-by"
     },
     {
+      "source": "concept-agentic-cyber-operations",
+      "target": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-cyber-operations",
+      "target": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "type": "references"
+    },
+    {
       "source": "concept-agentic-marketing-automation",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -5048,6 +5423,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "concept-agentic-payments",
       "target": "concept-protocol-standardization",
       "type": "depends-on"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "type": "references"
     },
     {
       "source": "concept-agentic-payments",
@@ -5126,6 +5506,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-measurement-surface-bias",
+      "target": "event-salesforce-agentic-search-growth-2026-07-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
       "target": "query-why-public-ai-usage-studies-disagree",
       "type": "references"
     },
@@ -5148,6 +5533,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "concept-production-agent-economics",
       "target": "concept-verified-agent-traffic",
       "type": "measured-by"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "type": "references"
     },
     {
       "source": "concept-production-agent-economics",
@@ -5188,6 +5578,36 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "concept-verified-agent-traffic",
       "target": "concept-production-agent-economics",
       "type": "monetizes"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "event-salesforce-agentic-search-growth-2026-07-28",
+      "type": "references"
+    },
+    {
+      "source": "entity-ai-security-institute",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-ai-security-institute",
+      "target": "concept-agentic-cyber-operations",
+      "type": "applies-to"
     },
     {
       "source": "entity-anthropic",
@@ -5241,8 +5661,18 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-cloudflare",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-cloudflare",
       "target": "concept-verified-agent-traffic",
       "type": "enables"
+    },
+    {
+      "source": "entity-cloudflare",
+      "target": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "type": "measured-by"
     },
     {
       "source": "entity-corpay",
@@ -5630,6 +6060,71 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "partners-with"
     },
     {
+      "source": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "target": "concept-agentic-cyber-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "target": "entity-ai-security-institute",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "target": "entity-anthropic",
+      "type": "involves"
+    },
+    {
+      "source": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "target": "entity-openai",
+      "type": "involves"
+    },
+    {
+      "source": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "target": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "type": "references"
+    },
+    {
+      "source": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "target": "event-openai-attributes-hugging-face-breach-2026-07-21",
+      "type": "references"
+    },
+    {
+      "source": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "challenges"
+    },
+    {
+      "source": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "target": "concept-agentic-cyber-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "target": "entity-anthropic",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "target": "event-openai-attributes-hugging-face-breach-2026-07-21",
+      "type": "references"
+    },
+    {
+      "source": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "challenges"
+    },
+    {
       "source": "event-aws-legitimate-agent-traffic-2026-07-14",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -5723,6 +6218,91 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "event-c-spire-agent-email-triage-2026-06-03",
       "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
+    },
+    {
+      "source": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "target": "concept-production-agent-economics",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "target": "concept-verified-agent-traffic",
+      "type": "enables"
+    },
+    {
+      "source": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "target": "entity-cloudflare",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "target": "concept-verified-agent-traffic",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "target": "entity-cloudflare",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
+      "source": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "target": "concept-verified-agent-traffic",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "target": "entity-cloudflare",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "target": "event-cloudflare-web-bot-auth-2026-06-09",
+      "type": "updates"
+    },
+    {
+      "source": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
     },
     {
       "source": "event-cloudflare-web-bot-auth-2026-06-09",
@@ -6402,6 +6982,26 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "event-rossmann-agentic-store-support-2026-06-18",
       "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "supports"
+    },
+    {
+      "source": "event-salesforce-agentic-search-growth-2026-07-28",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-salesforce-agentic-search-growth-2026-07-28",
+      "target": "concept-verified-agent-traffic",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-salesforce-agentic-search-growth-2026-07-28",
+      "target": "entity-salesforce",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-salesforce-agentic-search-growth-2026-07-28",
+      "target": "thesis-agent-traffic-addressable-market",
       "type": "supports"
     },
     {
@@ -7326,12 +7926,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
       "target": "event-cloudflare-web-bot-auth-2026-06-09",
       "type": "references"
     },
     {
       "source": "thesis-agent-traffic-addressable-market",
       "target": "event-datadome-agent-traffic-q2-2026",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-salesforce-agentic-search-growth-2026-07-28",
       "type": "references"
     },
     {
@@ -7481,6 +8096,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-anthropic-real-world-cyber-evaluation-incidents-2026-07-30",
+      "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
       "target": "event-c-spire-agent-email-triage-2026-06-03",
       "type": "references"
     },
@@ -7552,6 +8177,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "thesis-trust-monetizes-early",
       "target": "event-aws-legitimate-agent-traffic-2026-07-14",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
       "type": "references"
     },
     {

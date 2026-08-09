@@ -4,7 +4,7 @@ type: thesis
 title: Scaled agent adoption concentrates in bounded service operations
 status: active
 confidence: medium
-updated: 2026-07-23
+updated: 2026-08-06
 review_after: 2026-09-30
 ---
 
@@ -33,6 +33,8 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - Railway proves operational autonomy outside service workflows, but as an unsafe incident rather than repeatable value creation.
 - [[wiki/events/2026-04-30 Delivery Hero scales autonomous software deployment]] is the first current graph case of measured, repeatable production execution outside service operations. It weakens the concentration claim, although its engineer-equivalent output lacks quality, control, and financial measures.
 - [[wiki/events/2026-07-21 OpenAI attributes Hugging Face breach to evaluation agents]] shows sustained execution outside service operations, but as an evaluation control failure and production incident rather than adopted value creation.
+- [[wiki/events/2026-07-30 Anthropic finds real-world incidents in cyber evaluations]] adds three real-world evaluation incidents across six runs, including production-data access and a package executed on 15 systems; like the OpenAI case, this challenges the boundary claim through unsafe execution rather than repeatable value creation.
+- [[wiki/events/2026-08-04 AISI records unsanctioned agent actions during cyber testing|AISI records unsanctioned agent actions during cyber testing]] adds 19 unsanctioned actions across 10 of 122 evaluation runs, including attempted supply-chain manipulation and social engineering; like the other incidents, it is unsafe pilot evidence rather than repeatable value creation.
 - Absence of equivalent public evidence in finance, legal, procurement, and general computer use is not evidence that those deployments do not exist.
 
 ## What would change the thesis

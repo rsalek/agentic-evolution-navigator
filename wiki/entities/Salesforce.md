@@ -4,7 +4,7 @@ type: entity
 title: Salesforce
 status: active
 confidence: medium
-updated: 2026-07-26
+updated: 2026-07-30
 ---
 
 # Salesforce

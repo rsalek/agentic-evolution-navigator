@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-29T06:36:24+00:00",
+  "generated_at": "2026-08-09T06:31:24+00:00",
   "graph": {
-    "nodes": 110,
-    "edges": 517
+    "nodes": 118,
+    "edges": 571
   },
   "query_count": 12,
   "queries": [
@@ -25,24 +25,6 @@
       }
     },
     {
-      "id": "graph-challenge-scaled-agents-bounded-service-operations",
-      "label": "Graph stress test: Scaled agent adoption concentrates in bounded service operations",
-      "query": "\"AI agent\" (adoption OR bounded OR concentrates OR operations OR scaled OR service) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
-      "target_ids": [
-        "thesis-scaled-agents-bounded-service-operations"
-      ],
-      "reason": {
-        "kind": "thesis-stress-test",
-        "supporting_edges": 11,
-        "challenging_edges": 4,
-        "research_goals": [
-          "counterevidence",
-          "alternative_explanation",
-          "failure_or_restriction"
-        ]
-      }
-    },
-    {
       "id": "graph-challenge-agent-payments-protocol-to-production",
       "label": "Graph stress test: Agent payments are moving from protocol to production",
       "query": "\"AI agent\" (payments OR production OR protocol) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
@@ -57,6 +39,109 @@
           "counterevidence",
           "alternative_explanation",
           "failure_or_restriction"
+        ]
+      }
+    },
+    {
+      "id": "graph-challenge-scaled-agents-bounded-service-operations",
+      "label": "Graph stress test: Scaled agent adoption concentrates in bounded service operations",
+      "query": "\"AI agent\" (adoption OR bounded OR concentrates OR operations OR scaled OR service) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-scaled-agents-bounded-service-operations"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 11,
+        "challenging_edges": 6,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
+      }
+    },
+    {
+      "id": "graph-challenge-agent-traffic-addressable-market",
+      "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
+      "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-agent-traffic-addressable-market"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 5,
+        "challenging_edges": 1,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-cloudflare-wallets-agentic-commerce-2026-08-04",
+      "label": "Graph gap: Cloudflare announces Wallets for agentic commerce (announcement -> evidence)",
+      "query": "(\"Cloudflare\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR customers OR fees OR merchants)",
+      "target_ids": [
+        "event-cloudflare-wallets-agentic-commerce-2026-08-04"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "When are Wallet funding, Virtual Wallet spending, and x402 purchases live for customers, and in which geographies",
+          "Which named merchants, API providers, or customers use the wallet in production, with what repeat transaction count and value",
+          "Is Cloudflare paid through wallet fees, Monetization Gateway fees, x402 settlement, infrastructure consumption, or another mechanism",
+          "What agent identity, fraud, dispute, authorization, and reversal metrics are measured across the wallet and merchant sides"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "customers",
+          "fees",
+          "merchants"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-corpay-agent-card-2026-07-28",
+      "label": "Graph gap: Corpay introduces Agent Card capability for secure agentic commerce (announcement -> evidence)",
+      "query": "(\"Corpay\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR approval OR customers OR fees)",
+      "target_ids": [
+        "event-corpay-agent-card-2026-07-28"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "Which customers, merchants, or agents use the capability in production, and when",
+          "Is the Agent Card separately priced, bundled into Corpay's existing card/payment economics, or tied to transaction fees",
+          "What repeat transaction count, value, fraud, dispute, authorization, and approval metrics does Corpay disclose over a measured period"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "approval",
+          "customers",
+          "fees"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
         ]
       }
     },
@@ -250,88 +335,6 @@
           "workflow_trigger",
           "agent_action",
           "state_change"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-va-salesforce-missionforce-agreement-2026-07-24",
-      "label": "Graph gap: VA awards Salesforce Missionforce agreement (announcement -> evidence)",
-      "query": "(\"Salesforce\" OR \"US Department of Veterans Affairs\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR approval OR correction)",
-      "target_ids": [
-        "event-va-salesforce-missionforce-agreement-2026-07-24"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "announcement",
-        "open_questions": [
-          "Which Agentforce or Missionforce workflows are live, and which remain planned or employee-assistive",
-          "What share of triage, routing, benefits verification, scheduling, and care-coordination work completes autonomously, with what escalation, correction, and reversal rates",
-          "What portion of the $1.6 billion ceiling is exercised and attributable to AI agents, controls, data integration, collaboration, or pre-existing software",
-          "How do FedRAMP, HIPAA, permissions, audit, and human-approval boundaries operate in the deployed workflows"
-        ],
-        "desired_signals": [
-          "pilot",
-          "production",
-          "deployed",
-          "live",
-          "customer",
-          "approval",
-          "correction"
-        ],
-        "research_goals": [
-          "named_operator",
-          "workflow_trigger",
-          "agent_action",
-          "state_change"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
-      "label": "Graph gap: Zscaler and Schwarz Digits launch sovereign cloud security platform (announcement -> evidence)",
-      "query": "(\"Schwarz Digits\" OR \"Zscaler\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR customers OR retention)",
-      "target_ids": [
-        "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "announcement",
-        "open_questions": [
-          "Which European customers actually deploy the service, at what scale, and with what identity, policy, and audit coverage",
-          "Does sovereign deployment create paid security attach, higher retention, or measurable threat-reduction economics for either partner"
-        ],
-        "desired_signals": [
-          "pilot",
-          "production",
-          "deployed",
-          "live",
-          "customer",
-          "customers",
-          "retention"
-        ],
-        "research_goals": [
-          "named_operator",
-          "workflow_trigger",
-          "agent_action",
-          "state_change"
-        ]
-      }
-    },
-    {
-      "id": "graph-challenge-agent-traffic-addressable-market",
-      "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
-      "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
-      "target_ids": [
-        "thesis-agent-traffic-addressable-market"
-      ],
-      "reason": {
-        "kind": "thesis-stress-test",
-        "supporting_edges": 3,
-        "challenging_edges": 1,
-        "research_goals": [
-          "counterevidence",
-          "alternative_explanation",
-          "failure_or_restriction"
         ]
       }
     }

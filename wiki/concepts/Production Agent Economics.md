@@ -31,6 +31,7 @@ The end-to-end cost and value of completed agent work after latency, failures, s
 - OpenAI's 16x Codex message gap and Microsoft's 15x active-agent growth are directional intensity measures, not absolute task volume, outcomes, or unit economics.
 - Microsoft's September 2025 management transcript reports about 12% higher throughput for its customer-service agents and says roughly half of realized savings came from AI deflection, but it gives no baseline, measurement window, dollar amount, or workforce coverage.
 - The graph therefore has stronger service-level and labour evidence, but still lacks customer-audited cost per successful task, correction and recovery cost, agent-attributed margin, and durable multi-period savings.
+- Cloudflare's Kitesurf release claims lower CPU and memory consumption than Chromium for common agentic tasks, but gives no benchmark values, workload denominator, customer cost, paid deployment, or agent-attributed revenue; it is directional infrastructure-economics evidence only.
 
 ## Relations
 
@@ -38,3 +39,4 @@ The end-to-end cost and value of completed agent work after latency, failures, s
 - `constrained-by` [[wiki/concepts/Measurement Surface Bias|Measurement Surface Bias]]
 - `constrained-by` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
 - `references` [[wiki/events/2025-09-10 Microsoft reports service-agent throughput and AI-deflection savings|Microsoft reports service-agent throughput and AI-deflection savings]]
+- `references` [[wiki/events/2026-08-06 Cloudflare introduces Kitesurf agent-first browser|Cloudflare introduces Kitesurf agent-first browser]]

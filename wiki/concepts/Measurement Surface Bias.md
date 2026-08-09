@@ -4,7 +4,7 @@ type: concept
 title: Measurement Surface Bias
 status: active
 confidence: high
-updated: 2026-07-25
+updated: 2026-07-30
 ---
 
 # Measurement Surface Bias
@@ -26,6 +26,7 @@ The predictable distortion that arises when activity visible to one product, pro
 - Microsoft reports 15x year-over-year growth in unique active agents across Microsoft 365 and SharePoint agents. An active agent may have only one day of user-initiated use or one autonomous run, and no absolute count is published.
 - A nationally representative Federal Reserve-linked survey finds generative-AI use in 40% of job tasks and explicitly explains why worker-reported task shares differ from platform chat-log estimates.
 - Anthropic's consumer Claude.ai telemetry reports a rise in directive conversations from 27% to 39%, but a classifier change and the consumer-only surface limit direct comparison with enterprise APIs or agent tools.
+- Salesforce's commerce report combines first-party platform behaviour across more than 1.5 billion shoppers with professional and consumer surveys; it is a strong directional signal on its observed commerce surface, not a market-wide conversion or revenue measure.
 
 ## Analytical rule
 
@@ -37,3 +38,4 @@ Triangulate across surfaces instead of averaging their headline percentages. A d
 - `applies-to` [[wiki/concepts/Production Agent Economics|Production Agent Economics]]
 - `applies-to` [[wiki/concepts/Human-AI Workforce Coordination|Human-AI Workforce Coordination]]
 - `references` [[wiki/queries/Why public AI usage studies disagree|Why public AI usage studies disagree]]
+- `references` [[wiki/events/2026-07-28 Salesforce reports agentic search becomes first commerce journey step|Salesforce reports agentic search becomes first commerce journey step]]

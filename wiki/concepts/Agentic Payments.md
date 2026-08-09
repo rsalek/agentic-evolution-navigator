@@ -4,7 +4,7 @@ type: concept
 title: Agentic Payments
 status: active
 confidence: medium
-updated: 2026-07-29
+updated: 2026-08-05
 ---
 
 # Agentic Payments
@@ -23,6 +23,7 @@ Payments initiated or completed by software agents under delegated authority, po
 - Mastercard later described broad U.S. card enablement with tokenized identity, issuer visibility, fraud, safety, and security controls; this is readiness evidence rather than measured scale.
 - Visa and LianLian are reported to have completed a live B2B procurement and payment through LoopXPay, with supplier selection, ordering, payment, spending controls, and approval parameters in one workflow. The account is secondary and does not establish repeat volume or value.
 - Corpay announced an Agent Card capability for secure agentic commerce, adding payment-provider readiness but no live transaction, customer, merchant, repeat-volume, pricing, or revenue evidence.
+- Cloudflare announced Wallets with planned x402 micropayments, account and virtual wallets, and delegated spending controls; funding, production use, repeat volume, pricing, and revenue remain unproven.
 - x402's homepage displayed 75.41 million transactions and USD 24.24 million in 30-day volume, establishing scaled protocol activity without disclosing the AI-agent share.
 - The operational-deployments query keeps the missing standalone agent-payment volume, repeat-rate, merchant-breadth, and exception-rate evidence explicit.
 
@@ -32,3 +33,4 @@ Payments initiated or completed by software agents under delegated authority, po
 - `depends-on` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
 - `monetizes` [[wiki/concepts/Production Agent Economics|Production Agent Economics]]
 - `references` [[wiki/events/2026-07-28 Corpay introduces Agent Card capability|Corpay introduces Agent Card capability for secure agentic commerce]]
+- `references` [[wiki/events/2026-08-04 Cloudflare announces Wallets for agentic commerce|Cloudflare announces Wallets for agentic commerce]]
