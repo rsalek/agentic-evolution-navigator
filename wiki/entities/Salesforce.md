@@ -4,7 +4,7 @@ type: entity
 title: Salesforce
 status: active
 confidence: medium
-updated: 2026-07-30
+updated: 2026-08-10
 ---
 
 # Salesforce
@@ -16,3 +16,5 @@ An enterprise CRM, data, collaboration, and workflow platform distributing Agent
 - `enables` [[wiki/concepts/System-of-Record Distribution|System-of-Record Distribution]]
 - `enables` [[wiki/concepts/Human-AI Workforce Coordination|Human-AI Workforce Coordination]]
 - `enables` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
+- `monetizes` [[wiki/concepts/Production Agent Economics|Production Agent Economics]]
+- `references` [[wiki/events/2026-05-27 Salesforce reports Agentforce ARR and production work-unit growth|Salesforce reports Agentforce ARR and production work-unit growth]]

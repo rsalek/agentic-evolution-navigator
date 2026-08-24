@@ -27,6 +27,7 @@ High-volume customer, employee, store, and revenue-cycle workflows in which agen
 - Falabella adds direct operator evidence with more than 115,000 interactions and 65% resolution without human intervention; NatWest adds a 20-percentage-point improvement versus its non-GenAI Cora journey.
 - MoneyHero adds a monthly autonomous-resolution denominator; ixigo/TARA adds more than 5 million annual queries plus voice and chat resolution rates; Lufthansa adds a vendor-reported network of more than 16 agents and 16 million annual conversations. Microsoft's management transcript adds internal customer-service evidence: about 12% higher human-agent throughput and a process redesign that deflects some requests before human handoff, with roughly half of realized savings attributed to deflection; the population, time window, and quality outcomes are not disclosed.
 - The operator disclosures reduce reliance on vendor stories, but the public cases still omit consistent correction, reversal, customer-outcome, and customer-specific control data.
+- Serval reports Catalyst general availability, adoption by more than 90% of its existing customers after beta, and a named Ramp result of 50% faster workflow building across 10 departments; pricing, task volume, correction rates, and customer-confirmed economics remain undisclosed.
 
 ## Relations
 
@@ -35,3 +36,4 @@ High-volume customer, employee, store, and revenue-cycle workflows in which agen
 - `measured-by` [[wiki/concepts/Production Agent Economics|Production Agent Economics]]
 - `constrained-by` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
 - `references` [[wiki/events/2025-09-10 Microsoft reports service-agent throughput and AI-deflection savings|Microsoft reports service-agent throughput and AI-deflection savings]]
+- `references` [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval announces Catalyst general availability with broad customer adoption]]

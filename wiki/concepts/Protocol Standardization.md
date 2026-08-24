@@ -20,6 +20,7 @@ Convergence on interoperable ways for agents, services, and machines to authenti
 ## Current graph evidence
 
 - Mastercard's first Agent Pay transaction and later card-enablement milestone show a payment-network implementation moving beyond protocol discussion.
+- Mastercard's Agent Pay for Machines launch adds a named network service for credentialing, permissioning, machine transactions, and multi-rail settlement, with more than 30 initial participants and supporters. The launch does not establish independent live interoperability, transaction volume, or economic value.
 - x402's dynamic homepage counters add scaled protocol-activity evidence, but do not disclose the agent share, implementation mix, concentration, or dispute and authorization performance.
 - The new evidence still does not establish independent interoperability across networks, merchants, or dispute systems.
 
@@ -27,3 +28,4 @@ Convergence on interoperable ways for agents, services, and machines to authenti
 
 - `enables` [[wiki/concepts/Agentic Payments|Agentic Payments]]
 - `depends-on` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
+- `references` [[wiki/events/2026-06-10 Mastercard launches Agent Pay for Machines|Mastercard launches Agent Pay for Machines]]

@@ -4,7 +4,7 @@ type: concept
 title: System-of-Record Distribution
 status: active
 confidence: medium
-updated: 2026-07-28
+updated: 2026-08-10
 ---
 
 # System-of-Record Distribution
@@ -25,6 +25,7 @@ Adoption through incumbent platforms that already control enterprise data, permi
 - R1's pilot connects the Sierra agent layer across electronic medical records, scheduling systems, and account databases; Singtel similarly distributes Shirley through an existing customer-service channel.
 - VA's awarded Salesforce agreement is a large public-sector procurement signal for agent-capable workflows inside existing data, scheduling, contact-centre, and collaboration systems. The release does not show which agents are live or isolate AI-specific spend.
 - Snowflake's Cortex AI Gateway announcement positions the AI Data Cloud as a control plane for agents reaching models, tools, MCP servers, and enterprise systems; the integrations are preview-stage and do not establish named live workflows or agent-attributed outcomes.
+- Salesforce's Q1 FY27 release reports Agentforce ARR, production work units, premium-SKU bookings, and existing-customer booking expansion, directly tying an incumbent system-of-record platform to an agent revenue bridge.
 - The remaining gap is action-level evidence showing which system writes are autonomous, which are deterministic, which require approval, and how permission failures are handled.
 
 ## Relations
@@ -32,3 +33,4 @@ Adoption through incumbent platforms that already control enterprise data, permi
 - `enables` [[wiki/concepts/Human-AI Workforce Coordination|Human-AI Workforce Coordination]]
 - `enables` [[wiki/concepts/Agentic Marketing Automation|Agentic Marketing Automation]]
 - `depends-on` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
+- `references` [[wiki/events/2026-05-27 Salesforce reports Agentforce ARR and production work-unit growth|Salesforce reports Agentforce ARR and production work-unit growth]]

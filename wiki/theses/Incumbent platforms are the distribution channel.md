@@ -4,7 +4,7 @@ type: thesis
 title: Incumbent platforms are the distribution channel
 status: active
 confidence: medium
-updated: 2026-07-26
+updated: 2026-08-10
 review_after: 2026-09-30
 ---
 
@@ -26,6 +26,8 @@ Enterprise agents are increasingly entering work through platforms that already 
 - [[wiki/events/2026-02-19 Five9 scales healthcare AI-agent commitment]] adds a three-year healthcare commitment with ARR expansion and claimed cost savings, although the agent-attributed share remains undisclosed.
 - [[wiki/events/2026-05-05 Microsoft reports 15x active-agent growth]] adds direct platform telemetry showing rapid growth in agent objects inside Microsoft 365 and SharePoint.
 - [[wiki/events/2026-07-24 VA awards Salesforce Missionforce agreement]] adds a $1.6 billion-ceiling public-sector agreement that expands an incumbent platform's data, workflow, collaboration, and agent-capable footprint, but it remains announcement-stage evidence for agent deployment and spend.
+- [[wiki/events/2026-05-27 Salesforce reports Agentforce ARR and production work-unit growth|Salesforce reports Agentforce ARR and production work-unit growth]] adds a product-specific ARR bridge, production task measure, premium-SKU booking growth, and existing-customer expansion inside an incumbent platform.
+- [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval's Catalyst general availability]] challenges the distribution thesis with a direct AI-native service-management alternative reporting broad adoption and a named customer workflow benefit, although it still uses existing ticket and procedure data and does not disclose independent customer economics.
 
 ## Challenging evidence
 
@@ -34,6 +36,8 @@ Enterprise agents are increasingly entering work through platforms that already 
 - C Spire and Rossmann materially strengthen the operating evidence, but both remain vendor-published stories without independent customer-side measurement or audited economics.
 - Microsoft's ratio has no absolute agent, run, user, or firm count, and its active definition allows very light use; it supports distribution direction without establishing economic depth.
 - Salesforce's agreement is a contract ceiling across a broad software stack, not a measure of exercised, agent-specific revenue or operational adoption.
+- Salesforce's Agentforce ARR is company-reported annualized contract value rather than recognized revenue, and its combined AI/data bookings and AWUs do not disclose retention, customer concentration, or agent-specific margin.
+- Serval's evidence is vendor-reported and does not establish that the AI-native layer bypasses incumbent systems in customer acquisition, data ownership, permissions, or durable revenue capture.
 
 ## What would change the thesis
 
@@ -46,3 +50,5 @@ Enterprise agents are increasingly entering work through platforms that already 
 - `references` [[wiki/events/2026-05-06 Lufthansa operates scaled service-agent network|Lufthansa operates scaled service-agent network]]
 - `enables` [[wiki/concepts/Human-AI Workforce Coordination|Human-AI Workforce Coordination]]
 - `enables` [[wiki/concepts/Agentic Marketing Automation|Agentic Marketing Automation]]
+- `references` [[wiki/events/2026-05-27 Salesforce reports Agentforce ARR and production work-unit growth|Salesforce reports Agentforce ARR and production work-unit growth]]
+- `challenges` [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval announces Catalyst general availability with broad customer adoption]]

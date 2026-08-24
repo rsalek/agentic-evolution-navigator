@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-09T06:31:24+00:00",
+  "generated_at": "2026-08-24T15:02:01+00:00",
   "graph": {
-    "nodes": 118,
-    "edges": 571
+    "nodes": 157,
+    "edges": 800
   },
   "query_count": 12,
   "queries": [
@@ -15,7 +15,7 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 14,
+        "supporting_edges": 16,
         "challenging_edges": 1,
         "research_goals": [
           "counterevidence",
@@ -33,7 +33,25 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 7,
+        "supporting_edges": 10,
+        "challenging_edges": 1,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
+      }
+    },
+    {
+      "id": "graph-challenge-agent-traffic-addressable-market",
+      "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
+      "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-agent-traffic-addressable-market"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 10,
         "challenging_edges": 1,
         "research_goals": [
           "counterevidence",
@@ -51,26 +69,8 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 11,
-        "challenging_edges": 6,
-        "research_goals": [
-          "counterevidence",
-          "alternative_explanation",
-          "failure_or_restriction"
-        ]
-      }
-    },
-    {
-      "id": "graph-challenge-agent-traffic-addressable-market",
-      "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
-      "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
-      "target_ids": [
-        "thesis-agent-traffic-addressable-market"
-      ],
-      "reason": {
-        "kind": "thesis-stress-test",
-        "supporting_edges": 5,
-        "challenging_edges": 1,
+        "supporting_edges": 12,
+        "challenging_edges": 8,
         "research_goals": [
           "counterevidence",
           "alternative_explanation",
@@ -179,6 +179,72 @@
       }
     },
     {
+      "id": "graph-stage-magne-ai-secures-2-64m-2026-08-05",
+      "label": "Graph gap: MAGNE.AI secures strategic funding for agent infrastructure (announcement -> evidence)",
+      "query": "(\"MAGNE.AI\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR active OR failure OR retention)",
+      "target_ids": [
+        "event-magne-ai-secures-2-64m-2026-08-05"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "What are current device orders, shipments, paid developers, enterprise deployments, and retention",
+          "When will MHash L2 leave testnet, and what are actual agent-payment count, value, active-agent, failure, and fee metrics",
+          "What is the legal entity, financing instrument, valuation, cap table, and route—if any—for qualified private-market investors"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "active",
+          "failure",
+          "retention"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
+        ]
+      }
+    },
+    {
+      "id": "graph-stage-natural-credit-facility-2026-08-19",
+      "label": "Graph gap: Natural secures $100M credit facility for agent payments (announcement -> evidence)",
+      "query": "(\"Natural\" OR \"Upper90 Capital Management\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR cost OR margin OR merchants)",
+      "target_ids": [
+        "event-natural-credit-facility-2026-08-19"
+      ],
+      "reason": {
+        "kind": "maturity-and-metric-gap",
+        "current_stage": "announcement",
+        "open_questions": [
+          "When does Natural's agent-credit product become live, and what are approved limits, draws, repayment, loss, and utilization metrics",
+          "Which named agents, businesses, merchants, or platforms use Natural in production, with what repeat payment volume and value",
+          "What are Natural's pricing, take rate, credit spread, fraud/dispute cost, retention, and contribution-margin economics"
+        ],
+        "desired_signals": [
+          "pilot",
+          "production",
+          "deployed",
+          "live",
+          "customer",
+          "cost",
+          "margin",
+          "merchants"
+        ],
+        "research_goals": [
+          "named_operator",
+          "workflow_trigger",
+          "agent_action",
+          "state_change"
+        ]
+      }
+    },
+    {
       "id": "graph-stage-snowflake-cortex-ai-gateway-2026-07-28",
       "label": "Graph gap: Snowflake introduces Cortex AI Gateway for trusted agent interoperability (announcement -> evidence)",
       "query": "(\"Snowflake\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR cost OR customers OR retention)",
@@ -267,68 +333,6 @@
           "conversion",
           "cost",
           "outcomes"
-        ],
-        "research_goals": [
-          "named_operator",
-          "workflow_trigger",
-          "agent_action",
-          "state_change"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-fis-anthropic-financial-crimes-2026-05-04",
-      "label": "Graph gap: FIS and Anthropic develop financial-crimes agent (pilot -> evidence)",
-      "query": "(\"Anthropic\" OR \"FIS\") \"AI agent\" (production OR rollout OR usage OR volume OR customer OR outcomes OR quality)",
-      "target_ids": [
-        "event-fis-anthropic-financial-crimes-2026-05-04"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "pilot",
-        "open_questions": [
-          "Have BMO or Amalgamated Bank moved the agent into live operations, and at what investigation volume",
-          "What are the measured false-positive, review-time, quality, and escalation outcomes relative to the claimed targets"
-        ],
-        "desired_signals": [
-          "production",
-          "rollout",
-          "usage",
-          "volume",
-          "customer",
-          "outcomes",
-          "quality"
-        ],
-        "research_goals": [
-          "live_environment",
-          "task_volume",
-          "outcome_metric",
-          "control_boundary"
-        ]
-      }
-    },
-    {
-      "id": "graph-stage-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
-      "label": "Graph gap: Fortinet expands FortiGate and FortiSASE for AI-driven traffic (announcement -> evidence)",
-      "query": "(\"Fortinet\") \"AI agent\" (pilot OR production OR deployed OR live OR customer OR customers OR traffic)",
-      "target_ids": [
-        "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28"
-      ],
-      "reason": {
-        "kind": "maturity-and-metric-gap",
-        "current_stage": "announcement",
-        "open_questions": [
-          "Which customers deploy FortiGate 1200G or FortiSASE Outpost for agent or AI-driven east-west traffic in production",
-          "Are the benchmark gains reproduced under customer workloads with inspection, logging, policy, and recovery overhead included"
-        ],
-        "desired_signals": [
-          "pilot",
-          "production",
-          "deployed",
-          "live",
-          "customer",
-          "customers",
-          "traffic"
         ],
         "research_goals": [
           "named_operator",

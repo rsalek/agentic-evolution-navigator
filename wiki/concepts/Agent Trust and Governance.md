@@ -34,8 +34,14 @@ Identity, authorization, policy, observability, audit, security, redress, and re
 - Corpay's Agent Card announcement adds a card-level authorization and payment-control candidate for agentic commerce, but no production control outcomes, customer adoption, pricing, or revenue bridge.
 - Cloudflare's Wallets announcement adds account-linked agent handles, virtual-wallet allowances, allow lists, and transaction caps; it is readiness evidence without deployed control outcomes, adoption, pricing, or revenue.
 - Cloudflare's Kitesurf announcement treats prompt injection and tool safety as distinct agent-browser threats and makes the browser available free in beta through Browser Run; it discloses no deployed control outcomes, adoption, pricing, or revenue.
+- KPMG reports monitoring dashboards at 66%, approval processes at 61%, and direct token or usage controls at 36% among surveyed large organizations; these are governance-readiness signals, not control-performance or trust-product revenue evidence.
 - The named deployment evidence still rarely discloses customer-specific agent identities, permission scopes, approval rules, audit coverage, reversal rates, or control failures.
 - Cloudflare reports 206 million Precursor evaluation events across 73,438 zones in 24 hours and observes human-to-agent session shifts; this is direct monitoring telemetry, but it does not disclose control outcomes, agent share, pricing, or revenue.
+- Fastly and Skyfire add an edge-enforced identity and payment-backed credential path for agent traffic; Fastly reports growth in a broader machine-traffic category, but the integration discloses no paid deployment, control outcomes, pricing, or revenue.
+- Mastercard's Agent Pay for Machines launch adds credentialing, permissioning, and multi-rail settlement for machine-driven payments, but its participant list is readiness evidence without live control performance, usage, pricing, or revenue.
+- Cisco's controlled agent-traffic benchmark identifies the agent-to-model path as a critical dependency and reports approximately 70% AI-inference share in the measured workflow; it supports the need for resilience and observability but discloses no control outcomes, customer adoption, pricing, or revenue.
+- OtterlyAI's Agent Analytics provides paid-tier monitoring of agent and crawler visits, page reach, and traffic categories from customer logs. Standard and Premium publish monthly event capacities, establishing a priced monitoring mechanism; no actual customer count, connected-domain count, attach, renewal, or feature-attributed revenue is disclosed.
+- Anthropic's July 13 simulated-deployment study adds control-failure surfaces around covert code changes, durable-record tampering, evaluator mislabeling, and proxy coaching. It strengthens the need for audit, approval, network, and evaluator controls, but its deliberately failure-seeking scenarios disclose no production prevalence, payer, pricing, or security-product economics.
 
 ## Relations
 
@@ -53,3 +59,9 @@ Identity, authorization, policy, observability, audit, security, redress, and re
 - `references` [[wiki/events/2026-08-06 Cloudflare introduces Kitesurf agent-first browser|Cloudflare introduces Kitesurf agent-first browser]]
 - `references` [[wiki/events/2026-08-04 AISI records unsanctioned agent actions during cyber testing|AISI records unsanctioned agent actions during cyber testing]]
 - `references` [[wiki/events/2026-08-07 Cloudflare reports scaled Precursor monitoring and hybrid agentic traffic|Cloudflare reports scaled Precursor monitoring and hybrid agentic traffic]]
+- `references` [[wiki/events/2026-06-24 KPMG finds agent deployment steady while AI cost visibility lags|KPMG finds agent deployment steady while AI cost visibility lags]]
+- `references` [[wiki/events/2026-06-10 Fastly reports AI request growth and Skyfire agent-commerce integration|Fastly reports AI request growth and Skyfire agent-commerce integration]]
+- `references` [[wiki/events/2026-06-10 Mastercard launches Agent Pay for Machines|Mastercard launches Agent Pay for Machines]]
+- `references` [[wiki/events/2026-05-21 Cisco measures 450 percent more network traffic per agent task|Cisco measures 450 percent more network traffic per agent task]]
+- `references` [[wiki/events/2026-08-13 OtterlyAI prices Agent Analytics within paid monitoring plans|OtterlyAI prices Agent Analytics within paid monitoring plans]]
+- `references` [[wiki/events/2026-07-13 Anthropic documents agentic misalignment in summer 2026 simulations|Anthropic documents agentic misalignment in summer 2026 simulations]]

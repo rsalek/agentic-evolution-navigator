@@ -4,7 +4,7 @@ type: concept
 title: Human-AI Workforce Coordination
 status: active
 confidence: medium
-updated: 2026-07-28
+updated: 2026-08-10
 ---
 
 # Human-AI Workforce Coordination
@@ -29,9 +29,11 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 - Google ATLAS suggests collaboration dominates on the observed mainstream work surfaces, while OpenAI and Microsoft report much deeper agent use at the enterprise frontier. The different measurement surfaces prevent a direct automation-rate comparison.
 - Microsoft's service-operations transcript distinguishes two human-AI paths: increasing human-agent throughput by about 12% and deflecting selected requests before human handoff. It reports realized savings but no comparable escalation, correction, quality, or workforce-coverage denominator.
 - These examples support a bounded allocation pattern, but the public sources do not disclose comparable escalation, correction, rework, or supervisor-effort rates.
+- KPMG reports that 18% of surveyed large organizations orchestrate multiple agents across workflows, up from 9% quarter over quarter, and 48% use agents for cross-functional workflows; this broadens the coordination signal but remains survey evidence without named action-level deployments.
 
 ## Relations
 
 - `depends-on` [[wiki/concepts/System-of-Record Distribution|System-of-Record Distribution]]
 - `constrained-by` [[wiki/concepts/Measurement Surface Bias|Measurement Surface Bias]]
 - `constrained-by` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
+- `references` [[wiki/events/2026-06-24 KPMG finds agent deployment steady while AI cost visibility lags|KPMG finds agent deployment steady while AI cost visibility lags]]

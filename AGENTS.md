@@ -2,6 +2,18 @@
 
 This repository is a maintained knowledge graph for the AI-agent economy. Treat Markdown as source code: `raw/` is immutable evidence, `wiki/` is the compiled and linked knowledge layer, and `docs/graph.json` is a derived artifact.
 
+## Obsidian skill routing
+
+This folder is an Obsidian vault. Use the globally installed Obsidian skills when their file type or operation is in scope, but treat this guide's evidence, schema, privacy, and validation rules as authoritative:
+
+- Use `obsidian-markdown` when creating or editing vault Markdown. Preserve the frontmatter contract and typed `## Relations` syntax below; use wikilinks for internal vault links and normal Markdown links for external sources.
+- Use `obsidian-bases` only when a database-like Obsidian view is requested or materially improves navigation. A `.base` file is a derived view over canonical notes, not a new evidence store or replacement for `wiki/` Markdown. Validate its YAML and referenced properties.
+- Use `json-canvas` for requested Obsidian canvases, maps, or visual working views. Treat `.canvas` files as derived navigation artifacts; keep canonical claims and relations in Markdown, and validate unique IDs and edge references.
+- Use `obsidian-cli` for vault-aware reads, searches, or edits only after confirming the `obsidian` command is available and Obsidian is open. Always target `vault="Ideas space"` explicitly and use exact vault-relative paths when possible. Fall back to direct file operations when the CLI is unavailable.
+- Use `defuddle` to extract clean Markdown from ordinary web pages when useful for source review. Preserve the original URL and provenance, prefer primary sources, and do not treat extracted text as verified evidence until it passes the ingestion rules below.
+
+After material Markdown changes, rebuild and validate the graph as required below. After creating or editing a Base or Canvas, also validate its native YAML or JSON and inspect it in Obsidian when practical.
+
 ## Non-negotiable boundaries
 
 - Never silently turn an announcement into evidence of adoption. Record the maturity stage.

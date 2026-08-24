@@ -18,6 +18,7 @@ This synthesis combines the user-supplied Quartr capture [AI agent operational d
 - Human oversight is operational, not rhetorical, in the Talkspace examples: clinician validation, QMS/HIPAA controls, escalation, and therapist handoff remain in the workflow.
 - Trust infrastructure is being positioned as transaction-path infrastructure: Cloudflare presented cryptographic agent identity and flow-specific authorization for autonomous commerce, but the slide does not prove live traffic.
 - The packet does not contain a standalone agent-payment volume-growth metric. Mastercard provides the strongest live evidence, but readiness and enablement should not be confused with measured agent volume.
+- The current collection adds two stronger operator disclosures: Coinbase reports that more than 97% of on-chain agentic transactions used x402 in Q2 2026, while Alipay AI Pay reports more than 300 million agent-payment transactions and more than 100 million users across 12 scenarios. Coinbase provides a published facilitator price but no realized x402 revenue; Alipay provides no measurement window, transaction value, or agent-attributed revenue. Both remain emerging rather than measured commercial evidence.
 - The packet also contains an unpromoted Fiserv Investor Day pricing claim: a shift from basis points toward percentage points and higher take rates. It remains a lead until the first-party presentation and agent attribution are independently verified.
 
 ## What the corporate-workflow packet adds
@@ -71,6 +72,8 @@ ADT remains a production watch item because routing through AI and improved cont
 - `references` [[wiki/events/2026-06-03 C Spire scales agent email triage|C Spire scales agent email triage]]
 - `references` [[wiki/events/2026-06-18 Rossmann scales agentic store support|Rossmann scales agentic store support]]
 - `references` [[wiki/events/2026-07-22 x402 reports 75 million monthly transactions|x402 reports 75 million monthly transactions]]
+- `references` [[wiki/events/2026-07-30 Coinbase reports x402 concentration in on-chain agentic finance|Coinbase reports x402 concentration in on-chain agentic finance]]
+- `references` [[wiki/events/2026-07-31 Alipay AI Pay reports 300 million agent payments|Alipay AI Pay reports 300 million agent payments]]
 - `references` [[wiki/events/2026-04-30 Delivery Hero scales autonomous software deployment|Delivery Hero scales autonomous software deployment]]
 - `references` [[wiki/events/2026-02-24 Falabella scales automated customer-service resolution|Falabella scales automated customer-service resolution]]
 - `references` [[wiki/events/2026-02-13 NatWest reports higher autonomous Cora resolution|NatWest reports higher autonomous Cora resolution]]
