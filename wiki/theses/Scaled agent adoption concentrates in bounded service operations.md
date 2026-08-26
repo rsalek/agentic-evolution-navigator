@@ -4,7 +4,7 @@ type: thesis
 title: Scaled agent adoption concentrates in bounded service operations
 status: active
 confidence: medium
-updated: 2026-08-10
+updated: 2026-08-26
 review_after: 2026-09-30
 ---
 
@@ -41,6 +41,7 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - Absence of equivalent public evidence in finance, legal, procurement, and general computer use is not evidence that those deployments do not exist.
 - [[wiki/events/2026-05-15 NCSC advises cautious adoption of agentic AI|NCSC advises cautious adoption of agentic AI]] reinforces the bounded-pilot and low-risk control pattern as the current institutional adoption path; it is guidance, not evidence of scaled deployment.
 - Serval's vendor-reported 90% customer adoption and 50% faster workflow-building result are encouraging but remain exposed to the same customer-confirmation, denominator, and hidden-human-work risks as other vendor case studies.
+- [[wiki/events/2026-08-25 Dell describes production agents and portfolio concentration|Dell's production coding, CRM, and pricing agents]] add cross-functional counterevidence, but without repeated task volume, accepted-change quality, realised savings, or control outcomes they do not yet match the bounded-service evidence standard.
 
 ## What would change the thesis
 
@@ -59,3 +60,4 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - `references` [[wiki/events/2026-05-15 NCSC advises cautious adoption of agentic AI|NCSC advises cautious adoption of agentic AI]]
 - `references` [[wiki/events/2026-06-24 KPMG finds agent deployment steady while AI cost visibility lags|KPMG finds agent deployment steady while AI cost visibility lags]]
 - `references` [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval announces Catalyst general availability with broad customer adoption]]
+- `references` [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]

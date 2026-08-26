@@ -4,7 +4,7 @@ type: thesis
 title: Incumbent platforms are the distribution channel
 status: active
 confidence: medium
-updated: 2026-08-10
+updated: 2026-08-26
 review_after: 2026-09-30
 ---
 
@@ -28,6 +28,8 @@ Enterprise agents are increasingly entering work through platforms that already 
 - [[wiki/events/2026-07-24 VA awards Salesforce Missionforce agreement]] adds a $1.6 billion-ceiling public-sector agreement that expands an incumbent platform's data, workflow, collaboration, and agent-capable footprint, but it remains announcement-stage evidence for agent deployment and spend.
 - [[wiki/events/2026-05-27 Salesforce reports Agentforce ARR and production work-unit growth|Salesforce reports Agentforce ARR and production work-unit growth]] adds a product-specific ARR bridge, production task measure, premium-SKU booking growth, and existing-customer expansion inside an incumbent platform.
 - [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval's Catalyst general availability]] challenges the distribution thesis with a direct AI-native service-management alternative reporting broad adoption and a named customer workflow benefit, although it still uses existing ticket and procedure data and does not disclose independent customer economics.
+- [[wiki/events/2026-08-24 Okta makes Agent SSO generally available|Okta makes Agent SSO generally available]] places agent identity inside the incumbent directory, policy console, and integration network used by more than 20,000 Okta customers. The installed-base figure is not Agent SSO adoption, but the free core feature and separate governance subscription define a distribution-to-attach path.
+- [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|The Six Five Summit comparison]] finds the same governed-context mechanism at Salesforce, Snowflake, MongoDB, and Oracle. Only Salesforce supplies a separately measured agent-revenue bridge; the others strengthen the distribution mechanism more than the monetization claim.
 
 ## Challenging evidence
 
@@ -38,6 +40,7 @@ Enterprise agents are increasingly entering work through platforms that already 
 - Salesforce's agreement is a contract ceiling across a broad software stack, not a measure of exercised, agent-specific revenue or operational adoption.
 - Salesforce's Agentforce ARR is company-reported annualized contract value rather than recognized revenue, and its combined AI/data bookings and AWUs do not disclose retention, customer concentration, or agent-specific margin.
 - Serval's evidence is vendor-reported and does not establish that the AI-native layer bypasses incumbent systems in customer acquisition, data ownership, permissions, or durable revenue capture.
+- [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]] shows a specialist agent and ontology vendor generating direct agent revenue outside the largest software incumbents. Its 69% conversion among existing Atlas Graph customers also suggests that installed-base distribution can accrue to specialist data platforms, not only global systems of record.
 
 ## What would change the thesis
 
@@ -52,3 +55,6 @@ Enterprise agents are increasingly entering work through platforms that already 
 - `enables` [[wiki/concepts/Agentic Marketing Automation|Agentic Marketing Automation]]
 - `references` [[wiki/events/2026-05-27 Salesforce reports Agentforce ARR and production work-unit growth|Salesforce reports Agentforce ARR and production work-unit growth]]
 - `challenges` [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval announces Catalyst general availability with broad customer adoption]]
+- `supports` [[wiki/events/2026-08-24 Okta makes Agent SSO generally available|Okta makes Agent SSO generally available]]
+- `challenges` [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]]
+- `supports` [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]

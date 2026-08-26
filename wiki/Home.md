@@ -4,7 +4,7 @@ type: index
 title: Agentic Evolution Navigator
 status: active
 confidence: high
-updated: 2026-07-25
+updated: 2026-08-26
 ---
 
 # Agentic Evolution Navigator
@@ -70,6 +70,7 @@ This is the entry point for evidence about AI-agent adoption, usage, economic ac
 - [[wiki/events/2026-01-15 Talkspace deploys clinically supervised AI intake workflow]]
 - [[wiki/queries/AI agent operational deployments|AI agent operational deployments]]
 - [[wiki/queries/Why public AI usage studies disagree|Why public AI usage studies disagree]]
+- [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]
 
 ## Navigate and maintain
 

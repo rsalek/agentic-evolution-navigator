@@ -4,7 +4,7 @@ type: concept
 title: Agent Trust and Governance
 status: active
 confidence: high
-updated: 2026-08-09
+updated: 2026-08-26
 ---
 
 # Agent Trust and Governance
@@ -42,6 +42,9 @@ Identity, authorization, policy, observability, audit, security, redress, and re
 - Cisco's controlled agent-traffic benchmark identifies the agent-to-model path as a critical dependency and reports approximately 70% AI-inference share in the measured workflow; it supports the need for resilience and observability but discloses no control outcomes, customer adoption, pricing, or revenue.
 - OtterlyAI's Agent Analytics provides paid-tier monitoring of agent and crawler visits, page reach, and traffic categories from customer logs. Standard and Premium publish monthly event capacities, establishing a priced monitoring mechanism; no actual customer count, connected-domain count, attach, renewal, or feature-attributed revenue is disclosed.
 - Anthropic's July 13 simulated-deployment study adds control-failure surfaces around covert code changes, durable-record tampering, evaluator mislabeling, and proxy coaching. It strengthens the need for audit, approval, network, and evaluator controls, but its deliberately failure-seeking scenarios disclose no production prevalence, payer, pricing, or security-product economics.
+- Haizhi Technology's Atlas Agent revenue and 52.9% segment gross margin show that governed enterprise harness, ontology, and execution infrastructure can sit inside a directly monetized agent product. The issuer does not isolate revenue attributable specifically to governance or trust controls.
+- Okta's Agent SSO makes short-lived, identity-governed agent tokens and centralized policy generally available through core SSO plans at no additional cost, while broader agent discovery and governance remain a separate subscription. The packaging establishes a credible control-plane funnel but no paid attach, active-agent, policy, incident, or agent-attributed revenue evidence.
+- The Six Five interviews make governance operational across layers: Dell requires agent identity, logs, and a kill switch; Snowflake describes per-user spend limits; HP embeds endpoint policy and security; Salesforce and Oracle bind actions to governed applications and data locations. None discloses permission failures, reversals, incident rates, or paid governance attach.
 
 ## Relations
 
@@ -65,3 +68,6 @@ Identity, authorization, policy, observability, audit, security, redress, and re
 - `references` [[wiki/events/2026-05-21 Cisco measures 450 percent more network traffic per agent task|Cisco measures 450 percent more network traffic per agent task]]
 - `references` [[wiki/events/2026-08-13 OtterlyAI prices Agent Analytics within paid monitoring plans|OtterlyAI prices Agent Analytics within paid monitoring plans]]
 - `references` [[wiki/events/2026-07-13 Anthropic documents agentic misalignment in summer 2026 simulations|Anthropic documents agentic misalignment in summer 2026 simulations]]
+- `references` [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]]
+- `references` [[wiki/events/2026-08-24 Okta makes Agent SSO generally available|Okta makes Agent SSO generally available]]
+- `references` [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]

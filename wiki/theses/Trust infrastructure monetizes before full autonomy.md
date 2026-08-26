@@ -4,7 +4,7 @@ type: thesis
 title: Trust infrastructure monetizes before full autonomy
 status: active
 confidence: medium
-updated: 2026-08-20
+updated: 2026-08-26
 review_after: 2026-09-30
 ---
 
@@ -22,6 +22,8 @@ Identity, traffic classification, policy, observability, security, and regulator
 - [[wiki/events/2026-04-29 Railway adds guardrails after agent deletes production data]] shows immediate operational demand for scoped credentials, reversible actions, staged environments, and approval boundaries.
 - [[wiki/events/2026-08-13 OtterlyAI prices Agent Analytics within paid monitoring plans]] is the first newly reviewed priced monitoring mechanism in this run: Agent Analytics is included in $189/month Standard and $489/month Premium plans with published monthly event capacity. It supports an early tollbooth hypothesis, but not scaled monetization because paid customers, attach, renewal, realized usage, and feature-level revenue are undisclosed.
 - [[wiki/events/2026-07-31 Alipay AI Pay reports 300 million agent payments|Alipay AI Pay reports 300 million agent payments]] adds an operator-reported payment, identity, authorization, risk, and dispute layer with more than 300 million agent-payment transactions and more than 100 million users. It supports the infrastructure thesis at emerging confidence, but agent-specific revenue and measurement methodology remain open.
+- [[wiki/events/2026-08-25 ClickHouse ARR expands amid agent-workload demand|ClickHouse ARR expands amid agent-workload demand]] adds a recurring-revenue and customer-growth bridge for the data and observability layer beneath agents. The official May baseline exceeds $250 million ARR and 4,000 customers; original August reporting places ARR above $350 million and identifies agent workloads and agent-behaviour monitoring as demand drivers. Confidence is medium because agent-specific revenue is not isolated.
+- [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]] provides direct agent-product revenue and margin evidence for an enterprise harness and ontology stack: RMB114.6 million of half-year Atlas Agent revenue, 29 customers, and a 52.9% segment gross margin. Governance-specific revenue is not isolated, so this supports a bundled trust-runtime tollbooth rather than a standalone security product.
 
 ## Challenging evidence
 
@@ -43,6 +45,8 @@ Identity, traffic classification, policy, observability, security, and regulator
 - [[wiki/events/2026-08-19 Natural secures $100M credit facility for agent payments|Natural secures $100M credit facility for agent payments]] adds financing capacity and a proposed agent-credit tollbooth, but the credit product is not live in the public product page and no deployed credit, pricing, repeat payments, or revenue is disclosed.
 - [[wiki/events/2026-08-18 TrueFoundry reports TrueForge agent-harness cost benchmark|TrueFoundry reports TrueForge agent-harness cost benchmark]] shows that lower agent-run cost can be measured before a control-plane tollbooth is monetized; the open-source distribution and absent managed attach challenge the assumption that operational savings automatically accrue to the infrastructure vendor.
 - [[wiki/events/2026-05-15 NCSC advises cautious adoption of agentic AI|NCSC advises cautious adoption of agentic AI]] strengthens the need for bounded controls but provides no evidence that the controls are separately monetized.
+- ClickHouse's managed cloud is a general analytics and observability platform, and its open-source distribution can satisfy some workloads without vendor revenue. If the ARR growth is mainly non-agent analytics or model training, or if agent users do not buy and renew managed services, this evidence would not validate an agent-specific trust tollbooth.
+- [[wiki/events/2026-08-24 Okta makes Agent SSO generally available|Okta makes Agent SSO generally available]] bundles the foundational identity control into core SSO at no additional cost. The separately subscribed Okta for AI Agents product creates an attach path, but absent pricing, adoption, renewal, or agent-attributed revenue, free bundling remains counterevidence to an independent identity tollbooth.
 
 ## What would change the thesis
 
@@ -66,3 +70,6 @@ Identity, traffic classification, policy, observability, security, and regulator
 - `references` [[wiki/events/2026-08-19 Natural secures $100M credit facility for agent payments|Natural secures $100M credit facility for agent payments]]
 - `references` [[wiki/events/2026-08-18 TrueFoundry reports TrueForge agent-harness cost benchmark|TrueFoundry reports TrueForge agent-harness cost benchmark]]
 - `references` [[wiki/events/2026-05-15 NCSC advises cautious adoption of agentic AI|NCSC advises cautious adoption of agentic AI]]
+- `references` [[wiki/events/2026-08-25 ClickHouse ARR expands amid agent-workload demand|ClickHouse ARR expands amid agent-workload demand]]
+- `references` [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]]
+- `references` [[wiki/events/2026-08-24 Okta makes Agent SSO generally available|Okta makes Agent SSO generally available]]

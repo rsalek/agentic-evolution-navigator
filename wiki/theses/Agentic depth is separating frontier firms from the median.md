@@ -4,7 +4,7 @@ type: thesis
 title: Agentic depth is separating frontier firms from the median
 status: active
 confidence: medium
-updated: 2026-07-25
+updated: 2026-08-26
 review_after: 2026-10-31
 ---
 
@@ -17,6 +17,7 @@ AI use is broadening across occupations and organizations, but the deepest deleg
 - [[wiki/events/2026-05-06 OpenAI reports 16x Codex usage gap]] finds the largest frontier-versus-median usage gap in Codex, an agentic developer tool, and a 3.5x broader token-per-worker gap.
 - [[wiki/events/2026-05-05 Microsoft reports 15x active-agent growth]] shows rapid year-over-year growth in active agent objects inside Microsoft 365 and SharePoint.
 - [[wiki/events/2026-04-30 Delivery Hero scales autonomous software deployment]] provides named operator evidence of repeated autonomous software deployment outside the provider-level aggregates.
+- [[wiki/events/2026-08-25 Snowflake reports company-wide use of an internal sales agent|Snowflake's internal sales agent]] adds a company-reported 4,000-user deployment, while [[wiki/events/2026-08-25 MongoDB cites scaled agentic application and network operations|MongoDB's customer examples]] add repeated application deployment and network-operating outcomes. Both still lack comparable task quality, correction, and vendor-revenue attribution.
 
 ## Challenging evidence
 
@@ -38,3 +39,4 @@ AI use is broadening across occupations and organizations, but the deepest deleg
 - `measured-by` [[wiki/concepts/Production Agent Economics|Production Agent Economics]]
 - `constrained-by` [[wiki/concepts/Measurement Surface Bias|Measurement Surface Bias]]
 - `references` [[wiki/theses/Incumbent platforms are the distribution channel|Incumbent platforms are the distribution channel]]
+- `references` [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]

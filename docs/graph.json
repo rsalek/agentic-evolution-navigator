@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24",
-  "nodeCount": 161,
-  "edgeCount": 824,
+  "generatedAt": "2026-08-26",
+  "nodeCount": 182,
+  "edgeCount": 932,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -96,23 +96,23 @@
       ],
       "order": 1,
       "summary": {
-        "memberCount": 52,
-        "eventCount": 24,
+        "memberCount": 61,
+        "eventCount": 29,
         "stageCounts": {
-          "announcement": 10,
+          "announcement": 12,
           "pilot": 4,
-          "production": 5,
-          "scaled": 5
+          "production": 6,
+          "scaled": 7
         },
         "evidenceMaturity": "scaled",
-        "commercialProof": "emerging",
-        "latestEventDate": "2026-08-13",
+        "commercialProof": "measured",
+        "latestEventDate": "2026-08-26",
         "anchorConceptId": "concept-agent-trust-governance",
-        "strongestEventId": "event-alipay-ai-pay-300-million-agent-payments-2026-07-31",
+        "strongestEventId": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
         "synthesisId": "thesis-trust-monetizes-early",
         "representativeNodeIds": [
           "concept-agent-trust-governance",
-          "event-alipay-ai-pay-300-million-agent-payments-2026-07-31",
+          "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
           "thesis-trust-monetizes-early"
         ]
       }
@@ -187,17 +187,17 @@
       ],
       "order": 3,
       "summary": {
-        "memberCount": 10,
-        "eventCount": 4,
+        "memberCount": 14,
+        "eventCount": 7,
         "stageCounts": {
-          "announcement": 2,
+          "announcement": 4,
           "pilot": 0,
           "production": 0,
-          "scaled": 2
+          "scaled": 3
         },
         "evidenceMaturity": "scaled",
         "commercialProof": "measured",
-        "latestEventDate": "2026-07-15",
+        "latestEventDate": "2026-08-25",
         "anchorConceptId": "concept-system-of-record-distribution",
         "strongestEventId": "event-salesforce-agentforce-arr-production-work-units-2026-05-27",
         "synthesisId": "thesis-incumbent-platform-distribution",
@@ -236,7 +236,7 @@
       ],
       "order": 4,
       "summary": {
-        "memberCount": 42,
+        "memberCount": 45,
         "eventCount": 18,
         "stageCounts": {
           "announcement": 1,
@@ -328,23 +328,23 @@
       ],
       "order": 6,
       "summary": {
-        "memberCount": 13,
-        "eventCount": 6,
+        "memberCount": 18,
+        "eventCount": 9,
         "stageCounts": {
           "announcement": 2,
           "pilot": 1,
           "production": 2,
-          "scaled": 1
+          "scaled": 4
         },
         "evidenceMaturity": "scaled",
         "commercialProof": "emerging",
-        "latestEventDate": "2026-08-18",
+        "latestEventDate": "2026-08-26",
         "anchorConceptId": "concept-production-agent-economics",
-        "strongestEventId": "event-five9-healthcare-ai-agent-commitment-2026-02-19",
+        "strongestEventId": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
         "synthesisId": "thesis-agentic-depth-frontier-gap",
         "representativeNodeIds": [
           "concept-production-agent-economics",
-          "event-five9-healthcare-ai-agent-commitment-2026-02-19",
+          "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
           "thesis-agentic-depth-frontier-gap"
         ]
       }
@@ -360,7 +360,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-08-09"
+        "updated": "2026-08-26"
       },
       "evidence": [],
       "theme": {
@@ -627,7 +627,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-08-13"
+        "updated": "2026-08-26"
       },
       "evidence": [],
       "theme": {
@@ -702,7 +702,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-08-10"
+        "updated": "2026-08-26"
       },
       "evidence": [],
       "theme": {
@@ -1160,6 +1160,45 @@
       }
     },
     {
+      "id": "entity-clickhouse",
+      "title": "ClickHouse",
+      "type": "entity",
+      "path": "wiki/entities/ClickHouse.md",
+      "summary": "A private real-time analytics and observability company. Its open-source database is complemented by the paid, managed ClickHouse Cloud service, Managed ClickStack, Langfuse Cloud, and ClickHouse Agents. The commercial exposure spans high-volume agent application data, agent-behaviour observability, model-cost tracking, and agent-driven analytics.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-08-25"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-production-agent-economics",
+            "relation": "constrained-by",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-cloudflare",
       "title": "Cloudflare",
       "type": "entity",
@@ -1332,6 +1371,45 @@
             "kind": "relation",
             "node": "concept-agent-trust-governance",
             "relation": "constrained-by",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-software-engineering",
+            "relation": "constrained-by",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-dell-technologies",
+      "title": "Dell Technologies",
+      "type": "entity",
+      "path": "wiki/entities/Dell Technologies.md",
+      "summary": "An enterprise infrastructure and device provider operating internal agents across software engineering, commercial operations, and data-quality workflows while supplying infrastructure for customer AI estates.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "depends-on",
             "score": 4.0
           },
           {
@@ -1659,6 +1737,84 @@
       }
     },
     {
+      "id": "entity-haizhi-technology",
+      "title": "Haizhi Technology",
+      "type": "entity",
+      "path": "wiki/entities/Haizhi Technology.md",
+      "summary": "Beijing Haizhi Technology Group is a Hong Kong-listed enterprise data and agent-platform company (HKEX: 2706). Its Atlas portfolio combines graph and multimodal databases, business ontology, and an agent harness for governed execution in enterprise and industrial workflows.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-production-agent-economics",
+            "relation": "constrained-by",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-system-of-record-distribution",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-hp",
+      "title": "HP",
+      "type": "entity",
+      "path": "wiki/entities/HP.md",
+      "summary": "A personal-systems and workplace-technology company positioning on-device and hybrid inference, endpoint security, and employee-experience telemetry as an enterprise agent execution layer.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-human-ai-workforce-coordination",
+            "relation": "constrained-by",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-hugging-face",
       "title": "Hugging Face",
       "type": "entity",
@@ -1689,6 +1845,45 @@
             "node": "concept-agentic-cyber-operations",
             "via": "concept-agent-trust-governance",
             "relation": "applies-to",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-intel",
+      "title": "Intel",
+      "type": "entity",
+      "path": "wiki/entities/Intel.md",
+      "summary": "A semiconductor and systems company positioning CPUs, accelerators, networking, memory, and model routing as a heterogeneous execution substrate for agentic AI.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "constrained-by",
             "score": 1.4
           }
         ]
@@ -1890,6 +2085,45 @@
       }
     },
     {
+      "id": "entity-marvell-technology",
+      "title": "Marvell Technology",
+      "type": "entity",
+      "path": "wiki/entities/Marvell Technology.md",
+      "summary": "A semiconductor infrastructure supplier providing custom compute, connectivity, optics, switching, and memory-expansion components for AI data centres.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "constrained-by",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-mastercard",
       "title": "Mastercard",
       "type": "entity",
@@ -1997,6 +2231,46 @@
             "kind": "two-hop",
             "node": "thesis-scaled-agents-bounded-service-operations",
             "via": "concept-agentic-service-operations",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-mongodb",
+      "title": "MongoDB",
+      "type": "entity",
+      "path": "wiki/entities/MongoDB.md",
+      "summary": "An operational database platform used as persistent application context and retrieval infrastructure for AI-generated applications and agent-supported workflows.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-system-of-record-distribution",
+            "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-system-of-record-distribution",
+            "relation": "enables",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-service-operations",
+            "via": "concept-system-of-record-distribution",
             "relation": "depends-on",
             "score": 1.4
           }
@@ -2199,6 +2473,46 @@
       }
     },
     {
+      "id": "entity-okta",
+      "title": "Okta",
+      "type": "entity",
+      "path": "wiki/entities/Okta.md",
+      "summary": "A listed identity and access-management platform extending workforce identity, authorization, lifecycle management, and governance to AI agents.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-system-of-record-distribution",
+            "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-system-of-record-distribution",
+            "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-openai",
       "title": "OpenAI",
       "type": "entity",
@@ -2231,6 +2545,46 @@
             "node": "concept-agentic-cyber-operations",
             "via": "concept-agent-trust-governance",
             "relation": "applies-to",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-oracle",
+      "title": "Oracle",
+      "type": "entity",
+      "path": "wiki/entities/Oracle.md",
+      "summary": "An enterprise database, applications, and cloud provider distributing AI services through public, dedicated, sovereign, and customer-operated cloud environments.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-system-of-record-distribution",
+            "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-system-of-record-distribution",
+            "relation": "enables",
             "score": 1.4
           }
         ]
@@ -3888,6 +4242,63 @@
       }
     },
     {
+      "id": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
+      "title": "ClickHouse ARR expands amid agent-workload demand",
+      "type": "event",
+      "path": "wiki/events/2026-08-25 ClickHouse ARR expands amid agent-workload demand.md",
+      "summary": "Original reporting by *The Information* says ClickHouse recently exceeded $350 million of annual recurring revenue, 40% above its May level, citing a person close to the company. It also reports that OpenAI's ClickHouse usage increased about tenfold over the preceding year to more than 30 petabytes per day, including use to observe whether deployed agents behave as intended. The current ARR and OpenAI-usage figures are not yet confirmed in a ClickHouse filing or release.",
+      "metadata": {
+        "date": "2026-08-25",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "data-infrastructure",
+        "layer": "agent-runtime-and-economics",
+        "commercial_proof": "emerging",
+        "commercial_signals": "agent-revenue, arr-acv-backlog, customer-growth, demand",
+        "updated": "2026-08-25"
+      },
+      "evidence": [
+        {
+          "label": "ClickHouse tops $250M ARR and 4,000 customers",
+          "url": "https://clickhouse.com/blog/clickhouse-tops-250m-arr-and-4000-customers"
+        },
+        {
+          "label": "ClickHouse pricing",
+          "url": "https://clickhouse.com/pricing"
+        },
+        {
+          "label": "ClickHouse's Annual Recurring Revenue Passes $350 Million on AI Agent Demand",
+          "url": "https://www.theinformation.com/articles/clickhouses-annual-recurring-revenue-passes-350-million-ai-agent-demand"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "event-cloudflare-monetization-gateway-2026-07-01",
       "title": "Cloudflare announces Monetization Gateway for agent resources",
       "type": "event",
@@ -4332,6 +4743,59 @@
             "node": "concept-agentic-service-operations",
             "via": "concept-production-agent-economics",
             "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-dell-production-agents-portfolio-concentration-2026-08-25",
+      "title": "Dell describes production agents and portfolio concentration",
+      "type": "event",
+      "path": "wiki/events/2026-08-25 Dell describes production agents and portfolio concentration.md",
+      "summary": "Dell CTO John Roese said the company has production agents in CRM data cleanup, software engineering, and special-pricing workflows. He described specification-driven coding through CI/CD and said Dell narrowed roughly 900 AI projects to about 13 priority programmes. He also said the programmes helped decouple revenue growth from the cost structure and described agent identities, logging, and a kill switch as governance requirements.",
+      "metadata": {
+        "date": "2026-08-25",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "technology-hardware",
+        "layer": "enterprise-workflows",
+        "commercial_proof": "unproven",
+        "commercial_signals": "unit-economics",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "Six Five Summit: AI Unleashed 2026",
+          "url": "https://www.sixfivemedia.com/summit"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "bounded-operations-coordination",
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "monetizes",
             "score": 2.1
           }
         ]
@@ -4800,6 +5264,117 @@
       }
     },
     {
+      "id": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "title": "Haizhi reports direct Atlas agent revenue and margin growth",
+      "type": "event",
+      "path": "wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth.md",
+      "summary": "Beijing Haizhi Technology Group's unaudited interim results for the six months ended June 30, 2026 report RMB114.6 million of revenue from Atlas Agent, up 135.6% from RMB48.6 million in the prior-year period. Atlas Agent represented 38.8% of group revenue, served 29 customers, and recorded a 52.9% gross margin, up 4.8 percentage points year over year. The company says 69% of existing Atlas Graph-solution customers converted to demand for Atlas Agent.",
+      "metadata": {
+        "date": "2026-08-25",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "agent-runtime-and-economics",
+        "commercial_proof": "measured",
+        "commercial_signals": "agent-revenue, customer-growth, margin, demand",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "HKEX issuer archive for Haizhi Technology",
+          "url": "https://www1.hkexnews.hk/search/titlesearch.xhtml?category=0&lang=ZH&market=SEHK&stockId=1000291807"
+        },
+        {
+          "label": "Interim-results announcement mirror",
+          "url": "https://www.cfi.net.cn/p20260825007510.html"
+        },
+        {
+          "label": "Haizhi Technology 2025 Annual Report",
+          "url": "https://www.hkexnews.hk/listedco/listconews/sehk/2026/0415/2026041500808.pdf"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "platform-distribution-records"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-hp-hybrid-on-device-agent-architecture-2026-08-26",
+      "title": "HP describes hybrid on-device agent architecture",
+      "type": "event",
+      "path": "wiki/events/2026-08-26 HP describes hybrid on-device agent architecture.md",
+      "summary": "In the replacement Six Five Summit transcript, HP executives described a hybrid agent architecture combining on-device models, cloud inference, employee-experience telemetry, endpoint security, and an IT control plane. They argued that local inference can reduce cost and protect sensitive data while cloud models handle tasks that exceed device capability.",
+      "metadata": {
+        "date": "2026-08-26",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "announcement",
+        "industry": "technology-hardware",
+        "layer": "endpoint-infrastructure",
+        "commercial_proof": "unproven",
+        "commercial_signals": "demand",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "Six Five Summit: AI Unleashed 2026",
+          "url": "https://www.sixfivemedia.com/summit"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "monetizes",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "event-hugging-face-agent-intrusion-2026-07-16",
       "title": "Hugging Face discloses autonomous production intrusion",
       "type": "event",
@@ -4843,6 +5418,56 @@
             "node": "concept-agentic-cyber-operations",
             "via": "concept-agent-trust-governance",
             "relation": "applies-to",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-intel-heterogeneous-agentic-ai-architecture-2026-08-25",
+      "title": "Intel outlines heterogeneous agentic AI architecture",
+      "type": "event",
+      "path": "wiki/events/2026-08-25 Intel outlines heterogeneous agentic AI architecture.md",
+      "summary": "Intel executives described agentic workloads as a systems problem spanning model routing, orchestration, sandboxing, verification, memory, networking, and accelerators. They argued that CPUs remain important for control-plane and serial work while open and frontier models should be routed across hybrid infrastructure according to cost, privacy, and capability. Intel's Hot Chips and Computex material independently confirms the described architectures and product direction.",
+      "metadata": {
+        "date": "2026-08-25",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "semiconductors",
+        "layer": "compute-infrastructure",
+        "commercial_proof": "unproven",
+        "commercial_signals": "demand",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "Intel outlines architectures for agentic AI at Hot Chips 2026",
+          "url": "https://newsroom.intel.com/client-computing/intel-outlines-architectures-for-agentic-ai-at-hot-chips-2026"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-production-agent-economics",
+            "relation": "constrained-by",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
             "score": 1.4
           }
         ]
@@ -5102,6 +5727,55 @@
             "via": "concept-agent-trust-governance",
             "relation": "depends-on",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-marvell-ai-infrastructure-demand-2026-08-26",
+      "title": "Marvell reports broad AI infrastructure demand",
+      "type": "event",
+      "path": "wiki/events/2026-08-26 Marvell reports broad AI infrastructure demand.md",
+      "summary": "Marvell CEO Matt Murphy described custom accelerators, switching, optics, connectivity, and CXL memory expansion as infrastructure for training and inference. He said AI data-centre activity was running above $2 billion per quarter and that customer adoption of CXL memory expansion was accelerating. The latest filed quarter before the interview reported $2.418 billion of total revenue and $1.833 billion of data-centre revenue, or 76% of total revenue, with management citing broad AI demand and exceptional AI-related bookings.",
+      "metadata": {
+        "date": "2026-08-26",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "semiconductors",
+        "layer": "compute-infrastructure",
+        "commercial_proof": "unproven",
+        "commercial_signals": "demand",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "Marvell first-quarter fiscal 2027 results",
+          "url": "https://investor.marvell.com/news-events/press-releases/detail/1023/marvell-technology-inc-reports-first-quarter-of-fiscal-year-2027-financial-results"
+        }
+      ],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
           }
         ]
       }
@@ -5406,6 +6080,59 @@
       }
     },
     {
+      "id": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "title": "MongoDB cites scaled agentic application and network operations",
+      "type": "event",
+      "path": "wiki/events/2026-08-25 MongoDB cites scaled agentic application and network operations.md",
+      "summary": "MongoDB CEO Dev Ittycheria cited Emergent Labs and AT&T to argue that operational data infrastructure becomes more important as agents generate applications and act on live systems. MongoDB's customer material says Emergent users built nearly two million applications in four months, deployed more than 50,000, and doubled the deployment rate from 10% to 20%. Independent reporting based on AT&T executive comments says its AI-supported network system avoided 12 million customer downtime hours and 3.1 million unnecessary field dispatches over the prior year.",
+      "metadata": {
+        "date": "2026-08-25",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "data-and-context",
+        "commercial_proof": "emerging",
+        "commercial_signals": "demand, unit-economics",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "MongoDB customer case study: Emergent Labs",
+          "url": "https://www.mongodb.com/solutions/customer-case-studies/emergent-labs-inc"
+        },
+        {
+          "label": "AT&T built an AI system to prevent network outages",
+          "url": "https://tech.yahoo.com/ai/meta-ai/articles/t-built-ai-system-prevent-133242625.html"
+        }
+      ],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "event-natural-credit-facility-2026-08-19",
       "title": "Natural secures $100M credit facility for agent payments",
       "type": "event",
@@ -5613,6 +6340,56 @@
       }
     },
     {
+      "id": "event-okta-agent-sso-general-availability-2026-08-24",
+      "title": "Okta makes Agent SSO generally available",
+      "type": "event",
+      "path": "wiki/events/2026-08-24 Okta makes Agent SSO generally available.md",
+      "summary": "Okta made Agent SSO generally available on August 24, 2026. The product registers Cross App Access-compatible agents in Universal Directory, replaces stored credentials with short-lived identity-governed tokens, and applies enterprise access policy through the same administrative workflows used for employees.",
+      "metadata": {
+        "date": "2026-08-24",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "cybersecurity",
+        "layer": "identity-and-security",
+        "commercial_proof": "unproven",
+        "commercial_signals": "pricing-attach-renewal",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "Okta brings first-class identity to AI agents with Agent SSO",
+          "url": "https://www.okta.com/es-mx/newsroom/press-releases/okta-brings-first-class-identity-to-ai-agents-with-agent-sso/"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "trust-identity-authorization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-system-of-record-distribution",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-openai-attributes-hugging-face-breach-2026-07-21",
       "title": "OpenAI attributes Hugging Face breach to evaluation agents",
       "type": "event",
@@ -5709,6 +6486,59 @@
             "node": "concept-measurement-surface-bias",
             "relation": "constrained-by",
             "score": 4.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-oracle-distributed-cloud-ai-control-boundary-2026-08-25",
+      "title": "Oracle frames distributed cloud as an AI control boundary",
+      "type": "event",
+      "path": "wiki/events/2026-08-25 Oracle frames distributed cloud as an AI control boundary.md",
+      "summary": "Oracle executive Clay Magouyrk described a distributed-cloud model that brings AI services to data held in public, dedicated, sovereign, partner-operated, and multi-cloud environments. The claimed mechanism is locality: retain data, governance, and operational controls while giving agents or AI applications access to enterprise databases and applications.",
+      "metadata": {
+        "date": "2026-08-25",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "announcement",
+        "industry": "cloud-infrastructure",
+        "layer": "system-of-record-platforms",
+        "commercial_proof": "unproven",
+        "commercial_signals": "demand",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "Oracle Dedicated Cloud",
+          "url": "https://www.oracle.com/cloud/dedicated-cloud/"
+        },
+        {
+          "label": "Oracle Alloy overview",
+          "url": "https://docs.oracle.com/en-us/iaas/Content/dedicated/alloy/oracle-alloy-overview.htm"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-system-of-record-distribution",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-system-of-record-distribution",
+            "via": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 1.4
           }
         ]
       }
@@ -5968,6 +6798,61 @@
             "node": "thesis-scaled-agents-bounded-service-operations",
             "relation": "supports",
             "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-salesforce-six-five-scaled-agent-workflows-2026-08-25",
+      "title": "Salesforce describes scaled internal and customer agent workflows",
+      "type": "event",
+      "path": "wiki/events/2026-08-25 Salesforce describes scaled internal and customer agent workflows.md",
+      "summary": "At the Six Five Summit, Salesforce executives described Agentforce as an interaction layer over enterprise data, application semantics, and workflow systems. Marc Benioff said the internal Casey service agent had resolved five million support issues and that most customers were still at the beginning of adoption. The interview also said a Dell supplier workflow reaches 20,000 suppliers daily.",
+      "metadata": {
+        "date": "2026-08-25",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "system-of-record-platforms",
+        "commercial_proof": "unproven",
+        "commercial_signals": "demand",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "Salesforce Q1 fiscal 2027 results",
+          "url": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Delivers-Record-First-Quarter-Fiscal-2027-Results/default.aspx"
+        },
+        {
+          "label": "Dell at Dreamforce 2025",
+          "url": "https://www.salesforce.com/plus/experience/dreamforce_2025/series/must-see_keynote_moments_2025/episode/episode-s1e8"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-system-of-record-distribution",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-system-of-record-distribution",
+            "via": "thesis-incumbent-platform-distribution",
+            "relation": "depends-on",
+            "score": 1.4
           }
         ]
       }
@@ -6269,6 +7154,55 @@
             "via": "concept-agent-trust-governance",
             "relation": "enables",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-snowflake-internal-sales-agent-2026-08-25",
+      "title": "Snowflake reports company-wide use of an internal sales agent",
+      "type": "event",
+      "path": "wiki/events/2026-08-25 Snowflake reports company-wide use of an internal sales agent.md",
+      "summary": "Snowflake CEO Sridhar Ramaswamy said all 4,000 salespeople use an internal sales agent that replaced dashboard licences and costs less than the licences it replaced. He described the agent as combining governed enterprise data, semantic definitions, model access, and per-user spending limits; he also described overnight agent swarms and hundreds of model invocations as possible workflow patterns.",
+      "metadata": {
+        "date": "2026-08-25",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "data-and-context",
+        "commercial_proof": "emerging",
+        "commercial_signals": "unit-economics",
+        "updated": "2026-08-26"
+      },
+      "evidence": [
+        {
+          "label": "Six Five Summit: AI Unleashed 2026",
+          "url": "https://www.sixfivemedia.com/summit"
+        }
+      ],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
           }
         ]
       }
@@ -6786,7 +7720,7 @@
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-25"
+        "updated": "2026-08-26"
       },
       "evidence": [],
       "theme": {
@@ -6849,7 +7783,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-08-24"
+        "updated": "2026-08-25"
       },
       "evidence": [],
       "theme": {
@@ -6859,6 +7793,46 @@
           {
             "kind": "keyword-fallback",
             "score": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "title": "Six Five Summit 2026 agentic AI evidence comparison",
+      "type": "query",
+      "path": "wiki/queries/Six Five Summit 2026 agentic AI evidence comparison.md",
+      "summary": "Eight user-supplied Quartr transcripts from the Six Five Summit: AI Unleashed 2026 were reviewed as company-speaker testimony, then checked against filings, product documentation, named-customer material, and independent reporting where available. Exact filenames and hashes are retained in the local-only `raw/private/2026-08-26-six-five-summit-transcript-manifest.md`; full transcript text is not published.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-08-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-system-of-record-distribution",
+            "via": "thesis-incumbent-platform-distribution",
+            "relation": "depends-on",
+            "score": 1.4
           }
         ]
       }
@@ -7049,7 +8023,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-07-25",
+        "updated": "2026-08-26",
         "review_after": "2026-10-31"
       },
       "evidence": [],
@@ -7086,7 +8060,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-08-10",
+        "updated": "2026-08-26",
         "review_after": "2026-09-30"
       },
       "evidence": [],
@@ -7124,7 +8098,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-08-10",
+        "updated": "2026-08-26",
         "review_after": "2026-09-30"
       },
       "evidence": [],
@@ -7162,7 +8136,7 @@
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-08-20",
+        "updated": "2026-08-26",
         "review_after": "2026-09-30"
       },
       "evidence": [],
@@ -7264,6 +8238,11 @@
     },
     {
       "source": "concept-agent-trust-governance",
+      "target": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
       "target": "event-kpmg-agent-deployment-cost-visibility-2026-06-24",
       "type": "references"
     },
@@ -7279,6 +8258,11 @@
     },
     {
       "source": "concept-agent-trust-governance",
+      "target": "event-okta-agent-sso-general-availability-2026-08-24",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
       "target": "event-otterlyai-agent-analytics-paid-plans-2026-08-13",
       "type": "references"
     },
@@ -7290,6 +8274,11 @@
     {
       "source": "concept-agent-trust-governance",
       "target": "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
       "type": "references"
     },
     {
@@ -7539,12 +8528,22 @@
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
       "type": "references"
     },
     {
       "source": "concept-production-agent-economics",
       "target": "event-coinbase-q2-agentic-finance-2026-07-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
       "type": "references"
     },
     {
@@ -7575,6 +8574,11 @@
     {
       "source": "concept-production-agent-economics",
       "target": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
       "type": "references"
     },
     {
@@ -7609,7 +8613,22 @@
     },
     {
       "source": "concept-system-of-record-distribution",
+      "target": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "event-okta-agent-sso-general-availability-2026-08-24",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
       "target": "event-salesforce-agentforce-arr-production-work-units-2026-05-27",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
       "type": "references"
     },
     {
@@ -7778,6 +8797,21 @@
       "type": "enables"
     },
     {
+      "source": "entity-clickhouse",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-clickhouse",
+      "target": "concept-production-agent-economics",
+      "type": "enables"
+    },
+    {
+      "source": "entity-clickhouse",
+      "target": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "type": "references"
+    },
+    {
       "source": "entity-cloudflare",
       "target": "concept-agent-trust-governance",
       "type": "enables"
@@ -7841,6 +8875,21 @@
       "source": "entity-delivery-hero",
       "target": "concept-agentic-software-engineering",
       "type": "applies-to"
+    },
+    {
+      "source": "entity-dell-technologies",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "entity-dell-technologies",
+      "target": "concept-agentic-software-engineering",
+      "type": "enables"
+    },
+    {
+      "source": "entity-dell-technologies",
+      "target": "event-dell-production-agents-portfolio-concentration-2026-08-25",
+      "type": "references"
     },
     {
       "source": "entity-falabella",
@@ -7928,6 +8977,36 @@
       "type": "enables"
     },
     {
+      "source": "entity-haizhi-technology",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-haizhi-technology",
+      "target": "concept-production-agent-economics",
+      "type": "enables"
+    },
+    {
+      "source": "entity-haizhi-technology",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-hp",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "entity-hp",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "entity-hp",
+      "target": "event-hp-hybrid-on-device-agent-architecture-2026-08-26",
+      "type": "references"
+    },
+    {
       "source": "entity-hugging-face",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -7936,6 +9015,16 @@
       "source": "entity-hugging-face",
       "target": "concept-agentic-cyber-operations",
       "type": "applies-to"
+    },
+    {
+      "source": "entity-intel",
+      "target": "concept-production-agent-economics",
+      "type": "enables"
+    },
+    {
+      "source": "entity-intel",
+      "target": "event-intel-heterogeneous-agentic-ai-architecture-2026-08-25",
+      "type": "references"
     },
     {
       "source": "entity-kpmg",
@@ -7988,6 +9077,16 @@
       "type": "enables"
     },
     {
+      "source": "entity-marvell-technology",
+      "target": "concept-production-agent-economics",
+      "type": "enables"
+    },
+    {
+      "source": "entity-marvell-technology",
+      "target": "event-marvell-ai-infrastructure-demand-2026-08-26",
+      "type": "references"
+    },
+    {
       "source": "entity-mastercard",
       "target": "concept-agent-trust-governance",
       "type": "enables"
@@ -8016,6 +9115,21 @@
       "source": "entity-moneyhero",
       "target": "concept-agentic-service-operations",
       "type": "applies-to"
+    },
+    {
+      "source": "entity-mongodb",
+      "target": "concept-agentic-software-engineering",
+      "type": "enables"
+    },
+    {
+      "source": "entity-mongodb",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-mongodb",
+      "target": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "type": "references"
     },
     {
       "source": "entity-national-cyber-security-centre",
@@ -8068,6 +9182,16 @@
       "type": "enables"
     },
     {
+      "source": "entity-okta",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-okta",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
       "source": "entity-openai",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -8086,6 +9210,21 @@
       "source": "entity-openai",
       "target": "concept-measurement-surface-bias",
       "type": "constrained-by"
+    },
+    {
+      "source": "entity-oracle",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "entity-oracle",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-oracle",
+      "target": "event-oracle-distributed-cloud-ai-control-boundary-2026-08-25",
+      "type": "references"
     },
     {
       "source": "entity-otterlyai",
@@ -8728,6 +9867,31 @@
       "type": "precedes"
     },
     {
+      "source": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
+      "target": "concept-production-agent-economics",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
+      "target": "entity-clickhouse",
+      "type": "involves"
+    },
+    {
+      "source": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
+      "target": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "type": "references"
+    },
+    {
+      "source": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
       "source": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -8958,6 +10122,31 @@
       "type": "challenges"
     },
     {
+      "source": "event-dell-production-agents-portfolio-concentration-2026-08-25",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-dell-production-agents-portfolio-concentration-2026-08-25",
+      "target": "concept-agentic-software-engineering",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-dell-production-agents-portfolio-concentration-2026-08-25",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-dell-production-agents-portfolio-concentration-2026-08-25",
+      "target": "entity-dell-technologies",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-dell-production-agents-portfolio-concentration-2026-08-25",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "challenges"
+    },
+    {
       "source": "event-falabella-ai-service-scaled-2026-02-24",
       "target": "concept-agentic-service-operations",
       "type": "demonstrates"
@@ -9158,6 +10347,56 @@
       "type": "challenges"
     },
     {
+      "source": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "target": "concept-production-agent-economics",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "target": "entity-haizhi-technology",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "challenges"
+    },
+    {
+      "source": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
+      "source": "event-hp-hybrid-on-device-agent-architecture-2026-08-26",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-hp-hybrid-on-device-agent-architecture-2026-08-26",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "event-hp-hybrid-on-device-agent-architecture-2026-08-26",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-hp-hybrid-on-device-agent-architecture-2026-08-26",
+      "target": "entity-hp",
+      "type": "announced-by"
+    },
+    {
       "source": "event-hugging-face-agent-intrusion-2026-07-16",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -9181,6 +10420,21 @@
       "source": "event-hugging-face-agent-intrusion-2026-07-16",
       "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "challenges"
+    },
+    {
+      "source": "event-intel-heterogeneous-agentic-ai-architecture-2026-08-25",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-intel-heterogeneous-agentic-ai-architecture-2026-08-25",
+      "target": "concept-production-agent-economics",
+      "type": "enables"
+    },
+    {
+      "source": "event-intel-heterogeneous-agentic-ai-architecture-2026-08-25",
+      "target": "entity-intel",
+      "type": "announced-by"
     },
     {
       "source": "event-ixigo-tara-scaled-support-2025-05-14",
@@ -9311,6 +10565,21 @@
       "source": "event-magne-ai-secures-2-64m-2026-08-05",
       "target": "event-cloudflare-monetization-gateway-2026-07-01",
       "type": "references"
+    },
+    {
+      "source": "event-marvell-ai-infrastructure-demand-2026-08-26",
+      "target": "concept-production-agent-economics",
+      "type": "enables"
+    },
+    {
+      "source": "event-marvell-ai-infrastructure-demand-2026-08-26",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-marvell-ai-infrastructure-demand-2026-08-26",
+      "target": "entity-marvell-technology",
+      "type": "announced-by"
     },
     {
       "source": "event-mastercard-agent-pay-for-machines-2026-06-10",
@@ -9468,6 +10737,31 @@
       "type": "supports"
     },
     {
+      "source": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "target": "concept-agentic-software-engineering",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "target": "entity-mongodb",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
+    },
+    {
       "source": "event-natural-credit-facility-2026-08-19",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -9583,6 +10877,31 @@
       "type": "updates"
     },
     {
+      "source": "event-okta-agent-sso-general-availability-2026-08-24",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-okta-agent-sso-general-availability-2026-08-24",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-okta-agent-sso-general-availability-2026-08-24",
+      "target": "entity-okta",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-okta-agent-sso-general-availability-2026-08-24",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-okta-agent-sso-general-availability-2026-08-24",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
       "source": "event-openai-attributes-hugging-face-breach-2026-07-21",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -9640,6 +10959,26 @@
     {
       "source": "event-openai-codex-usage-gap-2026-05-06",
       "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
+    },
+    {
+      "source": "event-oracle-distributed-cloud-ai-control-boundary-2026-08-25",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-oracle-distributed-cloud-ai-control-boundary-2026-08-25",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-oracle-distributed-cloud-ai-control-boundary-2026-08-25",
+      "target": "entity-oracle",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-oracle-distributed-cloud-ai-control-boundary-2026-08-25",
+      "target": "thesis-incumbent-platform-distribution",
       "type": "supports"
     },
     {
@@ -9838,6 +11177,31 @@
       "type": "supports"
     },
     {
+      "source": "event-salesforce-six-five-scaled-agent-workflows-2026-08-25",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-salesforce-six-five-scaled-agent-workflows-2026-08-25",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-salesforce-six-five-scaled-agent-workflows-2026-08-25",
+      "target": "entity-salesforce",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-salesforce-six-five-scaled-agent-workflows-2026-08-25",
+      "target": "event-salesforce-agentforce-arr-production-work-units-2026-05-27",
+      "type": "references"
+    },
+    {
+      "source": "event-salesforce-six-five-scaled-agent-workflows-2026-08-25",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
       "source": "event-serval-catalyst-general-availability-2026-08-20",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -9941,6 +11305,31 @@
       "source": "event-snowflake-cortex-ai-gateway-2026-07-28",
       "target": "entity-snowflake",
       "type": "announced-by"
+    },
+    {
+      "source": "event-snowflake-internal-sales-agent-2026-08-25",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-snowflake-internal-sales-agent-2026-08-25",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-snowflake-internal-sales-agent-2026-08-25",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-snowflake-internal-sales-agent-2026-08-25",
+      "target": "entity-snowflake",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-snowflake-internal-sales-agent-2026-08-25",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
     },
     {
       "source": "event-successkpi-webex-wem-2026-07-15",
@@ -10424,6 +11813,11 @@
     },
     {
       "source": "index-home",
+      "target": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "type": "references"
+    },
+    {
+      "source": "index-home",
       "target": "query-why-public-ai-usage-studies-disagree",
       "type": "references"
     },
@@ -10654,6 +12048,11 @@
     },
     {
       "source": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "target": "entity-clickhouse",
+      "type": "references"
+    },
+    {
+      "source": "query-dageno-surfaced-private-agentic-company-watchlist",
       "target": "entity-gauge",
       "type": "references"
     },
@@ -10706,6 +12105,66 @@
       "source": "query-dageno-surfaced-private-agentic-company-watchlist",
       "target": "thesis-trust-monetizes-early",
       "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "concept-agent-trust-governance",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "concept-production-agent-economics",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "event-dell-production-agents-portfolio-concentration-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "event-hp-hybrid-on-device-agent-architecture-2026-08-26",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "event-intel-heterogeneous-agentic-ai-architecture-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "event-marvell-ai-infrastructure-demand-2026-08-26",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "event-oracle-distributed-cloud-ai-control-boundary-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "event-salesforce-six-five-scaled-agent-workflows-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "event-snowflake-internal-sales-agent-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
+    },
+    {
+      "source": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
     },
     {
       "source": "query-why-public-ai-usage-studies-disagree",
@@ -10989,7 +12448,22 @@
     },
     {
       "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
       "target": "event-openai-codex-usage-gap-2026-05-06",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-snowflake-internal-sales-agent-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
       "type": "references"
     },
     {
@@ -11034,6 +12508,11 @@
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-lufthansa-service-agents-scaled-2026-05-06",
       "type": "references"
     },
@@ -11041,6 +12520,11 @@
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-microsoft-active-agent-growth-2026-05-05",
       "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-okta-agent-sso-general-availability-2026-08-24",
+      "type": "supports"
     },
     {
       "source": "thesis-incumbent-platform-distribution",
@@ -11086,6 +12570,11 @@
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-va-salesforce-missionforce-agreement-2026-07-24",
       "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "type": "supports"
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
@@ -11135,6 +12624,11 @@
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
       "target": "event-delivery-hero-herogen-scaled-2026-04-30",
+      "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-dell-production-agents-portfolio-concentration-2026-08-25",
       "type": "references"
     },
     {
@@ -11203,6 +12697,11 @@
       "type": "references"
     },
     {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "query-six-five-summit-2026-agentic-ai-evidence-comparison",
+      "type": "references"
+    },
+    {
       "source": "thesis-trust-monetizes-early",
       "target": "concept-agent-trust-governance",
       "type": "depends-on"
@@ -11239,6 +12738,11 @@
     },
     {
       "source": "thesis-trust-monetizes-early",
+      "target": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
       "target": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
       "type": "references"
     },
@@ -11269,6 +12773,11 @@
     },
     {
       "source": "thesis-trust-monetizes-early",
+      "target": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
       "target": "event-magne-ai-secures-2-64m-2026-08-05",
       "type": "references"
     },
@@ -11285,6 +12794,11 @@
     {
       "source": "thesis-trust-monetizes-early",
       "target": "event-ncsc-cautious-agentic-ai-adoption-2026-05-15",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-okta-agent-sso-general-availability-2026-08-24",
       "type": "references"
     },
     {

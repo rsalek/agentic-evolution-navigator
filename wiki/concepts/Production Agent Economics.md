@@ -4,7 +4,7 @@ type: concept
 title: Production Agent Economics
 status: active
 confidence: medium
-updated: 2026-08-13
+updated: 2026-08-26
 ---
 
 # Production Agent Economics
@@ -40,6 +40,9 @@ The end-to-end cost and value of completed agent work after latency, failures, s
 - xpander.ai's public control-plane page exposes agent runs, agent registry, spend, approvals, policy, and cost observability as the intended product surface. It does not establish customer telemetry, paid deployment, pricing, or unit economics.
 - TrueFoundry's TrueForge benchmark reports approximately 30% lower same-model cost per run than Claude Managed Agents and up to 75% lower cost with GLM-5.2 across 14 cross-system enterprise tasks at similar solved-task rates. The setup is unusually explicit and reproducible, but remains a company-run benchmark without independent replication, customer telemetry, managed attach, or TrueFoundry revenue evidence.
 - Serval reports more than 90% existing-customer adoption of Catalyst after beta and a 50% faster workflow-building result at Ramp across 10 departments. This is a measurable operating-benefit signal at production maturity, but it lacks customer-side confirmation, a baseline protocol, task denominator, pricing, retention, margin, and agent-attributed revenue.
+- ClickHouse's primary May disclosure reports more than $250 million of ARR, over three times the prior-year level, 4,000 customers, and more than 1,000 net additions since January. Original August reporting places ARR above $350 million, up 40% from May, and links demand to agent database and observability workloads, including roughly tenfold OpenAI usage growth. This is an emerging recurring-revenue bridge, but the agent-derived share of ARR, paid-service status of the cited workload, retention, concentration, and product-level margin remain undisclosed.
+- Haizhi Technology reports RMB114.6 million of Atlas Agent revenue for the first half of 2026, up 135.6% year over year, with 29 customers, 38.8% of group revenue, 69% conversion among existing Atlas Graph customers, and a 52.9% segment gross margin. This is the graph's clearest listed-company product-line revenue and margin bridge after Salesforce, but recurring mix, backlog, retention, concentration, implementation cost, and cash conversion remain undisclosed.
+- The Six Five comparison adds scaled internal use at Snowflake and named operating outcomes linked to MongoDB customer workloads, but neither establishes agent-attributed vendor revenue. Marvell's filed AI data-centre revenue is commercially real without agent attribution; HP, Intel, Oracle, and Dell add architecture or production testimony without bounded economics. Salesforce's separately filed Agentforce ARR remains the only measured agent-product revenue signal in this cohort.
 
 ## Relations
 
@@ -57,3 +60,6 @@ The end-to-end cost and value of completed agent work after latency, failures, s
 - `references` [[wiki/entities/xpander.ai|xpander.ai]]
 - `references` [[wiki/events/2026-08-18 TrueFoundry reports TrueForge agent-harness cost benchmark|TrueFoundry reports TrueForge agent-harness cost benchmark]]
 - `references` [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval announces Catalyst general availability with broad customer adoption]]
+- `references` [[wiki/events/2026-08-25 ClickHouse ARR expands amid agent-workload demand|ClickHouse ARR expands amid agent-workload demand]]
+- `references` [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]]
+- `references` [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]
