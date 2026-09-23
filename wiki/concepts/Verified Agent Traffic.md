@@ -4,7 +4,7 @@ type: concept
 title: Verified Agent Traffic
 status: active
 confidence: medium
-updated: 2026-08-13
+updated: 2026-09-22
 ---
 
 # Verified Agent Traffic
@@ -31,6 +31,8 @@ Machine-originated requests whose agent identity, authorization, purpose, and po
 - Dageno's comparison surfaces a broader paid discovery-and-delivery layer: Peec AI reports AI-search customer growth and AI-originated funnel attribution; Profound sells usage-metered Agents and enterprise answer-engine analytics; Gauge publishes a $599/month agent-led workflow; AthenaHQ reports large monitored-page/source telemetry; and Scrunch built a CDN-layer AI-ready delivery surface before its Sitecore acquisition. These are adjacent visibility and serving tollbooths, not proof of agent-payment volume.
 - Alipay AI Pay reports more than 300 million agent-payment transactions and more than 100 million users, but does not disclose the observation window, active-agent denominator, identity coverage, or agent-attributed revenue. Coinbase reports x402 concentration within its defined on-chain agentic-finance category, but not absolute traffic or agent count.
 - AWS WAF's AI traffic monetization capability combines agent-policy classification, x402 payment proof, scoped access tokens, and revenue analytics at the edge, but does not disclose live publisher adoption, paid traffic, or realized revenue.
+- TRM Labs demonstrates the attribution problem directly: $52.7 million of x402 settlement value becomes $25.62 million after commerce screens, and only 0.6% to 7.5% of the remainder appears agentic under permissive and strict heuristics. On-chain settlement alone cannot distinguish an agent from scheduled scripts, tests, or conventional automation.
+- DataDome's 12-month study reports 52.7 billion AI-agent and LLM-crawler requests across more than 75,000 customer sites, including 605.6 million H1 requests to high-risk endpoints. Its Q2 report says 54% of customers adopted agent-trust policies. The telemetry establishes repeated classification and policy use inside a commercial platform, but combines action agents with crawlers and does not disclose paid attach, outcomes, or agent-specific revenue.
 
 ## Relations
 
@@ -47,3 +49,5 @@ Machine-originated requests whose agent identity, authorization, purpose, and po
 - `references` [[wiki/events/2026-07-31 Alipay AI Pay reports 300 million agent payments|Alipay AI Pay reports 300 million agent payments]]
 - `references` [[wiki/events/2026-07-30 Coinbase reports x402 concentration in on-chain agentic finance|Coinbase reports x402 concentration in on-chain agentic finance]]
 - `references` [[wiki/events/2026-06-15 AWS WAF announces AI traffic monetization|AWS WAF announces AI traffic monetization]]
+- `references` [[wiki/events/2026-09-09 TRM Labs bounds likely agentic x402 payment value|TRM Labs bounds likely agentic x402 payment value]]
+- `references` [[wiki/events/2026-09-22 DataDome measures 52.7 billion AI requests and policy adoption|DataDome measures 52.7 billion AI requests and policy adoption]]

@@ -4,7 +4,7 @@ type: concept
 title: Agentic Payments
 status: active
 confidence: medium
-updated: 2026-08-05
+updated: 2026-09-23
 ---
 
 # Agentic Payments
@@ -33,6 +33,10 @@ Payments initiated or completed by software agents under delegated authority, po
 - MAGNE.AI reports local Agent Pay runtime verification and a financing round intended to accelerate commercial delivery, but its MHash L2 testnet is still pending and no paid agent usage, transaction volume/value, or agent-attributed revenue is disclosed.
 - Natural's $100 million credit facility and agent-credit product add a balance-sheet and underwriting layer for agent payments, but the credit product is marked “Soon” and the company reports no deployed credit, repeat payment volume, pricing, fee, or agent-attributed revenue.
 - LianLian DigiTech and UnionPay International announced a human-in-the-loop pilot for global-procurement and AI-token-replenishment payments. It adds a named network and cross-border use case, but no live volume, value, active merchants, pricing, fee, or agent-attributed revenue.
+- TRM Labs independently identified $52.7 million across 198.9 million x402 settlements since May 2025, but its disclosed filters leave $25.62 million of screened commerce and classify only 0.6% to 7.5% of that value as plausibly agentic. Likely agentic value remained approximately $5,000 to $11,000 per month in 2026, showing repeated production use at economically small scale.
+- Meta's Muse launch connects a consumer action agent to Stripe Link, one-time-use cards, purchase approvals, and purchase protections. The capability is rolling out with priced subscriptions, but Meta reports no completed purchases, transaction value, repeat use, Link economics, or active payer and merchant counts.
+- Amazon's reported live block of Muse shows that user authorization, protected credentials, and a payment method do not establish merchant acceptance. No affected-user count, completed purchase, transaction value, dispute rate, or economic bridge is disclosed.
+- The PYMNTS and Visa merchant study reports that only 11% of small and medium businesses and 19% of large merchants qualify as agent-ready. Only 15% have structured product data for agent access, while 68% expect agents to produce at least 5% of digital sales within two years. The difference is readiness and expectation evidence, not current transaction evidence.
 
 ## Relations
 
@@ -50,3 +54,7 @@ Payments initiated or completed by software agents under delegated authority, po
 - `references` [[wiki/events/2026-08-19 Natural secures $100M credit facility for agent payments|Natural secures $100M credit facility for agent payments]]
 - `references` [[wiki/events/2026-07-27 LianLian and UnionPay develop AI-agent payments for procurement|LianLian and UnionPay develop AI-agent payments for procurement]]
 - `references` [[wiki/events/2026-04-28 Ant International launches Agentic Mobile Protocol|Ant International launches Agentic Mobile Protocol]]
+- `references` [[wiki/events/2026-09-09 TRM Labs bounds likely agentic x402 payment value|TRM Labs bounds likely agentic x402 payment value]]
+- `references` [[wiki/events/2026-09-08 Meta launches priced Muse personal agent|Meta launches priced Muse personal agent]]
+- `references` [[wiki/events/2026-09-20 Amazon blocks Meta Muse from its store|Amazon blocks Meta Muse from its store]]
+- `references` [[wiki/events/2026-06-18 PYMNTS and Visa find merchant agent readiness lags expectations|PYMNTS and Visa find merchant agent readiness lags expectations]]

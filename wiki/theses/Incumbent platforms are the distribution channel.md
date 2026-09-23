@@ -4,7 +4,7 @@ type: thesis
 title: Incumbent platforms are the distribution channel
 status: active
 confidence: medium
-updated: 2026-08-26
+updated: 2026-09-21
 review_after: 2026-09-30
 ---
 
@@ -30,6 +30,14 @@ Enterprise agents are increasingly entering work through platforms that already 
 - [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval's Catalyst general availability]] challenges the distribution thesis with a direct AI-native service-management alternative reporting broad adoption and a named customer workflow benefit, although it still uses existing ticket and procedure data and does not disclose independent customer economics.
 - [[wiki/events/2026-08-24 Okta makes Agent SSO generally available|Okta makes Agent SSO generally available]] places agent identity inside the incumbent directory, policy console, and integration network used by more than 20,000 Okta customers. The installed-base figure is not Agent SSO adoption, but the free core feature and separate governance subscription define a distribution-to-attach path.
 - [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|The Six Five Summit comparison]] finds the same governed-context mechanism at Salesforce, Snowflake, MongoDB, and Oracle. Only Salesforce supplies a separately measured agent-revenue bridge; the others strengthen the distribution mechanism more than the monetization claim.
+- [[wiki/events/2026-08-26 Salesforce reports Q2 Agentforce ARR and work-unit acceleration|Salesforce's Q2 update]] extends the evidence to more than $1.5 billion of Agentforce ARR and 3.2 billion in-quarter production work units, while a changed metric boundary limits sequential interpretation.
+- [[wiki/events/2026-08-27 Workday reports agent-customer and AI ACV growth|Workday's Q2 update]] adds more than 5,500 customers using organic agents, up more than 35% quarter over quarter, inside a platform already holding HR, finance, and IT workflows.
+- [[wiki/events/2026-07-22 ServiceNow reports AI ACV and agentic deployment growth|ServiceNow's Q2 update]] adds more than $1 billion of AI ACV and ninefold agentic-deployment growth over nine months, strengthening the incumbent distribution mechanism while leaving agent-specific ACV unseparated.
+- [[wiki/events/2026-09-01 CrowdStrike introduces Falcon Guardian for agent runtime security|CrowdStrike's Falcon Guardian announcement]] extends agent discovery and runtime enforcement through an endpoint platform deployed across hundreds of millions of devices. The installed reach is distribution capacity, not Guardian adoption or revenue.
+- [[wiki/events/2026-09-01 Atlassian prices AI agent resolutions and Rovo usage|Atlassian's outcome and usage pricing]] places agent monetization inside Jira, Confluence, Service Collection, Customer Service Management, and Teamwork Graph context. The price is explicit, but billing starts in December and no realized agent revenue is disclosed.
+- [[wiki/events/2026-09-08 Meta launches priced Muse personal agent|Meta's Muse launch]] combines distribution through WhatsApp and Meta's consumer surfaces with reported $20 and $100 agent subscription tiers, connected-app permissions, and Stripe Link checkout. It is announcement-stage pricing without paid conversion or active-use evidence.
+- [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA's Ace deployment]] uses Salesforce Government Cloud, Service Cloud, Public Sector Solutions, Shield, and an existing case-management foundation to distribute a scaled agent workflow. It adds measured customer-side economics but no Salesforce contract or agent-revenue disclosure.
+- [[wiki/events/2026-09-20 Amazon blocks Meta Muse from its store|Amazon's live block of Meta Muse]] shows the inverse of distribution access: an incumbent merchant platform can deny a third-party agent access to customers, account data, advertising surfaces, and checkout even when the agent has its own subscription and payment architecture.
 
 ## Challenging evidence
 
@@ -39,8 +47,17 @@ Enterprise agents are increasingly entering work through platforms that already 
 - Microsoft's ratio has no absolute agent, run, user, or firm count, and its active definition allows very light use; it supports distribution direction without establishing economic depth.
 - Salesforce's agreement is a contract ceiling across a broad software stack, not a measure of exercised, agent-specific revenue or operational adoption.
 - Salesforce's Agentforce ARR is company-reported annualized contract value rather than recognized revenue, and its combined AI/data bookings and AWUs do not disclose retention, customer concentration, or agent-specific margin.
+- Workday's customer count does not disclose active-agent depth, paid attach, task volume, renewal, outcomes, or agent-specific ACV; broader AI ACV cannot be treated as agent revenue.
 - Serval's evidence is vendor-reported and does not establish that the AI-native layer bypasses incumbent systems in customer acquisition, data ownership, permissions, or durable revenue capture.
 - [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]] shows a specialist agent and ontology vendor generating direct agent revenue outside the largest software incumbents. Its 69% conversion among existing Atlas Graph customers also suggests that installed-base distribution can accrue to specialist data platforms, not only global systems of record.
+- [[wiki/events/2026-08-26 Runable reports rapid paid launch and negative gross margin|Runable's rapid paid launch]] shows a specialist application reaching a reported $2 million annualized revenue run rate without incumbent distribution, but negative gross margin and undisclosed retention materially weaken durability.
+- [[wiki/events/2026-08-27 ServiceNow patches three maximum-severity AI Platform flaws|ServiceNow's three CVSS 10.0 AI Platform flaws]] show that concentrating agents, credentials, data, and actions in an incumbent control plane can also concentrate unauthenticated code-execution, privilege, and database risk. No exploitation was known at disclosure.
+- [[wiki/events/2026-09-03 Amber International reports agentic revenue and margin expansion|Amber International's A-MM and MIA revenue disclosure]] shows a specialist financial and marketing operator monetizing agent-native workflows without relying on a global system-of-record platform. The category boundary and recurrence remain uncertain.
+- [[wiki/events/2026-09-02 Snowflake links agent adoption to AI revenue acceleration|Snowflake's Q2 FY2027 update]] links 9,100-plus CoCo accounts, 5,800 CoWork accounts, and higher core consumption to a broad AI-revenue step-up. This strengthens the installed-platform distribution thesis, although agent-product revenue remains unseparated.
+- [[wiki/events/2026-09-04 Agibank scales Agentforce service and orchestration|Agibank's Agentforce deployment]] adds a named regulated customer running six agents and 11 bots through WhatsApp and CRM records at 70,000 monthly inquiries. It shows scaled distribution but does not disclose Salesforce contract economics.
+- [[wiki/events/2026-09-07 NCSC warns shadow AI can extend agent privileges outside governance|NCSC's shadow-AI guidance]] qualifies the thesis by describing employee adoption through unapproved tools outside formal systems and governance. It is institutional risk guidance rather than measured platform-share evidence.
+- [[wiki/events/2026-09-10 IBEX reports AI-agent wins and implementations|IBEX's two agent-specific customer wins and more than 10 completed implementations]] show a service operator distributing Sierra-powered agent workflows through established enterprise CX relationships. This weakens the claim that the software system of record alone captures distribution, while the missing contract values and renewal evidence limit the commercial conclusion.
+- [[wiki/events/2026-09-17 Datasea begins agent marketing services for five customers|Datasea's five service-started customers]] show another specialist marketing-services route to agent deployment, but the issuer's usage-priced pre-orders do not establish recognized revenue, retention, or independent customer economics.
 
 ## What would change the thesis
 
@@ -58,3 +75,18 @@ Enterprise agents are increasingly entering work through platforms that already 
 - `supports` [[wiki/events/2026-08-24 Okta makes Agent SSO generally available|Okta makes Agent SSO generally available]]
 - `challenges` [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]]
 - `supports` [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]
+- `supports` [[wiki/events/2026-08-26 Salesforce reports Q2 Agentforce ARR and work-unit acceleration|Salesforce reports Q2 Agentforce ARR and work-unit acceleration]]
+- `challenges` [[wiki/events/2026-08-26 Runable reports rapid paid launch and negative gross margin|Runable reports rapid paid launch and negative gross margin]]
+- `supports` [[wiki/events/2026-08-27 Workday reports agent-customer and AI ACV growth|Workday reports agent-customer and AI ACV growth]]
+- `supports` [[wiki/events/2026-07-22 ServiceNow reports AI ACV and agentic deployment growth|ServiceNow reports AI ACV and agentic deployment growth]]
+- `challenges` [[wiki/events/2026-08-27 ServiceNow patches three maximum-severity AI Platform flaws|ServiceNow patches three maximum-severity AI Platform flaws]]
+- `supports` [[wiki/events/2026-09-01 CrowdStrike introduces Falcon Guardian for agent runtime security|CrowdStrike introduces Falcon Guardian for agent runtime security]]
+- `supports` [[wiki/events/2026-09-01 Atlassian prices AI agent resolutions and Rovo usage|Atlassian prices AI agent resolutions and Rovo usage]]
+- `challenges` [[wiki/events/2026-09-03 Amber International reports agentic revenue and margin expansion|Amber International reports agentic revenue and margin expansion]]
+- `supports` [[wiki/events/2026-09-02 Snowflake links agent adoption to AI revenue acceleration|Snowflake links agent adoption to AI revenue acceleration]]
+- `supports` [[wiki/events/2026-09-04 Agibank scales Agentforce service and orchestration|Agibank scales Agentforce service and orchestration]]
+- `challenges` [[wiki/events/2026-09-07 NCSC warns shadow AI can extend agent privileges outside governance|NCSC warns shadow AI can extend agent privileges outside governance]]
+- `supports` [[wiki/events/2026-09-08 Meta launches priced Muse personal agent|Meta launches priced Muse personal agent]]
+- `challenges` [[wiki/events/2026-09-10 IBEX reports AI-agent wins and implementations|IBEX reports AI-agent wins and implementations]]
+- `supports` [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA scales traveler-support agent with measured economics]]
+- `supports` [[wiki/events/2026-09-20 Amazon blocks Meta Muse from its store|Amazon blocks Meta Muse from its store]]

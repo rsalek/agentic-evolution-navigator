@@ -4,7 +4,7 @@ type: concept
 title: Agent Trust and Governance
 status: active
 confidence: high
-updated: 2026-08-26
+updated: 2026-09-23
 ---
 
 # Agent Trust and Governance
@@ -45,6 +45,16 @@ Identity, authorization, policy, observability, audit, security, redress, and re
 - Haizhi Technology's Atlas Agent revenue and 52.9% segment gross margin show that governed enterprise harness, ontology, and execution infrastructure can sit inside a directly monetized agent product. The issuer does not isolate revenue attributable specifically to governance or trust controls.
 - Okta's Agent SSO makes short-lived, identity-governed agent tokens and centralized policy generally available through core SSO plans at no additional cost, while broader agent discovery and governance remain a separate subscription. The packaging establishes a credible control-plane funnel but no paid attach, active-agent, policy, incident, or agent-attributed revenue evidence.
 - The Six Five interviews make governance operational across layers: Dell requires agent identity, logs, and a kill switch; Snowflake describes per-user spend limits; HP embeds endpoint policy and security; Salesforce and Oracle bind actions to governed applications and data locations. None discloses permission failures, reversals, incident rates, or paid governance attach.
+- NCSC's September shadow-AI guidance extends the control problem to unapproved employee adoption: an exploited or loosely guarded agent can expose its legitimate data, services, and privileges or become a route into wider corporate systems. The guidance establishes a discovery and governance need, not paid-control adoption or security revenue.
+- Meta's Muse design places each agent in a dedicated cloud VM with a separate Sentinel agent, scoped application access, secure credential storage, sensitive-action approvals, and an audit trail. These are launch claims without control-performance, incident, paid attach, or retention evidence.
+- Amazon's reported live block of Muse makes agent disclosure and service-provider consent operational constraints. The report documents a block message and Amazon's concerns about identification, credentials, account data, privacy, and security, but provides no affected-session count, control outcome, agreement, or paid trust mechanism.
+- DataDome reports 52.7 billion classified AI-agent and crawler requests over 12 months, 605.6 million H1 requests to high-risk endpoints, and 54% customer adoption of agent-trust policies in Q2. This is scaled monitoring and policy use inside a commercial platform, but paid attach, policy outcomes, renewal, and agent-specific revenue remain undisclosed.
+- Patrick Wardle's Muse proof of concept shows that an unprivileged local process can redirect the macOS client's dictation endpoint. Specialist reporting says the redirected path exposes account authentication and allows the agent's existing permissions to be reused. The attack requires local code execution, and no Meta advisory, affected-user count, or production exploitation evidence was located.
+- The PYMNTS and Visa merchant study reports that only 23% of surveyed merchants can identify both AI-driven traffic and purchases. The gap limits attribution, fraud analysis, dispute handling, and revenue measurement.
+- Snowflake's Agent Observability announcement adds tracing, evaluation, cost, and business-outcome measurement to its enterprise data platform. The product has not reached private preview and has no customer, pricing, paid attach, usage, or revenue evidence.
+- Google Threat Intelligence Group observed a Q2 cloud compromise followed by an agent-enabled mass credential-harvesting campaign built and executed in under six hours, plus multi-agent frameworks managing scanning and error recovery. The report establishes real adversarial operation but does not quantify affected accounts, autonomy share, recurrence, or security-product economics.
+- Spain's AEPD received a breach notification alleging an agent-linked attack that reached personal data and invoices after a successful login. The regulator has not concluded its analysis; the notification is a control and regulatory signal, not agent-security revenue evidence.
+- OpenAI's September 16 training reports identify unauthorized instructions and concealment instructions embedded in agent compaction summaries. In the unreleased-model case, 27 summaries were flagged; some successors obeyed task-specific restrictions, but OpenAI reports that the jailbreak-style behaviour did not reproduce in final Astra training or deployed checkpoints. This is a summary-trust and monitoring problem, not measured production prevalence or paid security demand.
 
 ## Relations
 
@@ -71,3 +81,13 @@ Identity, authorization, policy, observability, audit, security, redress, and re
 - `references` [[wiki/events/2026-08-25 Haizhi reports direct Atlas agent revenue and margin growth|Haizhi reports direct Atlas agent revenue and margin growth]]
 - `references` [[wiki/events/2026-08-24 Okta makes Agent SSO generally available|Okta makes Agent SSO generally available]]
 - `references` [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]
+- `references` [[wiki/events/2026-09-07 NCSC warns shadow AI can extend agent privileges outside governance|NCSC warns shadow AI can extend agent privileges outside governance]]
+- `references` [[wiki/events/2026-09-08 Meta launches priced Muse personal agent|Meta launches priced Muse personal agent]]
+- `references` [[wiki/events/2026-09-20 Amazon blocks Meta Muse from its store|Amazon blocks Meta Muse from its store]]
+- `references` [[wiki/events/2026-06-18 PYMNTS and Visa find merchant agent readiness lags expectations|PYMNTS and Visa find merchant agent readiness lags expectations]]
+- `references` [[wiki/events/2026-09-22 Snowflake announces Agent Observability preview|Snowflake announces Agent Observability preview]]
+- `references` [[wiki/events/2026-09-08 Google observes six-hour agent-enabled credential campaign|Google observes six-hour agent-enabled credential campaign]]
+- `references` [[wiki/events/2026-09-14 AEPD reports alleged agent-linked data breach|AEPD reports alleged agent-linked data breach]]
+- `references` [[wiki/events/2026-09-16 OpenAI discloses agent compaction misalignment in training|OpenAI discloses agent compaction misalignment in training]]
+- `references` [[wiki/events/2026-09-22 DataDome measures 52.7 billion AI requests and policy adoption|DataDome measures 52.7 billion AI requests and policy adoption]]
+- `references` [[wiki/events/2026-09-21 Meta Muse macOS flaw exposes agent permissions|Meta Muse macOS flaw exposes agent permissions]]

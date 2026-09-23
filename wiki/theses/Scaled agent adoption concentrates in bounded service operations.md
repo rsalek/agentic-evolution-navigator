@@ -4,7 +4,7 @@ type: thesis
 title: Scaled agent adoption concentrates in bounded service operations
 status: active
 confidence: medium
-updated: 2026-08-26
+updated: 2026-09-16
 review_after: 2026-09-30
 ---
 
@@ -25,6 +25,10 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - [[wiki/events/2026-05-06 Lufthansa operates scaled service-agent network]] adds a vendor-reported multi-agent network with high conversation volume and state-changing travel workflows.
 - [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval's Catalyst general availability]] adds production adoption across enterprise service workflows, including a named Ramp result spanning 10 departments, while leaving action-level denominators and independent economics open.
 - [[wiki/events/2026-04-29 Railway adds guardrails after agent deletes production data]] shows why broad credentials, irreversible actions, and missing approval boundaries can turn real agent execution into production risk.
+- [[wiki/events/2026-09-02 Qualcomm and ASUS launch pharmacy agent pilot|The Qualcomm-ASUS pharmacy pilot]] extends the bounded-workflow pattern into medication review at more than 50 planned demonstration pharmacies, with local inference and pharmacist oversight. Donated hardware, planned deployment, and absent outcome metrics keep it at pilot maturity.
+- [[wiki/events/2026-09-04 Agibank scales Agentforce service and orchestration|Agibank]] adds six banking service agents and 11 bots handling 70,000 monthly WhatsApp inquiries through identity checks, CRM retrieval, bounded routing, and human handoff. Vendor-side metrics and missing recovery and economics data limit confidence.
+- [[wiki/events/2026-09-10 IBEX reports AI-agent wins and implementations|IBEX]] adds two strategic AI-agent customer wins and more than 10 completed implementations across five verticals in a human-and-agent CX operating model. Missing active-use, outcome, retention, and margin data keep the evidence at production rather than scaled maturity.
+- [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA's Ace traveler-support agent]] adds approximately 100,000 monthly conversations, 96% routine resolution without escalation, and a reported greater-than-90% interaction-cost reduction. The tightly bounded informational workflow materially strengthens this thesis, although the vendor-authored metrics lack independent audit and fully loaded costs.
 
 ## Challenging evidence
 
@@ -42,6 +46,11 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - [[wiki/events/2026-05-15 NCSC advises cautious adoption of agentic AI|NCSC advises cautious adoption of agentic AI]] reinforces the bounded-pilot and low-risk control pattern as the current institutional adoption path; it is guidance, not evidence of scaled deployment.
 - Serval's vendor-reported 90% customer adoption and 50% faster workflow-building result are encouraging but remain exposed to the same customer-confirmation, denominator, and hidden-human-work risks as other vendor case studies.
 - [[wiki/events/2026-08-25 Dell describes production agents and portfolio concentration|Dell's production coding, CRM, and pricing agents]] add cross-functional counterevidence, but without repeated task volume, accepted-change quality, realised savings, or control outcomes they do not yet match the bounded-service evidence standard.
+- [[wiki/events/2026-08-27 Uber reports scaled agent use and falling unit costs|Uber]] materially weakens the concentration claim with more than 30,000 daily software-engineering agent-skill executions across code review, CI repair, pull requests, alert triage, debugging, and maintenance. Human review and escalation retain bounded controls, while accepted-outcome and quality values remain undisclosed.
+- [[wiki/events/2026-09-03 Amber International reports agentic revenue and margin expansion|Amber International]] adds direct revenue from an agent-native market-making system and reports a marketing agent operating across more than 100 enterprise customers. This broadens production economics beyond service operations, but only one quarter of A-MM revenue is available and MIA-specific activity is not quantified.
+- [[wiki/events/2026-09-02 Harness reports agents outnumber humans in CLI actions|Harness]] further weakens the concentration claim with 500,000 agent-originated CLI actions versus 300,000 human actions during the interface's first few weeks. The activity is repeated software-delivery execution, but successful-change, quality, customer, and commercial outcomes remain unreported.
+- [[wiki/events/2026-09-08 Google observes six-hour agent-enabled credential campaign|Google's threat-intelligence report]] adds malicious production counterevidence: an agent-enabled credential-harvesting campaign moved from cloud compromise to execution in under six hours, and multi-agent frameworks managed scanning and error recovery. It does not quantify autonomy, targets, or recurrence.
+- [[wiki/events/2026-09-14 AEPD reports alleged agent-linked data breach|The AEPD's breach notification]] adds regulator-facing, but still unverified, evidence of consequential execution outside service operations: alleged vulnerability discovery, personal-data modification, and invoice access. It cannot establish prevalence, confirmed autonomy, or beneficial adoption.
 
 ## What would change the thesis
 
@@ -61,3 +70,12 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - `references` [[wiki/events/2026-06-24 KPMG finds agent deployment steady while AI cost visibility lags|KPMG finds agent deployment steady while AI cost visibility lags]]
 - `references` [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval announces Catalyst general availability with broad customer adoption]]
 - `references` [[wiki/queries/Six Five Summit 2026 agentic AI evidence comparison|Six Five Summit 2026 agentic AI evidence comparison]]
+- `challenges` [[wiki/events/2026-08-27 Uber reports scaled agent use and falling unit costs|Uber reports scaled agent use and falling unit costs]]
+- `references` [[wiki/events/2026-09-02 Qualcomm and ASUS launch pharmacy agent pilot|Qualcomm and ASUS launch pharmacy agent pilot]]
+- `challenges` [[wiki/events/2026-09-03 Amber International reports agentic revenue and margin expansion|Amber International reports agentic revenue and margin expansion]]
+- `challenges` [[wiki/events/2026-09-02 Harness reports agents outnumber humans in CLI actions|Harness reports agents outnumber humans in CLI actions]]
+- `challenges` [[wiki/events/2026-09-08 Google observes six-hour agent-enabled credential campaign|Google observes six-hour agent-enabled credential campaign]]
+- `supports` [[wiki/events/2026-09-04 Agibank scales Agentforce service and orchestration|Agibank scales Agentforce service and orchestration]]
+- `supports` [[wiki/events/2026-09-10 IBEX reports AI-agent wins and implementations|IBEX reports AI-agent wins and implementations]]
+- `supports` [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA scales traveler-support agent with measured economics]]
+- `challenges` [[wiki/events/2026-09-14 AEPD reports alleged agent-linked data breach|AEPD reports alleged agent-linked data breach]]

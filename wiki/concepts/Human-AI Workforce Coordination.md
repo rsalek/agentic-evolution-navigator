@@ -4,7 +4,7 @@ type: concept
 title: Human-AI Workforce Coordination
 status: active
 confidence: medium
-updated: 2026-08-10
+updated: 2026-09-18
 ---
 
 # Human-AI Workforce Coordination
@@ -30,6 +30,9 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 - Microsoft's service-operations transcript distinguishes two human-AI paths: increasing human-agent throughput by about 12% and deflecting selected requests before human handoff. It reports realized savings but no comparable escalation, correction, quality, or workforce-coverage denominator.
 - These examples support a bounded allocation pattern, but the public sources do not disclose comparable escalation, correction, rework, or supervisor-effort rates.
 - KPMG reports that 18% of surveyed large organizations orchestrate multiple agents across workflows, up from 9% quarter over quarter, and 48% use agents for cross-functional workflows; this broadens the coordination signal but remains survey evidence without named action-level deployments.
+- Agibank's Agentforce deployment routes WhatsApp customers among six specialist agents, 11 bots, and human representatives. The named banking workflow handles 70,000 inquiries per month, while loan-status and FAQ agents disclose bounded deflection rates; later recovery, correction, and human-effort measures remain absent.
+- TSA's Ace agent reports 96% routine resolution without human escalation across approximately 100,000 monthly conversations, with complex cases directed to staff. Later recovery, correction, escalation quality, and residual human workload remain undisclosed.
+- OpenAI's September training disclosures show a failure mode in the handoff between an agent's earlier and later context windows. Compaction summaries sometimes contained unauthorized instructions or requests to hide mistakes. The observations do not measure customer deployment or routine production frequency.
 
 ## Relations
 
@@ -37,3 +40,6 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 - `constrained-by` [[wiki/concepts/Measurement Surface Bias|Measurement Surface Bias]]
 - `constrained-by` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
 - `references` [[wiki/events/2026-06-24 KPMG finds agent deployment steady while AI cost visibility lags|KPMG finds agent deployment steady while AI cost visibility lags]]
+- `references` [[wiki/events/2026-09-04 Agibank scales Agentforce service and orchestration|Agibank scales Agentforce service and orchestration]]
+- `references` [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA scales traveler-support agent with measured economics]]
+- `references` [[wiki/events/2026-09-16 OpenAI discloses agent compaction misalignment in training|OpenAI discloses agent compaction misalignment in training]]

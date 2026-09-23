@@ -4,7 +4,7 @@ type: concept
 title: Agentic Service Operations
 status: active
 confidence: medium
-updated: 2026-07-28
+updated: 2026-09-15
 ---
 
 # Agentic Service Operations
@@ -28,6 +28,8 @@ High-volume customer, employee, store, and revenue-cycle workflows in which agen
 - MoneyHero adds a monthly autonomous-resolution denominator; ixigo/TARA adds more than 5 million annual queries plus voice and chat resolution rates; Lufthansa adds a vendor-reported network of more than 16 agents and 16 million annual conversations. Microsoft's management transcript adds internal customer-service evidence: about 12% higher human-agent throughput and a process redesign that deflects some requests before human handoff, with roughly half of realized savings attributed to deflection; the population, time window, and quality outcomes are not disclosed.
 - The operator disclosures reduce reliance on vendor stories, but the public cases still omit consistent correction, reversal, customer-outcome, and customer-specific control data.
 - Serval reports Catalyst general availability, adoption by more than 90% of its existing customers after beta, and a named Ramp result of 50% faster workflow building across 10 departments; pricing, task volume, correction rates, and customer-confirmed economics remain undisclosed.
+- Atlassian's announced Customer Service Management pricing defines a billable outcome as an agent resolving a request without human escalation and passing an LLM judge. Billing starts December 3, 2026 at $1.00 per resolution, declining to $0.85 for 200,000-plus monthly prepaid resolutions; realized volume, revenue, disputes, and retention are not yet available.
+- TSA's Ace agent adds approximately 100,000 routine traveler conversations per month, 96% resolution without escalation, and a reported greater-than-90% reduction from a prior interaction cost above $4. The vendor-authored disclosure does not expose correction, later recovery, quality methodology, or fully loaded costs.
 
 ## Relations
 
@@ -37,3 +39,5 @@ High-volume customer, employee, store, and revenue-cycle workflows in which agen
 - `constrained-by` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
 - `references` [[wiki/events/2025-09-10 Microsoft reports service-agent throughput and AI-deflection savings|Microsoft reports service-agent throughput and AI-deflection savings]]
 - `references` [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval announces Catalyst general availability with broad customer adoption]]
+- `references` [[wiki/events/2026-09-01 Atlassian prices AI agent resolutions and Rovo usage|Atlassian prices AI agent resolutions and Rovo usage]]
+- `references` [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA scales traveler-support agent with measured economics]]

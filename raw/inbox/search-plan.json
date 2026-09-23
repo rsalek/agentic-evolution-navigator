@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-26T15:08:18+00:00",
+  "generated_at": "2026-09-23T15:21:48+00:00",
   "graph": {
-    "nodes": 163,
-    "edges": 835
+    "nodes": 229,
+    "edges": 1257
   },
   "query_count": 12,
   "queries": [
@@ -15,7 +15,25 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 16,
+        "supporting_edges": 30,
+        "challenging_edges": 9,
+        "research_goals": [
+          "counterevidence",
+          "alternative_explanation",
+          "failure_or_restriction"
+        ]
+      }
+    },
+    {
+      "id": "graph-challenge-agent-traffic-addressable-market",
+      "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
+      "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "target_ids": [
+        "thesis-agent-traffic-addressable-market"
+      ],
+      "reason": {
+        "kind": "thesis-stress-test",
+        "supporting_edges": 12,
         "challenging_edges": 2,
         "research_goals": [
           "counterevidence",
@@ -33,8 +51,8 @@
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 10,
-        "challenging_edges": 1,
+        "supporting_edges": 11,
+        "challenging_edges": 3,
         "research_goals": [
           "counterevidence",
           "alternative_explanation",
@@ -43,34 +61,16 @@
       }
     },
     {
-      "id": "graph-challenge-agent-traffic-addressable-market",
-      "label": "Graph stress test: Agent-originated traffic is becoming an addressable market",
-      "query": "\"AI agent\" (addressable OR market OR originated OR traffic) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
+      "id": "graph-challenge-agentic-depth-frontier-gap",
+      "label": "Graph stress test: Agentic depth is separating frontier firms from the median",
+      "query": "\"AI agent\" (depth OR firms OR frontier OR median OR separating) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
       "target_ids": [
-        "thesis-agent-traffic-addressable-market"
+        "thesis-agentic-depth-frontier-gap"
       ],
       "reason": {
         "kind": "thesis-stress-test",
-        "supporting_edges": 10,
-        "challenging_edges": 1,
-        "research_goals": [
-          "counterevidence",
-          "alternative_explanation",
-          "failure_or_restriction"
-        ]
-      }
-    },
-    {
-      "id": "graph-challenge-scaled-agents-bounded-service-operations",
-      "label": "Graph stress test: Scaled agent adoption concentrates in bounded service operations",
-      "query": "\"AI agent\" (adoption OR bounded OR concentrates OR operations OR scaled OR service) (failed OR delayed OR slower OR risk OR cost OR breach OR regulation)",
-      "target_ids": [
-        "thesis-scaled-agents-bounded-service-operations"
-      ],
-      "reason": {
-        "kind": "thesis-stress-test",
-        "supporting_edges": 13,
-        "challenging_edges": 8,
+        "supporting_edges": 8,
+        "challenging_edges": 2,
         "research_goals": [
           "counterevidence",
           "alternative_explanation",
