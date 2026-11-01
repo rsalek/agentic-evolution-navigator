@@ -4,7 +4,7 @@ type: concept
 title: Agentic Payments
 status: active
 confidence: medium
-updated: 2026-09-23
+updated: 2026-10-26
 ---
 
 # Agentic Payments
@@ -37,8 +37,20 @@ Payments initiated or completed by software agents under delegated authority, po
 - Meta's Muse launch connects a consumer action agent to Stripe Link, one-time-use cards, purchase approvals, and purchase protections. The capability is rolling out with priced subscriptions, but Meta reports no completed purchases, transaction value, repeat use, Link economics, or active payer and merchant counts.
 - Amazon's reported live block of Muse shows that user authorization, protected credentials, and a payment method do not establish merchant acceptance. No affected-user count, completed purchase, transaction value, dispute rate, or economic bridge is disclosed.
 - The PYMNTS and Visa merchant study reports that only 11% of small and medium businesses and 19% of large merchants qualify as agent-ready. Only 15% have structured product data for agent access, while 68% expect agents to produce at least 5% of digital sales within two years. The difference is readiness and expectation evidence, not current transaction evidence.
+- Cloudflare says its beta payment products use verified identity, metering, per-request pricing, billing, publisher payouts, and x402 settlement. It refers to real transactions but discloses no paid-request count, value, external paying customer, Cloudflare fee, revenue, or retention.
+- Mastercard is testing an agent-transaction probability score in the United States. The score adds transaction classification and authorization context, but no issuer, merchant, volume, outcome, pricing, or paid deployment is disclosed.
+- Cloudflare's Monetization Gateway beta names four production use cases. Ceramic.ai charges a fixed search price, Stocktwits prices each agent request, API2PDF applies variable pricing to actual consumption, and AI Gateway supports request-time inference payment. The named paid flows close a production gap, but request count, value, active buyers and sellers, seller revenue, and Cloudflare economics remain undisclosed.
+- BeInCrypto Research reports that 6.4 million sampled x402 payments moved $119,947 over 35 days, with 90.8% below one cent and 94.5% of activity concentrated in an eight-day Solana burst. The rail is operating repeatedly, but active-agent, payer, merchant, fee, and retained-value breadth remain unproven.
+- Forter's merchant-network telemetry records repeated AI-agent purchases from August through early October, with a $223 average order value and multi-agent growth across stores. This adds protocol-agnostic merchant-side production evidence, but Forter withholds absolute order and merchant counts, completed-versus-reversed outcomes, payment value, and platform economics.
+- Visa, BILL and Billtrust are running a live pilot that uses registered agent identity, tokenized credentials, buyer-approved instructions, supplier-portal authorization, and end-to-end invoice-payment execution. The release confirms transactions but reports no participant denominator, count, value, price, fee, outcome, or agent-attributed revenue.
+- Mastercard's Agent Pay for Machines pilot demonstration executed nine payments to two digital-service merchants under one approved budget and opened developer early access after named end-to-end pilots. Mastercard explicitly says the service remains a pilot and is not commercially available, so repeat usage, transaction value, pricing, fees, and revenue remain unproven.
+- Meta's Q3 earnings disclosure advances Muse from payment capability to scaled commerce activity: more than 10 million setups, roughly 25% daily use, shopping by more than a quarter of weekly active users, and an average purchase above $200. Exact purchase count and value, active merchants, repeat cohorts, refunds, disputes, realized fees, and Muse-attributed revenue remain undisclosed.
+- Major US banks reportedly block or restrict third-party agents from customer accounts and transaction functions when the institutions cannot verify agent identity, user direction, or permitted action scope. The reports disclose no attempted or completed transaction count, value, harm, dispute, or revenue effect.
+- Walmart's planned Agent Profiles and Gateway add a merchant-authorized path with customer spending limits, purchase approval, protected payment methods, and returns. The announcement reports no active agents or customers, completed transactions, value, repeat use, or economics.
 
 ## Relations
+
+- `references` [[wiki/events/2026-09-28 ECB opens digital-euro agent-payments exploration|ECB opens digital-euro agent-payments exploration]]
 
 - `depends-on` [[wiki/concepts/Protocol Standardization|Protocol Standardization]]
 - `depends-on` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
@@ -58,3 +70,13 @@ Payments initiated or completed by software agents under delegated authority, po
 - `references` [[wiki/events/2026-09-08 Meta launches priced Muse personal agent|Meta launches priced Muse personal agent]]
 - `references` [[wiki/events/2026-09-20 Amazon blocks Meta Muse from its store|Amazon blocks Meta Muse from its store]]
 - `references` [[wiki/events/2026-06-18 PYMNTS and Visa find merchant agent readiness lags expectations|PYMNTS and Visa find merchant agent readiness lags expectations]]
+- `references` [[wiki/events/2026-09-30 Cloudflare reports 1700 percent agent-traffic growth|Cloudflare reports 1700 percent agent-traffic growth]]
+- `references` [[wiki/events/2026-09-30 Mastercard tests agent-transaction probability scoring|Mastercard tests agent-transaction probability scoring]]
+- `references` [[wiki/events/2026-09-30 Cloudflare Monetization Gateway enters production beta|Cloudflare Monetization Gateway enters production beta]]
+- `references` [[wiki/events/2026-10-06 BeInCrypto finds x402 value concentrated in sub-cent payments|BeInCrypto finds x402 value concentrated in sub-cent payments]]
+- `references` [[wiki/events/2026-10-13 Forter reports agentic order growth and launches commerce engine|Forter reports agentic order growth and launches commerce engine]]
+- `references` [[wiki/events/2026-10-20 Visa BILL and Billtrust launch live agent-payment pilot|Visa, BILL and Billtrust launch live agent-payment pilot]]
+- `references` [[wiki/events/2026-10-20 Mastercard demonstrates nine agent payments|Mastercard demonstrates nine agent payments]]
+- `references` [[wiki/events/2026-10-21 Meta reports scaled Muse use and shopping activity|Meta reports scaled Muse use and shopping activity]]
+- `references` [[wiki/events/2026-10-22 US banks block third-party agents from customer accounts|US banks block third-party agents from customer accounts]]
+- `references` [[wiki/events/2026-10-21 Walmart announces Agent Profiles and Gateway|Walmart announces Agent Profiles and Gateway]]

@@ -9,7 +9,7 @@ stage: announcement
 industry: payments
 layer: protocol
 commercial_proof: unproven
-updated: 2026-08-17
+updated: 2026-10-02
 ---
 
 # Cloudflare announces Monetization Gateway for agent resources
@@ -41,6 +41,7 @@ This closes a mechanism gap in the agent-payment path: a seller can specify a pr
 - `supports` [[wiki/theses/Agent-originated traffic is becoming an addressable market|Agent-originated traffic is becoming an addressable market]]
 - `challenges` [[wiki/theses/Trust infrastructure monetizes before full autonomy|Trust infrastructure monetizes before full autonomy]]
 - `precedes` [[wiki/events/2026-08-04 Cloudflare announces Wallets for agentic commerce|Cloudflare announces Wallets for agentic commerce]]
+- `precedes` [[wiki/events/2026-09-30 Cloudflare Monetization Gateway enters production beta|Cloudflare Monetization Gateway enters production beta]]
 
 ## Open questions
 

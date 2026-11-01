@@ -10,7 +10,7 @@ industry: enterprise-software
 layer: system-of-record-platforms
 commercial_proof: measured
 commercial_signals: customer-growth, arr-acv-backlog, demand
-updated: 2026-08-28
+updated: 2026-10-15
 ---
 
 # Workday reports agent-customer and AI ACV growth
@@ -41,6 +41,7 @@ This qualifies as a monetization green shoot through scaled agent-customer growt
 ## Relations
 
 - `announced-by` [[wiki/entities/Workday|Workday]]
+- `updates` [[wiki/events/2026-07-30 Workday defines action-based Flex Credit pricing|Workday defines action-based Flex Credit pricing]]
 - `demonstrates` [[wiki/concepts/System-of-Record Distribution|System-of-Record Distribution]]
 - `measured-by` [[wiki/concepts/Production Agent Economics|Production Agent Economics]]
 - `supports` [[wiki/theses/Incumbent platforms are the distribution channel|Incumbent platforms are the distribution channel]]

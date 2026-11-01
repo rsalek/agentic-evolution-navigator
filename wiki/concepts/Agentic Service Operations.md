@@ -4,7 +4,7 @@ type: concept
 title: Agentic Service Operations
 status: active
 confidence: medium
-updated: 2026-09-15
+updated: 2026-10-29
 ---
 
 # Agentic Service Operations
@@ -30,6 +30,11 @@ High-volume customer, employee, store, and revenue-cycle workflows in which agen
 - Serval reports Catalyst general availability, adoption by more than 90% of its existing customers after beta, and a named Ramp result of 50% faster workflow building across 10 departments; pricing, task volume, correction rates, and customer-confirmed economics remain undisclosed.
 - Atlassian's announced Customer Service Management pricing defines a billable outcome as an agent resolving a request without human escalation and passing an LLM judge. Billing starts December 3, 2026 at $1.00 per resolution, declining to $0.85 for 200,000-plus monthly prepaid resolutions; realized volume, revenue, disputes, and retention are not yet available.
 - TSA's Ace agent adds approximately 100,000 routine traveler conversations per month, 96% resolution without escalation, and a reported greater-than-90% reduction from a prior interaction cost above $4. The vendor-authored disclosure does not expose correction, later recovery, quality methodology, or fully loaded costs.
+- The Bobbi police contact agent reports about 200 daily non-emergency conversations after six months, with 45% fully automated, user satisfaction of 4.6 out of 5, and an estimated 3,266 operational hours freed each year. The vendor story lacks independent methodology, correction, recovery, and fully loaded cost data.
+- Microsoft's Employee Self-Service Agent was available to more than 300,000 employees and contingent staff. After Microsoft redesigned context, trust, and human escalation, the share of employees starting support with the agent rose from 27% to 50% and ticket creation fell 30%. The operator report does not disclose absolute use, completed resolutions, measurement window, service quality, or cost per outcome.
+- Vida Global's outcome-billing option makes qualified leads, warm transfers, onboarding, and recovered customers directly billable agent outcomes. This is pricing architecture rather than evidence of deployed volume or realized revenue.
+- ServiceNow reports more than thirteenfold year-over-year production agentic-AI consumption and a named Thrive deployment with 73% first-contact resolution and 63% lower time to resolution. The outcomes remain bundled across CRM, workflow, and agents.
+- CargoAi reports repeated production handling across 105,000 airline emails and 400,000 forwarder quotes in 2026, with STRACKER retaining human validation for quotes. Paid status, acceptance, correction, and booking outcomes remain undisclosed.
 
 ## Relations
 
@@ -41,3 +46,8 @@ High-volume customer, employee, store, and revenue-cycle workflows in which agen
 - `references` [[wiki/events/2026-08-20 Serval announces Catalyst general availability|Serval announces Catalyst general availability with broad customer adoption]]
 - `references` [[wiki/events/2026-09-01 Atlassian prices AI agent resolutions and Rovo usage|Atlassian prices AI agent resolutions and Rovo usage]]
 - `references` [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA scales traveler-support agent with measured economics]]
+- `references` [[wiki/events/2026-06-18 UK police forces report six months of Bobbi agent operations|UK police forces report six months of Bobbi agent operations]]
+- `references` [[wiki/events/2026-10-08 Microsoft reports ESS adoption and ticket reduction|Microsoft reports ESS adoption and ticket reduction]]
+- `references` [[wiki/events/2026-10-05 Vida introduces outcome-based agent billing|Vida introduces outcome-based agent billing]]
+- `references` [[wiki/events/2026-10-28 ServiceNow raises AI ACV target as agentic consumption grows|ServiceNow raises AI ACV target as agentic consumption grows]]
+- `references` [[wiki/events/2026-10-28 CargoAi reports scaled production agent activity|CargoAi reports scaled production agent activity]]

@@ -12,7 +12,7 @@ commercial_proof: emerging
 commercial_signals:
   - paid-identity-security-monitoring
   - demand
-updated: 2026-09-22
+updated: 2026-10-16
 ---
 
 # DataDome measures 52.7 billion AI requests and policy adoption
@@ -59,6 +59,7 @@ The update closes two graph gaps. It supplies a bounded 12-month denominator for
 - `supports` [[wiki/theses/Agent-originated traffic is becoming an addressable market|Agent-originated traffic is becoming an addressable market]]
 - `challenges` [[wiki/theses/Agent-originated traffic is becoming an addressable market|Agent-originated traffic is becoming an addressable market]]
 - `supports` [[wiki/theses/Trust infrastructure monetizes before full autonomy|Trust infrastructure monetizes before full autonomy]]
+- `precedes` [[wiki/events/2026-10-15 DataDome measures Q3 agent and Muse traffic|DataDome measures Q3 agent and Muse traffic]]
 
 ## Open questions
 

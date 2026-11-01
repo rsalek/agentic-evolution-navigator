@@ -4,7 +4,7 @@ type: concept
 title: Verified Agent Traffic
 status: active
 confidence: medium
-updated: 2026-09-22
+updated: 2026-10-21
 ---
 
 # Verified Agent Traffic
@@ -33,6 +33,13 @@ Machine-originated requests whose agent identity, authorization, purpose, and po
 - AWS WAF's AI traffic monetization capability combines agent-policy classification, x402 payment proof, scoped access tokens, and revenue analytics at the edge, but does not disclose live publisher adoption, paid traffic, or realized revenue.
 - TRM Labs demonstrates the attribution problem directly: $52.7 million of x402 settlement value becomes $25.62 million after commerce screens, and only 0.6% to 7.5% of the remainder appears agentic under permissive and strict heuristics. On-chain settlement alone cannot distinguish an agent from scheduled scripts, tests, or conventional automation.
 - DataDome's 12-month study reports 52.7 billion AI-agent and LLM-crawler requests across more than 75,000 customer sites, including 605.6 million H1 requests to high-risk endpoints. Its Q2 report says 54% of customers adopted agent-trust policies. The telemetry establishes repeated classification and policy use inside a commercial platform, but combines action agents with crawlers and does not disclose paid attach, outcomes, or agent-specific revenue.
+- Cloudflare reports more than 1,700% year-over-year growth in daily AI-agent requests and more than 500 billion verified bot requests each week. The agent-growth measure lacks an absolute baseline or agent share, and the verified-bot population is broader than agents.
+- Mastercard's U.S. test of an agent-transaction probability score adds payment-path classification readiness. It does not disclose the testing population, classifier performance, approval lift, fraud reduction, paid adoption, or revenue.
+- Cloudflare's production Monetization Gateway use cases turn verified payment into access for agent-facing search, market data, document generation, and inference. The flow establishes operational identity and payment gating, but not the share of traffic that is verified, paid, or retained.
+- HUMAN's September platform telemetry shows agentic requests rising 209.7% month over month, with Muse at 40.34% of measured agent traffic and millions of daily requests by month end. The provider does not disclose its customer or domain denominator, classifier performance, wider-web coverage, paid attach, or revenue.
+- DataDome's Q3 report adds nearly 25 billion AI-agent requests, 41.5% quarterly growth, and a 4.7-fold September increase in agentic-browser requests. Muse reached 33% of DataDome's September agentic-browser volume, but the report does not disclose classifier performance, current customer coverage, completed actions, policy outcomes, or commercial metrics.
+- Forter's August 1 to October 7 merchant-network sample moves the signal from requests to completed orders: agentic orders grew 24% from August to September on a like-for-like set, the average order was $223, and Forter says its identity network linked nearly 98% of agentic orders to the represented person. Absolute order and merchant counts, classifier performance, reversals, fraud outcomes, pricing, and revenue remain open.
+- Arkose Labs' Q3 production telemetry finds that only 2.3% of legitimate agent sessions carried verified Web Bot Auth signatures, while 65.2% of customers saw named agents on protected flows by September 30. Agent traffic was roughly one in 5,200 protected sessions, showing broad reach but low share and a large identity gap; raw counts, classifier performance, policy outcomes, and economics remain undisclosed.
 
 ## Relations
 
@@ -51,3 +58,10 @@ Machine-originated requests whose agent identity, authorization, purpose, and po
 - `references` [[wiki/events/2026-06-15 AWS WAF announces AI traffic monetization|AWS WAF announces AI traffic monetization]]
 - `references` [[wiki/events/2026-09-09 TRM Labs bounds likely agentic x402 payment value|TRM Labs bounds likely agentic x402 payment value]]
 - `references` [[wiki/events/2026-09-22 DataDome measures 52.7 billion AI requests and policy adoption|DataDome measures 52.7 billion AI requests and policy adoption]]
+- `references` [[wiki/events/2026-09-30 Cloudflare reports 1700 percent agent-traffic growth|Cloudflare reports 1700 percent agent-traffic growth]]
+- `references` [[wiki/events/2026-09-30 Mastercard tests agent-transaction probability scoring|Mastercard tests agent-transaction probability scoring]]
+- `references` [[wiki/events/2026-09-30 Cloudflare Monetization Gateway enters production beta|Cloudflare Monetization Gateway enters production beta]]
+- `references` [[wiki/events/2026-10-05 HUMAN measures tripling agent traffic and Muse dominance|HUMAN measures tripling agent traffic and Muse dominance]]
+- `references` [[wiki/events/2026-10-15 DataDome measures Q3 agent and Muse traffic|DataDome measures Q3 agent and Muse traffic]]
+- `references` [[wiki/events/2026-10-13 Forter reports agentic order growth and launches commerce engine|Forter reports agentic order growth and launches commerce engine]]
+- `references` [[wiki/events/2026-10-21 Arkose measures agent identity and customer reach|Arkose measures agent identity and customer reach]]

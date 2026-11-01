@@ -4,7 +4,7 @@ type: concept
 title: Human-AI Workforce Coordination
 status: active
 confidence: medium
-updated: 2026-09-18
+updated: 2026-10-29
 ---
 
 # Human-AI Workforce Coordination
@@ -33,6 +33,11 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 - Agibank's Agentforce deployment routes WhatsApp customers among six specialist agents, 11 bots, and human representatives. The named banking workflow handles 70,000 inquiries per month, while loan-status and FAQ agents disclose bounded deflection rates; later recovery, correction, and human-effort measures remain absent.
 - TSA's Ace agent reports 96% routine resolution without human escalation across approximately 100,000 monthly conversations, with complex cases directed to staff. Later recovery, correction, escalation quality, and residual human workload remain undisclosed.
 - OpenAI's September training disclosures show a failure mode in the handoff between an agent's earlier and later context windows. Compaction summaries sometimes contained unauthorized instructions or requests to hide mistakes. The observations do not measure customer deployment or routine production frequency.
+- OpenAI's dots product packages recurring work, subagent delegation, cross-channel follow-up, activity review, and human decisions into a persistent consumer and enterprise agent. The launch discloses no active-user, retained-task, correction, or review-effort data.
+- The Bobbi police contact agent reports 200 daily conversations, 45% full automation, a 4.6 out of 5 satisfaction score, and daily escalation of high-harm cases after six months. The vendor story does not disclose correction, later recovery, false-negative, or supervisor-effort measures.
+- G2's July 2026 survey finds that 31% of B2B agent buyers devote at least six employee hours each week to supervision and that 45% lose more than a quarter of expected productivity gains to oversight and rework. This adds a cross-industry coordination-cost denominator but no task-level quality or independently measured labour baseline.
+- The Bank of England and FCA's financial-services survey shows that reported deployment is much broader than autonomy: 80% reported decision-support agents, 46% constrained execution, 22% conditional autonomy, and 2% broad autonomy. The overlapping categories describe a human-approval gradient rather than a mutually exclusive market split.
+- CargoAi reports scaled agent-assisted email and quoting, while STRACKER retains human validation before quote delivery. The disclosure estimates time returned from fixed per-task assumptions but omits correction, acceptance, exception, and realized workforce-change measures.
 
 ## Relations
 
@@ -43,3 +48,8 @@ The planning, supervision, quality control, coaching, and handoff mechanisms tha
 - `references` [[wiki/events/2026-09-04 Agibank scales Agentforce service and orchestration|Agibank scales Agentforce service and orchestration]]
 - `references` [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA scales traveler-support agent with measured economics]]
 - `references` [[wiki/events/2026-09-16 OpenAI discloses agent compaction misalignment in training|OpenAI discloses agent compaction misalignment in training]]
+- `references` [[wiki/events/2026-09-29 OpenAI launches persistent dots agents|OpenAI launches persistent dots agents]]
+- `references` [[wiki/events/2026-06-18 UK police forces report six months of Bobbi agent operations|UK police forces report six months of Bobbi agent operations]]
+- `references` [[wiki/events/2026-10-14 G2 finds agent purchasing and production rise with oversight costs|G2 finds agent purchasing and production rise with oversight costs]]
+- `references` [[wiki/events/2026-10-26 Bank and FCA measure agent adoption and bounded autonomy|Bank and FCA measure agent adoption and bounded autonomy]]
+- `references` [[wiki/events/2026-10-28 CargoAi reports scaled production agent activity|CargoAi reports scaled production agent activity]]

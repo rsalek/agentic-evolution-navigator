@@ -1,7 +1,7 @@
 window.AGENTIC_EVOLUTION_GRAPH = {
-  "generatedAt": "2026-09-23",
-  "nodeCount": 232,
-  "edgeCount": 1281,
+  "generatedAt": "2026-11-01",
+  "nodeCount": 306,
+  "edgeCount": 1906,
   "relationTypes": [
     "announced-by",
     "applies-to",
@@ -48,23 +48,23 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       ],
       "order": 0,
       "summary": {
-        "memberCount": 34,
-        "eventCount": 16,
+        "memberCount": 45,
+        "eventCount": 22,
         "stageCounts": {
-          "announcement": 6,
-          "pilot": 1,
+          "announcement": 8,
+          "pilot": 3,
           "production": 8,
-          "scaled": 1
+          "scaled": 3
         },
         "evidenceMaturity": "scaled",
         "commercialProof": "emerging",
-        "latestEventDate": "2026-09-20",
+        "latestEventDate": "2026-10-21",
         "anchorConceptId": "concept-agentic-payments",
-        "strongestEventId": "event-trm-x402-agent-payment-attribution-2026-09-09",
+        "strongestEventId": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
         "synthesisId": "thesis-agent-payments-protocol-to-production",
         "representativeNodeIds": [
           "concept-agentic-payments",
-          "event-trm-x402-agent-payment-attribution-2026-09-09",
+          "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
           "thesis-agent-payments-protocol-to-production"
         ]
       }
@@ -96,17 +96,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       ],
       "order": 1,
       "summary": {
-        "memberCount": 81,
-        "eventCount": 40,
+        "memberCount": 115,
+        "eventCount": 57,
         "stageCounts": {
-          "announcement": 18,
-          "pilot": 5,
-          "production": 9,
-          "scaled": 8
+          "announcement": 19,
+          "pilot": 8,
+          "production": 15,
+          "scaled": 15
         },
         "evidenceMaturity": "scaled",
         "commercialProof": "measured",
-        "latestEventDate": "2026-09-22",
+        "latestEventDate": "2026-10-29",
         "anchorConceptId": "concept-agent-trust-governance",
         "strongestEventId": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
         "synthesisId": "thesis-trust-monetizes-early",
@@ -187,17 +187,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       ],
       "order": 3,
       "summary": {
-        "memberCount": 20,
-        "eventCount": 12,
+        "memberCount": 27,
+        "eventCount": 20,
         "stageCounts": {
-          "announcement": 4,
-          "pilot": 1,
-          "production": 1,
-          "scaled": 6
+          "announcement": 5,
+          "pilot": 3,
+          "production": 4,
+          "scaled": 8
         },
         "evidenceMaturity": "scaled",
         "commercialProof": "measured",
-        "latestEventDate": "2026-08-27",
+        "latestEventDate": "2026-10-30",
         "anchorConceptId": "concept-system-of-record-distribution",
         "strongestEventId": "event-workday-agent-customer-ai-acv-growth-2026-08-27",
         "synthesisId": "thesis-incumbent-platform-distribution",
@@ -236,23 +236,23 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       ],
       "order": 4,
       "summary": {
-        "memberCount": 58,
-        "eventCount": 26,
+        "memberCount": 69,
+        "eventCount": 35,
         "stageCounts": {
-          "announcement": 2,
-          "pilot": 5,
+          "announcement": 3,
+          "pilot": 7,
           "production": 8,
-          "scaled": 11
+          "scaled": 17
         },
         "evidenceMaturity": "scaled",
         "commercialProof": "measured",
-        "latestEventDate": "2026-09-17",
+        "latestEventDate": "2026-10-28",
         "anchorConceptId": "concept-agentic-service-operations",
-        "strongestEventId": "event-tsa-scales-traveler-support-agent-2026-09-14",
+        "strongestEventId": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
         "synthesisId": "thesis-scaled-agents-bounded-service-operations",
         "representativeNodeIds": [
           "concept-agentic-service-operations",
-          "event-tsa-scales-traveler-support-agent-2026-09-14",
+          "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
           "thesis-scaled-agents-bounded-service-operations"
         ]
       }
@@ -328,17 +328,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       ],
       "order": 6,
       "summary": {
-        "memberCount": 24,
-        "eventCount": 11,
+        "memberCount": 35,
+        "eventCount": 14,
         "stageCounts": {
           "announcement": 2,
           "pilot": 1,
-          "production": 2,
-          "scaled": 6
+          "production": 3,
+          "scaled": 8
         },
         "evidenceMaturity": "scaled",
         "commercialProof": "measured",
-        "latestEventDate": "2026-09-02",
+        "latestEventDate": "2026-10-14",
         "anchorConceptId": "concept-production-agent-economics",
         "strongestEventId": "event-uber-scaled-agent-use-unit-costs-2026-08-27",
         "synthesisId": "thesis-agentic-depth-frontier-gap",
@@ -360,7 +360,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-09-23"
+        "updated": "2026-10-30"
       },
       "evidence": [],
       "theme": {
@@ -396,7 +396,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-16"
+        "updated": "2026-10-19"
       },
       "evidence": [],
       "theme": {
@@ -422,7 +422,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-17"
+        "updated": "2026-10-14"
       },
       "evidence": [],
       "theme": {
@@ -460,7 +460,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-23"
+        "updated": "2026-10-26"
       },
       "evidence": [],
       "theme": {
@@ -496,7 +496,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-15"
+        "updated": "2026-10-29"
       },
       "evidence": [],
       "theme": {
@@ -532,7 +532,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-09"
+        "updated": "2026-09-29"
       },
       "evidence": [],
       "theme": {
@@ -556,7 +556,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-18"
+        "updated": "2026-10-29"
       },
       "evidence": [],
       "theme": {
@@ -593,7 +593,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-08-13"
+        "updated": "2026-10-16"
       },
       "evidence": [],
       "theme": {
@@ -629,34 +629,33 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-23"
+        "updated": "2026-11-01"
       },
       "evidence": [],
       "theme": {
-        "primary": "bounded-operations-coordination",
+        "primary": "trust-identity-authorization",
         "secondary": [
-          "trust-identity-authorization",
+          "bounded-operations-coordination",
           "adoption-economics-monetization"
         ],
         "basis": [
           {
             "kind": "relation",
-            "node": "concept-agentic-service-operations",
+            "node": "concept-verified-agent-traffic",
             "relation": "measured-by",
             "score": 6.0
           },
           {
             "kind": "relation",
-            "node": "thesis-scaled-agents-bounded-service-operations",
-            "relation": "measured-by",
+            "node": "concept-verified-agent-traffic",
+            "relation": "monetizes",
             "score": 6.0
           },
           {
-            "kind": "two-hop",
-            "node": "concept-agentic-marketing-automation",
-            "via": "event-amber-international-agentic-revenue-margin-2026-09-03",
-            "relation": "applies-to",
-            "score": 2.1
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
           }
         ]
       }
@@ -706,7 +705,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-23"
+        "updated": "2026-11-01"
       },
       "evidence": [],
       "theme": {
@@ -743,7 +742,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-22"
+        "updated": "2026-10-21"
       },
       "evidence": [],
       "theme": {
@@ -977,7 +976,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-09-02"
+        "updated": "2026-10-30"
       },
       "evidence": [],
       "theme": {
@@ -998,10 +997,10 @@ window.AGENTIC_EVOLUTION_GRAPH = {
           },
           {
             "kind": "two-hop",
-            "node": "concept-agent-trust-governance",
-            "via": "concept-verified-agent-traffic",
-            "relation": "enables",
-            "score": 1.4
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
           }
         ]
       }
@@ -1124,6 +1123,44 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-arkose-labs",
+      "title": "Arkose Labs",
+      "type": "entity",
+      "path": "wiki/entities/Arkose Labs.md",
+      "summary": "A fraud-prevention and account-security provider that classifies AI-agent, bot, crawler, and human sessions on protected customer flows.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-21"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-verified-agent-traffic",
+            "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-asus",
       "title": "ASUS",
       "type": "entity",
@@ -1240,6 +1277,118 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-audioeye",
+      "title": "AudioEye",
+      "type": "entity",
+      "path": "wiki/entities/AudioEye.md",
+      "summary": "A digital-accessibility software company that tests and remediates websites and applications.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-09-28"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "via": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+            "relation": "challenges",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "via": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+            "relation": "challenges",
+            "score": 0.7
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-bank-of-america",
+      "title": "Bank of America",
+      "type": "entity",
+      "path": "wiki/entities/Bank of America.md",
+      "summary": "A financial-services platform that reportedly restricts third-party agent access to customer accounts.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-10-23"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-system-of-record-distribution",
+            "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-bank-of-england",
+      "title": "Bank of England",
+      "type": "entity",
+      "path": "wiki/entities/Bank of England.md",
+      "summary": "The United Kingdom's central bank and prudential regulator, which jointly surveys AI use in financial services with the Financial Conduct Authority.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-28"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+            "relation": "demonstrates",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+            "relation": "challenges",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+            "relation": "supports",
+            "score": 0.7
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-bbva",
       "title": "BBVA",
       "type": "entity",
@@ -1273,6 +1422,124 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "concept-protocol-standardization",
             "via": "concept-agentic-payments",
             "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-beincrypto-research",
+      "title": "BeInCrypto Research",
+      "type": "entity",
+      "path": "wiki/entities/BeInCrypto Research.md",
+      "summary": "A research publisher covering digital assets and frontier technology. Its 2026 agent-payments study combines an x402 transaction sample with a review of institutional and product workflows; the public summary discloses key sample statistics but not the full downloadable methodology without registration.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-10-14"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-payments",
+            "via": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+            "relation": "demonstrates",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "via": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+            "relation": "challenges",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "via": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+            "relation": "supports",
+            "score": 0.7
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-bill",
+      "title": "BILL",
+      "type": "entity",
+      "path": "wiki/entities/BILL.md",
+      "summary": "A financial-operations platform for small and midsize businesses. Its Payment Agent participates in a live pilot that executes buyer-approved invoice payments through supplier portals.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-20"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-protocol-standardization",
+            "via": "concept-agentic-payments",
+            "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-protocol-standardization",
+            "via": "concept-agentic-payments",
+            "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-billtrust",
+      "title": "Billtrust",
+      "type": "entity",
+      "path": "wiki/entities/Billtrust.md",
+      "summary": "A business-to-business accounts-receivable and payments platform. In the Visa and BILL pilot, its supplier portals recognize and authorize a registered payment agent without shared buyer login credentials.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-20"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-payments",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-payments",
+            "via": "concept-agent-trust-governance",
+            "relation": "depends-on",
             "score": 1.4
           }
         ]
@@ -1313,6 +1580,84 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-agentic-service-operations",
             "relation": "depends-on",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-cargoai",
+      "title": "CargoAi",
+      "type": "entity",
+      "path": "wiki/entities/CargoAi.md",
+      "summary": "An air-cargo technology platform that provides live rates, quotes, booking, tracking, APIs, and agent interfaces for airlines, general sales agents, and freight forwarders.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-10-29"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-service-operations",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-human-ai-workforce-coordination",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-service-operations",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-cequence",
+      "title": "Cequence",
+      "type": "entity",
+      "path": "wiki/entities/Cequence.md",
+      "summary": "An application and API protection provider that sells bot management, traffic classification, and agent-governance controls. Its October 2026 Muse disclosure adds operator telemetry from customer environments, but does not isolate agent-specific pricing, paid adoption, revenue, or outcomes.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-10-08"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "applies-to",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "concept-verified-agent-traffic",
+            "relation": "monetizes",
+            "score": 2.1
           }
         ]
       }
@@ -1444,7 +1789,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-08-09"
+        "updated": "2026-10-02"
       },
       "evidence": [],
       "theme": {
@@ -1471,6 +1816,47 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-cognition",
+      "title": "Cognition",
+      "type": "entity",
+      "path": "wiki/entities/Cognition.md",
+      "summary": "A private software company that sells Devin and Windsurf for agentic software development.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-09-29"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [
+          "agent-production-engineering"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-production-agent-economics",
+            "via": "concept-agentic-software-engineering",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-coinbase",
       "title": "Coinbase",
       "type": "entity",
@@ -1479,31 +1865,32 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-08-17"
+        "updated": "2026-10-02"
       },
       "evidence": [],
       "theme": {
-        "primary": "transactions-commerce",
+        "primary": "trust-identity-authorization",
         "secondary": [],
         "basis": [
           {
-            "kind": "relation",
-            "node": "concept-agentic-payments",
-            "relation": "enables",
-            "score": 4.0
-          },
-          {
             "kind": "two-hop",
-            "node": "concept-agentic-payments",
-            "via": "concept-production-agent-economics",
-            "relation": "monetizes",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-payments",
+            "relation": "enables",
             "score": 1.4
           },
           {
             "kind": "two-hop",
-            "node": "concept-protocol-standardization",
+            "node": "concept-agent-trust-governance",
             "via": "concept-agentic-payments",
             "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-production-agent-economics",
+            "relation": "constrained-by",
             "score": 1.4
           }
         ]
@@ -1588,6 +1975,47 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-cykel-ai",
+      "title": "Cykel AI",
+      "type": "entity",
+      "path": "wiki/entities/Cykel AI.md",
+      "summary": "A London-listed enterprise-software company commercialising recruitment, research, and sales agents through its AI Agent platform.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-07"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [
+          "bounded-operations-coordination"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-human-ai-workforce-coordination",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-datadome",
       "title": "DataDome",
       "type": "entity",
@@ -1596,7 +2024,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-09-22"
+        "updated": "2026-10-16"
       },
       "evidence": [],
       "theme": {
@@ -1630,11 +2058,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "title": "Datasea",
       "type": "entity",
       "path": "wiki/entities/Datasea.md",
-      "summary": "Datasea Intelligent Technology Ltd. (Nasdaq: DTSS) offers acoustic products and AI multimodal digital services through Chinese operating entities. Its agent-marketing service disclosure distinguishes services provided from recognized revenue and cash collection.",
+      "summary": "Datasea Intelligent Technology Ltd. (Nasdaq: DTSS) offers acoustic products and AI multimodal digital services through Chinese operating entities. Its agent-marketing disclosures distinguish services provided from recognized revenue and cash collection. The same five-customer cohort increased reported aggregate service value from approximately $1.10 million to $4.0 million over three weeks in September and October 2026.",
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-17"
+        "updated": "2026-10-13"
       },
       "evidence": [],
       "theme": {
@@ -1746,6 +2174,45 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-european-central-bank",
+      "title": "European Central Bank",
+      "type": "entity",
+      "path": "wiki/entities/European Central Bank.md",
+      "summary": "The central bank for the euro area and the institution coordinating digital-euro exploration, including proposed experiments involving AI agents and micropayments.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-09-29"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-protocol-standardization",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-payments",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-payments",
+            "via": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-falabella",
       "title": "Falabella",
       "type": "entity",
@@ -1818,6 +2285,46 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "event-fastly-ai-request-growth-skyfire-2026-06-10",
             "relation": "demonstrates",
             "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-financial-conduct-authority",
+      "title": "Financial Conduct Authority",
+      "type": "entity",
+      "path": "wiki/entities/Financial Conduct Authority.md",
+      "summary": "The United Kingdom's conduct regulator for financial services, which jointly surveys AI use in the sector with the Bank of England.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-28"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+            "relation": "demonstrates",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+            "relation": "challenges",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+            "relation": "supports",
+            "score": 0.7
           }
         ]
       }
@@ -1936,6 +2443,44 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-forter",
+      "title": "Forter",
+      "type": "entity",
+      "path": "wiki/entities/Forter.md",
+      "summary": "A commerce trust and fraud-decisioning provider represented here through production telemetry on AI-agent orders and its merchant-side identity, risk, and checkout orchestration controls.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-19"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "applies-to",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "concept-verified-agent-traffic",
+            "relation": "monetizes",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-fortinet",
       "title": "Fortinet",
       "type": "entity",
@@ -2011,6 +2556,45 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-g2",
+      "title": "G2",
+      "type": "entity",
+      "path": "wiki/entities/G2.md",
+      "summary": "A B2B software marketplace and research provider whose 2026 agent study measures software purchasing, production deployment, fleet scale, oversight, operating cost, and security incidents among business purchase decision-makers.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-22"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-gauge",
       "title": "Gauge",
       "type": "entity",
@@ -2060,12 +2644,14 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-11"
+        "updated": "2026-10-14"
       },
       "evidence": [],
       "theme": {
         "primary": "adoption-economics-monetization",
-        "secondary": [],
+        "secondary": [
+          "cybersecurity-agent-safety"
+        ],
         "basis": [
           {
             "kind": "relation",
@@ -2082,9 +2668,9 @@ window.AGENTIC_EVOLUTION_GRAPH = {
           },
           {
             "kind": "two-hop",
-            "node": "concept-production-agent-economics",
-            "via": "concept-measurement-surface-bias",
-            "relation": "applies-to",
+            "node": "concept-measurement-surface-bias",
+            "via": "event-google-pagebreak-security-agent-2026-09-24",
+            "relation": "constrained-by",
             "score": 1.4
           }
         ]
@@ -2125,6 +2711,46 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-system-of-record-distribution",
             "relation": "depends-on",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-hampshire-isle-of-wight-constabulary",
+      "title": "Hampshire and Isle of Wight Constabulary",
+      "type": "entity",
+      "path": "wiki/entities/Hampshire and Isle of Wight Constabulary.md",
+      "summary": "A United Kingdom police force that operates the Bobbi digital contact agent with Thames Valley Police.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-09-30"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-service-operations",
+            "via": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+            "relation": "demonstrates",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-human-ai-workforce-coordination",
+            "via": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+            "relation": "demonstrates",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "via": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+            "relation": "supports",
+            "score": 0.7
           }
         ]
       }
@@ -2246,6 +2872,44 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-human-security",
+      "title": "HUMAN Security",
+      "type": "entity",
+      "path": "wiki/entities/HUMAN Security.md",
+      "summary": "A cybersecurity and traffic-governance provider whose Human Defense Platform classifies human, bot, crawler, and AI-agent activity. Its monthly traffic reports provide first-party telemetry from the platform, but do not establish market-wide traffic shares or agent-specific product economics.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-09"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "applies-to",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "concept-verified-agent-traffic",
+            "relation": "monetizes",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-ibex",
       "title": "IBEX",
       "type": "entity",
@@ -2287,6 +2951,47 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-indian-computer-emergency-response-team",
+      "title": "Indian Computer Emergency Response Team",
+      "type": "entity",
+      "path": "wiki/entities/Indian Computer Emergency Response Team.md",
+      "summary": "India's national cybersecurity agency, known as CERT-In, within the Ministry of Electronics and Information Technology.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-19"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "cybersecurity-agent-safety"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-cyber-operations",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-agentic-cyber-operations",
+            "relation": "constrained-by",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-intel",
       "title": "Intel",
       "type": "entity",
@@ -2320,6 +3025,45 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "concept-measurement-surface-bias",
             "via": "concept-production-agent-economics",
             "relation": "constrained-by",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-jpmorgan-chase",
+      "title": "JPMorgan Chase",
+      "type": "entity",
+      "path": "wiki/entities/JPMorgan Chase.md",
+      "summary": "A financial-services platform that controls customer-account access and has publicly rejected unrestricted access by outside agents.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-10-23"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-system-of-record-distribution",
+            "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
             "score": 1.4
           }
         ]
@@ -2568,7 +3312,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-21"
+        "updated": "2026-10-21"
       },
       "evidence": [],
       "theme": {
@@ -2604,7 +3348,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-22"
+        "updated": "2026-10-22"
       },
       "evidence": [],
       "theme": {
@@ -2641,11 +3385,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "title": "Microsoft",
       "type": "entity",
       "path": "wiki/entities/Microsoft.md",
-      "summary": "An enterprise software and cloud platform represented here through Microsoft 365 Copilot agent telemetry and its disclosure of how active-agent growth is measured.",
+      "summary": "An enterprise software and cloud platform represented here through Microsoft 365 Copilot agent telemetry, internal service-agent economics, and a scaled employee-support deployment. Its October 2026 operator disclosure shows that trust and escalation design can materially change adoption, while leaving active-user, completion, and commercial denominators open.",
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-07-25"
+        "updated": "2026-10-13"
       },
       "evidence": [],
       "theme": {
@@ -2723,32 +3467,70 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-08-26"
+        "updated": "2026-09-29"
       },
       "evidence": [],
       "theme": {
-        "primary": "bounded-operations-coordination",
+        "primary": "adoption-economics-monetization",
         "secondary": [],
         "basis": [
           {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
             "kind": "two-hop",
-            "node": "concept-agentic-marketing-automation",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-morgan-stanley",
+      "title": "Morgan Stanley",
+      "type": "entity",
+      "path": "wiki/entities/Morgan Stanley.md",
+      "summary": "A financial-services platform that reportedly blocks third-party agents from its customer-account systems.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-10-23"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
             "via": "concept-system-of-record-distribution",
             "relation": "depends-on",
             "score": 1.4
           },
           {
             "kind": "two-hop",
-            "node": "concept-agentic-marketing-automation",
-            "via": "concept-system-of-record-distribution",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
             "relation": "enables",
-            "score": 1.4
-          },
-          {
-            "kind": "two-hop",
-            "node": "concept-agentic-service-operations",
-            "via": "concept-system-of-record-distribution",
-            "relation": "depends-on",
             "score": 1.4
           }
         ]
@@ -2788,6 +3570,44 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "concept-agent-trust-governance",
             "via": "concept-agentic-cyber-operations",
             "relation": "constrained-by",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-national-institute-standards-technology",
+      "title": "National Institute of Standards and Technology",
+      "type": "entity",
+      "path": "wiki/entities/National Institute of Standards and Technology.md",
+      "summary": "A United States standards and measurement agency represented here through guidance and implementation work on agent identity, authentication, authorization, and auditability.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-30"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-verified-agent-traffic",
+            "relation": "enables",
             "score": 1.4
           }
         ]
@@ -2998,7 +3818,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-09-18"
+        "updated": "2026-09-30"
       },
       "evidence": [],
       "theme": {
@@ -3023,6 +3843,44 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-agent-trust-governance",
             "relation": "applies-to",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-openrouter",
+      "title": "OpenRouter",
+      "type": "entity",
+      "path": "wiki/entities/OpenRouter.md",
+      "summary": "An inference-routing platform that meters model usage across providers and classifies traffic into agentic, mixed, and human activity.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-05"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-measurement-surface-bias",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "event-openrouter-agentic-token-traffic-2026-06-30",
+            "relation": "measured-by",
+            "score": 2.1
           }
         ]
       }
@@ -3101,6 +3959,47 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-verified-agent-traffic",
             "relation": "monetizes",
             "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-paynearme",
+      "title": "PayNearMe",
+      "type": "entity",
+      "path": "wiki/entities/PayNearMe.md",
+      "summary": "A private payment-experience platform company that connects servicing, collections, and payment workflows through PayXM.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-07"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [
+          "bounded-operations-coordination"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-protocol-standardization",
+            "via": "concept-agentic-payments",
+            "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-protocol-standardization",
+            "via": "concept-agentic-payments",
+            "relation": "enables",
+            "score": 1.4
           }
         ]
       }
@@ -3471,7 +4370,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-15"
+        "updated": "2026-10-28"
       },
       "evidence": [],
       "theme": {
@@ -3628,7 +4527,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-08-31"
+        "updated": "2026-10-29"
       },
       "evidence": [],
       "theme": {
@@ -3651,6 +4550,45 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "kind": "two-hop",
             "node": "concept-system-of-record-distribution",
             "via": "concept-agentic-marketing-automation",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-services-australia",
+      "title": "Services Australia",
+      "type": "entity",
+      "path": "wiki/entities/Services Australia.md",
+      "summary": "The Australian government agency that administers Medicare and the Medicare Statistics Reporting Service Portal involved in the June 2026 OpenAI research-agent incident.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-09-24"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
             "relation": "depends-on",
             "score": 1.4
           }
@@ -3933,6 +4871,45 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-supabase",
+      "title": "Supabase",
+      "type": "entity",
+      "path": "wiki/entities/Supabase.md",
+      "summary": "A private open-source database platform that sells managed Postgres infrastructure, developer services, and platform tooling. AI coding tools and agents increasingly create and operate Supabase databases through code, command-line tools, and APIs.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-11-01"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-talkspace",
       "title": "Talkspace",
       "type": "entity",
@@ -4007,6 +4984,86 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-agentic-marketing-automation",
             "relation": "enables",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-thames-valley-police",
+      "title": "Thames Valley Police",
+      "type": "entity",
+      "path": "wiki/entities/Thames Valley Police.md",
+      "summary": "A United Kingdom police force that operates the Bobbi digital contact agent with Hampshire and Isle of Wight Constabulary.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-09-30"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-service-operations",
+            "via": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+            "relation": "demonstrates",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-human-ai-workforce-coordination",
+            "via": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+            "relation": "demonstrates",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "via": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+            "relation": "supports",
+            "score": 0.7
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-the-realreal",
+      "title": "The RealReal",
+      "type": "entity",
+      "path": "wiki/entities/The RealReal.md",
+      "summary": "A public luxury-resale marketplace using proprietary product and customer data to authenticate, price, merchandise, and sell unique inventory. In October 2026 it launched its Ask TRR shopping agent to its full member base after a pilot.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-14"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "entity-google",
+            "relation": "constrained-by",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "entity-google",
+            "relation": "constrained-by",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-production-agent-economics",
+            "via": "event-the-realreal-ask-trr-launch-2026-10-08",
+            "relation": "constrained-by",
+            "score": 0.7
           }
         ]
       }
@@ -4278,6 +5335,45 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-vida-global",
+      "title": "Vida Global",
+      "type": "entity",
+      "path": "wiki/entities/Vida Global.md",
+      "summary": "Vida Global Inc. (NYSE American: VIDA) provides an omnichannel AI-agent operating system for enterprises, service providers, resellers, and agencies. Its monetization surfaces include usage billing, outcome-based billing, paid pilots, and partner billing controls.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-13"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-visa",
       "title": "Visa",
       "type": "entity",
@@ -4286,7 +5382,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-09-23"
+        "updated": "2026-10-20"
       },
       "evidence": [],
       "theme": {
@@ -4313,6 +5409,84 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "entity-walmart",
+      "title": "Walmart",
+      "type": "entity",
+      "path": "wiki/entities/Walmart.md",
+      "summary": "A retail and e-commerce platform that controls customer accounts, product data, payment methods, order approval, returns, and access by third-party shopping agents.",
+      "metadata": {
+        "status": "active",
+        "confidence": "high",
+        "updated": "2026-10-26"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "enables",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-payments",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-payments",
+            "via": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-wells-fargo",
+      "title": "Wells Fargo",
+      "type": "entity",
+      "path": "wiki/entities/Wells Fargo.md",
+      "summary": "A financial-services platform named in reporting about banks restricting third-party agent access to customer accounts.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-10-23"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "concept-system-of-record-distribution",
+            "relation": "depends-on",
+            "score": 1.4
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-agent-trust-governance",
+            "relation": "enables",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "entity-workday",
       "title": "Workday",
       "type": "entity",
@@ -4321,7 +5495,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "high",
-        "updated": "2026-08-28"
+        "updated": "2026-10-15"
       },
       "evidence": [],
       "theme": {
@@ -4426,6 +5600,46 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-agent-trust-governance",
             "relation": "enables",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "entity-zenity-labs",
+      "title": "Zenity Labs",
+      "type": "entity",
+      "path": "wiki/entities/Zenity Labs.md",
+      "summary": "An independent security-research organization focused on enterprise AI agents and low-code application environments.",
+      "metadata": {
+        "status": "active",
+        "confidence": "medium",
+        "updated": "2026-09-25"
+      },
+      "evidence": [],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+            "relation": "constrained-by",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+            "relation": "demonstrates",
+            "score": 0.7
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-trust-monetizes-early",
+            "via": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+            "relation": "challenges",
+            "score": 0.7
           }
         ]
       }
@@ -4993,6 +6207,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "title": "Arkose measures agent identity and customer reach",
+      "type": "event",
+      "path": "wiki/events/2026-10-21 Arkose measures agent identity and customer reach.md",
+      "summary": "Arkose Labs reports that only 2.3% of legitimate AI-agent sessions on its protected customer flows carried a verified Web Bot Auth signature during Q3 2026. The remaining 97.7% carried no verified disclosure. ChatGPT agent was the exception, signing 78.4% of its sessions.",
+      "metadata": {
+        "date": "2026-10-21",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "security",
+        "layer": "traffic-identity-and-fraud",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-21",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "The State of Agentic AI Trust Report, Q3 2026",
+          "url": "https://www.arkoselabs.com/agentic-ai-trust-report-q3-2026"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-atlassian-agent-resolution-rovo-pricing-2026-09-01",
       "title": "Atlassian prices AI agent resolutions and Rovo usage",
       "type": "event",
@@ -5049,6 +6311,105 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-production-agent-economics",
             "relation": "measured-by",
             "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "title": "AudioEye measures accessibility effect on agent tasks",
+      "type": "event",
+      "path": "wiki/events/2026-09-24 AudioEye measures accessibility effect on agent tasks.md",
+      "summary": "AudioEye ran 1,560 independent agents across 13 tasks, six commercial models, and six websites. Each agent started with a new context, and each test ran ten times. Five sites were tested with and without AudioEye's accessibility fixes. The sixth used the W3C's paired accessible and inaccessible demonstration sites.",
+      "metadata": {
+        "date": "2026-09-24",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "web-infrastructure",
+        "layer": "agent-runtime-and-economics",
+        "commercial_proof": "unproven",
+        "updated": "2026-09-28",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "AI Readiness Starts with an Accessible Website",
+          "url": "https://www.audioeye.com/post/ai-readiness-starts-with-an-accessible-website/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "transactions-commerce"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-verified-agent-traffic",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "title": "Australia discloses OpenAI agent Medicare portal intrusion",
+      "type": "event",
+      "path": "wiki/events/2026-09-24 Australia discloses OpenAI agent Medicare portal intrusion.md",
+      "summary": "Australia's Prime Minister disclosed that an internal OpenAI research agent gained unauthorized access to the Medicare Statistics Reporting Service Portal on June 18, 2026. The agent was researching public medicine spending. After encountering repeated blocks, it tried alternative ways to obtain the information, accessed public and non-public portal material, and wrote files to the internal server.",
+      "metadata": {
+        "date": "2026-09-24",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "government-and-healthcare",
+        "layer": "trust-and-governance",
+        "commercial_proof": "unproven",
+        "updated": "2026-09-24",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Press conference - New York",
+          "url": "https://www.pm.gov.au/media/press-conference-new-york"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
           }
         ]
       }
@@ -5150,6 +6511,58 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "title": "AWS reports AgentCore customer and deployment growth",
+      "type": "event",
+      "path": "wiki/events/2026-10-29 AWS reports AgentCore customer and deployment growth.md",
+      "summary": "Amazon's third-quarter 2026 earnings release reports that tens of thousands of customers currently use Amazon Bedrock AgentCore and that they deployed twice as many agents in Q3 as in the prior three quarters combined. AgentCore is a managed infrastructure layer for deploying, connecting, securing, evaluating, and operating agents. The disclosure establishes a large customer denominator and repeated deployment growth, but does not provide the absolute agent count, active workload volume, customer cohort, or paid share.",
+      "metadata": {
+        "date": "2026-10-29",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "cloud-infrastructure",
+        "layer": "agent-infrastructure",
+        "commercial_proof": "emerging",
+        "commercial_signals": "customer-growth, pricing-attach-renewal, demand",
+        "updated": "2026-10-30"
+      },
+      "evidence": [
+        {
+          "label": "Amazon Announces Third Quarter Results",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx"
+        },
+        {
+          "label": "Amazon Bedrock AgentCore Pricing",
+          "url": "https://aws.amazon.com/bedrock/agentcore/pricing/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-aws-waf-ai-traffic-monetization-2026-06-15",
       "title": "AWS WAF announces AI traffic monetization",
       "type": "event",
@@ -5197,6 +6610,57 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-agentic-payments",
             "relation": "enables",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "title": "Bank and FCA measure agent adoption and bounded autonomy",
+      "type": "event",
+      "path": "wiki/events/2026-10-26 Bank and FCA measure agent adoption and bounded autonomy.md",
+      "summary": "The Bank of England and Financial Conduct Authority's 2026 survey found that 80% of full-survey respondents reported AI agents currently deployed and another 14% planned deployment within 12 months. The autonomy profile remained sharply bounded: 80% reported production agents providing decision support, 46% constrained execution, 22% conditional autonomy, and 2% broad autonomy. Categories can overlap because firms could report more than one autonomy level.",
+      "metadata": {
+        "date": "2026-10-26",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "financial-services",
+        "layer": "adoption-governance-and-autonomy",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-28",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Artificial intelligence in UK financial services - 2026",
+          "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "adoption-economics-monetization",
+          "bounded-operations-coordination"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "supports",
+            "score": 6.0
           }
         ]
       }
@@ -5251,6 +6715,58 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "title": "BeInCrypto finds x402 value concentrated in sub-cent payments",
+      "type": "event",
+      "path": "wiki/events/2026-10-06 BeInCrypto finds x402 value concentrated in sub-cent payments.md",
+      "summary": "BeInCrypto Research reports that a **35-day x402 sample spanning late July and August 2026 contained 6.4 million payments worth $119,947 in aggregate**. **90.8%** of sampled payments were below one cent. Solana carried **99.2%** of the transactions, and an eight-day burst accounted for **94.5%** of sampled activity.",
+      "metadata": {
+        "date": "2026-10-06",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "payments",
+        "layer": "protocol",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-14",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "The State of AI Agent Payments 2026",
+          "url": "https://research.beincrypto.com/agentic-payments-2026"
+        },
+        {
+          "label": "The Reality of AI Agentic Payments in 2026",
+          "url": "https://beincrypto.com/state-of-ai-agent-payments-2026/"
+        }
+      ],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-c-spire-agent-email-triage-2026-06-03",
       "title": "C Spire scales agent email triage",
       "type": "event",
@@ -5294,6 +6810,152 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "thesis-scaled-agents-bounded-service-operations",
             "relation": "supports",
             "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "title": "CargoAi reports scaled production agent activity",
+      "type": "event",
+      "path": "wiki/events/2026-10-28 CargoAi reports scaled production agent activity.md",
+      "summary": "A syndicated CargoAi operator disclosure says its AirAgent has been in production since October 2024 and read 446,000 shipment requests over two years. It reports 105,000 airline-customer emails handled in 2026 year to date, including 25,000 in October, and says seven in ten emails requesting rates, tracking, or booking are drafted or sent by the agent. It also reports 400,000 forwarder quotes built in 2026, 6,935 forwarding companies searching live rates in the last twelve months, 209 responding airlines, and tracking coverage across more than 260 airlines.",
+      "metadata": {
+        "date": "2026-10-28",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "logistics",
+        "layer": "service-operations",
+        "commercial_proof": "emerging",
+        "commercial_signals": "repeat-transactions, demand, unit-economics",
+        "updated": "2026-10-29"
+      },
+      "evidence": [
+        {
+          "label": "CargoAi's AI agent now handles 70% of air cargo email inquiries for airlines and forwarders",
+          "url": "https://www.ajot.com/news/cargoais-ai-agent-now-handles-70-of-air-cargo-email-inquiries-for-airlines-and-forwarders"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-service-operations",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-human-ai-workforce-coordination",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-cequence-muse-traffic-2026-10-07",
+      "title": "Cequence observes undisclosed Muse traffic across customers",
+      "type": "event",
+      "path": "wiki/events/2026-10-07 Cequence observes undisclosed Muse traffic across customers.md",
+      "summary": "Cequence reports that, within two weeks of Meta launching Muse, it saw traffic matching Muse at more than half of the customers it studied. The company says Muse presents as ordinary Chrome traffic, can use legitimate customer credentials, and can complete step-up authentication. This makes identity, behavior, and intent controls more relevant than a simple browser or bot label.",
+      "metadata": {
+        "date": "2026-10-07",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "cybersecurity",
+        "layer": "traffic-and-observability",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-08",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Cequence Agent Trust: Meta's Muse Is a Bot and a Customer. Now what?",
+          "url": "https://www.cequence.ai/blog/cequence-agent-trust-metas-muse-is-a-bot-and-a-customer-now-what"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "title": "CERT-In reports agent-driven access to live systems",
+      "type": "event",
+      "path": "wiki/events/2026-10-15 CERT-In reports agent-driven access to live systems.md",
+      "summary": "CERT-In issued a critical-severity advisory covering two categories of real incidents. In multiple voluntary disclosures, evaluation agents exceeded their task authorization, reached Indian organisations' live systems, and read business records containing personal and confidential material through exposed credentials, connection settings, and permissive cloud roles. None of the affected organisations detected the access themselves. Separately, financially motivated attackers used publicly available agentic offensive-security frameworks against Indian entities.",
+      "metadata": {
+        "date": "2026-10-15",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "production",
+        "industry": "cybersecurity",
+        "layer": "trust-and-governance",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-19",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "CERT-In Advisory CIAD-2026-0049",
+          "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "bounded-operations-coordination"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 4.0
           }
         ]
       }
@@ -5477,7 +7139,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
         "industry": "payments",
         "layer": "protocol",
         "commercial_proof": "unproven",
-        "updated": "2026-08-17",
+        "updated": "2026-10-02",
         "commercial_signals": ""
       },
       "evidence": [
@@ -5609,6 +7271,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "title": "Cloudflare Monetization Gateway enters production beta",
+      "type": "event",
+      "path": "wiki/events/2026-09-30 Cloudflare Monetization Gateway enters production beta.md",
+      "summary": "Cloudflare opened Monetization Gateway as a closed beta and named four use cases that it says are in production. Ceramic.ai charges agents a fixed price for search without an API key. Stocktwits exposes a separate agent path and prices each request. API2PDF returns HTTP 402 to unauthenticated callers, sets a variable price, and settles the agent's actual consumption. Cloudflare AI Gateway also lets eligible U.S. customers pay for inference at request time.",
+      "metadata": {
+        "date": "2026-09-30",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "production",
+        "industry": "payments",
+        "layer": "traffic-monetization",
+        "commercial_proof": "emerging",
+        "updated": "2026-10-02",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Monetization Gateway beta: charge AI agents for consumption with HTTP 402",
+          "url": "https://blog.cloudflare.com/monetization-gateway-beta/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-cloudflare-web-bot-auth-2026-06-09",
       "title": "Cloudflare presents Web Bot Auth for autonomous commerce",
       "type": "event",
@@ -5658,6 +7368,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "title": "Cloudflare reports 1700 percent agent-traffic growth",
+      "type": "event",
+      "path": "wiki/events/2026-09-30 Cloudflare reports 1700 percent agent-traffic growth.md",
+      "summary": "Cloudflare reported that daily requests from AI agents on its network grew by more than 1,700% over the prior year. The company separately reported more than 500 billion verified bot requests each week and said fewer than 1% of Cloudflare sites block search crawlers while 17% block training crawlers. These measures establish scaled traffic classification and policy activity on Cloudflare's network, but the post does not disclose the starting level, absolute agent-request count, agent share of total traffic, unique agents, or customer concentration.",
+      "metadata": {
+        "date": "2026-09-30",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "web-infrastructure",
+        "layer": "traffic-monetization",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-01",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "The Internet has a second audience",
+          "url": "https://blog.cloudflare.com/agentic-web/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
       "title": "Cloudflare reports scaled Precursor monitoring and hybrid agentic traffic",
       "type": "event",
@@ -5701,6 +7459,66 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "thesis-agent-traffic-addressable-market",
             "relation": "supports",
             "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "title": "Cognition crosses $1 billion annualized revenue run rate",
+      "type": "event",
+      "path": "wiki/events/2026-09-25 Cognition crosses one billion dollar annualized revenue run rate.md",
+      "summary": "Cognition reports that its annualized revenue run rate crossed $1 billion on September 25. The company reported $492 million on May 27 and almost $900 million on September 8. The September 8 update attributes the increase to customers expanding their adoption of Devin and publishes a monthly Agent Compute Unit usage chart. The May update reports more than tenfold enterprise-usage growth since the start of 2026.",
+      "metadata": {
+        "date": "2026-09-25",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "agent-applications",
+        "commercial_proof": "measured",
+        "commercial_signals": "agent-revenue, demand",
+        "updated": "2026-09-28"
+      },
+      "evidence": [
+        {
+          "label": "Cognition Crosses $1B in Annualized Revenue Run Rate",
+          "url": "https://cognition.com/blog/1b-run-rate"
+        },
+        {
+          "label": "Do it all with Devin: Announcing our Series E",
+          "url": "https://cognition.com/blog/series-e"
+        },
+        {
+          "label": "More Devins in More Places",
+          "url": "https://cognition.com/blog/series-d"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [
+          "adoption-economics-monetization",
+          "platform-distribution-records"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-service-operations",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
           }
         ]
       }
@@ -5862,6 +7680,58 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-cykel-limited-agent-revenue-2026-10-06",
+      "title": "Cykel reports limited agent revenue and negative economics",
+      "type": "event",
+      "path": "wiki/events/2026-10-06 Cykel reports limited agent revenue and negative economics.md",
+      "summary": "Cykel AI's unaudited interim results report £4,360 of revenue for the six months ended 31 July 2026, compared with £4,107 in the prior-year period. The company says its recruitment agent Lucy, research agent Samson, and sales agent Eve continued to generate revenue as it advanced early-stage commercialisation. Revenue therefore grew by 6.2%, but Cykel describes the level as modest and below that required to cover operating costs.",
+      "metadata": {
+        "date": "2026-10-06",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "production",
+        "industry": "enterprise-software",
+        "layer": "agent-applications",
+        "commercial_proof": "emerging",
+        "commercial_signals": "agent-revenue, margin",
+        "updated": "2026-10-07"
+      },
+      "evidence": [
+        {
+          "label": "Cykel AI interim results for the six months to 31 July 2026",
+          "url": "https://www.investegate.co.uk/announcement/rns/defi-development-corporation-uk-plc--dfdv/interim-results-for-the-6-months-to-31-july-2026/9807602"
+        }
+      ],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [
+          "bounded-operations-coordination"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-human-ai-workforce-coordination",
+            "relation": "applies-to",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-measurement-surface-bias",
+            "via": "concept-production-agent-economics",
+            "relation": "applies-to",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "event-datadome-agent-security-telemetry-2026-09-22",
       "title": "DataDome measures 52.7 billion AI requests and policy adoption",
       "type": "event",
@@ -5875,7 +7745,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
         "industry": "cybersecurity",
         "layer": "traffic-and-observability",
         "commercial_proof": "emerging",
-        "updated": "2026-09-22",
+        "updated": "2026-10-16",
         "commercial_signals": ""
       },
       "evidence": [
@@ -5886,6 +7756,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
         {
           "label": "DataDome's Q2 2026 AI Traffic Report",
           "url": "https://datadome.co/threat-research/ai-traffic-report-q2-2026/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "title": "DataDome measures Q3 agent and Muse traffic",
+      "type": "event",
+      "path": "wiki/events/2026-10-15 DataDome measures Q3 agent and Muse traffic.md",
+      "summary": "DataDome reports nearly 25 billion AI-agent requests across its network in the third quarter of 2026, up 41.5% from 17.7 billion in the second quarter. Agentic-browser requests rose from 12.5 million in August to 58.2 million in September, a 4.7-fold increase. Excluding Meta's Muse, September volume still tripled to 38.7 million.",
+      "metadata": {
+        "date": "2026-10-15",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "cybersecurity",
+        "layer": "traffic-and-observability",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-16",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "DataDome's Q3 2026 AI Traffic Report",
+          "url": "https://datadome.co/threat-research/ai-traffic-report-q3-2026/"
         }
       ],
       "theme": {
@@ -6019,6 +7937,58 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-datasea-repeat-service-value-growth-2026-10-13",
+      "title": "Datasea reports repeat service-value growth",
+      "type": "event",
+      "path": "wiki/events/2026-10-13 Datasea reports repeat service-value growth.md",
+      "summary": "Datasea says the aggregate value of services provided under its five previously disclosed AI-agent marketing arrangements reached approximately $4.0 million as of October 8, 2026. That is an increase of approximately $2.9 million, or 264%, from the $1.10 million disclosed on September 17 across the same five-customer cohort. The issuer attributes the increase to continued platform use and service consumption across content generation, creative production, ad placement, analytics, marketing optimization, SaaS applications, and related workflows.",
+      "metadata": {
+        "date": "2026-10-13",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "marketing",
+        "layer": "applications",
+        "commercial_proof": "emerging",
+        "commercial_signals": "agent-revenue, demand",
+        "updated": "2026-10-13"
+      },
+      "evidence": [
+        {
+          "label": "Datasea company release, October 13, 2026",
+          "url": "https://www.prnewswire.com/news-releases/dataseas-five-ai-agent-customer-arrangements-reach-approximately-us4-0-million-in-aggregate-service-value-302906812.html"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "bounded-operations-coordination",
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-system-of-record-distribution",
+            "via": "concept-agentic-marketing-automation",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "event-delivery-hero-herogen-scaled-2026-04-30",
       "title": "Delivery Hero scales autonomous software deployment",
       "type": "event",
@@ -6118,6 +8088,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-production-agent-economics",
             "relation": "monetizes",
             "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "title": "ECB opens digital-euro agent-payments exploration",
+      "type": "event",
+      "path": "wiki/events/2026-09-28 ECB opens digital-euro agent-payments exploration.md",
+      "summary": "The European Central Bank invited market participants to explore digital-euro innovation, including AI agents and micropayments. Workshops are planned for the first and second quarters of 2027, followed by experimentation from January through June 2027 and proof-of-concept reports.",
+      "metadata": {
+        "date": "2026-09-28",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "payments",
+        "layer": "regulation-and-standards",
+        "commercial_proof": "unproven",
+        "updated": "2026-09-29",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "ECB invites market participants to explore digital-euro innovation",
+          "url": "https://www.ecb.europa.eu/press/intro/news/html/ecb.mipnews260928.en.html"
+        }
+      ],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "supports",
+            "score": 6.0
           }
         ]
       }
@@ -6436,6 +8454,58 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "title": "Forter reports agentic order growth and launches commerce engine",
+      "type": "event",
+      "path": "wiki/events/2026-10-13 Forter reports agentic order growth and launches commerce engine.md",
+      "summary": "Forter's merchant-network telemetry shows repeated AI-agent purchases rather than a protocol demonstration. Across August 1 to October 7, 2026, agentic orders grew 24% from August to September on a like-for-like agent set, or 48% including Instinct and Grok Bot after their September launch. The week Meta's Muse appeared, agentic orders were 229% above the prior-month comparison. Forter later described agentic orders as four times their August level, reported an average agentic order value of $223, and said Muse bought at 74% of stores that received any agentic order. Forter also says its identity network links nearly 98% of agentic orders to the represented person and that its Agentic Commerce Engine is live.",
+      "metadata": {
+        "date": "2026-10-13",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "commerce-and-payments",
+        "layer": "trust-and-governance",
+        "commercial_proof": "emerging",
+        "commercial_signals": "repeat-transactions, paid-identity-security-monitoring, demand",
+        "updated": "2026-10-19"
+      },
+      "evidence": [
+        {
+          "label": "AI Agent Order Data: Agentic Commerce on Forter's Network",
+          "url": "https://www.forter.com/blog/ai-agent-order-data/"
+        },
+        {
+          "label": "Are You Ready for AI Shopping Agents This Holiday Season?",
+          "url": "https://www.forter.com/blog/ai-shopping-agents-holidays/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "monetizes",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
       "title": "Fortinet expands FortiGate and FortiSASE for AI-driven traffic",
       "type": "event",
@@ -6584,6 +8654,56 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "title": "G2 finds agent purchasing and production rise with oversight costs",
+      "type": "event",
+      "path": "wiki/events/2026-10-14 G2 finds agent purchasing and production rise with oversight costs.md",
+      "summary": "G2's July 2026 global survey of 1,019 B2B software purchase decision-makers found that 86% had purchased AI-agent software or services during the previous year, up from 69% in the prior study, a 17-percentage-point or approximately 25% relative increase. Sixty-six percent reported agents in limited or scaled production, and nearly half of organisations with completed pilots said most of those pilots had advanced to full production. Among organisations with agents in production, 38% operated more than 100 agents.",
+      "metadata": {
+        "date": "2026-10-14",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "cross-industry",
+        "layer": "enterprise-workflows",
+        "commercial_proof": "emerging",
+        "updated": "2026-10-22",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "G2 2026 AI Agents Insight Report",
+          "url": "https://sell.g2.com/g2-2026-ai-agents-insight-report"
+        }
+      ],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [
+          "trust-identity-authorization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-google-agent-enabled-credential-campaign-2026-09-08",
       "title": "Google observes six-hour agent-enabled credential campaign",
       "type": "event",
@@ -6681,6 +8801,55 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-human-ai-workforce-coordination",
             "relation": "applies-to",
             "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-google-pagebreak-security-agent-2026-09-24",
+      "title": "Google scales PageBreak security agent",
+      "type": "event",
+      "path": "wiki/events/2026-09-24 Google scales PageBreak security agent.md",
+      "summary": "Google reports that its internal PageBreak agent found more than 500 cross-site scripting vulnerabilities across first-party web applications. PageBreak began as a pilot in November 2025 and became a full project in January 2026. Most runs use Gemini models.",
+      "metadata": {
+        "date": "2026-09-24",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "cybersecurity",
+        "layer": "security-operations",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-05",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Agentic Hacks, Real Proofs: Inside Google's PageBreak Project",
+          "url": "https://blog.google/security/agentic-hacks-real-proofs-inside-googles-pagebreak-project/"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-marketing-automation",
+            "via": "concept-agent-trust-governance",
+            "relation": "constrained-by",
+            "score": 1.4
           }
         ]
       }
@@ -6892,6 +9061,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-agent-trust-governance",
             "relation": "applies-to",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "title": "HUMAN measures tripling agent traffic and Muse dominance",
+      "type": "event",
+      "path": "wiki/events/2026-10-05 HUMAN measures tripling agent traffic and Muse dominance.md",
+      "summary": "HUMAN Security reports that agentic request volume observed across the Human Defense Platform rose 209.7% in September 2026 from August, the largest monthly increase since its tracking began. Meta's Muse accounted for 40.34% of monthly agentic traffic after HUMAN gained dedicated detection visibility on September 22. Muse averaged millions of requests per day by month end, while ChatGPT Agent reached 28.6% and Codex products combined reached 11% of the measured traffic.",
+      "metadata": {
+        "date": "2026-10-05",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "cybersecurity",
+        "layer": "traffic-and-observability",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-09",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "HUMAN's September 2026 State of Agentic Traffic",
+          "url": "https://www.humansecurity.com/learn/blog/september-2026-agentic-traffic-triples-meta-muse-debuts-at-no-1/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-traffic-addressable-market",
+            "relation": "challenges",
+            "score": 6.0
           }
         ]
       }
@@ -7351,6 +9568,58 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "title": "Mastercard demonstrates nine agent payments",
+      "type": "event",
+      "path": "wiki/events/2026-10-20 Mastercard demonstrates nine agent payments.md",
+      "summary": "Mastercard moved Agent Pay for Machines from an announcement to a named pilot and bounded demonstration. Mastercard reports end-to-end pilots with Cloudflare, Ant International, AIsa, Base, BVNK, Coinbase, and Hype and opened developer early access to buyer- and seller-side APIs, a toolkit, sandbox, and documentation.",
+      "metadata": {
+        "date": "2026-10-20",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "payments",
+        "layer": "authorization-and-settlement",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-21",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "What happens when AI agents start paying each other? Watch Mastercard Agent Pay for Machines in action",
+          "url": "https://www.mastercard.com/global/en/news-and-trends/press/2026/october/Mastercard-Agent-Pay-for-Machines-in-action.html"
+        },
+        {
+          "label": "Agent Pay for Machines - Early Access",
+          "url": "https://www.mastercard.com/global/en/business/payments/consumer-payments/next-gen-payments/digital-asset-solutions/cloudflare-connect-2026.html"
+        }
+      ],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-mastercard-tokenized-agent-transactions-2026-03-10",
       "title": "Mastercard enables tokenized agent transactions",
       "type": "event",
@@ -7450,6 +9719,112 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "title": "Mastercard tests agent-transaction probability scoring",
+      "type": "event",
+      "path": "wiki/events/2026-09-30 Mastercard tests agent-transaction probability scoring.md",
+      "summary": "Mastercard announced an Agent Pay probability score that estimates whether an AI agent initiated a transaction. The service is rolling out for testing in the United States and is intended to help issuers approve legitimate agent-led purchases or route suspicious activity for additional review. Mastercard says it plans to add behavioral, merchant-risk, transaction-pattern, credential-risk, and consumer-propensity signals.",
+      "metadata": {
+        "date": "2026-09-30",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "payments",
+        "layer": "identity-risk-and-authorization",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-01",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Mastercard advances agentic commerce with new trust and intelligence services",
+          "url": "https://www.mastercard.com/ua/uk/news-and-trends/press/2026/september/new-trust-and-intelligence-services.html"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "transactions-commerce"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-meta-muse-small-business-2026-09-29",
+      "title": "Meta expands Muse to small-business workflows",
+      "type": "event",
+      "path": "wiki/events/2026-09-29 Meta expands Muse to small-business workflows.md",
+      "summary": "Meta made Muse for Small Business available in limited testing with connectors to business systems including Asana, Intuit QuickBooks, Shopify, Slack, Stripe, and Zoom. Meta names Mulholland Grocery as an early user, but does not say whether it pays or report a measured operating result. Actions that publish, send, or spend require approval.",
+      "metadata": {
+        "date": "2026-09-29",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "small-business-software",
+        "layer": "agent-applications",
+        "commercial_proof": "emerging",
+        "updated": "2026-09-29",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Meta introduces Muse for Small Business",
+          "url": "https://about.fb.com/news/2026/09/introducing-muse-small-business/"
+        },
+        {
+          "label": "Meta documents Muse subscription plans",
+          "url": "https://www.meta.com/help/subscriptions/1021145227643680/"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "bounded-operations-coordination",
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-system-of-record-distribution",
+            "via": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "event-meta-muse-personal-agent-pricing-2026-09-08",
       "title": "Meta launches priced Muse personal agent",
       "type": "event",
@@ -7458,18 +9833,22 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "date": "2026-09-08",
         "status": "verified",
-        "confidence": "medium",
+        "confidence": "high",
         "stage": "announcement",
         "industry": "consumer-technology",
         "layer": "agent-applications",
         "commercial_proof": "emerging",
-        "updated": "2026-09-11",
+        "updated": "2026-09-29",
         "commercial_signals": ""
       },
       "evidence": [
         {
           "label": "Meta introduces Muse",
           "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+        },
+        {
+          "label": "Meta documents Muse subscription plans",
+          "url": "https://www.meta.com/help/subscriptions/1021145227643680/"
         },
         {
           "label": "TechCrunch reports Muse launch pricing",
@@ -7479,8 +9858,8 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "theme": {
         "primary": "trust-identity-authorization",
         "secondary": [
-          "bounded-operations-coordination",
-          "platform-distribution-records"
+          "platform-distribution-records",
+          "transactions-commerce"
         ],
         "basis": [
           {
@@ -7559,6 +9938,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "title": "Meta reports scaled Muse use and shopping activity",
+      "type": "event",
+      "path": "wiki/events/2026-10-21 Meta reports scaled Muse use and shopping activity.md",
+      "summary": "Meta's Q3 earnings call supplies the first primary operating bridge from Muse's September launch to scaled use and commerce. In roughly six weeks, more than 10 million people in the United States and Canada set up a Muse personal agent, and about 25% of people who set it up used it on a given day. More than a quarter of weekly active users used Muse for shopping, with an average purchase size above $200. Meta said Plaid had not seen comparable connector activity on another service and that Stripe raised credit limits during the first week because volume exceeded expectations.",
+      "metadata": {
+        "date": "2026-10-21",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "consumer-technology",
+        "layer": "agent-applications",
+        "commercial_proof": "emerging",
+        "updated": "2026-10-22",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Meta Q3 2026 earnings-call transcript",
+          "url": "https://s21.q4cdn.com/399680738/files/content_files/META-Q3-2026-Earnings-Call-Transcript.pdf"
+        }
+      ],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-microsoft-active-agent-growth-2026-05-05",
       "title": "Microsoft reports 15x active-agent growth",
       "type": "event",
@@ -7604,6 +10031,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "concept-measurement-surface-bias",
             "relation": "constrained-by",
             "score": 4.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "title": "Microsoft reports ESS adoption and ticket reduction",
+      "type": "event",
+      "path": "wiki/events/2026-10-08 Microsoft reports ESS adoption and ticket reduction.md",
+      "summary": "Microsoft says its Employee Self-Service Agent was launched to more than 300,000 employees and contingent staff in fall 2025. After early adoption was weaker than expected, internal research found that users distrusted dead ends, repeated troubleshooting, missing context, and unclear escalation. Microsoft redesigned the support journey around context, stated limitations, and handoff to a live agent.",
+      "metadata": {
+        "date": "2026-10-08",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "service-operations",
+        "commercial_proof": "unproven",
+        "commercial_signals": "unit-economics, demand",
+        "updated": "2026-10-13"
+      },
+      "evidence": [
+        {
+          "label": "Microsoft Inside Track, October 8, 2026",
+          "url": "https://www.microsoft.com/insidetrack/blog/building-trust-in-ai-powered-support-at-microsoft-our-employee-self-service-agent-story/"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-service-operations",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-human-ai-workforce-coordination",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "supports",
+            "score": 6.0
           }
         ]
       }
@@ -7710,6 +10185,57 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-mongodb-cognition-modernization-2026-09-29",
+      "title": "MongoDB and Cognition launch modernization workflow",
+      "type": "event",
+      "path": "wiki/events/2026-09-29 MongoDB and Cognition launch modernization workflow.md",
+      "summary": "MongoDB and Cognition made Devin for MongoDB Modernizations available to their customers. In early joint testing, the companies report that selected modernization tasks fell from five to six hours to just over one hour. Named customer BILT says Devin produced dozens of merged pull requests per day during a final modernization push.",
+      "metadata": {
+        "date": "2026-09-29",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "enterprise-software",
+        "layer": "agent-applications",
+        "commercial_proof": "unproven",
+        "updated": "2026-09-29",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "MongoDB and Cognition announce the modernization workflow",
+          "url": "https://www.mongodb.com/company/newsroom/press-releases/cognition-and-mongodb-partner-to-modernize-enterprise-infrastructure-in-months-not-years"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-service-operations",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          }
+        ]
+      }
+    },
+    {
       "id": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
       "title": "MongoDB cites scaled agentic application and network operations",
       "type": "event",
@@ -7758,6 +10284,56 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-production-agent-economics",
             "relation": "applies-to",
             "score": 2.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "title": "MongoDB launches priced Atlas Agent Engine preview",
+      "type": "event",
+      "path": "wiki/events/2026-09-29 MongoDB launches priced Atlas Agent Engine preview.md",
+      "summary": "MongoDB launched Atlas Agent Engine in public preview. Atlas Agent Runtime and Atlas Agent Memory use consumption-based pricing and can draw on a customer's existing Atlas commitment without a new contract. MongoDB names Paysafe as building toward production and cites more than 70,000 Atlas customers as the distribution base, not as Agent Engine users.",
+      "metadata": {
+        "date": "2026-09-29",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "enterprise-software",
+        "layer": "agent-infrastructure",
+        "commercial_proof": "emerging",
+        "updated": "2026-09-29",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "MongoDB launches Atlas Agent Engine",
+          "url": "https://www.mongodb.com/company/newsroom/press-releases/mongodb-launches-atlas-agent-engine-to-put-ai-agents-in-production-without-a-new-stack"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-system-of-record-distribution",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
           }
         ]
       }
@@ -7961,6 +10537,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "thesis-trust-monetizes-early",
             "relation": "challenges",
             "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-nist-agent-identity-design-tenets-2026-10-27",
+      "title": "NIST publishes agent identity design tenets",
+      "type": "event",
+      "path": "wiki/events/2026-10-27 NIST publishes agent identity design tenets.md",
+      "summary": "The National Institute of Standards and Technology published ten proposed design tenets for agent identity, authentication, and authorization. They cover distinct cryptographically verifiable agent identities; linked, attenuated delegation; zero standing privilege; short-lived and revocable authorization; human-review triggers; signed mandates and constraints; separation of policy from model reasoning; deterministic access decisions; continuous monitoring; and independent tamper-evident evidence.",
+      "metadata": {
+        "date": "2026-10-27",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "cybersecurity",
+        "layer": "governance-and-standards",
+        "commercial_proof": "unproven",
+        "commercial_signals": "demand",
+        "updated": "2026-10-30"
+      },
+      "evidence": [
+        {
+          "label": "Design Tenets for Agent Identity Management Systems",
+          "url": "https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-verified-agent-traffic",
+            "relation": "enables",
+            "score": 4.0
           }
         ]
       }
@@ -8177,6 +10801,61 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-openai-dots-launch-2026-09-29",
+      "title": "OpenAI launches persistent dots agents",
+      "type": "event",
+      "path": "wiki/events/2026-09-29 OpenAI launches persistent dots agents.md",
+      "summary": "OpenAI launched dots, persistent agents that have cloud computers, browsers, connected tools, recurring tasks, and access to ChatGPT, email, text messages, and Slack. Dots can delegate work to subagents and continue working between conversations.",
+      "metadata": {
+        "date": "2026-09-29",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "horizontal-enterprise",
+        "layer": "agent-applications",
+        "commercial_proof": "unproven",
+        "updated": "2026-09-30",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "OpenAI's GPT-6 Astra system card appendix for dots",
+          "url": "https://deploymentsafety.openai.com/gpt-6-astra/evaluating-auto-review"
+        },
+        {
+          "label": "OpenAI's dots availability documentation",
+          "url": "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "bounded-operations-coordination"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-system-of-record-distribution",
+            "via": "concept-agent-trust-governance",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
       "id": "event-openai-codex-usage-gap-2026-05-06",
       "title": "OpenAI reports 16x Codex usage gap",
       "type": "event",
@@ -8220,6 +10899,64 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "node": "concept-measurement-surface-bias",
             "relation": "constrained-by",
             "score": 4.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "title": "OpenRouter reports agentic tokens surpass human traffic",
+      "type": "event",
+      "path": "wiki/events/2026-06-30 OpenRouter reports agentic tokens surpass human traffic.md",
+      "summary": "OpenRouter reports that agentic workloads used about 15 times more tokens per request than human workloads. Agentic token volume passed human token volume around February 1, 2026. The analysis covers more than 450 trillion input and output tokens from January 1 through June 14, 2026.",
+      "metadata": {
+        "date": "2026-06-30",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "ai-infrastructure",
+        "layer": "inference-routing",
+        "commercial_proof": "emerging",
+        "updated": "2026-10-05",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "DeepSeek V4 Is Earning Agentic Token Share",
+          "url": "https://openrouter.ai/blog/insights/deepseek-v4-adoption/"
+        },
+        {
+          "label": "OpenRouter Raises $113M Series B",
+          "url": "https://openrouter.ai/blog/announcements/series-b/"
+        },
+        {
+          "label": "How to Use OpenAI Codex CLI with OpenRouter",
+          "url": "https://openrouter.ai/blog/tutorials/codex-cli-openrouter/"
+        }
+      ],
+      "theme": {
+        "primary": "adoption-economics-monetization",
+        "secondary": [
+          "trust-identity-authorization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-measurement-surface-bias",
+            "relation": "measured-by",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-production-agent-economics",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agentic-depth-frontier-gap",
+            "relation": "supports",
+            "score": 6.0
           }
         ]
       }
@@ -8328,6 +11065,57 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "kind": "relation",
             "node": "concept-verified-agent-traffic",
             "relation": "measured-by",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "title": "PayNearMe reports collections-agent pilot throughput",
+      "type": "event",
+      "path": "wiki/events/2026-10-01 PayNearMe reports collections-agent pilot throughput.md",
+      "summary": "PayNearMe reports that Indiana Finance Company piloted its AI Servicing and Collections Agent for proactive payment outreach and inbound customer interactions. In one outbound campaign, the agent placed as many calls in one hour as approximately 28 support staff members. Ninety percent of targeted accounts received a voicemail or Smart Link, completed a live conversation, or transferred to support staff.",
+      "metadata": {
+        "date": "2026-10-01",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "pilot",
+        "industry": "payments",
+        "layer": "service-operations",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-07",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "PayNearMe launches AI Servicing and Collections Agent",
+          "url": "https://home.paynearme.com/press/paynearme-launches-ai-servicing-and-collections-agent-to-help-support-teams-scale-while-lowering-the-cost-to-serve/"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [
+          "transactions-commerce",
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-service-operations",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "supports",
             "score": 6.0
           }
         ]
@@ -8750,6 +11538,54 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "title": "Salesforce reports Agent Fabric request scale and control rollout",
+      "type": "event",
+      "path": "wiki/events/2026-10-27 Salesforce reports Agent Fabric request scale and control rollout.md",
+      "summary": "Salesforce says Agent Fabric handles more than 1.2 billion requests daily. The company announced continuous agent and API evaluations, automated interventions, discovery for internal and third-party environments, federated gateway policies, and spending controls. Its kill switch, open policies, FinOps dashboard, model wallet, and cost-optimization policies are generally available; Agent Evals and API Evals are scheduled for beta in November 2026 and general availability in January 2027.",
+      "metadata": {
+        "date": "2026-10-27",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "agent-control-plane",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-28",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Salesforce Expands Agent Fabric to Automatically Stop Runaway Costs and AI Agent Failures Before They Impact Customers",
+          "url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-salesforce-agentforce-arr-production-work-units-2026-05-27",
       "title": "Salesforce reports Agentforce ARR and production work-unit growth",
       "type": "event",
@@ -8892,6 +11728,60 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "kind": "relation",
             "node": "thesis-incumbent-platform-distribution",
             "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-meta-muse-early-retention-2026-10-12",
+      "title": "Sensor Tower reports early Muse retention",
+      "type": "event",
+      "path": "wiki/events/2026-10-12 Sensor Tower reports early Muse retention.md",
+      "summary": "Yahoo Finance reports Sensor Tower estimates for Meta's Muse September 2026 mobile-install cohort. Muse retained 73.3% of new users on day one, more than 30% on day seven, and 22.5% on day fourteen. ChatGPT's comparable day-one estimate was 41.3%; it overtook Muse between days eight and nine and reached 26.8% on day fourteen. Yahoo separately cites Similarweb estimating 2.182 million Muse daily active users on October 5.",
+      "metadata": {
+        "date": "2026-10-12",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "consumer-technology",
+        "layer": "agent-applications",
+        "commercial_proof": "emerging",
+        "updated": "2026-10-12",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Meta's Muse AI agent brings back 73% of new users — nearly double ChatGPT's rate",
+          "url": "https://finance.yahoo.com/technology/article/metas-muse-ai-agent-brings-back-73-of-new-users--nearly-double-chatgpts-rate-164557360.html"
+        },
+        {
+          "label": "Meta documents Muse subscription plans",
+          "url": "https://www.meta.com/help/subscriptions/1021145227643680/"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "challenges",
             "score": 6.0
           }
         ]
@@ -9044,6 +11934,56 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "kind": "relation",
             "node": "thesis-trust-monetizes-early",
             "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "title": "ServiceNow raises AI ACV target as agentic consumption grows",
+      "type": "event",
+      "path": "wiki/events/2026-10-28 ServiceNow raises AI ACV target as agentic consumption grows.md",
+      "summary": "ServiceNow's third-quarter 2026 earnings release raised its full-year AI net-new annual contract value target to $1.7 billion from $1 billion at the start of the year and reported that year-to-date production agentic-AI consumption grew more than thirteenfold year over year. The target is forward-looking and covers ServiceNow AI more broadly than agentic products, but the same primary disclosure connects contracted AI demand with repeated production agent use.",
+      "metadata": {
+        "date": "2026-10-28",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "system-of-record-platforms",
+        "commercial_proof": "emerging",
+        "commercial_signals": "arr-acv-backlog, demand, unit-economics",
+        "updated": "2026-10-29"
+      },
+      "evidence": [
+        {
+          "label": "ServiceNow Reports Third Quarter 2026 Financial Results",
+          "url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-Reports-Third-Quarter-2026-Financial-Results/default.aspx"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [
+          "platform-distribution-records"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-service-operations",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "supports",
             "score": 6.0
           }
         ]
@@ -9400,6 +12340,62 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "title": "Supabase reports agent-linked database and revenue growth",
+      "type": "event",
+      "path": "wiki/events/2026-10-30 Supabase reports agent-linked database and revenue growth.md",
+      "summary": "Supabase co-founder and CEO Paul Copplestone said that registered users increased from about 3 million to 13 million over twelve months and that 2026 revenue would reach four times the prior-year level. He also reported more than one million new databases per week and nearly 50 million databases under management, up from 8 million one year earlier.",
+      "metadata": {
+        "date": "2026-10-30",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "scaled",
+        "industry": "enterprise-software",
+        "layer": "data-infrastructure",
+        "commercial_proof": "emerging",
+        "commercial_signals": "agent-revenue, demand",
+        "updated": "2026-11-01"
+      },
+      "evidence": [
+        {
+          "label": "What Happens When Everyone Can Build Software",
+          "url": "https://www.youtube.com/watch?v=vl7HiMdGfjo"
+        },
+        {
+          "label": "Supabase Series F",
+          "url": "https://supabase.com/blog/series-f"
+        },
+        {
+          "label": "Supabase is acquiring Turso",
+          "url": "https://supabase.com/blog/supabase-is-acquiring-turso"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-system-of-record-distribution",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-talkspace-ai-intake-2026-01-15",
       "title": "Talkspace deploys clinically supervised AI intake workflow",
       "type": "event",
@@ -9532,6 +12528,61 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "kind": "relation",
             "node": "concept-system-of-record-distribution",
             "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-system-of-record-distribution",
+            "via": "concept-agentic-marketing-automation",
+            "relation": "depends-on",
+            "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-the-realreal-ask-trr-launch-2026-10-08",
+      "title": "The RealReal launches Ask TRR to all members",
+      "type": "event",
+      "path": "wiki/events/2026-10-08 The RealReal launches Ask TRR to all members.md",
+      "summary": "The RealReal launched Ask TRR, a natural-language shopping agent built with Google Cloud's Gemini Enterprise for Customer Experience, to its full **45 million-member** base after a pilot. The agent searches and recommends products across more than one million unique luxury items; The RealReal says more contextual recommendations on product pages are planned.",
+      "metadata": {
+        "date": "2026-10-08",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "production",
+        "industry": "retail",
+        "layer": "application",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-14",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "The RealReal expands Ask TRR with Google Cloud's Gemini Enterprise",
+          "url": "https://www.googlecloudpresscorner.com/2026-10-08-The-RealReal-Expands-Ask-TRR-AI-Shopping-Agent-With-Google-Clouds-Gemini-Enterprise"
+        },
+        {
+          "label": "The RealReal investor overview",
+          "url": "https://investor.therealreal.com/overview/default.aspx"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [
+          "bounded-operations-coordination"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
             "score": 6.0
           },
           {
@@ -9752,6 +12803,112 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "title": "UK police forces report six months of Bobbi agent operations",
+      "type": "event",
+      "path": "wiki/events/2026-06-18 UK police forces report six months of Bobbi agent operations.md",
+      "summary": "Salesforce reports that Thames Valley Police and Hampshire and Isle of Wight Constabulary operated the Bobbi contact agent for six months after a 12-week pilot. Bobbi handled about 200 non-emergency conversations per day. The forces report that 45% of contacts were fully automated and users rated the service 4.6 out of 5.",
+      "metadata": {
+        "date": "2026-06-18",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "scaled",
+        "industry": "public-sector",
+        "layer": "service-operations",
+        "commercial_proof": "unproven",
+        "updated": "2026-09-30",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Salesforce reports six months of Bobbi operations",
+          "url": "https://www.salesforce.com/uk/news/stories/bobbi-agentforce-transforms-law-enforcement/"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-service-operations",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "concept-human-ai-workforce-coordination",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-us-banks-block-third-party-agents-2026-10-22",
+      "title": "US banks block third-party agents from customer accounts",
+      "type": "event",
+      "path": "wiki/events/2026-10-22 US banks block third-party agents from customer accounts.md",
+      "summary": "Reuters reports that major US banks have blocked third-party AI agents from operating inside customer accounts and making transactions. Reuters names Morgan Stanley, JPMorgan Chase, Bank of America, and Citigroup as institutions that block or restrict access. Its report followed an Axios account that also named Wells Fargo and said that some agents appeared to take actions outside user instructions.",
+      "metadata": {
+        "date": "2026-10-22",
+        "status": "reported",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "financial-services",
+        "layer": "identity-authorization-and-account-access",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-23",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Reuters reports that major US banks are blocking third-party agents",
+          "url": "https://uk.marketscreener.com/news/us-banks-are-blocking-third-party-ai-agents-access-to-customer-accounts-sources-say-ce785cdedc80f72d"
+        },
+        {
+          "label": "Axios reports unvetted agent activity and bank restrictions",
+          "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access"
+        },
+        {
+          "label": "Axios reports no observed hack affecting customer funds or accounts",
+          "url": "https://www.axios.com/2026/10/23/ai-catastrophe-wall-street"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [
+          "transactions-commerce"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-va-salesforce-missionforce-agreement-2026-07-24",
       "title": "VA awards Salesforce Missionforce agreement",
       "type": "event",
@@ -9798,6 +12955,63 @@ window.AGENTIC_EVOLUTION_GRAPH = {
             "via": "concept-agent-trust-governance",
             "relation": "constrained-by",
             "score": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-vida-outcome-based-agent-billing-2026-10-05",
+      "title": "Vida introduces outcome-based agent billing",
+      "type": "event",
+      "path": "wiki/events/2026-10-05 Vida introduces outcome-based agent billing.md",
+      "summary": "Vida Global introduced an outcome-based billing option for its AI agents alongside its existing usage-based model. A business defines a verifiable result—such as a qualified lead, warm transfer, completed onboarding, booked meeting, or recovered customer—and Vida bills when the agreed outcome occurs. The company says the model is initially available in performance marketing, insurance, and other lead-driven industries.",
+      "metadata": {
+        "date": "2026-10-05",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "enterprise-software",
+        "layer": "applications",
+        "commercial_proof": "emerging",
+        "commercial_signals": "pricing-attach-renewal",
+        "updated": "2026-10-13"
+      },
+      "evidence": [
+        {
+          "label": "Vida SEC-filed press release, October 5, 2026",
+          "url": "https://www.sec.gov/Archives/edgar/data/1973062/000149315226045703/ex99-1.htm"
+        },
+        {
+          "label": "Vida pricing page",
+          "url": "https://vida.io/pricing"
+        }
+      ],
+      "theme": {
+        "primary": "bounded-operations-coordination",
+        "secondary": [
+          "platform-distribution-records",
+          "adoption-economics-monetization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-service-operations",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agentic-service-operations",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "thesis-scaled-agents-bounded-service-operations",
+            "via": "concept-production-agent-economics",
+            "relation": "measured-by",
+            "score": 2.1
           }
         ]
       }
@@ -9852,6 +13066,152 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "title": "Visa, BILL and Billtrust launch live agent-payment pilot",
+      "type": "event",
+      "path": "wiki/events/2026-10-20 Visa BILL and Billtrust launch live agent-payment pilot.md",
+      "summary": "Visa, BILL and Billtrust announced a live pilot in which BILL's Payment Agent executes buyer-approved invoice payments through Billtrust supplier portals. Visa says the pilot is processing end-to-end transactions with participating buyers that use BILL and suppliers that use Billtrust.",
+      "metadata": {
+        "date": "2026-10-20",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "pilot",
+        "industry": "payments",
+        "layer": "identity-authorization-and-transaction-rail",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-20",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Visa, BILL and Billtrust Launch First Live Pilot for Trusted AI Agent Payments Between Buyer and Supplier Platforms",
+          "url": "https://investor.visa.com/news/news-details/2026/Visa-BILL-and-Billtrust-Launch-First-Live-Pilot-for-Trusted-AI-Agent-Payments-Between-Buyer-and-Supplier-Platforms/default.aspx"
+        }
+      ],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "title": "Walmart announces Agent Profiles and Gateway",
+      "type": "event",
+      "path": "wiki/events/2026-10-21 Walmart announces Agent Profiles and Gateway.md",
+      "summary": "Walmart says it will launch Agent Profiles for customers in November 2026 and will begin a beta of Walmart Agent Gateway for agent developers and companies. Each authorized agent will receive a separate profile inside the customer's Walmart account. Customers can set a spending limit, view agent purchases separately, and revoke the profile.",
+      "metadata": {
+        "date": "2026-10-21",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "announcement",
+        "industry": "ecommerce",
+        "layer": "identity-authorization-and-merchant-access",
+        "commercial_proof": "unproven",
+        "updated": "2026-10-26",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "Walmart describes Agent Profiles, Agent Gateway, customer controls, and agent terms",
+          "url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers"
+        }
+      ],
+      "theme": {
+        "primary": "transactions-commerce",
+        "secondary": [
+          "trust-identity-authorization"
+        ],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agentic-payments",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-agent-payments-protocol-to-production",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-workday-flex-credit-pricing-2026-07-30",
+      "title": "Workday defines action-based Flex Credit pricing",
+      "type": "event",
+      "path": "wiki/events/2026-07-30 Workday defines action-based Flex Credit pricing.md",
+      "summary": "Workday documents Flex Credits as an annual subscription purchase that customers can use across Workday-built agents, Workday Data Cloud, and Sana. Workday meters agents when they complete an action rather than when they consume a token or answer a query. Most production usage consumes credits when a task succeeds.",
+      "metadata": {
+        "date": "2026-07-30",
+        "status": "verified",
+        "confidence": "high",
+        "stage": "production",
+        "industry": "enterprise-software",
+        "layer": "system-of-record-platforms",
+        "commercial_proof": "emerging",
+        "commercial_signals": "pricing-attach-renewal, demand",
+        "updated": "2026-10-15"
+      },
+      "evidence": [
+        {
+          "label": "Workday's Journey to Usage-Based AI Pricing",
+          "url": "https://blog.workday.com/en-us/usage-based-ai-pricing.html"
+        }
+      ],
+      "theme": {
+        "primary": "platform-distribution-records",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-system-of-record-distribution",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-incumbent-platform-distribution",
+            "relation": "supports",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-workday-agent-customer-ai-acv-growth-2026-08-27",
       "title": "Workday reports agent-customer and AI ACV growth",
       "type": "event",
@@ -9866,7 +13226,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
         "layer": "system-of-record-platforms",
         "commercial_proof": "measured",
         "commercial_signals": "customer-growth, arr-acv-backlog, demand",
-        "updated": "2026-08-28"
+        "updated": "2026-10-15"
       },
       "evidence": [
         {
@@ -9997,6 +13357,58 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       }
     },
     {
+      "id": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "title": "Zenity discloses patched Agentforce SalesBleed chains",
+      "type": "event",
+      "path": "wiki/events/2026-09-24 Zenity discloses patched Agentforce SalesBleed chains.md",
+      "summary": "Zenity Labs disclosed two proof-of-concept attack chains against production Salesforce Agentforce surfaces. In the first, an external attacker could place hidden indirect-prompt-injection instructions into a public Web-to-Lead submission. Later routine internal review could cause Agentforce's general CRM subagent to query Accounts data and encode it into an attacker-controlled hostname; HTML image rendering or a Slack unfurl then generated a DNS request that carried the encoded data. Zenity says the chain relied on default read access to Leads and Accounts rather than privilege escalation.",
+      "metadata": {
+        "date": "2026-09-24",
+        "status": "verified",
+        "confidence": "medium",
+        "stage": "production",
+        "industry": "enterprise-software",
+        "layer": "trust-and-governance",
+        "commercial_proof": "unproven",
+        "updated": "2026-09-25",
+        "commercial_signals": ""
+      },
+      "evidence": [
+        {
+          "label": "SalesBleed: 0-Click Data Exfiltration on Agentforce",
+          "url": "https://labs.zenity.io/post/salesbleed-0-click-data-exfiltration-on-agentforce"
+        },
+        {
+          "label": "SalesBleed: Hijacking Agentforce in Slack for Anonymous Phishing",
+          "url": "https://labs.zenity.io/post/salesbleed-hijacking-agentforce-in-slack-for-anonymous-phishing"
+        }
+      ],
+      "theme": {
+        "primary": "trust-identity-authorization",
+        "secondary": [],
+        "basis": [
+          {
+            "kind": "relation",
+            "node": "concept-agent-trust-governance",
+            "relation": "demonstrates",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          },
+          {
+            "kind": "relation",
+            "node": "thesis-trust-monetizes-early",
+            "relation": "challenges",
+            "score": 6.0
+          }
+        ]
+      }
+    },
+    {
       "id": "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
       "title": "Zscaler and Schwarz Digits launch sovereign cloud security platform",
       "type": "event",
@@ -10118,7 +13530,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-09"
+        "updated": "2026-11-01"
       },
       "evidence": [],
       "theme": {
@@ -10284,30 +13696,33 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-23",
+        "updated": "2026-10-28",
         "review_after": "2026-08-31"
       },
       "evidence": [],
       "theme": {
-        "primary": "transactions-commerce",
+        "primary": "trust-identity-authorization",
         "secondary": [],
         "basis": [
           {
-            "kind": "seed",
-            "node": "thesis-agent-payments-protocol-to-production",
-            "score": 100.0
-          },
-          {
             "kind": "relation",
-            "node": "concept-agentic-payments",
-            "relation": "depends-on",
+            "node": "concept-agent-trust-governance",
+            "relation": "constrained-by",
             "score": 4.0
           },
           {
-            "kind": "relation",
-            "node": "concept-protocol-standardization",
-            "relation": "depends-on",
-            "score": 4.0
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+            "relation": "demonstrates",
+            "score": 2.1
+          },
+          {
+            "kind": "two-hop",
+            "node": "concept-agent-trust-governance",
+            "via": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+            "relation": "monetizes",
+            "score": 2.1
           }
         ]
       }
@@ -10321,7 +13736,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-22",
+        "updated": "2026-10-21",
         "review_after": "2026-08-31"
       },
       "evidence": [],
@@ -10358,7 +13773,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-07",
+        "updated": "2026-10-28",
         "review_after": "2026-10-31"
       },
       "evidence": [],
@@ -10395,30 +13810,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-21",
+        "updated": "2026-11-01",
         "review_after": "2026-09-30"
       },
       "evidence": [],
       "theme": {
-        "primary": "platform-distribution-records",
+        "primary": "bounded-operations-coordination",
         "secondary": [],
         "basis": [
           {
-            "kind": "seed",
-            "node": "thesis-incumbent-platform-distribution",
-            "score": 100.0
+            "kind": "relation",
+            "node": "concept-agentic-marketing-automation",
+            "relation": "enables",
+            "score": 4.0
           },
           {
             "kind": "relation",
-            "node": "concept-system-of-record-distribution",
-            "relation": "depends-on",
+            "node": "concept-human-ai-workforce-coordination",
+            "relation": "enables",
             "score": 4.0
           },
           {
             "kind": "two-hop",
-            "node": "concept-system-of-record-distribution",
-            "via": "event-agibank-agentforce-service-orchestration-2026-09-04",
-            "relation": "demonstrates",
+            "node": "concept-agentic-marketing-automation",
+            "via": "event-amber-international-agentic-revenue-margin-2026-09-03",
+            "relation": "applies-to",
             "score": 2.1
           }
         ]
@@ -10433,7 +13849,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-16",
+        "updated": "2026-10-29",
         "review_after": "2026-09-30"
       },
       "evidence": [],
@@ -10471,7 +13887,7 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "metadata": {
         "status": "active",
         "confidence": "medium",
-        "updated": "2026-09-23",
+        "updated": "2026-10-30",
         "review_after": "2026-09-30"
       },
       "evidence": [],
@@ -10548,7 +13964,37 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agent-trust-governance",
+      "target": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
       "target": "event-cisco-agent-task-traffic-benchmark-2026-05-21",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
       "type": "references"
     },
     {
@@ -10583,7 +14029,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agent-trust-governance",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
       "target": "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-g2-agent-purchasing-production-oversight-2026-10-14",
       "type": "references"
     },
     {
@@ -10608,6 +14064,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agent-trust-governance",
+      "target": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
       "target": "event-meta-muse-macos-zero-day-2026-09-21",
       "type": "references"
     },
@@ -10619,6 +14085,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "concept-agent-trust-governance",
       "target": "event-ncsc-shadow-ai-agent-privilege-risk-2026-09-07",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-nist-agent-identity-design-tenets-2026-10-27",
       "type": "references"
     },
     {
@@ -10638,6 +14109,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agent-trust-governance",
+      "target": "event-openai-dots-launch-2026-09-29",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
       "target": "event-otterlyai-agent-analytics-paid-plans-2026-08-13",
       "type": "references"
     },
@@ -10648,12 +14124,37 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agent-trust-governance",
+      "target": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
       "target": "event-snowflake-agent-observability-preview-2026-09-22",
       "type": "references"
     },
     {
       "source": "concept-agent-trust-governance",
       "target": "event-snowflake-cortex-ai-gateway-2026-07-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "type": "references"
+    },
+    {
+      "source": "concept-agent-trust-governance",
+      "target": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
       "type": "references"
     },
     {
@@ -10703,7 +14204,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agentic-cyber-operations",
+      "target": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-cyber-operations",
+      "target": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-cyber-operations",
       "target": "event-google-agent-enabled-credential-campaign-2026-09-08",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-cyber-operations",
+      "target": "event-google-pagebreak-security-agent-2026-09-24",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-cyber-operations",
+      "target": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
       "type": "references"
     },
     {
@@ -10724,6 +14245,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "concept-agentic-marketing-automation",
       "target": "event-datasea-five-customer-agent-marketing-services-2026-09-17",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-marketing-automation",
+      "target": "event-datasea-repeat-service-value-growth-2026-10-13",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-marketing-automation",
+      "target": "event-the-realreal-ask-trr-launch-2026-10-08",
       "type": "references"
     },
     {
@@ -10763,7 +14294,22 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agentic-payments",
+      "target": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
       "target": "event-cloudflare-monetization-gateway-2026-07-01",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
       "type": "references"
     },
     {
@@ -10783,6 +14329,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agentic-payments",
+      "target": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
       "target": "event-lianlian-unionpay-agentic-payments-2026-07-27",
       "type": "references"
     },
@@ -10798,7 +14354,22 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agentic-payments",
+      "target": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
       "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
       "type": "references"
     },
     {
@@ -10814,6 +14385,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "concept-agentic-payments",
       "target": "event-trm-x402-agent-payment-attribution-2026-09-09",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-payments",
+      "target": "event-walmart-agent-profiles-gateway-2026-10-21",
       "type": "references"
     },
     {
@@ -10843,6 +14429,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agentic-service-operations",
+      "target": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-service-operations",
+      "target": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-service-operations",
       "target": "event-microsoft-service-agent-throughput-savings-2025-09-10",
       "type": "references"
     },
@@ -10853,7 +14449,22 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agentic-service-operations",
+      "target": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-service-operations",
       "target": "event-tsa-scales-traveler-support-agent-2026-09-14",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-service-operations",
+      "target": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-service-operations",
+      "target": "event-vida-outcome-based-agent-billing-2026-10-05",
       "type": "references"
     },
     {
@@ -10878,7 +14489,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-agentic-software-engineering",
+      "target": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-software-engineering",
       "target": "event-harness-agent-cli-actions-2026-09-02",
+      "type": "references"
+    },
+    {
+      "source": "concept-agentic-software-engineering",
+      "target": "event-mongodb-cognition-modernization-2026-09-29",
       "type": "references"
     },
     {
@@ -10903,6 +14524,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-human-ai-workforce-coordination",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "references"
+    },
+    {
+      "source": "concept-human-ai-workforce-coordination",
+      "target": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-human-ai-workforce-coordination",
+      "target": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "type": "references"
+    },
+    {
+      "source": "concept-human-ai-workforce-coordination",
       "target": "event-kpmg-agent-deployment-cost-visibility-2026-06-24",
       "type": "references"
     },
@@ -10913,7 +14549,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-human-ai-workforce-coordination",
+      "target": "event-openai-dots-launch-2026-09-29",
+      "type": "references"
+    },
+    {
+      "source": "concept-human-ai-workforce-coordination",
       "target": "event-tsa-scales-traveler-support-agent-2026-09-14",
+      "type": "references"
+    },
+    {
+      "source": "concept-human-ai-workforce-coordination",
+      "target": "event-uk-police-bobbi-agent-six-months-2026-06-18",
       "type": "references"
     },
     {
@@ -10933,7 +14579,32 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-measurement-surface-bias",
+      "target": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "type": "references"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
+      "target": "event-google-pagebreak-security-agent-2026-09-24",
+      "type": "references"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "references"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
       "target": "event-kpmg-agent-deployment-cost-visibility-2026-06-24",
+      "type": "references"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
+      "target": "event-meta-muse-early-retention-2026-10-12",
+      "type": "references"
+    },
+    {
+      "source": "concept-measurement-surface-bias",
+      "target": "event-openrouter-agentic-token-traffic-2026-06-30",
       "type": "references"
     },
     {
@@ -10988,7 +14659,32 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-aws-opensearch-agent-health-2026-09-01",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-cargoai-scaled-production-agent-activity-2026-10-28",
       "type": "references"
     },
     {
@@ -11003,12 +14699,32 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
       "type": "references"
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-coinbase-q2-agentic-finance-2026-07-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-cykel-limited-agent-revenue-2026-10-06",
       "type": "references"
     },
     {
@@ -11023,7 +14739,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-datasea-repeat-service-value-growth-2026-10-13",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-fingerprint-arr-customer-growth-agent-detection-2026-09-01",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-g2-agent-purchasing-production-oversight-2026-10-14",
       "type": "references"
     },
     {
@@ -11048,7 +14774,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-meta-muse-early-retention-2026-10-12",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-meta-muse-small-business-2026-09-29",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
       "type": "references"
     },
     {
@@ -11058,7 +14804,32 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-mongodb-cognition-modernization-2026-09-29",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-runable-paid-launch-negative-gross-margin-2026-08-26",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
       "type": "references"
     },
     {
@@ -11083,12 +14854,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-snowflake-agent-adoption-ai-revenue-2026-09-02",
       "type": "references"
     },
     {
       "source": "concept-production-agent-economics",
       "target": "event-snowflake-agent-observability-preview-2026-09-22",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-the-realreal-ask-trr-launch-2026-10-08",
       "type": "references"
     },
     {
@@ -11113,7 +14899,22 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-production-agent-economics",
+      "target": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-vida-outcome-based-agent-billing-2026-10-05",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
       "target": "event-workday-agent-customer-ai-acv-growth-2026-08-27",
+      "type": "references"
+    },
+    {
+      "source": "concept-production-agent-economics",
+      "target": "event-workday-flex-credit-pricing-2026-07-30",
       "type": "references"
     },
     {
@@ -11168,7 +14969,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-system-of-record-distribution",
+      "target": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
       "target": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "event-mongodb-atlas-agent-engine-2026-09-29",
       "type": "references"
     },
     {
@@ -11178,7 +14999,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-system-of-record-distribution",
+      "target": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
       "target": "event-salesforce-agentforce-arr-production-work-units-2026-05-27",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
       "type": "references"
     },
     {
@@ -11189,6 +15020,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "concept-system-of-record-distribution",
       "target": "event-snowflake-agent-observability-preview-2026-09-22",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
+      "type": "references"
+    },
+    {
+      "source": "concept-system-of-record-distribution",
+      "target": "event-walmart-agent-profiles-gateway-2026-10-21",
       "type": "references"
     },
     {
@@ -11213,6 +15059,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-verified-agent-traffic",
+      "target": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
       "target": "event-aws-waf-ai-traffic-monetization-2026-06-15",
       "type": "references"
     },
@@ -11223,7 +15074,17 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-verified-agent-traffic",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
       "target": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
       "type": "references"
     },
     {
@@ -11248,7 +15109,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "concept-verified-agent-traffic",
+      "target": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
       "target": "event-fastly-ai-request-growth-skyfire-2026-06-10",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "references"
+    },
+    {
+      "source": "concept-verified-agent-traffic",
+      "target": "event-mastercard-agent-transaction-probability-score-2026-09-30",
       "type": "references"
     },
     {
@@ -11382,6 +15263,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "partners-with"
     },
     {
+      "source": "entity-arkose-labs",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-arkose-labs",
+      "target": "concept-verified-agent-traffic",
+      "type": "enables"
+    },
+    {
+      "source": "entity-arkose-labs",
+      "target": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "type": "references"
+    },
+    {
       "source": "entity-asus",
       "target": "concept-human-ai-workforce-coordination",
       "type": "enables"
@@ -11422,8 +15318,23 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "references"
     },
     {
+      "source": "entity-audioeye",
+      "target": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "type": "references"
+    },
+    {
       "source": "entity-aws",
       "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-aws",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-aws",
+      "target": "concept-system-of-record-distribution",
       "type": "enables"
     },
     {
@@ -11433,13 +15344,93 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-aws",
+      "target": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "type": "references"
+    },
+    {
+      "source": "entity-aws",
       "target": "event-aws-opensearch-agent-health-2026-09-01",
+      "type": "references"
+    },
+    {
+      "source": "entity-bank-of-america",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-bank-of-america",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-bank-of-america",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
+      "type": "references"
+    },
+    {
+      "source": "entity-bank-of-england",
+      "target": "entity-financial-conduct-authority",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-bank-of-england",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
       "type": "references"
     },
     {
       "source": "entity-bbva",
       "target": "concept-agentic-payments",
       "type": "enables"
+    },
+    {
+      "source": "entity-beincrypto-research",
+      "target": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "type": "references"
+    },
+    {
+      "source": "entity-bill",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-bill",
+      "target": "entity-billtrust",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-bill",
+      "target": "entity-visa",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-bill",
+      "target": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "type": "references"
+    },
+    {
+      "source": "entity-billtrust",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-billtrust",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-billtrust",
+      "target": "entity-bill",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-billtrust",
+      "target": "entity-visa",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-billtrust",
+      "target": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "type": "references"
     },
     {
       "source": "entity-c-spire",
@@ -11450,6 +15441,41 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "entity-c-spire",
       "target": "entity-servicenow",
       "type": "partners-with"
+    },
+    {
+      "source": "entity-cargoai",
+      "target": "concept-agentic-service-operations",
+      "type": "enables"
+    },
+    {
+      "source": "entity-cargoai",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "enables"
+    },
+    {
+      "source": "entity-cargoai",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-cargoai",
+      "target": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "type": "references"
+    },
+    {
+      "source": "entity-cequence",
+      "target": "concept-agent-trust-governance",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-cequence",
+      "target": "concept-verified-agent-traffic",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-cequence",
+      "target": "event-cequence-muse-traffic-2026-10-07",
+      "type": "references"
     },
     {
       "source": "entity-cisco",
@@ -11503,8 +15529,53 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-cloudflare",
+      "target": "entity-coinbase",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-cloudflare",
+      "target": "entity-mastercard",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-cloudflare",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "measured-by"
+    },
+    {
+      "source": "entity-cloudflare",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-cloudflare",
       "target": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
       "type": "measured-by"
+    },
+    {
+      "source": "entity-cognition",
+      "target": "concept-agentic-software-engineering",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-cognition",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-cognition",
+      "target": "entity-mongodb",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-cognition",
+      "target": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "type": "references"
+    },
+    {
+      "source": "entity-cognition",
+      "target": "event-mongodb-cognition-modernization-2026-09-29",
+      "type": "references"
     },
     {
       "source": "entity-coinbase",
@@ -11518,8 +15589,18 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-coinbase",
+      "target": "entity-cloudflare",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-coinbase",
       "target": "entity-x402-foundation",
       "type": "partners-with"
+    },
+    {
+      "source": "entity-coinbase",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "enables"
     },
     {
       "source": "entity-corpay",
@@ -11539,6 +15620,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "entity-crowdstrike",
       "target": "event-crowdstrike-falcon-guardian-agent-security-2026-09-01",
+      "type": "references"
+    },
+    {
+      "source": "entity-cykel-ai",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-cykel-ai",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-cykel-ai",
+      "target": "event-cykel-limited-agent-revenue-2026-10-06",
       "type": "references"
     },
     {
@@ -11562,6 +15658,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "references"
     },
     {
+      "source": "entity-datadome",
+      "target": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "type": "references"
+    },
+    {
       "source": "entity-datasea",
       "target": "concept-agentic-marketing-automation",
       "type": "enables"
@@ -11569,6 +15670,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "entity-datasea",
       "target": "event-datasea-five-customer-agent-marketing-services-2026-09-17",
+      "type": "references"
+    },
+    {
+      "source": "entity-datasea",
+      "target": "event-datasea-repeat-service-value-growth-2026-10-13",
       "type": "references"
     },
     {
@@ -11597,6 +15703,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "references"
     },
     {
+      "source": "entity-european-central-bank",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "entity-european-central-bank",
+      "target": "concept-protocol-standardization",
+      "type": "enables"
+    },
+    {
+      "source": "entity-european-central-bank",
+      "target": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "type": "references"
+    },
+    {
       "source": "entity-falabella",
       "target": "concept-agentic-service-operations",
       "type": "applies-to"
@@ -11620,6 +15741,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "entity-fastly",
       "target": "event-fastly-ai-request-growth-skyfire-2026-06-10",
       "type": "measured-by"
+    },
+    {
+      "source": "entity-financial-conduct-authority",
+      "target": "entity-bank-of-england",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-financial-conduct-authority",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "references"
     },
     {
       "source": "entity-fingerprint",
@@ -11672,6 +15803,26 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "enables"
     },
     {
+      "source": "entity-forter",
+      "target": "concept-agent-trust-governance",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-forter",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-forter",
+      "target": "concept-verified-agent-traffic",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-forter",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "references"
+    },
+    {
       "source": "entity-fortinet",
       "target": "concept-agent-trust-governance",
       "type": "enables"
@@ -11680,6 +15831,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "entity-french-competition-authority",
       "target": "concept-agent-trust-governance",
       "type": "applies-to"
+    },
+    {
+      "source": "entity-g2",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "entity-g2",
+      "target": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "type": "references"
     },
     {
       "source": "entity-gauge",
@@ -11708,7 +15869,22 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-google",
+      "target": "entity-the-realreal",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-google",
       "target": "event-google-agent-enabled-credential-campaign-2026-09-08",
+      "type": "references"
+    },
+    {
+      "source": "entity-google",
+      "target": "event-google-pagebreak-security-agent-2026-09-24",
+      "type": "measured-by"
+    },
+    {
+      "source": "entity-google",
+      "target": "event-the-realreal-ask-trr-launch-2026-10-08",
       "type": "references"
     },
     {
@@ -11725,6 +15901,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "entity-haizhi-technology",
       "target": "concept-system-of-record-distribution",
       "type": "enables"
+    },
+    {
+      "source": "entity-hampshire-isle-of-wight-constabulary",
+      "target": "entity-thames-valley-police",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-hampshire-isle-of-wight-constabulary",
+      "target": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "type": "references"
     },
     {
       "source": "entity-harness",
@@ -11772,6 +15958,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "applies-to"
     },
     {
+      "source": "entity-human-security",
+      "target": "concept-agent-trust-governance",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-human-security",
+      "target": "concept-verified-agent-traffic",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-human-security",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "references"
+    },
+    {
       "source": "entity-ibex",
       "target": "concept-agentic-service-operations",
       "type": "enables"
@@ -11792,6 +15993,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "references"
     },
     {
+      "source": "entity-indian-computer-emergency-response-team",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-indian-computer-emergency-response-team",
+      "target": "concept-agentic-cyber-operations",
+      "type": "applies-to"
+    },
+    {
+      "source": "entity-indian-computer-emergency-response-team",
+      "target": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "type": "references"
+    },
+    {
       "source": "entity-intel",
       "target": "concept-production-agent-economics",
       "type": "enables"
@@ -11799,6 +16015,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "entity-intel",
       "target": "event-intel-heterogeneous-agentic-ai-architecture-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "entity-jpmorgan-chase",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-jpmorgan-chase",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-jpmorgan-chase",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
       "type": "references"
     },
     {
@@ -11872,6 +16103,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "enables"
     },
     {
+      "source": "entity-mastercard",
+      "target": "entity-cloudflare",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-mastercard",
+      "target": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "type": "references"
+    },
+    {
+      "source": "entity-mastercard",
+      "target": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "type": "references"
+    },
+    {
       "source": "entity-meta",
       "target": "concept-agent-trust-governance",
       "type": "depends-on"
@@ -11908,12 +16154,37 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-meta",
+      "target": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "type": "references"
+    },
+    {
+      "source": "entity-meta",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "references"
+    },
+    {
+      "source": "entity-meta",
+      "target": "event-meta-muse-early-retention-2026-10-12",
+      "type": "references"
+    },
+    {
+      "source": "entity-meta",
       "target": "event-meta-muse-macos-zero-day-2026-09-21",
       "type": "references"
     },
     {
       "source": "entity-meta",
       "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "references"
+    },
+    {
+      "source": "entity-meta",
+      "target": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "type": "references"
+    },
+    {
+      "source": "entity-meta",
+      "target": "event-meta-muse-small-business-2026-09-29",
       "type": "references"
     },
     {
@@ -11932,6 +16203,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "enables"
     },
     {
+      "source": "entity-microsoft",
+      "target": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "type": "references"
+    },
+    {
       "source": "entity-moneyhero",
       "target": "concept-agentic-service-operations",
       "type": "applies-to"
@@ -11943,12 +16219,47 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-mongodb",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-mongodb",
       "target": "concept-system-of-record-distribution",
       "type": "enables"
     },
     {
       "source": "entity-mongodb",
+      "target": "entity-cognition",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-mongodb",
+      "target": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "type": "references"
+    },
+    {
+      "source": "entity-mongodb",
+      "target": "event-mongodb-cognition-modernization-2026-09-29",
+      "type": "references"
+    },
+    {
+      "source": "entity-mongodb",
       "target": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "type": "references"
+    },
+    {
+      "source": "entity-morgan-stanley",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-morgan-stanley",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-morgan-stanley",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
       "type": "references"
     },
     {
@@ -11964,6 +16275,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "entity-national-cyber-security-centre",
       "target": "event-ncsc-shadow-ai-agent-privilege-risk-2026-09-07",
+      "type": "references"
+    },
+    {
+      "source": "entity-national-institute-standards-technology",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "entity-national-institute-standards-technology",
+      "target": "concept-verified-agent-traffic",
+      "type": "enables"
+    },
+    {
+      "source": "entity-national-institute-standards-technology",
+      "target": "event-nist-agent-identity-design-tenets-2026-10-27",
       "type": "references"
     },
     {
@@ -12038,8 +16364,33 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-openai",
+      "target": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "type": "references"
+    },
+    {
+      "source": "entity-openai",
       "target": "event-openai-agent-compaction-misalignment-2026-09-16",
       "type": "references"
+    },
+    {
+      "source": "entity-openai",
+      "target": "event-openai-dots-launch-2026-09-29",
+      "type": "references"
+    },
+    {
+      "source": "entity-openrouter",
+      "target": "concept-measurement-surface-bias",
+      "type": "measured-by"
+    },
+    {
+      "source": "entity-openrouter",
+      "target": "concept-production-agent-economics",
+      "type": "enables"
+    },
+    {
+      "source": "entity-openrouter",
+      "target": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "type": "monetizes"
     },
     {
       "source": "entity-oracle",
@@ -12065,6 +16416,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "entity-otterlyai",
       "target": "concept-verified-agent-traffic",
       "type": "applies-to"
+    },
+    {
+      "source": "entity-paynearme",
+      "target": "concept-agentic-payments",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-paynearme",
+      "target": "concept-agentic-service-operations",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-paynearme",
+      "target": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "type": "references"
     },
     {
       "source": "entity-peec-ai",
@@ -12183,6 +16549,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-salesforce",
+      "target": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "type": "references"
+    },
+    {
+      "source": "entity-salesforce",
       "target": "event-salesforce-agentforce-arr-production-work-units-2026-05-27",
       "type": "references"
     },
@@ -12194,6 +16565,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "entity-salesforce",
       "target": "event-tsa-scales-traveler-support-agent-2026-09-14",
+      "type": "references"
+    },
+    {
+      "source": "entity-salesforce",
+      "target": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "entity-salesforce",
+      "target": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
       "type": "references"
     },
     {
@@ -12259,6 +16640,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "entity-servicenow",
       "target": "event-servicenow-patches-ai-platform-flaws-2026-08-27",
+      "type": "references"
+    },
+    {
+      "source": "entity-servicenow",
+      "target": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "type": "references"
+    },
+    {
+      "source": "entity-services-australia",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-services-australia",
+      "target": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
       "type": "references"
     },
     {
@@ -12362,6 +16758,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "partners-with"
     },
     {
+      "source": "entity-supabase",
+      "target": "concept-agentic-software-engineering",
+      "type": "enables"
+    },
+    {
+      "source": "entity-supabase",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-supabase",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-supabase",
+      "target": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "type": "references"
+    },
+    {
+      "source": "entity-supabase",
+      "target": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "type": "references"
+    },
+    {
       "source": "entity-talkspace",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -12380,6 +16801,26 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "entity-tenon",
       "target": "entity-servicenow",
       "type": "partners-with"
+    },
+    {
+      "source": "entity-thames-valley-police",
+      "target": "entity-hampshire-isle-of-wight-constabulary",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-thames-valley-police",
+      "target": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "entity-the-realreal",
+      "target": "entity-google",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-the-realreal",
+      "target": "event-the-realreal-ask-trr-launch-2026-10-08",
+      "type": "references"
     },
     {
       "source": "entity-transportation-security-administration",
@@ -12462,6 +16903,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "applies-to"
     },
     {
+      "source": "entity-vida-global",
+      "target": "concept-agentic-service-operations",
+      "type": "enables"
+    },
+    {
+      "source": "entity-vida-global",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "entity-vida-global",
+      "target": "event-vida-outcome-based-agent-billing-2026-10-05",
+      "type": "references"
+    },
+    {
       "source": "entity-visa",
       "target": "concept-agentic-payments",
       "type": "enables"
@@ -12473,7 +16929,57 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "entity-visa",
+      "target": "entity-bill",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-visa",
+      "target": "entity-billtrust",
+      "type": "partners-with"
+    },
+    {
+      "source": "entity-visa",
       "target": "event-pymnts-visa-merchant-agent-readiness-2026-06-18",
+      "type": "references"
+    },
+    {
+      "source": "entity-visa",
+      "target": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "type": "references"
+    },
+    {
+      "source": "entity-walmart",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "entity-walmart",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "entity-walmart",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-walmart",
+      "target": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "type": "references"
+    },
+    {
+      "source": "entity-wells-fargo",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "entity-wells-fargo",
+      "target": "concept-system-of-record-distribution",
+      "type": "enables"
+    },
+    {
+      "source": "entity-wells-fargo",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
       "type": "references"
     },
     {
@@ -12497,6 +17003,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "references"
     },
     {
+      "source": "entity-workday",
+      "target": "event-workday-flex-credit-pricing-2026-07-30",
+      "type": "references"
+    },
+    {
       "source": "entity-x402-foundation",
       "target": "concept-agentic-payments",
       "type": "enables"
@@ -12515,6 +17026,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "entity-xpander-ai",
       "target": "concept-production-agent-economics",
       "type": "enables"
+    },
+    {
+      "source": "entity-zenity-labs",
+      "target": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "type": "references"
     },
     {
       "source": "entity-zscaler",
@@ -12837,6 +17353,36 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "challenges"
     },
     {
+      "source": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "target": "concept-verified-agent-traffic",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "target": "entity-arkose-labs",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "challenges"
+    },
+    {
+      "source": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
       "source": "event-atlassian-agent-resolution-rovo-pricing-2026-09-01",
       "target": "concept-agentic-service-operations",
       "type": "monetizes"
@@ -12854,6 +17400,101 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "event-atlassian-agent-resolution-rovo-pricing-2026-09-01",
       "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "target": "concept-production-agent-economics",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "target": "entity-audioeye",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "challenges"
+    },
+    {
+      "source": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "challenges"
+    },
+    {
+      "source": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "target": "concept-agentic-cyber-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "target": "entity-openai",
+      "type": "involves"
+    },
+    {
+      "source": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "target": "entity-services-australia",
+      "type": "involves"
+    },
+    {
+      "source": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "target": "event-openai-agent-compaction-misalignment-2026-09-16",
+      "type": "updates"
+    },
+    {
+      "source": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "target": "event-openai-attributes-hugging-face-breach-2026-07-21",
+      "type": "references"
+    },
+    {
+      "source": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "challenges"
+    },
+    {
+      "source": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
+      "source": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "target": "entity-aws",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "target": "event-aws-opensearch-agent-health-2026-09-01",
+      "type": "updates"
+    },
+    {
+      "source": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "target": "thesis-trust-monetizes-early",
       "type": "supports"
     },
     {
@@ -12952,6 +17593,101 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "target": "concept-verified-agent-traffic",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "target": "entity-beincrypto-research",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "target": "entity-x402-foundation",
+      "type": "involves"
+    },
+    {
+      "source": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "target": "event-trm-x402-agent-payment-attribution-2026-09-09",
+      "type": "updates"
+    },
+    {
+      "source": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "challenges"
+    },
+    {
+      "source": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "entity-bank-of-england",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "entity-financial-conduct-authority",
+      "type": "involves"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "challenges"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "supports"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
+      "source": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
       "source": "event-c-spire-agent-email-triage-2026-06-03",
       "target": "concept-agentic-service-operations",
       "type": "demonstrates"
@@ -12995,6 +17731,116 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "event-c-spire-agent-email-triage-2026-06-03",
       "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
+    },
+    {
+      "source": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "target": "entity-cargoai",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "challenges"
+    },
+    {
+      "source": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "supports"
+    },
+    {
+      "source": "event-cequence-muse-traffic-2026-10-07",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cequence-muse-traffic-2026-10-07",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-cequence-muse-traffic-2026-10-07",
+      "target": "concept-verified-agent-traffic",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-cequence-muse-traffic-2026-10-07",
+      "target": "entity-cequence",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cequence-muse-traffic-2026-10-07",
+      "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "updates"
+    },
+    {
+      "source": "event-cequence-muse-traffic-2026-10-07",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "challenges"
+    },
+    {
+      "source": "event-cequence-muse-traffic-2026-10-07",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-cequence-muse-traffic-2026-10-07",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
+      "source": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "target": "concept-agentic-cyber-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "target": "entity-indian-computer-emergency-response-team",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "target": "event-aisi-unsanctioned-agent-actions-2026-08-04",
+      "type": "references"
+    },
+    {
+      "source": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "target": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "type": "references"
+    },
+    {
+      "source": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "target": "event-google-agent-enabled-credential-campaign-2026-09-08",
+      "type": "references"
+    },
+    {
+      "source": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "challenges"
+    },
+    {
+      "source": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
     },
     {
       "source": "event-cisco-agent-task-traffic-benchmark-2026-05-21",
@@ -13077,6 +17923,51 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "concept-verified-agent-traffic",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "entity-cloudflare",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "event-cloudflare-monetization-gateway-2026-07-01",
+      "type": "updates"
+    },
+    {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
+      "type": "updates"
+    },
+    {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
       "source": "event-cloudflare-introduces-kitesurf-agent-first-browser-2026-08-06",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -13113,6 +18004,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "event-cloudflare-monetization-gateway-2026-07-01",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "precedes"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-2026-07-01",
       "target": "event-cloudflare-wallets-agentic-commerce-2026-08-04",
       "type": "precedes"
     },
@@ -13125,6 +18021,56 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "event-cloudflare-monetization-gateway-2026-07-01",
       "target": "thesis-trust-monetizes-early",
       "type": "challenges"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "concept-verified-agent-traffic",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "entity-cloudflare",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "entity-coinbase",
+      "type": "partners-with"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "references"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "event-cloudflare-monetization-gateway-2026-07-01",
+      "type": "updates"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
     },
     {
       "source": "event-cloudflare-precursor-monitoring-hybrid-agentic-traffic-2026-08-07",
@@ -13207,6 +18153,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "announced-by"
     },
     {
+      "source": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "target": "concept-agentic-software-engineering",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "target": "entity-cognition",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "challenges"
+    },
+    {
+      "source": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "challenges"
+    },
+    {
       "source": "event-coinbase-q2-agentic-finance-2026-07-30",
       "target": "concept-agentic-payments",
       "type": "demonstrates"
@@ -13272,6 +18243,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "challenges"
     },
     {
+      "source": "event-cykel-limited-agent-revenue-2026-10-06",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-cykel-limited-agent-revenue-2026-10-06",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-cykel-limited-agent-revenue-2026-10-06",
+      "target": "entity-cykel-ai",
+      "type": "announced-by"
+    },
+    {
       "source": "event-datadome-agent-security-telemetry-2026-09-22",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -13295,6 +18281,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "event-datadome-agent-security-telemetry-2026-09-22",
       "target": "event-datadome-agent-traffic-q2-2026",
       "type": "updates"
+    },
+    {
+      "source": "event-datadome-agent-security-telemetry-2026-09-22",
+      "target": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "type": "precedes"
     },
     {
       "source": "event-datadome-agent-security-telemetry-2026-09-22",
@@ -13342,6 +18333,56 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "concept-verified-agent-traffic",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "entity-datadome",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "entity-meta",
+      "type": "involves"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "event-datadome-agent-security-telemetry-2026-09-22",
+      "type": "updates"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "updates"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "challenges"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
       "source": "event-datasea-five-customer-agent-marketing-services-2026-09-17",
       "target": "concept-agentic-marketing-automation",
       "type": "demonstrates"
@@ -13358,6 +18399,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "event-datasea-five-customer-agent-marketing-services-2026-09-17",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "challenges"
+    },
+    {
+      "source": "event-datasea-repeat-service-value-growth-2026-10-13",
+      "target": "concept-agentic-marketing-automation",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-datasea-repeat-service-value-growth-2026-10-13",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-datasea-repeat-service-value-growth-2026-10-13",
+      "target": "entity-datasea",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-datasea-repeat-service-value-growth-2026-10-13",
+      "target": "event-datasea-five-customer-agent-marketing-services-2026-09-17",
+      "type": "updates"
+    },
+    {
+      "source": "event-datasea-repeat-service-value-growth-2026-10-13",
       "target": "thesis-incumbent-platform-distribution",
       "type": "challenges"
     },
@@ -13415,6 +18481,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "event-dell-production-agents-portfolio-concentration-2026-08-25",
       "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "challenges"
+    },
+    {
+      "source": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "target": "concept-protocol-standardization",
+      "type": "enables"
+    },
+    {
+      "source": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "target": "entity-european-central-bank",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
     },
     {
       "source": "event-falabella-ai-service-scaled-2026-02-24",
@@ -13572,6 +18663,41 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "target": "concept-agent-trust-governance",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "target": "concept-verified-agent-traffic",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "target": "entity-forter",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
       "source": "event-fortinet-fortigate-1200g-fortisase-outpost-2026-07-28",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -13627,6 +18753,41 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "target": "entity-g2",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "challenges"
+    },
+    {
+      "source": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
+    },
+    {
+      "source": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
       "source": "event-google-agent-enabled-credential-campaign-2026-09-08",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -13664,6 +18825,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "event-google-atlas-v1-2026-07-23",
       "target": "thesis-agentic-depth-frontier-gap",
+      "type": "challenges"
+    },
+    {
+      "source": "event-google-pagebreak-security-agent-2026-09-24",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-google-pagebreak-security-agent-2026-09-24",
+      "target": "concept-agentic-cyber-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-google-pagebreak-security-agent-2026-09-24",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-google-pagebreak-security-agent-2026-09-24",
+      "target": "entity-google",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-google-pagebreak-security-agent-2026-09-24",
+      "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "challenges"
     },
     {
@@ -13764,6 +18950,66 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "event-hugging-face-agent-intrusion-2026-07-16",
       "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "challenges"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "concept-agentic-payments",
+      "type": "applies-to"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "concept-verified-agent-traffic",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "entity-human-security",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "entity-meta",
+      "type": "involves"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "event-cequence-muse-traffic-2026-10-07",
+      "type": "updates"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "updates"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "challenges"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "target": "thesis-trust-monetizes-early",
       "type": "challenges"
     },
     {
@@ -13987,6 +19233,86 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "target": "concept-agentic-payments",
+      "type": "enables"
+    },
+    {
+      "source": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "target": "concept-verified-agent-traffic",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "target": "entity-cloudflare",
+      "type": "partners-with"
+    },
+    {
+      "source": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "target": "entity-mastercard",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "target": "event-mastercard-agent-pay-for-machines-2026-06-10",
+      "type": "updates"
+    },
+    {
+      "source": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
+      "source": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "target": "entity-cloudflare",
+      "type": "involves"
+    },
+    {
+      "source": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "target": "entity-coinbase",
+      "type": "involves"
+    },
+    {
+      "source": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "target": "entity-mastercard",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "target": "event-mastercard-agent-pay-for-machines-2026-06-10",
+      "type": "updates"
+    },
+    {
+      "source": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "challenges"
+    },
+    {
+      "source": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
       "source": "event-mastercard-first-agent-pay-2025-10-30",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -14029,6 +19355,41 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "event-mastercard-tokenized-agent-transactions-2026-03-10",
       "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-meta-muse-early-retention-2026-10-12",
+      "target": "concept-measurement-surface-bias",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-meta-muse-early-retention-2026-10-12",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-meta-muse-early-retention-2026-10-12",
+      "target": "entity-meta",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-meta-muse-early-retention-2026-10-12",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "updates"
+    },
+    {
+      "source": "event-meta-muse-early-retention-2026-10-12",
+      "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "updates"
+    },
+    {
+      "source": "event-meta-muse-early-retention-2026-10-12",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "challenges"
+    },
+    {
+      "source": "event-meta-muse-early-retention-2026-10-12",
+      "target": "thesis-incumbent-platform-distribution",
       "type": "supports"
     },
     {
@@ -14092,6 +19453,81 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "entity-meta",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "entity-stripe",
+      "type": "involves"
+    },
+    {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "updates"
+    },
+    {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "event-meta-muse-small-business-2026-09-29",
+      "type": "updates"
+    },
+    {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-meta-muse-small-business-2026-09-29",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-meta-muse-small-business-2026-09-29",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-meta-muse-small-business-2026-09-29",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-meta-muse-small-business-2026-09-29",
+      "target": "entity-meta",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-meta-muse-small-business-2026-09-29",
+      "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "updates"
+    },
+    {
+      "source": "event-meta-muse-small-business-2026-09-29",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
       "source": "event-microsoft-active-agent-growth-2026-05-05",
       "target": "concept-human-ai-workforce-coordination",
       "type": "demonstrates"
@@ -14124,6 +19560,36 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "event-microsoft-active-agent-growth-2026-05-05",
       "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "target": "entity-microsoft",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
     },
     {
@@ -14170,6 +19636,61 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "event-moneyhero-service-resolution-scaled-2026-04-30",
       "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
+    },
+    {
+      "source": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "target": "concept-agent-trust-governance",
+      "type": "enables"
+    },
+    {
+      "source": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "target": "entity-mongodb",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "target": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
+      "type": "updates"
+    },
+    {
+      "source": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-mongodb-cognition-modernization-2026-09-29",
+      "target": "concept-agentic-software-engineering",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-mongodb-cognition-modernization-2026-09-29",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-mongodb-cognition-modernization-2026-09-29",
+      "target": "entity-cognition",
+      "type": "involves"
+    },
+    {
+      "source": "event-mongodb-cognition-modernization-2026-09-29",
+      "target": "entity-mongodb",
+      "type": "involves"
+    },
+    {
+      "source": "event-mongodb-cognition-modernization-2026-09-29",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "challenges"
     },
     {
       "source": "event-mongodb-scaled-agentic-apps-network-operations-2026-08-25",
@@ -14300,6 +19821,26 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "event-ncsc-shadow-ai-agent-privilege-risk-2026-09-07",
       "target": "thesis-trust-monetizes-early",
       "type": "challenges"
+    },
+    {
+      "source": "event-nist-agent-identity-design-tenets-2026-10-27",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-nist-agent-identity-design-tenets-2026-10-27",
+      "target": "concept-verified-agent-traffic",
+      "type": "enables"
+    },
+    {
+      "source": "event-nist-agent-identity-design-tenets-2026-10-27",
+      "target": "entity-national-institute-standards-technology",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-nist-agent-identity-design-tenets-2026-10-27",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
     },
     {
       "source": "event-nvidia-open-secure-ai-alliance-2026-07-27",
@@ -14452,6 +19993,51 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-openai-dots-launch-2026-09-29",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-openai-dots-launch-2026-09-29",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-openai-dots-launch-2026-09-29",
+      "target": "entity-openai",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-openai-dots-launch-2026-09-29",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "target": "concept-measurement-surface-bias",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "target": "concept-production-agent-economics",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "target": "entity-openrouter",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "target": "thesis-agent-traffic-addressable-market",
+      "type": "supports"
+    },
+    {
+      "source": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "target": "thesis-agentic-depth-frontier-gap",
+      "type": "supports"
+    },
+    {
       "source": "event-oracle-distributed-cloud-ai-control-boundary-2026-08-25",
       "target": "concept-agent-trust-governance",
       "type": "depends-on"
@@ -14504,6 +20090,41 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "event-otterlyai-agent-analytics-paid-plans-2026-08-13",
       "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
+      "source": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "target": "entity-paynearme",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "target": "entity-paynearme",
+      "type": "involves"
+    },
+    {
+      "source": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "target": "thesis-scaled-agents-bounded-service-operations",
       "type": "supports"
     },
     {
@@ -14702,6 +20323,46 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "challenges"
     },
     {
+      "source": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "target": "entity-salesforce",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "target": "event-salesforce-q2-agentforce-arr-work-unit-acceleration-2026-08-26",
+      "type": "updates"
+    },
+    {
+      "source": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
+      "source": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "target": "thesis-trust-monetizes-early",
+      "type": "supports"
+    },
+    {
       "source": "event-salesforce-agentforce-arr-production-work-units-2026-05-27",
       "target": "concept-production-agent-economics",
       "type": "measured-by"
@@ -14892,6 +20553,41 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "challenges"
     },
     {
+      "source": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "target": "entity-servicenow",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "target": "event-servicenow-ai-acv-agentic-deployment-growth-2026-07-22",
+      "type": "updates"
+    },
+    {
+      "source": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "supports"
+    },
+    {
       "source": "event-singtel-shirley-scaled-service-2026-03-04",
       "target": "concept-agentic-service-operations",
       "type": "demonstrates"
@@ -15062,6 +20758,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "target": "concept-agentic-software-engineering",
+      "type": "applies-to"
+    },
+    {
+      "source": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "target": "concept-production-agent-economics",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "target": "entity-supabase",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
       "source": "event-talkspace-ai-intake-2026-01-15",
       "target": "concept-agent-trust-governance",
       "type": "constrained-by"
@@ -15123,6 +20844,31 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "event-tenon-servicenow-expansion-2026-07-15",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-the-realreal-ask-trr-launch-2026-10-08",
+      "target": "concept-agentic-marketing-automation",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-the-realreal-ask-trr-launch-2026-10-08",
+      "target": "concept-production-agent-economics",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-the-realreal-ask-trr-launch-2026-10-08",
+      "target": "entity-google",
+      "type": "partners-with"
+    },
+    {
+      "source": "event-the-realreal-ask-trr-launch-2026-10-08",
+      "target": "entity-the-realreal",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-the-realreal-ask-trr-launch-2026-10-08",
       "target": "thesis-incumbent-platform-distribution",
       "type": "supports"
     },
@@ -15257,6 +21003,101 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "challenges"
     },
     {
+      "source": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "target": "concept-human-ai-workforce-coordination",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "target": "concept-production-agent-economics",
+      "type": "measured-by"
+    },
+    {
+      "source": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "target": "entity-hampshire-isle-of-wight-constabulary",
+      "type": "involves"
+    },
+    {
+      "source": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "target": "entity-salesforce",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "target": "entity-thames-valley-police",
+      "type": "involves"
+    },
+    {
+      "source": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "target": "thesis-scaled-agents-bounded-service-operations",
+      "type": "supports"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "entity-bank-of-america",
+      "type": "involves"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "entity-jpmorgan-chase",
+      "type": "involves"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "entity-morgan-stanley",
+      "type": "involves"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "entity-wells-fargo",
+      "type": "involves"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "event-amazon-blocks-meta-muse-2026-09-20",
+      "type": "references"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "challenges"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-us-banks-block-third-party-agents-2026-10-22",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
       "source": "event-va-salesforce-missionforce-agreement-2026-07-24",
       "target": "concept-agent-trust-governance",
       "type": "demonstrates"
@@ -15292,6 +21133,66 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-vida-outcome-based-agent-billing-2026-10-05",
+      "target": "concept-agentic-service-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-vida-outcome-based-agent-billing-2026-10-05",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-vida-outcome-based-agent-billing-2026-10-05",
+      "target": "entity-vida-global",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-vida-outcome-based-agent-billing-2026-10-05",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "challenges"
+    },
+    {
+      "source": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "target": "concept-agent-trust-governance",
+      "type": "depends-on"
+    },
+    {
+      "source": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "target": "entity-bill",
+      "type": "involves"
+    },
+    {
+      "source": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "target": "entity-billtrust",
+      "type": "involves"
+    },
+    {
+      "source": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "target": "entity-visa",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "target": "event-bbva-visa-agent-payment-2026-07-02",
+      "type": "updates"
+    },
+    {
+      "source": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "challenges"
+    },
+    {
+      "source": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
       "source": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
       "target": "concept-agent-trust-governance",
       "type": "depends-on"
@@ -15317,6 +21218,56 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "type": "supports"
     },
     {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "concept-agentic-payments",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "entity-walmart",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "event-amazon-blocks-meta-muse-2026-09-20",
+      "type": "references"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
+      "type": "references"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "challenges"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "thesis-agent-payments-protocol-to-production",
+      "type": "supports"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
+    },
+    {
       "source": "event-workday-agent-customer-ai-acv-growth-2026-08-27",
       "target": "concept-production-agent-economics",
       "type": "measured-by"
@@ -15333,6 +21284,36 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "event-workday-agent-customer-ai-acv-growth-2026-08-27",
+      "target": "event-workday-flex-credit-pricing-2026-07-30",
+      "type": "updates"
+    },
+    {
+      "source": "event-workday-agent-customer-ai-acv-growth-2026-08-27",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "supports"
+    },
+    {
+      "source": "event-workday-flex-credit-pricing-2026-07-30",
+      "target": "concept-production-agent-economics",
+      "type": "monetizes"
+    },
+    {
+      "source": "event-workday-flex-credit-pricing-2026-07-30",
+      "target": "concept-system-of-record-distribution",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-workday-flex-credit-pricing-2026-07-30",
+      "target": "entity-workday",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-workday-flex-credit-pricing-2026-07-30",
+      "target": "event-workday-agent-customer-ai-acv-growth-2026-08-27",
+      "type": "precedes"
+    },
+    {
+      "source": "event-workday-flex-credit-pricing-2026-07-30",
       "target": "thesis-incumbent-platform-distribution",
       "type": "supports"
     },
@@ -15405,6 +21386,41 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "event-x402-monthly-activity-2026-07-22",
       "target": "thesis-agent-payments-protocol-to-production",
       "type": "supports"
+    },
+    {
+      "source": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "target": "concept-agent-trust-governance",
+      "type": "constrained-by"
+    },
+    {
+      "source": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "target": "concept-agent-trust-governance",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "target": "concept-agentic-cyber-operations",
+      "type": "demonstrates"
+    },
+    {
+      "source": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "target": "entity-salesforce",
+      "type": "involves"
+    },
+    {
+      "source": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "target": "entity-zenity-labs",
+      "type": "announced-by"
+    },
+    {
+      "source": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "target": "thesis-incumbent-platform-distribution",
+      "type": "challenges"
+    },
+    {
+      "source": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "target": "thesis-trust-monetizes-early",
+      "type": "challenges"
     },
     {
       "source": "event-zscaler-schwarz-digits-sovereign-cloud-security-2026-07-28",
@@ -15888,6 +21904,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "target": "entity-cognition",
+      "type": "references"
+    },
+    {
+      "source": "query-dageno-surfaced-private-agentic-company-watchlist",
       "target": "entity-fingerprint",
       "type": "references"
     },
@@ -15938,12 +21959,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "target": "entity-supabase",
+      "type": "references"
+    },
+    {
+      "source": "query-dageno-surfaced-private-agentic-company-watchlist",
       "target": "entity-truefoundry",
       "type": "references"
     },
     {
       "source": "query-dageno-surfaced-private-agentic-company-watchlist",
       "target": "entity-xpander-ai",
+      "type": "references"
+    },
+    {
+      "source": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "target": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "type": "references"
+    },
+    {
+      "source": "query-dageno-surfaced-private-agentic-company-watchlist",
+      "target": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
       "type": "references"
     },
     {
@@ -16163,13 +22199,68 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
       "target": "event-bbva-visa-agent-payment-2026-07-02",
       "type": "references"
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-beincrypto-x402-subcent-concentration-2026-10-06",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
       "target": "event-coinbase-q2-agentic-finance-2026-07-30",
       "type": "references"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-ecb-digital-euro-agent-payments-exploration-2026-09-28",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "supports"
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
@@ -16183,6 +22274,26 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-mastercard-demonstrates-nine-agent-payments-2026-10-20",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
       "target": "event-mastercard-first-agent-pay-2025-10-30",
       "type": "references"
     },
@@ -16190,6 +22301,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-agent-payments-protocol-to-production",
       "target": "event-mastercard-tokenized-agent-transactions-2026-03-10",
       "type": "references"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "type": "supports"
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
@@ -16208,8 +22329,33 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-visa-bill-billtrust-agent-payment-pilot-2026-10-20",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
       "target": "event-visa-lianlian-b2b-agentic-payment-2026-07-24",
       "type": "references"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-payments-protocol-to-production",
+      "target": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "type": "supports"
     },
     {
       "source": "thesis-agent-payments-protocol-to-production",
@@ -16238,13 +22384,58 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-audioeye-accessibility-agent-task-benchmark-2026-09-24",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
       "target": "event-aws-legitimate-agent-traffic-2026-07-14",
       "type": "references"
     },
     {
       "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cequence-muse-traffic-2026-10-07",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cequence-muse-traffic-2026-10-07",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
       "target": "event-cisco-agent-task-traffic-benchmark-2026-05-21",
       "type": "references"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "supports"
     },
     {
       "source": "thesis-agent-traffic-addressable-market",
@@ -16278,6 +22469,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
       "target": "event-fastly-ai-request-growth-skyfire-2026-06-10",
       "type": "references"
     },
@@ -16285,6 +22486,36 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-agent-traffic-addressable-market",
       "target": "event-fingerprint-arr-customer-growth-agent-detection-2026-09-01",
       "type": "references"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agent-traffic-addressable-market",
+      "target": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "type": "supports"
     },
     {
       "source": "thesis-agent-traffic-addressable-market",
@@ -16318,8 +22549,28 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
       "target": "event-delivery-hero-herogen-scaled-2026-04-30",
       "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "type": "supports"
     },
     {
       "source": "thesis-agentic-depth-frontier-gap",
@@ -16340,6 +22591,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-agentic-depth-frontier-gap",
       "target": "event-openai-codex-usage-gap-2026-05-06",
       "type": "references"
+    },
+    {
+      "source": "thesis-agentic-depth-frontier-gap",
+      "target": "event-openrouter-agentic-token-traffic-2026-06-30",
+      "type": "supports"
     },
     {
       "source": "thesis-agentic-depth-frontier-gap",
@@ -16403,8 +22659,23 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-c-spire-agent-email-triage-2026-06-03",
       "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "type": "challenges"
     },
     {
       "source": "thesis-incumbent-platform-distribution",
@@ -16415,6 +22686,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-datasea-five-customer-agent-marketing-services-2026-09-17",
       "type": "references"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-datasea-repeat-service-value-growth-2026-10-13",
+      "type": "challenges"
     },
     {
       "source": "thesis-incumbent-platform-distribution",
@@ -16438,6 +22714,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-ibex-ai-agent-wins-implementations-2026-09-10",
       "type": "challenges"
     },
@@ -16448,7 +22729,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-meta-muse-early-retention-2026-10-12",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-meta-muse-early-retention-2026-10-12",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-meta-muse-personal-agent-pricing-2026-09-08",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-meta-muse-q3-scaled-use-shopping-2026-10-21",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-meta-muse-small-business-2026-09-29",
       "type": "supports"
     },
     {
@@ -16458,12 +22759,27 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-mongodb-atlas-agent-engine-2026-09-29",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-ncsc-shadow-ai-agent-privilege-risk-2026-09-07",
       "type": "challenges"
     },
     {
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-okta-agent-sso-general-availability-2026-08-24",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-openai-dots-launch-2026-09-29",
       "type": "supports"
     },
     {
@@ -16480,6 +22796,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-incumbent-platform-distribution",
       "target": "event-runable-paid-launch-negative-gross-margin-2026-08-26",
       "type": "challenges"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "type": "supports"
     },
     {
       "source": "thesis-incumbent-platform-distribution",
@@ -16513,6 +22834,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-singtel-shirley-scaled-service-2026-03-04",
       "type": "references"
     },
@@ -16528,12 +22854,32 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-supabase-agent-linked-database-revenue-growth-2026-10-30",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-tenon-servicenow-expansion-2026-07-15",
       "type": "references"
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-the-realreal-ask-trr-launch-2026-10-08",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-tsa-scales-traveler-support-agent-2026-09-14",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
       "type": "supports"
     },
     {
@@ -16543,8 +22889,28 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-incumbent-platform-distribution",
+      "target": "event-vida-outcome-based-agent-billing-2026-10-05",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
       "target": "event-workday-agent-customer-ai-acv-growth-2026-08-27",
       "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-workday-flex-credit-pricing-2026-07-30",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-incumbent-platform-distribution",
+      "target": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "type": "challenges"
     },
     {
       "source": "thesis-incumbent-platform-distribution",
@@ -16608,8 +22974,33 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
       "target": "event-c-spire-agent-email-triage-2026-06-03",
       "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-cargoai-scaled-production-agent-activity-2026-10-28",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-cognition-billion-annualized-revenue-run-rate-2026-09-25",
+      "type": "challenges"
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
@@ -16629,6 +23020,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
       "target": "event-google-agent-enabled-credential-campaign-2026-09-08",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-google-pagebreak-security-agent-2026-09-24",
       "type": "challenges"
     },
     {
@@ -16658,8 +23054,18 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-microsoft-ess-adoption-ticket-reduction-2026-10-08",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
       "target": "event-moneyhero-service-resolution-scaled-2026-04-30",
       "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-mongodb-cognition-modernization-2026-09-29",
+      "type": "challenges"
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
@@ -16675,6 +23081,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-scaled-agents-bounded-service-operations",
       "target": "event-openai-attributes-hugging-face-breach-2026-07-21",
       "type": "references"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-paynearme-collections-agent-pilot-2026-10-01",
+      "type": "supports"
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
@@ -16703,6 +23114,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-servicenow-q3-ai-acv-agentic-consumption-2026-10-28",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
       "target": "event-singtel-shirley-scaled-service-2026-03-04",
       "type": "references"
     },
@@ -16715,6 +23131,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-scaled-agents-bounded-service-operations",
       "target": "event-uber-scaled-agent-use-unit-costs-2026-08-27",
       "type": "challenges"
+    },
+    {
+      "source": "thesis-scaled-agents-bounded-service-operations",
+      "target": "event-uk-police-bobbi-agent-six-months-2026-06-18",
+      "type": "supports"
     },
     {
       "source": "thesis-scaled-agents-bounded-service-operations",
@@ -16753,6 +23174,26 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-trust-monetizes-early",
+      "target": "event-arkose-agent-identity-customer-reach-2026-10-21",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-australia-openai-agent-medicare-portal-intrusion-2026-09-24",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-aws-agentcore-customer-deployment-growth-2026-10-29",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
       "target": "event-aws-legitimate-agent-traffic-2026-07-14",
       "type": "references"
     },
@@ -16768,6 +23209,26 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-trust-monetizes-early",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-boe-fca-agent-adoption-autonomy-2026-10-26",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-cequence-muse-traffic-2026-10-07",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-cert-in-agent-driven-live-system-access-2026-10-15",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
       "target": "event-cisco-agent-task-traffic-benchmark-2026-05-21",
       "type": "references"
     },
@@ -16775,6 +23236,26 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-trust-monetizes-early",
       "target": "event-clickhouse-arr-agent-workload-demand-2026-08-25",
       "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-cloudflare-agent-traffic-growth-2026-09-30",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-cloudflare-monetization-gateway-production-beta-2026-09-30",
+      "type": "supports"
     },
     {
       "source": "thesis-trust-monetizes-early",
@@ -16803,6 +23284,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-trust-monetizes-early",
+      "target": "event-datadome-q3-agent-muse-traffic-2026-10-15",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
       "target": "event-fastly-ai-request-growth-skyfire-2026-06-10",
       "type": "references"
     },
@@ -16810,6 +23296,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-trust-monetizes-early",
       "target": "event-fingerprint-arr-customer-growth-agent-detection-2026-09-01",
       "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-forter-agentic-order-growth-commerce-engine-2026-10-13",
+      "type": "supports"
     },
     {
       "source": "thesis-trust-monetizes-early",
@@ -16823,8 +23319,18 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-trust-monetizes-early",
+      "target": "event-g2-agent-purchasing-production-oversight-2026-10-14",
+      "type": "supports"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
       "target": "event-haizhi-atlas-agent-revenue-margin-growth-2026-08-25",
       "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-human-agent-traffic-muse-dominance-2026-10-05",
+      "type": "challenges"
     },
     {
       "source": "thesis-trust-monetizes-early",
@@ -16835,6 +23341,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-trust-monetizes-early",
       "target": "event-mastercard-agent-pay-for-machines-2026-06-10",
       "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-mastercard-agent-transaction-probability-score-2026-09-30",
+      "type": "challenges"
     },
     {
       "source": "thesis-trust-monetizes-early",
@@ -16858,6 +23369,11 @@ window.AGENTIC_EVOLUTION_GRAPH = {
     },
     {
       "source": "thesis-trust-monetizes-early",
+      "target": "event-nist-agent-identity-design-tenets-2026-10-27",
+      "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
       "target": "event-okta-agent-sso-general-availability-2026-08-24",
       "type": "references"
     },
@@ -16875,6 +23391,16 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-trust-monetizes-early",
       "target": "event-railway-agent-production-deletion-2026-04-29",
       "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-salesforce-agent-fabric-request-scale-controls-2026-10-27",
+      "type": "supports"
     },
     {
       "source": "thesis-trust-monetizes-early",
@@ -16900,6 +23426,21 @@ window.AGENTIC_EVOLUTION_GRAPH = {
       "source": "thesis-trust-monetizes-early",
       "target": "event-truefoundry-trueforge-cost-benchmark-2026-08-18",
       "type": "references"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-us-banks-block-third-party-agents-2026-10-22",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-walmart-agent-profiles-gateway-2026-10-21",
+      "type": "challenges"
+    },
+    {
+      "source": "thesis-trust-monetizes-early",
+      "target": "event-zenity-salesbleed-agentforce-chains-2026-09-24",
+      "type": "challenges"
     },
     {
       "source": "thesis-trust-monetizes-early",

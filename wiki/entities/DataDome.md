@@ -4,7 +4,7 @@ type: entity
 title: DataDome
 status: active
 confidence: high
-updated: 2026-09-22
+updated: 2026-10-16
 ---
 
 # DataDome
@@ -17,3 +17,4 @@ A bot-management and agent-trust provider measuring automated activity across cu
 - `monetizes` [[wiki/concepts/Agent Trust and Governance|Agent Trust and Governance]]
 - `references` [[wiki/events/2026-07-16 DataDome reports 45 percent Q2 agent-traffic growth|DataDome reports 45 percent Q2 agent-traffic growth]]
 - `references` [[wiki/events/2026-09-22 DataDome measures 52.7 billion AI requests and policy adoption|DataDome measures 52.7 billion AI requests and policy adoption]]
+- `references` [[wiki/events/2026-10-15 DataDome measures Q3 agent and Muse traffic|DataDome measures Q3 agent and Muse traffic]]

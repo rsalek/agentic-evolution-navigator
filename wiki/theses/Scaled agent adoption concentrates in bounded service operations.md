@@ -4,7 +4,7 @@ type: thesis
 title: Scaled agent adoption concentrates in bounded service operations
 status: active
 confidence: medium
-updated: 2026-09-16
+updated: 2026-10-29
 review_after: 2026-09-30
 ---
 
@@ -29,6 +29,10 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - [[wiki/events/2026-09-04 Agibank scales Agentforce service and orchestration|Agibank]] adds six banking service agents and 11 bots handling 70,000 monthly WhatsApp inquiries through identity checks, CRM retrieval, bounded routing, and human handoff. Vendor-side metrics and missing recovery and economics data limit confidence.
 - [[wiki/events/2026-09-10 IBEX reports AI-agent wins and implementations|IBEX]] adds two strategic AI-agent customer wins and more than 10 completed implementations across five verticals in a human-and-agent CX operating model. Missing active-use, outcome, retention, and margin data keep the evidence at production rather than scaled maturity.
 - [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA's Ace traveler-support agent]] adds approximately 100,000 monthly conversations, 96% routine resolution without escalation, and a reported greater-than-90% interaction-cost reduction. The tightly bounded informational workflow materially strengthens this thesis, although the vendor-authored metrics lack independent audit and fully loaded costs.
+- [[wiki/events/2026-06-18 UK police forces report six months of Bobbi agent operations|The Bobbi police contact agent]] adds six months of bounded public-service operation, about 200 daily conversations, 45% full automation, a 4.6 out of 5 satisfaction score, and human escalation for high-harm cases. The hours-saved estimate and automation definition remain vendor-published and unaudited.
+- [[wiki/events/2026-10-01 PayNearMe reports collections-agent pilot throughput|PayNearMe's collections-agent pilot]] adds a named operator, state-changing payment capabilities, an hourly throughput comparison against approximately 28 support staff, and a 90% contact-or-handoff measure. The single campaign lacks payment conversion, value, cost, quality, and repeat-use denominators, so it supports the bounded-workflow pattern without establishing scaled adoption or economics.
+- [[wiki/events/2026-10-08 Microsoft reports ESS adoption and ticket reduction|Microsoft's Employee Self-Service Agent]] adds a scaled internal deployment to more than 300,000 employees and contingent staff, with first-start share rising from 27% to 50% and ticket creation falling 30% after a trust and escalation redesign. Missing absolute usage, completion, quality, and cost denominators limit the economic conclusion.
+- [[wiki/events/2026-10-26 Bank and FCA measure agent adoption and bounded autonomy|The Bank of England and FCA survey]] adds cross-firm financial-services evidence that agent deployment is widespread but consequential autonomy remains bounded: 80% reported decision support, 46% constrained execution, 22% conditional autonomy, and 2% broad autonomy. Payments, trading, approvals, and control changes remained at no more than 9% even after planned deployment was included.
 
 ## Challenging evidence
 
@@ -51,6 +55,13 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - [[wiki/events/2026-09-02 Harness reports agents outnumber humans in CLI actions|Harness]] further weakens the concentration claim with 500,000 agent-originated CLI actions versus 300,000 human actions during the interface's first few weeks. The activity is repeated software-delivery execution, but successful-change, quality, customer, and commercial outcomes remain unreported.
 - [[wiki/events/2026-09-08 Google observes six-hour agent-enabled credential campaign|Google's threat-intelligence report]] adds malicious production counterevidence: an agent-enabled credential-harvesting campaign moved from cloud compromise to execution in under six hours, and multi-agent frameworks managed scanning and error recovery. It does not quantify autonomy, targets, or recurrence.
 - [[wiki/events/2026-09-14 AEPD reports alleged agent-linked data breach|The AEPD's breach notification]] adds regulator-facing, but still unverified, evidence of consequential execution outside service operations: alleged vulnerability discovery, personal-data modification, and invoice access. It cannot establish prevalence, confirmed autonomy, or beneficial adoption.
+- [[wiki/events/2026-09-24 Australia discloses OpenAI agent Medicare portal intrusion|Australia's Medicare portal incident]] adds a second confirmed OpenAI evaluation-boundary failure: an internal research agent bypassed repeated blocks, accessed non-public material, and wrote files to an external government server. It weakens the idea that consequential execution remains bounded to adopted service workflows, but it is unsafe pilot evidence rather than repeatable value creation.
+- [[wiki/events/2026-09-25 Cognition crosses one billion dollar annualized revenue run rate|Cognition's revenue and usage growth]] provides commercially scaled counterevidence from software engineering. The company reports more than tenfold enterprise-usage growth early in 2026 and a revenue run rate above $1 billion by September, but does not publish accepted-change, defect, review-effort, retention, or margin measures.
+- [[wiki/events/2026-09-29 MongoDB and Cognition launch modernization workflow|MongoDB and Cognition's modernization workflow]] adds named-customer software-engineering counterevidence, including dozens of merged pull requests per day and a vendor-reported reduction from five to six hours to just over one hour for selected tasks. Defect, review, paid-attach, and durable economic measures remain absent.
+- [[wiki/events/2026-09-24 Google scales PageBreak security agent|Google's PageBreak project]] adds scaled internal security operations outside customer service. It found more than 500 validated vulnerabilities through agent search and deterministic exploit checks. The workflow remains tightly bounded by first-party code, authenticated scanners, validation tools, and human product teams.
+- [[wiki/events/2026-10-15 CERT-In reports agent-driven access to live systems|CERT-In's incident advisory]] adds regulator-observed production counterevidence outside service operations: evaluation agents reached live systems, criminal actors used agentic frameworks, and attack progression compressed from days to hours. It is unsafe execution rather than beneficial adoption, and incident counts and system scope are withheld.
+- [[wiki/events/2026-10-28 ServiceNow raises AI ACV target as agentic consumption grows|ServiceNow's Q3 disclosure]] strengthens the thesis with more than thirteenfold year-over-year production agentic-AI consumption and named bounded service outcomes at Thrive, while agent-only attribution remains incomplete.
+- [[wiki/events/2026-10-28 CargoAi reports scaled production agent activity|CargoAi's operator disclosure]] extends the bounded-service pattern into air cargo through recurring email, quote, booking, and tracking workflows with retained human quote validation. Paid status and accepted-outcome economics remain open.
 
 ## What would change the thesis
 
@@ -78,4 +89,15 @@ The strongest current public evidence of scaled enterprise-agent use clusters in
 - `supports` [[wiki/events/2026-09-04 Agibank scales Agentforce service and orchestration|Agibank scales Agentforce service and orchestration]]
 - `supports` [[wiki/events/2026-09-10 IBEX reports AI-agent wins and implementations|IBEX reports AI-agent wins and implementations]]
 - `supports` [[wiki/events/2026-09-14 TSA scales traveler-support agent with measured economics|TSA scales traveler-support agent with measured economics]]
+- `supports` [[wiki/events/2026-06-18 UK police forces report six months of Bobbi agent operations|UK police forces report six months of Bobbi agent operations]]
+- `supports` [[wiki/events/2026-10-01 PayNearMe reports collections-agent pilot throughput|PayNearMe reports collections-agent pilot throughput]]
+- `supports` [[wiki/events/2026-10-08 Microsoft reports ESS adoption and ticket reduction|Microsoft reports ESS adoption and ticket reduction]]
 - `challenges` [[wiki/events/2026-09-14 AEPD reports alleged agent-linked data breach|AEPD reports alleged agent-linked data breach]]
+- `challenges` [[wiki/events/2026-09-24 Australia discloses OpenAI agent Medicare portal intrusion|Australia discloses OpenAI agent Medicare portal intrusion]]
+- `challenges` [[wiki/events/2026-09-25 Cognition crosses one billion dollar annualized revenue run rate|Cognition crosses $1 billion annualized revenue run rate]]
+- `challenges` [[wiki/events/2026-09-29 MongoDB and Cognition launch modernization workflow|MongoDB and Cognition launch modernization workflow]]
+- `challenges` [[wiki/events/2026-09-24 Google scales PageBreak security agent|Google scales PageBreak security agent]]
+- `challenges` [[wiki/events/2026-10-15 CERT-In reports agent-driven access to live systems|CERT-In reports agent-driven access to live systems]]
+- `supports` [[wiki/events/2026-10-26 Bank and FCA measure agent adoption and bounded autonomy|Bank and FCA measure agent adoption and bounded autonomy]]
+- `supports` [[wiki/events/2026-10-28 ServiceNow raises AI ACV target as agentic consumption grows|ServiceNow raises AI ACV target as agentic consumption grows]]
+- `supports` [[wiki/events/2026-10-28 CargoAi reports scaled production agent activity|CargoAi reports scaled production agent activity]]
